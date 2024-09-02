@@ -38,6 +38,7 @@
     * [Crocodile](writeups/hackthebox/starting-point/crocodile.md)
     * [Responder](writeups/hackthebox/starting-point/responder.md)
     * [Three](writeups/hackthebox/starting-point/three.md)
+    * [Archetype](writeups/hackthebox/starting-point/archetype.md)
 * [OverTheWire](writeups/overthewire/README.md)
   * [Natas](writeups/overthewire/natas/README.md)
     * [Nivel 0-5](writeups/overthewire/natas/nivel-0-5.md)
