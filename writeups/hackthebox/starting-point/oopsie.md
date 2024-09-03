@@ -233,3 +233,5 @@ f2c74ee8db7983851ab2a96a44eb7981
 #### Tarea 12: Enviar bandera de root
 
 af13b0bee69f8a877c3faf667f7beacf
+
+<figure><img src="../../../.gitbook/assets/image (576).png" alt=""><figcaption></figcaption></figure>
