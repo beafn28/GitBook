@@ -72,3 +72,6 @@
 * [Pentesting Basics](apuntes/pentesting-basics/README.md)
   * [Web Enumeration](apuntes/pentesting-basics/web-enumeration.md)
   * [Public Exploits](apuntes/pentesting-basics/public-exploits.md)
+  * [Types of Shells](apuntes/pentesting-basics/types-of-shells.md)
+  * [Privilege Escalation](apuntes/pentesting-basics/privilege-escalation.md)
+  * [Transfering Files](apuntes/pentesting-basics/transfering-files.md)
