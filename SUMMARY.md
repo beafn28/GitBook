@@ -25,6 +25,7 @@
   * [Vacaciones](writeups/dockerlabs/vacaciones.md)
   * [Obsession](writeups/dockerlabs/obsession.md)
   * [FirstHacking](writeups/dockerlabs/firsthacking.md)
+  * [SecretJenkins](writeups/dockerlabs/secretjenkins.md)
 * [TryHackMe](writeups/tryhackme/README.md)
   * [Brooklyn Nine Nine](writeups/tryhackme/brooklyn-nine-nine.md)
 * [HackTheBox](writeups/hackthebox/README.md)
@@ -68,4 +69,6 @@
 
 ## APUNTES
 
-* [Untitled](apuntes/untitled.md)
+* [Pentesting Basics](apuntes/pentesting-basics/README.md)
+  * [Web Enumeration](apuntes/pentesting-basics/web-enumeration.md)
+  * [Public Exploits](apuntes/pentesting-basics/public-exploits.md)
