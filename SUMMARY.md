@@ -62,16 +62,11 @@
 * [The Hacker Labs](writeups/the-hacker-labs/README.md)
   * [Avengers](writeups/the-hacker-labs/avengers.md)
 
-## COMPUTACIÓN CUÁNTICA
+## APUNTES HACKING
 
-* [PennyLane](computacion-cuantica/quickstart.md)
-* [Quiskit](computacion-cuantica/quiskit.md)
-
-## APUNTES
-
-* [Pentesting Basics](apuntes/pentesting-basics/README.md)
-  * [Web Enumeration](apuntes/pentesting-basics/web-enumeration.md)
-  * [Public Exploits](apuntes/pentesting-basics/public-exploits.md)
-  * [Types of Shells](apuntes/pentesting-basics/types-of-shells.md)
-  * [Privilege Escalation](apuntes/pentesting-basics/privilege-escalation.md)
-  * [Transfering Files](apuntes/pentesting-basics/transfering-files.md)
+* [Pentesting Basics](apuntes-hacking/pentesting-basics/README.md)
+  * [Web Enumeration](apuntes-hacking/pentesting-basics/web-enumeration.md)
+  * [Public Exploits](apuntes-hacking/pentesting-basics/public-exploits.md)
+  * [Types of Shells](apuntes-hacking/pentesting-basics/types-of-shells.md)
+  * [Privilege Escalation](apuntes-hacking/pentesting-basics/privilege-escalation.md)
+  * [Transfering Files](apuntes-hacking/pentesting-basics/transfering-files.md)
