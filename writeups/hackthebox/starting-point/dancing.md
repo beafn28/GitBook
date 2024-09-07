@@ -84,8 +84,8 @@ _Hay un total de 4 recursos compartidos en el servidor SMB llamado "Dancing"._
 
 #### Tarea 6: ¿Cuál es el nombre del recurso compartido al que podemos acceder al final con una contraseña en blanco?
 
-**workfiles**\
-_El recurso compartido al que se puede acceder con una contraseña en blanco se llama "workfiles"._
+**WorkShares**\
+_El recurso compartido al que se puede acceder con una contraseña en blanco se llama "WorkShares"._
 
 #### Tarea 7: ¿Cuál es el comando que podemos usar dentro del shell de SMB para descargar los archivos que encontramos?
 
