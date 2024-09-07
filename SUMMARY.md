@@ -71,3 +71,5 @@
   * [Types of Shells](apuntes-hacking/pentesting-basics/types-of-shells.md)
   * [Privilege Escalation](apuntes-hacking/pentesting-basics/privilege-escalation.md)
   * [Transfering Files](apuntes-hacking/pentesting-basics/transfering-files.md)
+* [Network Enumeration with NMAP](apuntes-hacking/network-enumeration-with-nmap/README.md)
+  * [Host Discovery](apuntes-hacking/network-enumeration-with-nmap/host-discovery.md)
