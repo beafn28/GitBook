@@ -289,7 +289,3 @@ Ncat: Version 7.80 ( https://nmap.org/ncat )
 Ncat: Connected to 10.129.2.28:50000.
 220 ProFTPd
 ```
-
-## Laboratorios de Evasión de Firewall e IDS/IPS
-
-En las siguientes tres secciones, se presentan diferentes escenarios para practicar donde debemos escanear nuestro objetivo. Las reglas del firewall y los sistemas IDS/IPS protegen los sistemas, por lo que necesitamos usar las técnicas mostradas para eludir las reglas del firewall y hacerlo de la manera más discreta posible. De lo contrario, seremos bloqueados por el IPS.
