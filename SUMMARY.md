@@ -73,3 +73,4 @@
   * [Transfering Files](apuntes-hacking/pentesting-basics/transfering-files.md)
 * [Network Enumeration with NMAP](apuntes-hacking/network-enumeration-with-nmap/README.md)
   * [Host Discovery](apuntes-hacking/network-enumeration-with-nmap/host-discovery.md)
+  * [Host and Port Scanning](apuntes-hacking/network-enumeration-with-nmap/host-and-port-scanning.md)
