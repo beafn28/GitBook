@@ -63,7 +63,7 @@ sherlock28@htb[/htb]$ sudo nmap 10.129.2.28 -p 21,22,25 -sA -Pn -n --disable-arp
 **Salida:**
 
 ```bash
-bashCopiar códigoStarting Nmap 7.80 ( https://nmap.org ) at 2020-06-21 14:57 CEST
+Starting Nmap 7.80 ( https://nmap.org ) at 2020-06-21 14:57 CEST
 SENT (0.0422s) TCP 10.10.14.2:49343 > 10.129.2.28:21 A ttl=49 id=12381 iplen=40  seq=0 win=1024
 SENT (0.0423s) TCP 10.10.14.2:49343 > 10.129.2.28:22 A ttl=41 id=5146 iplen=40  seq=0 win=1024
 SENT (0.0423s) TCP 10.10.14.2:49343 > 10.129.2.28:25 A ttl=49 id=5800 iplen=40  seq=0 win=1024
