@@ -31,7 +31,7 @@ Iniciamos la máquina y verificamos la conexión.
 ping -c 1 10.129.112.41
 ```
 
-<figure><img src="../../../.gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (17) (1).png" alt=""><figcaption></figcaption></figure>
 
 Observamos que tenemos conexión y que es una máquina **Windows** ya que su **ttl=127**.
 
@@ -45,13 +45,13 @@ nmap -p- --min-rate 5000 -sV 10.129.112.41
 
 para realizar un escaneo de puertos y servicios detallado en la dirección IP.
 
-<figure><img src="../../../.gitbook/assets/image (18).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (18) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### 4. 🚪 **Acceso Inicial**
 
 Como podemos observar durante el escaneo, el **puerto 80** está abierto y está sirviendo **HTTP** con Apache httpd 2.4.52 (Win64) junto con OpenSSL/1.1.1m y PHP/8.1.1. Además, el **puerto 5985** está abierto y está sirviendo **HTTP** con Microsoft HTTPAPI httpd 2.0 (utilizado por SSDP/UPnP). Por último, el **puerto 7680** está abierto, pero no se identifica claramente el servicio asociado, indicado como `pando-pub`. Todos estos servicios están corriendo en un sistema operativo Windows, lo que nos llevará a investigar más a fondo.
 
-<figure><img src="../../../.gitbook/assets/image (19).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (19) (1).png" alt=""><figcaption></figcaption></figure>
 
 Hay que añadir en el `/etc/hosts` el dominio de **unika.htb** con la IP. Se recarga la página.
 
@@ -59,7 +59,7 @@ Hay que añadir en el `/etc/hosts` el dominio de **unika.htb** con la IP. Se rec
 10.129.112.41    unika.htb
 ```
 
-<figure><img src="../../../.gitbook/assets/image (20).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (20) (1).png" alt=""><figcaption></figcaption></figure>
 
 Revisando el código fuente nos encontramos una vulnerabilidad LFI y nos damos cuenta cuándo la página cambia de idioma.
 
