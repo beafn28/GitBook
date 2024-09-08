@@ -119,9 +119,7 @@ Vemos que podemos usar **vi** con permisos de root. Accedemos al directorio `/va
 
 <figure><img src="../../../.gitbook/assets/image (631).png" alt=""><figcaption></figcaption></figure>
 
-ec9b13ca4d6229cd5cc1e09980965bf7
-
-Accededemos a través de **SSH** al usuario con sus credenciales.
+Accedemos a través de **SSH** al usuario con sus credenciales.
 
 ```bash
 ssh postgres@10.129.137.77
@@ -143,7 +141,59 @@ Accedemos al directorio de root en el que contiene la bandera de root.
 
 <figure><img src="../../../.gitbook/assets/image (634).png" alt=""><figcaption></figcaption></figure>
 
-**dd6e058e814260bc70e9bbdef2715849**
-
 <figure><img src="../../../.gitbook/assets/image (635).png" alt=""><figcaption></figcaption></figure>
+
+### 6. ❓Preguntas
+
+#### Tarea 1: **Además de SSH y HTTP, ¿qué otro servicio está disponible en esta máquina?**
+
+**FTP**
+
+_Este servicio adicional disponible en el servidor es FTP, utilizado comúnmente para la transferencia de archivos._
+
+#### Tarea 2: **Este servicio puede configurarse para permitir el inicio de sesión con cualquier contraseña para un usuario específico. ¿Cuál es ese nombre de usuario?**
+
+**anonymous**
+
+_El servicio FTP se puede configurar para permitir el acceso sin autenticación real para el usuario `anonymous`._
+
+#### Tarea 3: **¿Cuál es el nombre del archivo descargado a través de este servicio?**
+
+**backup.zip**
+
+_Este archivo, `backup.zip`, fue descargado utilizando el servicio FTP y contiene datos potencialmente importantes._
+
+#### Tarea 4: **¿Qué script viene con el conjunto de herramientas de John The Ripper y genera un hash de un archivo ZIP protegido con contraseña en un formato que permite intentos de descifrado?**
+
+**zip2john**
+
+_El script `zip2john` convierte el archivo ZIP protegido en un formato adecuado para que John The Ripper pueda intentar descifrar la contraseña._
+
+#### Tarea 5: **¿Cuál es la contraseña del usuario admin en el sitio web?**
+
+**qwerty789**
+
+_La contraseña para el usuario administrador es `qwerty789`, y proporciona acceso a funciones administrativas en el sitio._
+
+#### Tarea 6: **¿Qué opción se puede pasar a sqlmap para intentar obtener ejecución de comandos a través de la inyección SQL?**
+
+**--os-shell**
+
+_La opción `--os-shell` de `sqlmap` se utiliza para intentar obtener una shell a través de una vulnerabilidad de inyección SQL._
+
+#### Tarea 7: **¿Qué programa puede ejecutar el usuario postgres como root usando sudo?**
+
+**vi**
+
+_El usuario `postgres` puede ejecutar el editor `vi` con privilegios de root mediante `sudo`, lo que podría permitir la escalada de privilegios._
+
+#### Tarea 8: **Enviar bandera de usuario**
+
+ec9b13ca4d6229cd5cc1e09980965bf7
+
+#### Tarea 9: **Enviar bandera de root**
+
+dd6e058e814260bc70e9bbdef2715849
+
+
 
