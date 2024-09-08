@@ -45,6 +45,8 @@ para realizar un escaneo de puertos y servicios detallado en la dirección IP.
 
 <figure><img src="../../../.gitbook/assets/image (565).png" alt=""><figcaption></figcaption></figure>
 
+### 4. 🚪 **Acceso Inicial**
+
 Como podemos observar durante el escaneo el puerto **22** perteneciente al servicio **SSH** y el puerto **80** perteneciente al servicio **HTTP** están abiertos, por lo que se procederá a indagar más.
 
 <figure><img src="../../../.gitbook/assets/image (566).png" alt=""><figcaption></figcaption></figure>
@@ -179,52 +181,52 @@ vim /root/root.txt
 #### Tarea 1: ¿Con qué tipo de herramienta se puede interceptar el tráfico web?
 
 **proxy**\
-Una herramienta que se utiliza para interceptar y analizar el tráfico web, permitiendo ver y modificar las solicitudes y respuestas entre el cliente y el servidor.
+_Una herramienta que se utiliza para interceptar y analizar el tráfico web, permitiendo ver y modificar las solicitudes y respuestas entre el cliente y el servidor._
 
 #### Tarea 2: ¿Cuál es la ruta al directorio en el servidor web que devuelve una página de inicio de sesión?
 
 **/cdn-cgi/login**\
-Este es el directorio en el servidor web que muestra una página de inicio de sesión, lo que indica un punto de acceso para la autenticación.
+_Este es el directorio en el servidor web que muestra una página de inicio de sesión, lo que indica un punto de acceso para la autenticación._
 
 #### Tarea 3: ¿Qué se puede modificar en Firefox para obtener acceso a la página de carga?
 
 **cookie**\
-Modificar la cookie en Firefox puede proporcionar acceso a la página de carga de archivos que normalmente está restringida.
+_Modificar la cookie en Firefox puede proporcionar acceso a la página de carga de archivos que normalmente está restringida._
 
 #### Tarea 4: ¿Cuál es el ID de acceso del usuario administrador?
 
 **34322**\
-El ID de acceso del usuario administrador es `34322`, y puede ser usado para acceder a funciones administrativas en el sistema.
+_El ID de acceso del usuario administrador es `34322`, y puede ser usado para acceder a funciones administrativas en el sistema._
 
 #### Tarea 5: Al subir un archivo, ¿en qué directorio aparece ese archivo en el servidor?
 
 **/uploads**\
-Los archivos subidos al servidor se almacenan en el directorio `/uploads`, donde pueden ser accesibles o procesados posteriormente.
+_Los archivos subidos al servidor se almacenan en el directorio `/uploads`, donde pueden ser accesibles o procesados posteriormente._
 
 #### Tarea 6: ¿Qué archivo contiene la contraseña compartida con el usuario robert?
 
 **db.php**\
-El archivo `db.php` contiene la contraseña compartida con el usuario `robert`, lo que puede permitir el acceso a la base de datos o a otras áreas del sistema.
+_El archivo `db.php` contiene la contraseña compartida con el usuario `robert`, lo que puede permitir el acceso a la base de datos o a otras áreas del sistema._
 
 #### Tarea 7: ¿Qué ejecutable se usa con la opción "-group bugtracker" para identificar todos los archivos propiedad del grupo bugtracker?
 
 **find**\
-El comando `find` se ejecuta con la opción `-group bugtracker` para identificar todos los archivos que pertenecen al grupo `bugtracker`, útil para auditoría o explotación.
+_El comando `find` se ejecuta con la opción `-group bugtracker` para identificar todos los archivos que pertenecen al grupo `bugtracker`, útil para auditoría o explotación._
 
 #### Tarea 8: Independientemente de qué usuario inicie el ejecutable bugtracker, ¿con qué privilegios de usuario se ejecutará?
 
 **root**\
-El ejecutable `bugtracker` se ejecuta con privilegios de `root`, sin importar qué usuario lo inicie, lo que puede ser aprovechado para escalar privilegios.
+_El ejecutable `bugtracker` se ejecuta con privilegios de `root`, sin importar qué usuario lo inicie, lo que puede ser aprovechado para escalar privilegios._
 
 #### Tarea 9: ¿Qué significa SUID?
 
 **set owner user id**\
-El SUID permite que un archivo se ejecute con los privilegios del propietario del archivo, en lugar de los del usuario que lo ejecuta, lo cual es crítico para la escalada de privilegios.
+_El SUID permite que un archivo se ejecute con los privilegios del propietario del archivo, en lugar de los del usuario que lo ejecuta, lo cual es crítico para la escalada de privilegios._
 
 #### Tarea 10: ¿Cuál es el nombre del ejecutable que se llama de manera insegura?
 
 **cat**\
-El comando `cat` se llama de manera insegura, permitiendo que un atacante ejecute su propio código malicioso en lugar del comando legítimo.
+_El comando `cat` se llama de manera insegura, permitiendo que un atacante ejecute su propio código malicioso en lugar del comando legítimo._
 
 #### Tarea 11: Enviar bandera de ususario
 
