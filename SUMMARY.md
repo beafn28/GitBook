@@ -43,6 +43,7 @@
     * [Archetype](writeups/hackthebox/starting-point/archetype.md)
     * [Oopsie](writeups/hackthebox/starting-point/oopsie.md)
     * [Vaccine](writeups/hackthebox/starting-point/vaccine.md)
+    * [Unified](writeups/hackthebox/starting-point/unified.md)
 * [OverTheWire](writeups/overthewire/README.md)
   * [Natas](writeups/overthewire/natas/README.md)
     * [Nivel 0-5](writeups/overthewire/natas/nivel-0-5.md)
