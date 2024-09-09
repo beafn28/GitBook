@@ -155,6 +155,8 @@ Nos logueamos con las credenciales.
 
 <figure><img src="../../../.gitbook/assets/image (649).png" alt=""><figcaption></figcaption></figure>
 
+### 5. 🔑 **Captura de la Flag**
+
 Dado que el recurso actual no está cargando, revisamos el walkthrough oficial para obtener la contraseña. Según el documento oficial, la contraseña es: **NotACrackablePassword4U2022**.
 
 <figure><img src="../../../.gitbook/assets/image (650).png" alt=""><figcaption></figcaption></figure>
@@ -163,8 +165,80 @@ Obtenemos las distintas flag requeridas entre los directorios.
 
 <figure><img src="../../../.gitbook/assets/image (651).png" alt=""><figcaption></figcaption></figure>
 
-e50bc93c75b634e4b272d2f771c33681
-
 <figure><img src="../../../.gitbook/assets/image (652).png" alt=""><figcaption></figcaption></figure>
 
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+### 6. ❓Preguntas
+
+#### **Tarea 1:** ¿Cuáles son los primeros cuatro puertos abiertos?
+
+**22, 6789, 8080, 8443**\
+Estos son los puertos abiertos que identificamos en el escaneo de red.
+
+#### **Tarea 2:** ¿Cuál es el título del software que se está ejecutando en el puerto 8443?
+
+**UniFi Network**\
+El software en ejecución en el puerto 8443 es UniFi Network.
+
+#### **Tarea 3:** ¿Cuál es la versión del software que se está ejecutando?
+
+**6.4.54**\
+La versión del software UniFi Network en ejecución es 6.4.54.
+
+#### **Tarea 4:** ¿Cuál es el CVE para la vulnerabilidad identificada?
+
+**CVE-2021-44228**\
+La vulnerabilidad identificada en la versión del software corresponde al CVE-2021-44228.
+
+#### **Tarea 5:** ¿Qué protocolo utiliza JNDI en la inyección?
+
+**ldap**\
+JNDI utiliza el protocolo LDAP para la inyección.
+
+#### **Tarea 6:** ¿Qué herramienta usamos para interceptar el tráfico, indicando que el ataque fue exitoso?
+
+**tcpdump**\
+La herramienta utilizada para interceptar el tráfico y confirmar el éxito del ataque es tcpdump.
+
+#### **Tarea 7:** ¿En qué puerto necesitamos inspeccionar el tráfico interceptado?
+
+**389**\
+Debemos inspeccionar el tráfico interceptado en el puerto 389.
+
+#### **Tarea 8:** ¿En qué puerto está en funcionamiento el servicio MongoDB?
+
+**27117**\
+El servicio MongoDB está en funcionamiento en el puerto 27117.
+
+#### **Tarea 9:** ¿Cuál es el nombre de la base de datos por defecto para las aplicaciones UniFi?
+
+**ace**\
+La base de datos por defecto para las aplicaciones UniFi se llama ace.
+
+#### **Tarea 10:** ¿Qué función usamos para enumerar usuarios dentro de la base de datos en MongoDB?
+
+**db.admin.find()**\
+Para enumerar usuarios dentro de la base de datos en MongoDB usamos la función db.admin.find().
+
+#### **Tarea 11:** ¿Qué función usamos para actualizar usuarios dentro de la base de datos en MongoDB?
+
+**db.admin.update()**\
+La función utilizada para actualizar usuarios dentro de la base de datos en MongoDB es db.admin.update().
+
+#### **Tarea 12:** ¿Cuál es la contraseña para el usuario root?
+
+**NotACrackablePassword4U2022**\
+La contraseña para el usuario root es NotACrackablePassword4U2022.
+
+#### Tarea 13: Enviar Bandera Usuario
+
 6ced1a6a89e666c0620cdb10262ba127
+
+#### Tarea 14: Enviar Bandera Root
+
+e50bc93c75b634e4b272d2f771c33681
+
+#### [ ](#user-content-fn-1)[^1]
+
+[^1]: 
