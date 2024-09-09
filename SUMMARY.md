@@ -83,3 +83,4 @@
   * [Firewall and IDS/IPS Evasion](apuntes-hacking/network-enumeration-with-nmap/firewall-and-ids-ips-evasion.md)
 * [Footprinting](apuntes-hacking/footprinting/README.md)
   * [Domain Information](apuntes-hacking/footprinting/domain-information.md)
+  * [Cloud Resources](apuntes-hacking/footprinting/cloud-resources.md)
