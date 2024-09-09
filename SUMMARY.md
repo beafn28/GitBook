@@ -84,3 +84,4 @@
 * [Footprinting](apuntes-hacking/footprinting/README.md)
   * [Domain Information](apuntes-hacking/footprinting/domain-information.md)
   * [Cloud Resources](apuntes-hacking/footprinting/cloud-resources.md)
+  * [FTP](apuntes-hacking/footprinting/ftp.md)
