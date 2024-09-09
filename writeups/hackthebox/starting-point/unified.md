@@ -238,7 +238,3 @@ La contraseña para el usuario root es NotACrackablePassword4U2022.
 #### Tarea 14: Enviar Bandera Root
 
 e50bc93c75b634e4b272d2f771c33681
-
-#### [ ](#user-content-fn-1)[^1]
-
-[^1]: 
