@@ -65,3 +65,89 @@ root@nfs:~# exportfs
 
 Hemos compartido la carpeta `/mnt/nfs` con la subred `10.129.14.0/24` con la configuración que se muestra arriba. Esto significa que todos los hosts en la red podrán montar este NFS share e inspeccionar el contenido de esta carpeta.
 
+## Configuraciones Peligrosas en NFS
+
+Sin embargo, incluso con NFS, algunas configuraciones pueden ser peligrosas para la empresa y su infraestructura. Aquí se enumeran algunas de ellas:
+
+| Opción               | Descripción                                                                                                                                     |
+| -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| **rw**               | Permisos de lectura y escritura.                                                                                                                |
+| **insecure**         | Se utilizarán puertos por encima de 1024.                                                                                                       |
+| **nohide**           | Si otro sistema de archivos está montado debajo de un directorio exportado, este directorio se exporta por su propia entrada en `/etc/exports`. |
+| **no\_root\_squash** | Todos los archivos creados por root se mantienen con el UID/GID 0.                                                                              |
+
+Se recomienda encarecidamente crear una máquina virtual local y experimentar con las configuraciones. Descubriremos métodos que nos mostrarán cómo está configurado el servidor NFS. Para esto, podemos crear varias carpetas y asignar diferentes opciones a cada una. Luego, podemos inspeccionarlas y ver qué efectos tienen en el NFS share, sus permisos y el proceso de enumeración.
+
+Podemos observar la opción **insecure**. Esta es peligrosa porque permite a los usuarios utilizar puertos por encima de 1024. Los primeros 1024 puertos solo pueden ser utilizados por root, lo que evita que usuarios normales usen sockets sobre el puerto 1024 para el servicio NFS e interactúen con él.
+
+## Identificación del Servicio (Footprinting) NFS
+
+Al realizar footprinting de NFS, los puertos TCP 111 y 2049 son esenciales. También podemos obtener información sobre el servicio NFS y el host a través de RPC, como se muestra en el siguiente ejemplo.
+
+### **Nmap**
+
+```bash
+sherlock28@htb[/htb]$ sudo nmap 10.129.14.128 -p111,2049 -sV -sC
+
+Starting Nmap 7.80 ( https://nmap.org ) at 2021-09-19 17:12 CEST
+Nmap scan report for 10.129.14.128
+Host is up (0.00018s latency).
+
+PORT    STATE SERVICE VERSION
+111/tcp open  rpcbind 2-4 (RPC #100000)
+| rpcinfo: 
+|   program version    port/proto  service
+|   100000  2,3,4        111/tcp   rpcbind
+|   100000  2,3,4        111/udp   rpcbind
+|   100000  3,4          111/tcp6  rpcbind
+|   100000  3,4          111/udp6  rpcbind
+|   100003  3           2049/udp   nfs
+|   100003  3           2049/udp6  nfs
+|   100003  3,4         2049/tcp   nfs
+|   100003  3,4         2049/tcp6  nfs
+|   100005  1,2,3      41982/udp6  mountd
+|   100005  1,2,3      45837/tcp   mountd
+|   100005  1,2,3      47217/tcp6  mountd
+|   100005  1,2,3      58830/udp   mountd
+|   100021  1,3,4      39542/udp   nlockmgr
+|   100021  1,3,4      44629/tcp   nlockmgr
+|   100021  1,3,4      45273/tcp6  nlockmgr
+|   100021  1,3,4      47524/udp6  nlockmgr
+|   100227  3           2049/tcp   nfs_acl
+|   100227  3           2049/tcp6  nfs_acl
+|   100227  3           2049/udp   nfs_acl
+|_  100227  3           2049/udp6  nfs_acl
+2049/tcp open  nfs_acl 3 (RPC #100227)
+MAC Address: 00:00:00:00:00:00 (VMware)
+```
+
+El script `rpcinfo` de Nmap muestra una lista de todos los servicios RPC actualmente en ejecución, sus nombres, descripciones y los puertos que utilizan. Esto nos permite verificar si el _share_ objetivo está conectado a la red en todos los puertos necesarios.
+
+Además, Nmap tiene algunos scripts NSE específicos para NFS que pueden utilizarse para los escaneos. Estos scripts pueden, por ejemplo, mostrar el contenido del _share_ y sus estadísticas.
+
+```bash
+sherlock28@htb[/htb]$ sudo nmap --script nfs* 10.129.14.128 -sV -p111,2049
+
+Starting Nmap 7.80 ( https://nmap.org ) at 2021-09-19 17:37 CEST
+Nmap scan report for 10.129.14.128
+Host is up (0.00021s latency).
+
+PORT     STATE SERVICE VERSION
+111/tcp  open  rpcbind 2-4 (RPC #100000)
+| nfs-ls: Volume /mnt/nfs
+|   access: Read Lookup NoModify NoExtend NoDelete NoExecute
+| PERMISSION  UID    GID    SIZE  TIME                 FILENAME
+| rwxrwxrwx   65534  65534  4096  2021-09-19T15:28:17  .
+| ??????????  ?      ?      ?     ?                    ..
+| rw-r--r--   0      0      1872  2021-09-19T15:27:42  id_rsa
+| rw-r--r--   0      0      348   2021-09-19T15:28:17  id_rsa.pub
+| rw-r--r--   0      0      0     2021-09-19T15:22:30  nfs.share
+|_
+| nfs-showmount: 
+|_  /mnt/nfs 10.129.14.0/24
+| nfs-statfs: 
+|   Filesystem  1K-blocks   Used       Available   Use%  Maxfilesize  Maxlink
+|_  /mnt/nfs    30313412.0  8074868.0  20675664.0  29%   16.0T        32000
+```
+
+Una vez que hayamos descubierto un servicio NFS, podemos montarlo en nuestra máquina local. Para ello, creamos una carpeta vacía a la que se montará el _share_ NFS. Una vez montado, podremos navegar por el _share_ y ver el contenido como si fuera parte de nuestro sistema local.
