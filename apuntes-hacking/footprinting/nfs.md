@@ -151,3 +151,72 @@ PORT     STATE SERVICE VERSION
 ```
 
 Una vez que hayamos descubierto un servicio NFS, podemos montarlo en nuestra máquina local. Para ello, creamos una carpeta vacía a la que se montará el _share_ NFS. Una vez montado, podremos navegar por el _share_ y ver el contenido como si fuera parte de nuestro sistema local.
+
+### Mostrar NFS Shares Disponibles
+
+```bash
+sherlock28@htb[/htb]$ showmount -e 10.129.14.128
+
+Export list for 10.129.14.128:
+/mnt/nfs 10.129.14.0/24
+```
+
+### Montar el NFS Share
+
+```bash
+sherlock28@htb[/htb]$ mkdir target-NFS
+sherlock28@htb[/htb]$ sudo mount -t nfs 10.129.14.128:/ ./target-NFS/ -o nolock
+sherlock28@htb[/htb]$ cd target-NFS
+sherlock28@htb[/htb]$ tree .
+
+.
+└── mnt
+    └── nfs
+        ├── id_rsa
+        ├── id_rsa.pub
+        └── nfs.share
+
+2 directories, 3 files
+```
+
+Aquí tendremos la oportunidad de acceder a los permisos, nombres de usuarios y grupos a los que pertenecen los archivos mostrados. Una vez que tengamos los nombres de usuario, nombres de grupos, UIDs y GIDs, podemos crearlos en nuestro sistema y adaptarlos al _share_ NFS para ver y modificar los archivos.
+
+### Listar Contenido con Nombres de Usuario y Grupos
+
+```bash
+sherlock28@htb[/htb]$ ls -l mnt/nfs/
+
+total 16
+-rw-r--r-- 1 cry0l1t3 cry0l1t3 1872 Sep 25 00:55 cry0l1t3.priv
+-rw-r--r-- 1 cry0l1t3 cry0l1t3  348 Sep 25 00:55 cry0l1t3.pub
+-rw-r--r-- 1 root     root     1872 Sep 19 17:27 id_rsa
+-rw-r--r-- 1 root     root      348 Sep 19 17:28 id_rsa.pub
+-rw-r--r-- 1 root     root        0 Sep 19 17:22 nfs.share
+```
+
+### Listar Contenido con UIDs y GIDs
+
+```bash
+sherlock28@htb[/htb]$ ls -n mnt/nfs/
+
+total 16
+-rw-r--r-- 1 1000 1000 1872 Sep 25 00:55 cry0l1t3.priv
+-rw-r--r-- 1 1000 1000  348 Sep 25 00:55 cry0l1t3.pub
+-rw-r--r-- 1    0 1000 1221 Sep 19 18:21 backup.sh
+-rw-r--r-- 1    0    0 1872 Sep 19 17:27 id_rsa
+-rw-r--r-- 1    0    0  348 Sep 19 17:28 id_rsa.pub
+-rw-r--r-- 1    0    0    0 Sep 19 17:22 nfs.share
+```
+
+Es importante tener en cuenta que si la opción `root_squash` está configurada, no podremos editar el archivo `backup.sh`, incluso como root.
+
+NFS puede usarse para una mayor escalada. Por ejemplo, si tenemos acceso al sistema a través de SSH y queremos leer archivos de otra carpeta a la que un usuario específico tiene acceso, podríamos subir una shell al _share_ NFS con el SUID de ese usuario y luego ejecutar la shell a través del usuario de SSH.
+
+Después de realizar todos los pasos necesarios y obtener la información deseada, podemos desmontar el _share_ NFS.
+
+### Desmontar el NFS
+
+```bash
+sherlock28@htb[/htb]$ cd ..
+sherlock28@htb[/htb]$ sudo umount ./target-NFS
+```
