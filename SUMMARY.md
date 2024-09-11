@@ -88,3 +88,4 @@
   * [SMB](apuntes-hacking/footprinting/smb.md)
   * [NFS](apuntes-hacking/footprinting/nfs.md)
   * [DNS](apuntes-hacking/footprinting/dns.md)
+  * [SMTP](apuntes-hacking/footprinting/smtp.md)
