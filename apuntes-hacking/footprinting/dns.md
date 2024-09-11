@@ -69,7 +69,7 @@ En distribuciones basadas en Linux, el servidor DNS **Bind9** es muy utilizado. 
 * `named.conf.options`
 * `named.conf.log`
 
-### **Configuración local DNS:**
+### **Configuración local DNS**
 
 ```bash
 root@bind9:~# cat /etc/bind/named.conf.local
@@ -82,7 +82,7 @@ zone "domain.com" {
 
 En este archivo, definimos las diferentes zonas. Estas zonas están divididas en archivos individuales, generalmente para un solo dominio. Un archivo de zona es un archivo de texto que describe una zona DNS en formato BIND.
 
-### **Archivo de zona:**
+### **Archivo de zona**
 
 ```bash
 root@bind9:~# cat /etc/bind/db.domain.com
@@ -118,7 +118,7 @@ Para que la dirección IP sea resuelta desde el nombre de dominio completo (**FQ
 
 El registro **PTR** es responsable de la traducción inversa de direcciones IP en nombres.
 
-### **Archivo de zona inversa:**
+### **Archivo de zona inversa**
 
 ```bash
 root@bind9:~# cat /etc/bind/db.10.129.14
