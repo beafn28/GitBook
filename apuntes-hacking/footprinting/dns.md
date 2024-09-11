@@ -217,3 +217,187 @@ version.bind.       0       CH      TXT     "9.10.6-P1-Debian"
 ```
 
 Podemos usar la opción `ANY` para ver todos los registros disponibles. Esto hará que el servidor nos muestre todas las entradas disponibles que esté dispuesto a divulgar. Es importante tener en cuenta que no se mostrarán todas las entradas de las zonas.
+
+### Consulta DIG - ANY
+
+```bash
+sherlock28@htb[/htb]$ dig any inlanefreight.htb @10.129.14.128
+
+; <<>> DiG 9.16.1-Ubuntu <<>> any inlanefreight.htb @10.129.14.128
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 7649
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 5, AUTHORITY: 0, ADDITIONAL: 2
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 4096
+; COOKIE: 064b7e1f091b95120100000061476865a6026d01f87d10ca (good)
+;; QUESTION SECTION:
+;inlanefreight.htb.             IN      ANY
+
+;; ANSWER SECTION:
+inlanefreight.htb.      604800  IN      TXT     "v=spf1 include:mailgun.org include:_spf.google.com include:spf.protection.outlook.com include:_spf.atlassian.net ip4:10.129.124.8 ip4:10.129.127.2 ip4:10.129.42.106 ~all"
+inlanefreight.htb.      604800  IN      TXT     "atlassian-domain-verification=t1rKCy68JFszSdCKVpw64A1QksWdXuYFUeSXKU"
+inlanefreight.htb.      604800  IN      TXT     "MS=ms97310371"
+inlanefreight.htb.      604800  IN      SOA     inlanefreight.htb. root.inlanefreight.htb. 2 604800 86400 2419200 604800
+inlanefreight.htb.      604800  IN      NS      ns.inlanefreight.htb.
+
+;; ADDITIONAL SECTION:
+ns.inlanefreight.htb.   604800  IN      A       10.129.34.136
+
+;; Query time: 0 msec
+;; SERVER: 10.129.14.128#53(10.129.14.128)
+;; WHEN: Sun Sep 19 18:42:13 CEST 2021
+;; MSG SIZE  rcvd: 437
+```
+
+La transferencia de zona se refiere al proceso de copiar zonas a otro servidor DNS, lo cual ocurre generalmente a través del puerto TCP 53. Este procedimiento se conoce como Transferencia de Zona Asincrónica Completa (AXFR). Dado que una falla en el DNS puede tener graves consecuencias para una empresa, el archivo de zona casi siempre se mantiene idéntico en varios servidores de nombres. Cuando se realizan cambios, se debe asegurar que todos los servidores tengan los mismos datos. La sincronización entre los servidores se realiza mediante la transferencia de zona.
+
+El servidor que contiene los datos originales de una zona se denomina servidor de nombres primario. Para aumentar la fiabilidad o distribuir la carga, se instalan servidores adicionales llamados servidores de nombres secundarios. Algunas Top-Level Domains (TLDs) requieren que los archivos de zona estén accesibles en al menos dos servidores.
+
+Los registros DNS generalmente se crean, modifican o eliminan en el servidor primario. Un servidor DNS que sirve como fuente para sincronizar un archivo de zona se llama **master**. Un servidor que obtiene los datos de una zona desde un master se llama **slave**. El slave consulta el registro SOA del master en intervalos regulares y compara los números de serie. Si el número de serie del SOA del master es mayor, los conjuntos de datos ya no coinciden.
+
+### **Consulta DIG - AXFR Transferencia de Zona**
+
+```bash
+sherlock28@htb[/htb]$ dig axfr inlanefreight.htb @10.129.14.128
+
+; <<>> DiG 9.16.1-Ubuntu <<>> axfr inlanefreight.htb @10.129.14.128
+;; global options: +cmd
+inlanefreight.htb.      604800  IN      SOA     inlanefreight.htb. root.inlanefreight.htb. 2 604800 86400 2419200 604800
+inlanefreight.htb.      604800  IN      TXT     "MS=ms97310371"
+inlanefreight.htb.      604800  IN      TXT     "atlassian-domain-verification=t1rKCy68JFszSdCKVpw64A1QksWdXuYFUeSXKU"
+inlanefreight.htb.      604800  IN      TXT     "v=spf1 include:mailgun.org include:_spf.google.com include:spf.protection.outlook.com include:_spf.atlassian.net ip4:10.129.124.8 ip4:10.129.127.2 ip4:10.129.42.106 ~all"
+inlanefreight.htb.      604800  IN      NS      ns.inlanefreight.htb.
+app.inlanefreight.htb.  604800  IN      A       10.129.18.15
+internal.inlanefreight.htb. 604800 IN   A       10.129.1.6
+mail1.inlanefreight.htb. 604800 IN      A       10.129.18.201
+ns.inlanefreight.htb.   604800  IN      A       10.129.34.136
+inlanefreight.htb.      604800  IN      SOA     inlanefreight.htb. root.inlanefreight.htb. 2 604800 86400 2419200 604800
+;; Query time: 4 msec
+;; SERVER: 10.129.14.128#53(10.129.14.128)
+;; WHEN: Sun Sep 19 18:51:19 CEST 2021
+;; XFR size: 9 records (messages 1, bytes 520)
+```
+
+Si el administrador configuró la opción `allow-transfer` incorrectamente, cualquier persona podría consultar el archivo de zona completo. Además, se pueden consultar otras zonas que podrían mostrar direcciones IP internas y nombres de host.
+
+### **Consulta DIG - AXFR Transferencia de Zona - Interna**
+
+```bash
+sherlock28@htb[/htb]$ dig axfr internal.inlanefreight.htb @10.129.14.128
+
+; <<>> DiG 9.16.1-Ubuntu <<>> axfr internal.inlanefreight.htb @10.129.14.128
+;; global options: +cmd
+internal.inlanefreight.htb. 604800 IN   SOA     inlanefreight.htb. root.inlanefreight.htb. 2 604800 86400 2419200 604800
+internal.inlanefreight.htb. 604800 IN   TXT     "MS=ms97310371"
+internal.inlanefreight.htb. 604800 IN   TXT     "atlassian-domain-verification=t1rKCy68JFszSdCKVpw64A1QksWdXuYFUeSXKU"
+internal.inlanefreight.htb. 604800 IN   TXT     "v=spf1 include:mailgun.org include:_spf.google.com include:spf.protection.outlook.com include:_spf.atlassian.net ip4:10.129.124.8 ip4:10.129.127.2 ip4:10.129.42.106 ~all"
+internal.inlanefreight.htb. 604800 IN   NS      ns.inlanefreight.htb.
+dc1.internal.inlanefreight.htb. 604800 IN A     10.129.34.16
+dc2.internal.inlanefreight.htb. 604800 IN A     10.129.34.11
+mail1.internal.inlanefreight.htb. 604800 IN A   10.129.18.200
+ns.internal.inlanefreight.htb. 604800 IN A      10.129.34.136
+vpn.internal.inlanefreight.htb. 604800 IN A     10.129.1.6
+ws1.internal.inlanefreight.htb. 604800 IN A     10.129.1.34
+ws2.internal.inlanefreight.htb. 604800 IN A     10.129.1.35
+wsus.internal.inlanefreight.htb. 604800 IN A    10.129.18.2
+internal.inlanefreight.htb. 604800 IN   SOA     inlanefreight.htb. root.inlanefreight.htb. 2 604800 86400 2419200 604800
+;; Query time: 0 msec
+;; SERVER: 10.129.14.128#53(10.129.14.128)
+;; WHEN: Sun Sep 19 18:53:11 CEST 2021
+;; XFR size: 15 records (messages 1, bytes 664)
+```
+
+Los registros A individuales con los nombres de host también se pueden descubrir mediante un ataque de fuerza bruta. Para esto, necesitamos una lista de nombres de host posibles, que podemos usar para enviar las solicitudes en orden. Estas listas están disponibles, por ejemplo, en [SecLists](https://github.com/danielmiessler/SecLists).
+
+Una opción sería ejecutar un bucle `for` en Bash que liste estas entradas y envíe la consulta correspondiente al servidor DNS deseado.
+
+Aquí está un ejemplo básico de cómo podría realizarse un ataque de fuerza bruta usando un script en Bash:
+
+```bash
+#!/bin/bash
+
+# Lista de nombres de host
+hosts=("www" "mail" "ftp" "admin" "test" "server")
+
+# Dominio de destino
+domain="inlanefreight.htb"
+
+# Servidor DNS
+dns_server="10.129.14.128"
+
+# Realizar consultas para cada nombre de host en la lista
+for host in "${hosts[@]}"; do
+    echo "Consultando ${host}.${domain}"
+    dig +short ${host}.${domain} @${dns_server}
+done
+```
+
+Este script recorrerá una lista de nombres de host y realizará una consulta `dig` para cada uno. Los resultados pueden revelar nombres de host válidos y direcciones IP asociadas, ayudando en la recopilación de información sobre la infraestructura de la red objetivo.
+
+Es importante tener en cuenta que las consultas de DNS y las transferencias de zona pueden revelar información valiosa sobre la infraestructura de una red. Los administradores deben asegurarse de que las configuraciones de su servidor DNS estén optimizadas para evitar la divulgación no deseada de datos. Esto incluye restringir las transferencias de zona, asegurar las configuraciones de acceso y mantener el software de DNS actualizado.
+
+Si se observan configuraciones incorrectas o vulnerabilidades, es crucial corregirlas para proteger la red y prevenir posibles ataques.
+
+### Fuerza Bruta de Subdominios
+
+La fuerza bruta de subdominios es una técnica utilizada para descubrir subdominios de un dominio objetivo. Utiliza listas de nombres de subdominio comunes para enviar consultas al servidor DNS y ver si existen registros asociados. A continuación se presentan ejemplos de cómo realizar este proceso manualmente y utilizando herramientas especializadas.
+
+El siguiente comando usa un archivo de lista de subdominios (`subdomains-top1million-110000.txt`) para enviar consultas a un servidor DNS específico y guarda los resultados en un archivo llamado `subdomains.txt`:
+
+```bash
+for sub in $(cat /opt/useful/SecLists/Discovery/DNS/subdomains-top1million-110000.txt); do
+    dig $sub.inlanefreight.htb @10.129.14.128 | grep -v ';\|SOA' | sed -r '/^\s*$/d' | grep $sub | tee -a subdomains.txt
+done
+```
+
+```css
+ns.inlanefreight.htb.   604800  IN      A       10.129.34.136
+mail1.inlanefreight.htb. 604800 IN      A       10.129.18.201
+app.inlanefreight.htb.  604800  IN      A       10.129.18.15
+```
+
+Una herramienta popular para la enumeración de DNS es `dnsenum`. A continuación se muestra un ejemplo de cómo usar `dnsenum` para realizar una fuerza bruta de subdominios:
+
+```bash
+dnsenum --dnsserver 10.129.14.128 --enum -p 0 -s 0 -o subdomains.txt -f /opt/useful/SecLists/Discovery/DNS/subdomains-top1million-110000.txt inlanefreight.htb
+```
+
+```markdown
+dnsenum VERSION:1.2.6
+
+-----   inlanefreight.htb   -----
+
+Host's addresses:
+__________________
+
+Name Servers:
+______________
+
+ns.inlanefreight.htb.                    604800   IN    A        10.129.34.136
+
+Mail (MX) Servers:
+___________________
+
+Trying Zone Transfers and getting Bind Versions:
+_________________________________________________
+
+unresolvable name: ns.inlanefreight.htb at /usr/bin/dnsenum line 900 thread 1.
+
+Trying Zone Transfer for inlanefreight.htb on ns.inlanefreight.htb ...
+AXFR record query failed: no nameservers
+
+Brute forcing with /home/cry0l1t3/Pentesting/SecLists/Discovery/DNS/subdomains-top1million-110000.txt:
+_______________________________________________________________________________________________________
+
+ns.inlanefreight.htb.                    604800   IN    A        10.129.34.136
+mail1.inlanefreight.htb.                 604800   IN    A        10.129.18.201
+app.inlanefreight.htb.                   604800   IN    A        10.129.18.15
+ns.inlanefreight.htb.                    604800   IN    A        10.129.34.136
+
+...SNIP...
+done.
+```
+
+Estas técnicas y herramientas permiten descubrir subdominios que podrían ser valiosos para realizar un análisis más detallado o para propósitos de pentesting. Asegúrate de tener permiso antes de realizar cualquier prueba de este tipo en redes y dominios que no sean de tu propiedad.
