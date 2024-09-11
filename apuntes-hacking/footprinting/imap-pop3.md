@@ -273,4 +273,3 @@ read R BLOCK
 Una vez que hemos iniciado con éxito una conexión y hemos iniciado sesión en el servidor de correo de destino, podemos usar los comandos anteriores para trabajar con y navegar por el servidor. Queremos señalar que la configuración de nuestro propio servidor de correo, la investigación sobre él y los experimentos que podemos realizar junto con otros miembros de la comunidad nos proporcionarán el conocimiento necesario para entender la comunicación que está teniendo lugar y qué opciones de configuración son responsables de ello.
 
 En la sección de SMTP, encontramos al usuario `robin`. Otro miembro de nuestro equipo descubrió que el usuario también utiliza su nombre de usuario como contraseña (`robin:robin`). Podemos usar estas credenciales y probarlas para interactuar con los servicios IMAP/POP3.
-
