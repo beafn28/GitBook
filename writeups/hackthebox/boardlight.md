@@ -122,9 +122,9 @@ Listamos el contenido que tiene el usuario y descubrimos la flag del usuario.&#x
 
 <figure><img src="../../.gitbook/assets/Captura de pantalla 2024-09-12 a las 11.20.17.png" alt=""><figcaption></figcaption></figure>
 
-Utilicé LinPEAS, un script diseñado para identificar posibles rutas de escalamiento de privilegios en sistemas operativos Linux, Unix y macOS. Para obtener más información sobre este script, pueden consultar el siguiente enlace: [LinPEAS en GitHub](https://github.com/Cerbersec/scripts/blob/master/linux/linpeas.sh).
+Utilicé **LinPEAS**, un script diseñado para identificar posibles rutas de escalamiento de privilegios en sistemas operativos Linux, Unix y macOS. Para obtener más información sobre este script, pueden consultar el siguiente enlace: [LinPEAS en GitHub](https://github.com/Cerbersec/scripts/blob/master/linux/linpeas.sh).
 
-Primero, busqué el código del script en GitHub, lo copié y lo guardé en un archivo llamado linpeas.sh en el directorio del usuario Larissa. Para hacer esto, utilicé el editor nano con el siguiente comando:
+Primero, busqué el código del script en GitHub, lo copié y lo guardé en un archivo llamado l**inpeas.sh** en el directorio del usuario **Larissa**. Para hacer esto, utilicé el editor nano con el siguiente comando:
 
 ```bash
 nano linpeas.sh
