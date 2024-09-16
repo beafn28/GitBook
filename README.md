@@ -10,7 +10,7 @@ Mi aprendizaje ha sido tanto académico como autodidacta, y siempre estoy en bus
 
 #### 🌐 ¿Qué encontrarás aquí?
 
-En este espacio, subo **writeups** de distintas plataformas de ciberseguridad. Mi objetivo es compartir mis conocimientos y experiencias, colaborar con otros profesionales y entusiastas del área, y contribuir a la comunidad de la ciberseguridad. Cada writeup que comparto refleja no solo la solución de un reto, sino también las estrategias, metodologías y herramientas que utilizo en mi día a día como estudiante y futura profesional de la seguridad.
+En este espacio, subo **writeups** de distintas plataformas de ciberseguridad y **apuntes** de hacking. Mi objetivo es compartir mis conocimientos y experiencias, colaborar con otros profesionales y entusiastas del área, y contribuir a la comunidad de la ciberseguridad. Cada writeup que comparto refleja no solo la solución de un reto, sino también las estrategias, metodologías y herramientas que utilizo en mi día a día como estudiante y futura profesional de la seguridad.
 
 ### 📬 Contacto
 
