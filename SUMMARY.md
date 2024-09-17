@@ -95,3 +95,4 @@
   * [MySQL](apuntes-hacking/footprinting/mysql.md)
   * [MSSQL](apuntes-hacking/footprinting/mssql.md)
   * [Oracle TNS](apuntes-hacking/footprinting/oracle-tns.md)
+  * [IPMI](apuntes-hacking/footprinting/ipmi.md)
