@@ -100,13 +100,13 @@ Existen muchas razones por las que un servidor MySQL podría ser accesible desde
 ### Escaneo del Servidor MySQL
 
 ```bash
-bashCopiar códigosherlock28@htb[/htb]$ sudo nmap 10.129.14.128 -sV -sC -p3306 --script mysql*
+sherlock28@htb[/htb]$ sudo nmap 10.129.14.128 -sV -sC -p3306 --script mysql*
 ```
 
 **Resultado del escaneo:**
 
 ```less
-lessCopiar códigoStarting Nmap 7.80 ( https://nmap.org ) at 2021-09-21 00:53 CEST
+Starting Nmap 7.80 ( https://nmap.org ) at 2021-09-21 00:53 CEST
 Nmap scan report for 10.129.14.128
 Host is up (0.00021s latency).
 
