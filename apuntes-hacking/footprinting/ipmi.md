@@ -1,6 +1,6 @@
 # IPMI
 
-a Interfaz de Gestión de Plataforma Inteligente (IPMI) es un conjunto de especificaciones estandarizadas para sistemas de gestión de hardware basados en hardware utilizados para la gestión y monitoreo de sistemas. Actúa como un subsistema autónomo y funciona de manera independiente del BIOS, CPU, firmware y sistema operativo subyacente del host. IPMI proporciona a los administradores del sistema la capacidad de gestionar y monitorear sistemas incluso si están apagados o en un estado no respondiente. Opera utilizando una conexión de red directa al hardware del sistema y no requiere acceso al sistema operativo a través de un shell de inicio de sesión. IPMI también se puede utilizar para actualizaciones remotas de sistemas sin requerir acceso físico al host objetivo. IPMI se utiliza comúnmente de las siguientes maneras:
+La Interfaz de Gestión de Plataforma Inteligente (IPMI) es un conjunto de especificaciones estandarizadas para sistemas de gestión de hardware basados en hardware utilizados para la gestión y monitoreo de sistemas. Actúa como un subsistema autónomo y funciona de manera independiente del BIOS, CPU, firmware y sistema operativo subyacente del host. IPMI proporciona a los administradores del sistema la capacidad de gestionar y monitorear sistemas incluso si están apagados o en un estado no respondiente. Opera utilizando una conexión de red directa al hardware del sistema y no requiere acceso al sistema operativo a través de un shell de inicio de sesión. IPMI también se puede utilizar para actualizaciones remotas de sistemas sin requerir acceso físico al host objetivo. IPMI se utiliza comúnmente de las siguientes maneras:
 
 * Antes de que el sistema operativo se haya iniciado para modificar la configuración del BIOS.
 * Cuando el host está completamente apagado.
@@ -76,7 +76,7 @@ msf6 auxiliary(scanner/ipmi/ipmi_version) > run
 **Resultado del Escaneo**
 
 ```
-textCopiar código[*] Sending IPMI requests to 10.129.42.195->10.129.42.195 (1 hosts)
+[*] Sending IPMI requests to 10.129.42.195->10.129.42.195 (1 hosts)
 [+] 10.129.42.195:623 - IPMI - IPMI-2.0 UserAuth(auth_msg, auth_user, non_null_user) PassAuth(password, md5, md2, null) Level(1.5, 2.0) 
 [*] Scanned 1 of 1 hosts (100% complete)
 [*] Auxiliary module execution completed
