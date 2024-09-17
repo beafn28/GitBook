@@ -97,10 +97,186 @@ Las configuraciones `debug` y `sql_warnings` proporcionan una salida de informac
 
 Existen muchas razones por las que un servidor MySQL podría ser accesible desde una red externa. Sin embargo, esto está lejos de ser una de las mejores prácticas y siempre podemos encontrar bases de datos a las que podemos acceder. A menudo, estas configuraciones estaban destinadas a ser temporales pero fueron olvidadas por los administradores. Esta configuración del servidor también podría usarse como una solución alternativa debido a un problema técnico. Normalmente, el servidor MySQL se ejecuta en el puerto TCP 3306, y podemos escanear este puerto con Nmap para obtener información más detallada.
 
-#### Escaneo del Servidor MySQL
+### Escaneo del Servidor MySQL
 
-MySQL
+```bash
+bashCopiar códigosherlock28@htb[/htb]$ sudo nmap 10.129.14.128 -sV -sC -p3306 --script mysql*
+```
 
+**Resultado del escaneo:**
+
+```less
+lessCopiar códigoStarting Nmap 7.80 ( https://nmap.org ) at 2021-09-21 00:53 CEST
+Nmap scan report for 10.129.14.128
+Host is up (0.00021s latency).
+
+PORT     STATE SERVICE     VERSION
+3306/tcp open  nagios-nsca Nagios NSCA
+| mysql-brute: 
+|   Accounts: 
+|     root:<empty> - Valid credentials
+|_  Statistics: Performed 45010 guesses in 5 seconds, average tps: 9002.0
+|_mysql-databases: ERROR: Script execution failed (use -d to debug)
+|_mysql-dump-hashes: ERROR: Script execution failed (use -d to debug)
+| mysql-empty-password: 
+|_  root account has empty password
+| mysql-enum: 
+|   Valid usernames: 
+|     root:<empty> - Valid credentials
+|     netadmin:<empty> - Valid credentials
+|     guest:<empty> - Valid credentials
+|     user:<empty> - Valid credentials
+|     web:<empty> - Valid credentials
+|     sysadmin:<empty> - Valid credentials
+|     administrator:<empty> - Valid credentials
+|     webadmin:<empty> - Valid credentials
+|     admin:<empty> - Valid credentials
+|     test:<empty> - Valid credentials
+|_  Statistics: Performed 10 guesses in 1 seconds, average tps: 10.0
+| mysql-info: 
+|   Protocol: 10
+|   Version: 8.0.26-0ubuntu0.20.04.1
+|   Thread ID: 13
+|   Capabilities flags: 65535
+|   Some Capabilities: SupportsLoadDataLocal, SupportsTransactions, Speaks41ProtocolOld, LongPassword, DontAllowDatabaseTableColumn, Support41Auth, IgnoreSigpipes, SwitchToSSLAfterHandshake, FoundRows, InteractiveClient, Speaks41ProtocolNew, ConnectWithDatabase, IgnoreSpaceBeforeParenthesis, LongColumnFlag, SupportsCompression, ODBCClient, SupportsMultipleStatments, SupportsAuthPlugins, SupportsMultipleResults
+|   Status: Autocommit
+|   Salt: YTSgMfqvx\x0F\x7F\x16\&\x1EAeK>0
+|_  Auth Plugin Name: caching_sha2_password
+|_mysql-users: ERROR: Script execution failed (use -d to debug)
+|_mysql-variables: ERROR: Script execution failed (use -d to debug)
+|_mysql-vuln-cve2012-2122: ERROR: Script execution failed (use -d to debug)
+MAC Address: 00:00:00:00:00:00 (VMware)
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 11.21 seconds
 ```
-bash
+
+Como con todos nuestros escaneos, debemos tener cuidado con los resultados y confirmar manualmente la información obtenida porque algunos datos podrían resultar ser falsos positivos. Este escaneo es un excelente ejemplo de esto, ya que sabemos con certeza que el servidor MySQL objetivo no utiliza una contraseña vacía para el usuario root, sino una contraseña fija. Podemos comprobar esto con el siguiente comando:
+
+### Interacción con el Servidor MySQL
+
+#### Conexión Inicial
+
+```bash
+sherlock28@htb[/htb]$ mysql -u root -h 10.129.14.132
 ```
+
+**Error:**
+
+```sql
+ERROR 1045 (28000): Access denied for user 'root'@'10.129.14.1' (using password: NO)
+```
+
+Por ejemplo, si usamos una contraseña que hemos adivinado o encontrado a través de nuestra investigación, podremos iniciar sesión en el servidor MySQL y ejecutar algunos comandos.
+
+```bash
+sherlock28@htb[/htb]$ mysql -u root -pP4SSw0rd -h 10.129.14.128
+```
+
+**Bienvenida:**
+
+```python
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MySQL connection id is 150165
+Server version: 8.0.27-0ubuntu0.20.04.1 (Ubuntu)                                                          
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.                                     
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.                            
+```
+
+#### Consultas Iniciales
+
+```sql
+MySQL [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+4 rows in set (0.006 sec)
+
+MySQL [(none)]> select version();
++-------------------------+
+| version()               |
++-------------------------+
+| 8.0.27-0ubuntu0.20.04.1 |
++-------------------------+
+1 row in set (0.001 sec)
+
+MySQL [(none)]> use mysql;
+MySQL [mysql]> show tables;
++------------------------------------------------------+
+| Tables_in_mysql                                      |
++------------------------------------------------------+
+| columns_priv                                         |
+| component                                            |
+| db                                                   |
+| default_roles                                        |
+| engine_cost                                          |
+| func                                                 |
+| general_log                                          |
+| global_grants                                        |
+| gtid_executed                                        |
+| help_category                                        |
+| help_keyword                                         |
+| help_relation                                        |
+| help_topic                                           |
+| innodb_index_stats                                   |
+| innodb_table_stats                                   |
+| password_history                                     |
+...SNIP...
+| user                                                 |
++------------------------------------------------------+
+37 rows in set (0.002 sec)
+```
+
+Si revisamos las bases de datos existentes, veremos que ya hay varias. Las bases de datos más importantes para el servidor MySQL son los esquemas del sistema (`sys`) y del esquema de información (`information_schema`). El esquema del sistema contiene tablas, información y metadatos necesarios para la gestión. Más información sobre esta base de datos se puede encontrar en el manual de referencia de MySQL.
+
+```sql
+MySQL> use sys;
+MySQL> show tables;
+
++-----------------------------------------------+
+| Tables_in_sys                                 |
++-----------------------------------------------+
+| host_summary                                  |
+| host_summary_by_file_io                       |
+| host_summary_by_file_io_type                  |
+| host_summary_by_stages                        |
+| host_summary_by_statement_latency             |
+| host_summary_by_statement_type                |
+| innodb_buffer_stats_by_schema                 |
+| innodb_buffer_stats_by_table                  |
+| innodb_lock_waits                             |
+...SNIP...
+| x$waits_global_by_latency                     |
++-----------------------------------------------+
+
+MySQL> select host, unique_users from host_summary;
+
++-------------+--------------+                   
+| host        | unique_users |                   
++-------------+--------------+                   
+| 10.129.14.1 |            1 |                   
+| localhost   |            2 |                   
++-------------+--------------+                   
+2 rows in set (0,01 sec)  
+```
+
+El esquema de información es también una base de datos que contiene metadatos. Sin embargo, estos metadatos se recuperan principalmente del esquema del sistema. La razón de la existencia de estos dos esquemas es el estándar ANSI/ISO que se ha establecido. El esquema del sistema es un catálogo del sistema de Microsoft para servidores SQL y contiene mucha más información que el esquema de información.
+
+#### Comandos Útiles para MySQL
+
+| Comando                                              | Descripción                                                                                |
+| ---------------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| `mysql -u <user> -p<password> -h <IP address>`       | Conectar al servidor MySQL. No debe haber un espacio entre la opción `-p` y la contraseña. |
+| `show databases;`                                    | Mostrar todas las bases de datos.                                                          |
+| `use <database>;`                                    | Seleccionar una de las bases de datos existentes.                                          |
+| `show tables;`                                       | Mostrar todas las tablas disponibles en la base de datos seleccionada.                     |
+| `show columns from <table>;`                         | Mostrar todas las columnas en la tabla seleccionada.                                       |
+| `select * from <table>;`                             | Mostrar todo el contenido de la tabla deseada.                                             |
+| `select * from <table> where <column> = "<string>";` | Buscar una cadena específica en la columna deseada de la tabla.                            |
+
+Debemos saber cómo interactuar con diferentes bases de datos. Por lo tanto, recomendamos instalar y configurar un servidor MySQL en una de nuestras máquinas virtuales para experimentar. También hay una sección de problemas de seguridad ampliamente cubierta en el manual de referencia que trata sobre las mejores prácticas para asegurar los servidores MySQL. Deberíamos utilizar esto al configurar nuestro servidor MySQL para entender mejor por qué algo podría no funcionar.
