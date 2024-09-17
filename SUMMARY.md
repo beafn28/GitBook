@@ -94,3 +94,4 @@
   * [SNMP](apuntes-hacking/footprinting/snmp.md)
   * [MySQL](apuntes-hacking/footprinting/mysql.md)
   * [MSSQL](apuntes-hacking/footprinting/mssql.md)
+  * [Oracle TNS](apuntes-hacking/footprinting/oracle-tns.md)
