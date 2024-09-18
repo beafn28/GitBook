@@ -1,5 +1,9 @@
 # WHOIS
 
+
+
+{% file src="../../.gitbook/assets/Information_Gathering_Web_Edition_Module_Cheat_Sheet.pdf" %}
+
 WHOIS es un protocolo ampliamente utilizado de consulta y respuesta diseñado para acceder a bases de datos que almacenan información sobre recursos de internet registrados. Aunque se asocia principalmente con nombres de dominio, WHOIS también puede proporcionar detalles sobre bloques de direcciones IP y sistemas autónomos. Piensa en él como una gran guía telefónica de internet que te permite buscar quién posee o es responsable de varios activos en línea.
 
 ### **Ejemplo de WHOIS**
