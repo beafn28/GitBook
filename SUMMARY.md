@@ -100,4 +100,5 @@
   * [Windows Remote Management Protocols](apuntes-hacking/footprinting/windows-remote-management-protocols.md)
 * [INFORMATION GATHERING-WEB EDITION](apuntes-hacking/information-gathering-web-edition/README.md)
   * [WHOIS](apuntes-hacking/information-gathering-web-edition/whois.md)
-  * [DNS](apuntes-hacking/information-gathering-web-edition/dns.md)
+  * [DNS](apuntes-hacking/information-gathering-web-edition/dns/README.md)
+    * [Digging DNS](apuntes-hacking/information-gathering-web-edition/dns/digging-dns.md)
