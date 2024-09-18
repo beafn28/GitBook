@@ -222,8 +222,6 @@ A continuación, una tabla con los comandos más frecuentemente abusados, el dae
 | **rexec**  | rexecd          | 512    | TCP                     | Ejecuta comandos shell en un sistema remoto. Requiere autenticación con usuario y contraseña, pero puede ser reemplazada por las entradas de confianza en `/etc/hosts.equiv` y `.rhosts`. |
 | **rlogin** | rlogind         | 513    | TCP                     | Permite a un usuario iniciar sesión en un host remoto. Similar a telnet pero solo para hosts tipo Unix.                                                                                   |
 
-***
-
 ### Archivo `/etc/hosts.equiv`
 
 El archivo **`/etc/hosts.equiv`** contiene una lista de hosts confiables que permiten el acceso sin autenticación adicional.
