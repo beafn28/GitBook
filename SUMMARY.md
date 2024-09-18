@@ -97,3 +97,4 @@
   * [Oracle TNS](apuntes-hacking/footprinting/oracle-tns.md)
   * [IPMI](apuntes-hacking/footprinting/ipmi.md)
   * [Linux Remote Management Protocols](apuntes-hacking/footprinting/linux-remote-management-protocols.md)
+  * [Windows Remote Management Protocols](apuntes-hacking/footprinting/windows-remote-management-protocols.md)
