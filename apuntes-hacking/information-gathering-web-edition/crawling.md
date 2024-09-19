@@ -11,7 +11,7 @@ La operación básica de un rastreador web es simple pero poderosa. Comienza con
 1.  **Página de inicio:** Comienzas con la página de inicio que contiene `enlace1`, `enlace2` y `enlace3`.
 
     ```plaintext
-    plaintextCopiar códigoPágina de inicio
+    Página de inicio
     ├── enlace1
     ├── enlace2
     └── enlace3
@@ -19,7 +19,7 @@ La operación básica de un rastreador web es simple pero poderosa. Comienza con
 2.  **Visitando enlace1:** Al visitar `enlace1`, se muestra la página de inicio, `enlace2`, y también `enlace4` y `enlace5`.
 
     ```plaintext
-    plaintextCopiar códigoPágina de enlace1
+    Página de enlace1
     ├── Página de inicio
     ├── enlace2
     ├── enlace4
