@@ -115,3 +115,4 @@
   * [Search Engine Discovery](apuntes-hacking/information-gathering-web-edition/search-engine-discovery.md)
   * [Web Archives](apuntes-hacking/information-gathering-web-edition/web-archives.md)
   * [Automating Recon](apuntes-hacking/information-gathering-web-edition/automating-recon.md)
+* [Vulnerability Assessment](apuntes-hacking/vulnerability-assessment.md)
