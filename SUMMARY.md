@@ -117,3 +117,4 @@
   * [Automating Recon](apuntes-hacking/information-gathering-web-edition/automating-recon.md)
 * [Vulnerability Assessment](apuntes-hacking/vulnerability-assessment/README.md)
   * [Vulnerability Assessment](apuntes-hacking/vulnerability-assessment/vulnerability-assessment.md)
+  * [Assessment Standards](apuntes-hacking/vulnerability-assessment/assessment-standards.md)
