@@ -112,3 +112,4 @@
     * [robots.txt](apuntes-hacking/information-gathering-web-edition/crawling/robots.txt.md)
     * [Well-Known URIs](apuntes-hacking/information-gathering-web-edition/crawling/well-known-uris.md)
     * [Creepy Crawlies](apuntes-hacking/information-gathering-web-edition/crawling/creepy-crawlies.md)
+  * [Search Engine Discovery](apuntes-hacking/information-gathering-web-edition/search-engine-discovery.md)
