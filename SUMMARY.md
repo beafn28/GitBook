@@ -106,3 +106,4 @@
     * [Subdomain Bruteforcing](apuntes-hacking/information-gathering-web-edition/subdomains/subdomain-bruteforcing.md)
     * [DNS Zone Transfers](apuntes-hacking/information-gathering-web-edition/subdomains/dns-zone-transfers.md)
     * [Virtual Hosts](apuntes-hacking/information-gathering-web-edition/subdomains/virtual-hosts.md)
+    * [Certificate Transparency Logs](apuntes-hacking/information-gathering-web-edition/subdomains/certificate-transparency-logs.md)
