@@ -33,7 +33,7 @@ Este ejemplo ilustra cómo un rastreador web descubre y recopila información si
 
 El rastreo en anchura prioriza explorar el ancho de un sitio web antes de profundizar. Comienza rastreando todos los enlaces en la página inicial, luego pasa a los enlaces en esas páginas, y así sucesivamente. Esto es útil para obtener una visión general del contenido y la estructura de un sitio web.
 
-<figure><img src="../../.gitbook/assets/pako_eNo90D0PgjAQBuC_0twsg98Jgwkf6oKJgThZhkpPIEohpR0M4b970shNd09uuHsHKFqJ4EOpRVexJOWqtw83ZIiS3dKEK0YV3K-iRLbMuUIluQqY5x1Y6HSV_yFysCYIJ4gdbGY4OtgSRBOcHOxmODvYE8ACGtSNqCXdOPwu4WAqbJCDT60U-sWBq5H2hDVt9lEF-EZbXIBubVm.svg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/pako_eNo90D0PgjAQBuC_0twsg98Jgwkf6oKJgThZhkpPIEohpR0M4b970shNd09uuHsHKFqJ4EOpRVexJOWqtw83ZIiS3dKEK0YV3K-iRLbMuUIluQqY5x1Y6HSV_yFysCYIJ4gdbGY4OtgSRBOcHOxmODvYE8ACGtSNqCXdOPwu4WAqbJCDT60U-sWBq5H2hDVt9lEF-EZbXIBubVm.svg" alt=""><figcaption></figcaption></figure>
 
 ### **Rastreo en Profundidad (Depth-First Crawling)**
 
@@ -41,7 +41,7 @@ En contraste, el rastreo en profundidad prioriza la profundidad sobre el ancho. 
 
 La elección de la estrategia depende de los objetivos específicos del proceso de rastreo.
 
-<figure><img src="../../.gitbook/assets/pako_eNo9zz0PgjAQBuC_0twsg18LgwlfGyYG4uQ5VHoC0RZS2sEQ_rsnTezU98mlvXeGZlAEMbRWjp0oKzSTf4RQEylxrUo0gk9yu8iWxPaOhoxCk4goOok06I41XSELsGfIVsgDHBjyFYoAR4YivCEEGtiAJqtlr3iZ-fclgutIE0LMVyXtCwHNwnPSu6H-mAZiZz1twA6-7SB-yvf.svg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/pako_eNo9zz0PgjAQBuC_0twsg18LgwlfGyYG4uQ5VHoC0RZS2sEQ_rsnTezU98mlvXeGZlAEMbRWjp0oKzSTf4RQEylxrUo0gk9yu8iWxPaOhoxCk4goOok06I41XSELsGfIVsgDHBjyFYoAR4YivCEEGtiAJqtlr3iZ-fclgutIE0LMVyXtCwHNwnPSu6H-mAZiZz1twA6-7SB-yvf.svg" alt=""><figcaption></figcaption></figure>
 
 ## **Extracción de Información Valiosa**
 

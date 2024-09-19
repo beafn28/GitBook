@@ -108,4 +108,5 @@
     * [Virtual Hosts](apuntes-hacking/information-gathering-web-edition/subdomains/virtual-hosts.md)
     * [Certificate Transparency Logs](apuntes-hacking/information-gathering-web-edition/subdomains/certificate-transparency-logs.md)
   * [Fingerprinting](apuntes-hacking/information-gathering-web-edition/fingerprinting.md)
-  * [Crawling](apuntes-hacking/information-gathering-web-edition/crawling.md)
+  * [Crawling](apuntes-hacking/information-gathering-web-edition/crawling/README.md)
+    * [robots.txt](apuntes-hacking/information-gathering-web-edition/crawling/robots.txt.md)
