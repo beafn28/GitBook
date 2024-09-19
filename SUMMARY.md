@@ -118,3 +118,4 @@
 * [Vulnerability Assessment](apuntes-hacking/vulnerability-assessment/README.md)
   * [Vulnerability Assessment](apuntes-hacking/vulnerability-assessment/vulnerability-assessment.md)
   * [Assessment Standards](apuntes-hacking/vulnerability-assessment/assessment-standards.md)
+* [Common Vulnerability Scoring System (CVSS)](apuntes-hacking/common-vulnerability-scoring-system-cvss.md)
