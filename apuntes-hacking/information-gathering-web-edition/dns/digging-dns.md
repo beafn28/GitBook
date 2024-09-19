@@ -73,7 +73,7 @@ Este resultado de una consulta DNS usando el comando `dig` para el dominio `goog
 ### **1. Encabezado**
 
 ```yaml
-yamlCopiar código;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 16449
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 16449
 ;; flags: qr rd ad; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 0
 ;; WARNING: recursion requested but not available
 ```
