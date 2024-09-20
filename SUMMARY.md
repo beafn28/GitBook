@@ -126,3 +126,4 @@
   * [Advanced Settings](apuntes-hacking/nessus/advanced-settings.md)
   * [Working with Nessus Scan Output](apuntes-hacking/nessus/working-with-nessus-scan-output.md)
   * [Scanning Issues](apuntes-hacking/nessus/scanning-issues.md)
+* [OpenVAS](apuntes-hacking/openvas.md)
