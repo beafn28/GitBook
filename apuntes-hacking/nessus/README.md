@@ -21,10 +21,10 @@ Las organizaciones deben ejecutar tanto escaneos no autenticados como autenticad
 
 **Nessus Essentials** de Tenable es la versión gratuita del escáner oficial de vulnerabilidades Nessus. Los usuarios pueden acceder a Nessus Essentials para comenzar a entender el escáner de vulnerabilidades de Tenable. La limitación es que solo puede ser utilizado para hasta 16 hosts. Las características de la versión gratuita son limitadas, pero son perfectas para aquellos que desean comenzar con Nessus. El escáner gratuito intentará identificar vulnerabilidades en un entorno.
 
-<figure><img src="../.gitbook/assets/Nessus_Essentials___Folders___View_Scan.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Nessus_Essentials___Folders___View_Scan.png" alt=""><figcaption></figcaption></figure>
 
 ## **Vista General de OpenVAS**
 
 **OpenVAS** de Greenbone Networks es un escáner de vulnerabilidades de código abierto y disponible públicamente. OpenVAS puede realizar escaneos de red, incluyendo pruebas autenticadas y no autenticadas.
 
-<figure><img src="../.gitbook/assets/dashboard.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/dashboard.webp" alt=""><figcaption></figcaption></figure>
