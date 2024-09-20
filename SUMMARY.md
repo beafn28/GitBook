@@ -65,6 +65,7 @@
   * [Wakanda](writeups/vulnhub/wakanda.md)
 * [The Hacker Labs](writeups/the-hacker-labs/README.md)
   * [Avengers](writeups/the-hacker-labs/avengers.md)
+  * [Can you hack me?](writeups/the-hacker-labs/can-you-hack-me.md)
 
 ## APUNTES HACKING
 
