@@ -129,3 +129,4 @@
 * [OpenVAS](apuntes-hacking/openvas/README.md)
   * [OpenVAS Scan](apuntes-hacking/openvas/openvas-scan.md)
   * [Exporting The Results](apuntes-hacking/openvas/exporting-the-results.md)
+* [Reporting](apuntes-hacking/reporting.md)
