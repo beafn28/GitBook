@@ -128,3 +128,4 @@
   * [Scanning Issues](apuntes-hacking/nessus/scanning-issues.md)
 * [OpenVAS](apuntes-hacking/openvas/README.md)
   * [OpenVAS Scan](apuntes-hacking/openvas/openvas-scan.md)
+  * [Exporting The Results](apuntes-hacking/openvas/exporting-the-results.md)
