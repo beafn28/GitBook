@@ -2,7 +2,7 @@
 
 **OpenVAS**, desarrollado por Greenbone Networks, es un escáner de vulnerabilidades de código abierto. Forma parte del **Greenbone Vulnerability Manager** (GVM), que también es público y gratuito. OpenVAS tiene capacidades para realizar escaneos de red, incluyendo pruebas autenticadas y no autenticadas.
 
-<figure><img src="../.gitbook/assets/Greenbone_Security_Assistant.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Greenbone_Security_Assistant.webp" alt=""><figcaption></figcaption></figure>
 
 ## **Instalación en Parrot Security**
 
@@ -32,7 +32,7 @@ Para empezar a usar OpenVAS, sigue las instrucciones de instalación a continuac
 
     Este proceso puede tardar hasta **30 minutos**.
 
-<figure><img src="../.gitbook/assets/gvmsetup.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gvmsetup.webp" alt=""><figcaption></figcaption></figure>
 
 ## **Iniciar OpenVAS**
 
@@ -42,7 +42,7 @@ Una vez que la configuración haya terminado, puedes iniciar OpenVAS con el sigu
 sherlock28@htb[/htb]$ gvm-start
 ```
 
-<figure><img src="../.gitbook/assets/gvmstart.webp" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/gvmstart.webp" alt=""><figcaption></figcaption></figure>
 
 **Acceso a OpenVAS**
 
