@@ -124,3 +124,4 @@
   * [Getting Started with Nessus](apuntes-hacking/nessus/getting-started-with-nessus.md)
   * [Nessus Scan](apuntes-hacking/nessus/nessus-scan.md)
   * [Advanced Settings](apuntes-hacking/nessus/advanced-settings.md)
+  * [Working with Nessus Scan Output](apuntes-hacking/nessus/working-with-nessus-scan-output.md)
