@@ -11,7 +11,7 @@ description: '✍️ Autor: beafn28🔍 Dificultad: Fácil  📅 Fecha de creaci
 En primer lugar, tras conectarnos a la máquina, utilizamos el comando:
 
 ```bash
-ping -c 1 172.21.0.2
+ping -c 1 172.17.0.2
 ```
 
 para verificar la conectividad de red.
@@ -58,7 +58,7 @@ que utiliza la herramienta **Hydra** para realizar un ataque de fuerza bruta con
 
 <figure><img src="../.gitbook/assets/imagen (5).png" alt=""><figcaption></figcaption></figure>
 
-Al realizar el ataque de fuerza bruta, hemos descubierto la contraseña de **russoski**. Sabiendo esto, nos conectamos a través de **FTP** al usuario con el comando:
+Al realizar el ataque de fuerza bruta, hemos descubierto la contraseña de **a**. Sabiendo esto, nos conectamos a través de **FTP** al usuario con el comando:
 
 ```bash
 ftp a@172.17.0.2
