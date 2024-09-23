@@ -131,6 +131,7 @@
   * [OpenVAS Scan](apuntes-hacking/openvas/openvas-scan.md)
   * [Exporting The Results](apuntes-hacking/openvas/exporting-the-results.md)
 * [Reporting](apuntes-hacking/reporting.md)
+* [File Transfers](apuntes-hacking/file-transfers.md)
 
 ## Mis CTFs
 
