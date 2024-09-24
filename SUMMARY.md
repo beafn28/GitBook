@@ -136,6 +136,7 @@
   * [Linux File Transfer Methods](apuntes-hacking/file-transfers/linux-file-transfer-methods.md)
   * [Transferring Files with Code](apuntes-hacking/file-transfers/transferring-files-with-code.md)
   * [Miscellaneous File Transfer Methods](apuntes-hacking/file-transfers/miscellaneous-file-transfer-methods.md)
+  * [Protected File Transfers](apuntes-hacking/file-transfers/protected-file-transfers.md)
 
 ## Mis CTFs
 
