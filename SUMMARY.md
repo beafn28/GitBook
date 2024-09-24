@@ -133,6 +133,7 @@
 * [Reporting](apuntes-hacking/reporting.md)
 * [File Transfers](apuntes-hacking/file-transfers/README.md)
   * [Windows File Transfer Methods](apuntes-hacking/file-transfers/windows-file-transfer-methods.md)
+  * [Linux File Transfer Methods](apuntes-hacking/file-transfers/linux-file-transfer-methods.md)
 
 ## Mis CTFs
 
