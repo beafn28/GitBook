@@ -138,6 +138,7 @@
   * [Miscellaneous File Transfer Methods](apuntes-hacking/file-transfers/miscellaneous-file-transfer-methods.md)
   * [Protected File Transfers](apuntes-hacking/file-transfers/protected-file-transfers.md)
   * [Catching Files over HTTP/S](apuntes-hacking/file-transfers/catching-files-over-http-s.md)
+  * [Living off The Land](apuntes-hacking/file-transfers/living-off-the-land.md)
 
 ## Mis CTFs
 
