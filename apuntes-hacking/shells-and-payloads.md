@@ -41,3 +41,39 @@ Dentro de la industria de TI, un **payload** puede definirse de varias formas:
 * **Explotación y Seguridad**: Un **payload** es código diseñado con la intención de explotar una vulnerabilidad en un sistema informático. El término "payload" puede describir varios tipos de malware, incluidos pero no limitados a ransomware.
 
 En este módulo, trabajaremos con muchos tipos diferentes de **payloads** y métodos de entrega dentro del contexto de otorgarnos acceso a un host y establecer sesiones de shell remoto en sistemas vulnerables.
+
+## Preparación para el Compromiso de CAT5 Security
+
+Somos un tester de penetración trabajando para **CAT5 Security**, y estamos preparándonos para realizar un compromiso para nuestro cliente, **Inlanefreight**. Los miembros más experimentados del equipo de CAT5 quieren evaluar nuestras habilidades con **shells** y **payloads** antes de incluirnos en el compromiso real.
+
+La evaluación final de este módulo consiste en una serie de desafíos que **CAT5 Security** ha creado para probar nuestras habilidades. Completar el desafío significa que hemos pasado la evaluación.
+
+### Conceptos Básicos de Shell
+
+Replicar la capacidad de obtener un shell **bind** y **reverse**:
+
+1. **Shell bind en un host Linux**.
+2. **Shell reverse en un host Windows**.
+
+### Conceptos Básicos de Payload
+
+1. **Demostrar el lanzamiento de un payload desde Metasploit Framework (MSF)**.
+2. **Demostrar la búsqueda y construcción de un payload desde PoC en ExploitDB**.
+3. **Demostrar conocimiento en la creación de payloads**.
+
+### Obtener un Shell en Windows
+
+Usando los resultados de la recon proporcionada, crear o utilizar un **payload** que explote el host y proporcione un **shell** de vuelta.
+
+### Obtener un Shell en Linux
+
+Usando los resultados de la recon proporcionada, crear o utilizar un **payload** que explote el host y establezca una sesión de shell.
+
+### Implementar un Web Shell
+
+1. Demostrar conocimiento de **web shells** y aplicaciones web comunes, identificando una aplicación web común y su lenguaje correspondiente.
+2. Usar los resultados de la recon proporcionada para desplegar un **payload** que proporcione acceso a un shell desde el navegador.
+
+### Detectar un Shell o Payload
+
+Detectar la presencia de un **payload** o un shell interactivo en un host mediante el análisis de la información relevante proporcionada.
