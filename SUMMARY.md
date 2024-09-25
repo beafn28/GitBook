@@ -141,6 +141,7 @@
   * [Living off The Land](apuntes-hacking/file-transfers/living-off-the-land.md)
   * [Detection](apuntes-hacking/file-transfers/detection.md)
   * [Evading Detection](apuntes-hacking/file-transfers/evading-detection.md)
+* [Shells & Payloads](apuntes-hacking/shells-and-payloads.md)
 
 ## Mis CTFs
 
