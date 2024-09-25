@@ -142,7 +142,7 @@
   * [Detection](apuntes-hacking/file-transfers/detection.md)
   * [Evading Detection](apuntes-hacking/file-transfers/evading-detection.md)
 * [Shells & Payloads](apuntes-hacking/shells-and-payloads/README.md)
-  * [Page 1](apuntes-hacking/shells-and-payloads/page-1.md)
+  * [Anatomy of a Shell](apuntes-hacking/shells-and-payloads/anatomy-of-a-shell.md)
 
 ## Mis CTFs
 
