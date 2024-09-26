@@ -33,7 +33,7 @@ Como podemos observar durante el escaneo que el **puerto 22** perteneciente al *
 Se utiliza el comando:
 
 ```bash
-sudo nmap -sCV -p21,22,80 -v 192.168.1.60
+sudo nmap -sCV -p22,80 -v 192.168.1.60
 ```
 
 para obtener más información sobre ese puerto específicamente.
