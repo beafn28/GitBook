@@ -55,7 +55,7 @@ Descubrimos un posible nombre de usuario llamado **juan** por lo que realizaremo
 Con la información obtenida anteriormente, realizamos el comando:
 
 ```bash
-hydra -l juan-P /usr/share/wordlists/rockyou.txt ssh://192.168.1.53
+hydra -l juan -P /usr/share/wordlists/rockyou.txt ssh://192.168.1.53
 ```
 
 que utiliza la herramienta **Hydra** para realizar un ataque de fuerza bruta contra el servicio **SSH** de una máquina con la IP **192.168.1.53**.
