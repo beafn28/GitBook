@@ -4,8 +4,6 @@ description: '✍️ Autor: beafn28🔍 Dificultad: Fácil  📅 Fecha de creaci
 
 # Pequeñas Mentirosas
 
-[Descargar archivo](https://mega.nz/file/oqs1hRDK#0kxvm35L2zRoAJiwDw0OSA4BvGycwqu0F0gQ2PdPwj4)
-
 ### 🔍 RECONOCIMIENTO
 
 En primer lugar, tras conectarnos a la máquina, utilizamos el comando:
