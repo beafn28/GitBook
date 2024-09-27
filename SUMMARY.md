@@ -146,7 +146,8 @@
   * [Anatomy of a Shell](apuntes-hacking/shells-and-payloads/anatomy-of-a-shell.md)
   * [Bind Shells](apuntes-hacking/shells-and-payloads/bind-shells.md)
   * [Reverse Shells](apuntes-hacking/shells-and-payloads/reverse-shells.md)
-  * [Payloads](apuntes-hacking/shells-and-payloads/payloads.md)
+  * [Payloads](apuntes-hacking/shells-and-payloads/payloads/README.md)
+    * [Automating Payloads & Delivery with Metasploitpo](apuntes-hacking/shells-and-payloads/payloads/automating-payloads-and-delivery-with-metasploitpo.md)
 
 ## Mis CTFs
 
