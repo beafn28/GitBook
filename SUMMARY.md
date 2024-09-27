@@ -151,6 +151,7 @@
     * [Crafting Payloads with MSFvenom](apuntes-hacking/shells-and-payloads/payloads/crafting-payloads-with-msfvenom.md)
     * [Infiltrating Windows](apuntes-hacking/shells-and-payloads/payloads/infiltrating-windows.md)
     * [Infiltrating Unix/Linux](apuntes-hacking/shells-and-payloads/payloads/infiltrating-unix-linux.md)
+    * [Spawning Interactive Shells](apuntes-hacking/shells-and-payloads/payloads/spawning-interactive-shells.md)
 
 ## Mis CTFs
 
