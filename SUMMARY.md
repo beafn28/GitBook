@@ -150,6 +150,7 @@
     * [Automating Payloads & Delivery with Metasploit](apuntes-hacking/shells-and-payloads/payloads/automating-payloads-and-delivery-with-metasploitpo.md)
     * [Crafting Payloads with MSFvenom](apuntes-hacking/shells-and-payloads/payloads/crafting-payloads-with-msfvenom.md)
     * [Infiltrating Windows](apuntes-hacking/shells-and-payloads/payloads/infiltrating-windows.md)
+    * [Infiltrating Unix/Linux](apuntes-hacking/shells-and-payloads/payloads/infiltrating-unix-linux.md)
 
 ## Mis CTFs
 
