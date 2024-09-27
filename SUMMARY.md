@@ -147,8 +147,9 @@
   * [Bind Shells](apuntes-hacking/shells-and-payloads/bind-shells.md)
   * [Reverse Shells](apuntes-hacking/shells-and-payloads/reverse-shells.md)
   * [Payloads](apuntes-hacking/shells-and-payloads/payloads/README.md)
-    * [Automating Payloads & Delivery with Metasploit](apuntes-hacking/shells-and-payloads/payloads/automating-payloads-and-delivery-with-metasploit.md)
+    * [Automating Payloads & Delivery with Metasploit](apuntes-hacking/shells-and-payloads/payloads/automating-payloads-and-delivery-with-metasploitpo.md)
     * [Crafting Payloads with MSFvenom](apuntes-hacking/shells-and-payloads/payloads/crafting-payloads-with-msfvenom.md)
+    * [Infiltrating Windows](apuntes-hacking/shells-and-payloads/payloads/infiltrating-windows.md)
 
 ## Mis CTFs
 
