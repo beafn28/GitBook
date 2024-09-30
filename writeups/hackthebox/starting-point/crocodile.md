@@ -27,7 +27,7 @@ Iniciamos la máquina y verificamos la conexión.
 ping -c 1 10.129.49.118
 ```
 
-<figure><img src="../../../.gitbook/assets/image (536).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (563).png" alt=""><figcaption></figcaption></figure>
 
 Observamos que tenemos conexión y que es una máquina **Linux** ya que su **ttl=63**.
 
@@ -41,25 +41,25 @@ nmap -p- --min-rate 5000 -sV 10.129.49.118
 
 para realizar un escaneo de puertos y servicios detallado en la dirección IP.
 
-<figure><img src="../../../.gitbook/assets/image (537).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (564).png" alt=""><figcaption></figcaption></figure>
 
 ### 4. 🚪 **Acceso Inicial**
 
 Como podemos observar durante el escaneo, el puerto **21** perteneciendo al servicio **FTP** y el **puerto 80** perteneciendo al servicio **HTTP** están abiertos, por lo que se procederá a indagar más.
 
-<figure><img src="../../../.gitbook/assets/image (538).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (565).png" alt=""><figcaption></figcaption></figure>
 
 Así de primeras no se nos muestra nada relevante ni en el código fuente por lo que usamos la herramienta **Whatweb** para saber más información.
 
-<figure><img src="../../../.gitbook/assets/image (539).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (566).png" alt=""><figcaption></figcaption></figure>
 
 Se nos muestra dos correos por lo que miraremos si son relevantes o no. A continuación me conecto a través del servicio **FTP**.
 
-<figure><img src="../../../.gitbook/assets/image (540).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (567).png" alt=""><figcaption></figcaption></figure>
 
 Descubrimos unas credenciales.
 
-<figure><img src="../../../.gitbook/assets/image (541).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (568).png" alt=""><figcaption></figcaption></figure>
 
 Ahora buscaremos directorios con la herramienta **Gobuster** a través de:
 
@@ -67,15 +67,15 @@ Ahora buscaremos directorios con la herramienta **Gobuster** a través de:
 gobuster dir -u http://10.129.49.118/ -w /opt/SecLists/Discovery/Web-Content/directory-list-2.3-small.txt -t 
 ```
 
-<figure><img src="../../../.gitbook/assets/image (544).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (571).png" alt=""><figcaption></figcaption></figure>
 
 ### 5. 🔑 **Captura de la Flag**
 
 Miramos el `login.php`. Probamos las credenciales descubiertas en el servicio **FTP**. Tenemos suerte con la última credencial.
 
-<figure><img src="../../../.gitbook/assets/image (542).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (569).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (543).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (570).png" alt=""><figcaption></figcaption></figure>
 
 ### 6. ❓Preguntas
 
@@ -137,4 +137,4 @@ El archivo `login.php` es comúnmente utilizado para proporcionar una interfaz d
 
 c7110277ac44d78b6a9fff2232434d16
 
-<figure><img src="../../../.gitbook/assets/image (545).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (572).png" alt=""><figcaption></figcaption></figure>

@@ -23,7 +23,7 @@ Iniciamos la máquina y verificamos la conexión.
 ping -c 1 10.129.1.12
 ```
 
-<figure><img src="../../../.gitbook/assets/image (503).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (530).png" alt=""><figcaption></figcaption></figure>
 
 Observamos que tenemos conexión y que es una máquina **Windows** ya que su **ttl=127**.
 
@@ -37,13 +37,13 @@ nmap 10.129.1.12
 
 para realizar un escaneo de puertos y servicios detallado en la dirección IP.
 
-<figure><img src="../../../.gitbook/assets/image (504).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (531).png" alt=""><figcaption></figcaption></figure>
 
 ### 4. 🚪 **Acceso Inicial**
 
 Como podemos observar durante el escaneo, el puerto **135** perteneciente al servicio **MSRPC** está abierto, junto con los puertos **139** y **445**, que están asociados a **NetBIOS-SSN** y **Microsoft-DS** respectivamente. Por lo tanto, se procederá a indagar más sobre estos servicios para evaluar posibles vulnerabilidades.
 
-<figure><img src="../../../.gitbook/assets/image (505).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (532).png" alt=""><figcaption></figcaption></figure>
 
 Nos hemos conectado al servicio **SMB** y no ha requerido ninguna contraseña.
 
@@ -51,9 +51,9 @@ Nos hemos conectado al servicio **SMB** y no ha requerido ninguna contraseña.
 
 Tras estar dentro listamos y encontramos dos directorios en lo que accederemos por si encontramos la `flag.txt` y nos lo descargamos.
 
-<figure><img src="../../../.gitbook/assets/image (506).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (533).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (507).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (534).png" alt=""><figcaption></figcaption></figure>
 
 ### 6. ❓Preguntas
 
@@ -95,4 +95,4 @@ _El comando `get` se usa dentro del shell de SMB para descargar archivos desde e
 **Tarea 8: Envía la flag de root**\
 5f61c10dffbc77a704d76016a22f1664
 
-<figure><img src="../../../.gitbook/assets/image (508).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (535).png" alt=""><figcaption></figcaption></figure>

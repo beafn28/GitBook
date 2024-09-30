@@ -7,13 +7,13 @@ Ingresamos las credenciales para el nivel 0.
 * **Usuario:** `natas0`
 * **Contraseña:** `natas0`
 
-<figure><img src="../../../.gitbook/assets/image (307).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (334).png" alt=""><figcaption></figcaption></figure>
 
 Tras iniciar sesión, nos encontramos con la página de inicio del **Nivel 0**. El mensaje indica que la contraseña para el siguiente nivel está en la página, así que revisamos el código fuente. Ahí, comentada, se encuentra la contraseña para avanzar al siguiente nivel.
 
-<figure><img src="../../../.gitbook/assets/image (308).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (335).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (309).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (336).png" alt=""><figcaption></figcaption></figure>
 
 ### NIVEL 1
 
@@ -24,9 +24,9 @@ Ingresamos las credenciales para el nivel 1.
 
 Tras iniciar sesión, verás la página de inicio del **Nivel 1** con un mensaje que indica que el clic derecho está bloqueado. Sin embargo, menciona que la contraseña está en la página web. Para encontrarla, utiliza `Ctrl+Shift+I` para abrir las herramientas de desarrollo y examinar el código fuente en busca de la contraseña del próximo nivel.
 
-<figure><img src="../../../.gitbook/assets/image (310).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (337).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (311).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (338).png" alt=""><figcaption></figcaption></figure>
 
 ### NIVEL 2
 
@@ -37,15 +37,15 @@ Ingresamos las credenciales para el nivel 2.
 
 Tras iniciar sesión, verás la página de inicio del **Nivel 2** con un mensaje que dice que no hay nada en la página web. Al inspeccionar el código fuente, notarás un directorio que parece interesante. Vamos a investigarlo más a fondo.
 
-<figure><img src="../../../.gitbook/assets/image (312).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (339).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (313).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (340).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (314).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (341).png" alt=""><figcaption></figcaption></figure>
 
 Al explorar el directorio, encontramos dos archivos. Uno de ellos es **users.txt**, que nos llama la atención. Decidimos abrirlo para ver si contiene la contraseña para el siguiente nivel.
 
-<figure><img src="../../../.gitbook/assets/image (315).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (342).png" alt=""><figcaption></figcaption></figure>
 
 ### NIVEL 3
 
@@ -56,21 +56,21 @@ Ingresamos las credenciales para el nivel 3.
 
 Tras iniciar sesión, verás la página de inicio del **Nivel 3** con un mensaje que dice que no hay nada en esta página. Sin embargo, al revisar el código fuente, encontramos un mensaje que llama nuestra atención y podría contener una pista importante.
 
-<figure><img src="../../../.gitbook/assets/image (316).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (343).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (317).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (344).png" alt=""><figcaption></figcaption></figure>
 
 La pista **"Not even Google will find it this time…"** sugiere que la información relevante puede estar en el archivo `robots.txt`. Este archivo es utilizado por los servidores web para dar instrucciones a los motores de búsqueda sobre qué páginas o archivos no deben ser indexados.
 
-<figure><img src="../../../.gitbook/assets/image (318).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (345).png" alt=""><figcaption></figcaption></figure>
 
 Por lo que entramos en ese directorio para indagar si hay algún archivo interesante que tenga la contraseña.
 
-<figure><img src="../../../.gitbook/assets/image (319).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (346).png" alt=""><figcaption></figcaption></figure>
 
 Al ser **users.txt** el único archivo entramos en él donde definitivamente se encuentra la contraseña para el siguiente nivel.
 
-<figure><img src="../../../.gitbook/assets/image (320).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (347).png" alt=""><figcaption></figcaption></figure>
 
 ### NIVEL 4
 
@@ -93,13 +93,13 @@ Siguiendo estos pasos, deberías poder acceder al contenido restringido y obtene
 
 Tras esto miramos **HTTP history** y mandamos una petición al **Repeater**.
 
-<figure><img src="../../../.gitbook/assets/image (301).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (328).png" alt=""><figcaption></figcaption></figure>
 
 Tras mandarlo al **Repeater**, cambiamos el encabezado **Referer**. Como puedes ver, el campo **Referer** del paquete está configurado en: `http://natas4.natas.labs.overthewire.org/`. Vamos a cambiarlo a `http://natas5.natas.labs.overthewire.org/`.
 
 Una vez hecho esto, haz clic en **Send**, y deberíamos obtener la contraseña.
 
-<figure><img src="../../../.gitbook/assets/image (302).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (329).png" alt=""><figcaption></figcaption></figure>
 
 ### NIVEL 5
 
@@ -110,14 +110,14 @@ Ingresamos las credenciales para el nivel 5.
 
 Tras iniciar sesión, verás la página de inicio del **Nivel 5** con un mensaje que indica que el acceso ha sido denegado.
 
-<figure><img src="../../../.gitbook/assets/image (303).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (330).png" alt=""><figcaption></figcaption></figure>
 
 Nuevamente, podemos ver que no tenemos acceso a la página web porque no hemos iniciado sesión. Vamos a abrir **Burp Suite** y ver si podemos interceptar el paquete para **natas5**.
 
-<figure><img src="../../../.gitbook/assets/image (304).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (331).png" alt=""><figcaption></figcaption></figure>
 
 Como podemos ver, el encabezado del paquete almacena información de la cookie. Cambiemos `loggedin=0` a `loggedin=1`, y reenviemos ese paquete en el **Repeater** para obtener la contraseña del nuevo nivel.\
 
 
-<figure><img src="../../../.gitbook/assets/image (305).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (332).png" alt=""><figcaption></figcaption></figure>
 

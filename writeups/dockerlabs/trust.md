@@ -110,6 +110,6 @@ whoami
 
 y confirmamos que ya somos **root**.
 
-<figure><img src="../../.gitbook/assets/image (548).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (575).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (549).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (576).png" alt=""><figcaption></figcaption></figure>

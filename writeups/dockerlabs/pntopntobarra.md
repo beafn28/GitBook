@@ -14,7 +14,7 @@ ping -c 1 172.17.0.2
 
 para verificar la conectividad de red.
 
-<figure><img src="../../.gitbook/assets/image (485).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (512).png" alt=""><figcaption></figcaption></figure>
 
 A continuación, se realiza el comando:
 
@@ -24,7 +24,7 @@ nmap -p- --open -sT --min-rate 5000 -vvv -n -Pn 172.17.0.2 -oG allPorts
 
 para realizar un escaneo de puertos y servicios detallado en la dirección IP.
 
-<figure><img src="../../.gitbook/assets/image (486).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (513).png" alt=""><figcaption></figcaption></figure>
 
 Como podemos observar durante el escaneo, el puerto **22** perteneciente al servicio **SSH** y el puerto **80** perteneciente al servicio **HTTP** están abiertos, por lo que se procederá a indagar más.
 
@@ -38,13 +38,13 @@ sudo nmap -sCV -p22,80 -v 172.17.0.2
 
 para obtener más información sobre esos puertos específicamente.
 
-<figure><img src="../../.gitbook/assets/image (487).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (514).png" alt=""><figcaption></figcaption></figure>
 
 Seguimos indagando más sobre los puertos y ahora exploramos el servicio **HTTP**. Se ingresó la dirección IP en el navegador, lo que llevó a que la página web sobre que nos han infectado con un virus.
 
-<figure><img src="../../.gitbook/assets/image (488).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (515).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (489).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (516).png" alt=""><figcaption></figcaption></figure>
 
 Miramos que hay un archivo `ejemplo.php` que es el que sale cuando pulsamos en ejemplos de computadoras infectadas.&#x20;
 
@@ -62,9 +62,9 @@ Podemos experimentar cambiando el valor de `images` de `./ejemplo1.png` a `/etc/
 http://172.17.0.2/ejemplos.php?images=/etc/passwd
 ```
 
-<figure><img src="../../.gitbook/assets/image (490).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (517).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (492).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (519).png" alt=""><figcaption></figcaption></figure>
 
 Al parecer, hemos descubierto a **Nico** que posiblemente sea un usuario, por lo que intentaremos conectarnos a través de **SSH**.
 
@@ -80,7 +80,7 @@ que utiliza la herramienta **Hydra** para realizar un ataque de fuerza bruta con
 
 Obtuvimos la contraseña que es **lovely.**
 
-<figure><img src="../../.gitbook/assets/image (344).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (371).png" alt=""><figcaption></figcaption></figure>
 
 Al realizar el ataque de fuerza bruta, hemos descubierto la contraseña de ese usuario. Sabiendo esto, nos conectamos a través de **SSH** al usuario con el comando:
 

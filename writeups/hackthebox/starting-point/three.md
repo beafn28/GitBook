@@ -27,7 +27,7 @@ Iniciamos la máquina y verificamos la conexión.
 ping -c 1 10.129.126.143
 ```
 
-<figure><img src="../../../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (32).png" alt=""><figcaption></figcaption></figure>
 
 Observamos que tenemos conexión y que es una máquina **Linux** ya que su **ttl=63**.
 
@@ -41,7 +41,7 @@ nmap -p- --min-rate 5000 -sV 10.129.126.143
 
 para realizar un escaneo de puertos y servicios detallado en la dirección IP.
 
-<figure><img src="../../../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (33).png" alt=""><figcaption></figcaption></figure>
 
 ### 4. 🚪 **Acceso Inicial**
 
@@ -57,7 +57,7 @@ Para facilitar el proceso, añadimos la siguiente entrada al archivo `/etc/hosts
 10.129.126.143  thetoppers.htb
 ```
 
-<figure><img src="../../../.gitbook/assets/image (8) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (35).png" alt=""><figcaption></figcaption></figure>
 
 Dentro de un dominio, es posible tener varios subdominios para organizar diferentes funcionalidades web sin necesidad de configurar un servidor por cada servicio. El próximo paso es identificar subdominios válidos. Para ello, utilizaremos un ataque de diccionario con la herramienta **Gobuster**.
 
@@ -65,11 +65,11 @@ Dentro de un dominio, es posible tener varios subdominios para organizar diferen
 gobuster vhost -u http://thetoppers.htb -w /opt/SecLists/Discovery/DNS/subdomains-top1million-5000.txt --append-domain
 ```
 
-<figure><img src="../../../.gitbook/assets/image (9) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (36).png" alt=""><figcaption></figcaption></figure>
 
 Vamos a añadir la dirección del subdominio `s3.thetoppers.htb` al archivo `/etc/hosts` utilizando un comando sencillo.
 
-<figure><img src="../../../.gitbook/assets/image (10) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (37).png" alt=""><figcaption></figcaption></figure>
 
 Después de investigar en Internet, parece que el servicio se refiere a **Amazon Simple Storage Service (Amazon S3)**. En esencia, Amazon S3 es un servicio de almacenamiento en la nube que permite guardar datos en contenedores llamados **"buckets"**. Este servicio puede usarse para guardar diversos tipos de información, como copias de seguridad, archivos multimedia, páginas web estáticas, entre otros.
 
@@ -79,13 +79,13 @@ sudo apt install awscli
 
 Debemos configurarlo de una forma básica por si cuela.
 
-<figure><img src="../../../.gitbook/assets/image (11) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (38).png" alt=""><figcaption></figcaption></figure>
 
 ```bash
 aws s3 --endpoint=http://s3.thetoppers.htb ls s3://thetoppers.htb
 ```
 
-<figure><img src="../../../.gitbook/assets/image (12) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (39).png" alt=""><figcaption></figcaption></figure>
 
 Esto nos muestra dos elementos de interés y una carpeta llamada **"images"**. Además, disponemos de un servicio que nos permite descargar estos archivos de forma remota a nuestro entorno.
 
@@ -109,13 +109,13 @@ nc -nlvp 443
 
 Luego, accedemos a `http://thetoppers.htb/shell.php`.
 
-<figure><img src="../../../.gitbook/assets/image (13) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (40).png" alt=""><figcaption></figcaption></figure>
 
 ### 5. 🔑 **Captura de la Flag**
 
 Una vez dentro investigamos distintos directorios para ver donde se encuentra la flag. La flag se encontraba en el directorio `/var/www/flag.txt`.
 
-<figure><img src="../../../.gitbook/assets/image (14) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (41).png" alt=""><figcaption></figcaption></figure>
 
 ### 6. ❓Preguntas
 
@@ -177,5 +177,5 @@ _El servidor web está configurado para ejecutar archivos en PHP, un lenguaje de
 
 a980d99281a28d638ac68b9bf9453c2b
 
-<figure><img src="../../../.gitbook/assets/image (16) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (43).png" alt=""><figcaption></figcaption></figure>
 

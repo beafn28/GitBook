@@ -98,4 +98,4 @@ whoami
 
 y recibir la respuesta **root**. Esto confirma que **borazuwarah** tiene acceso completo al sistema con permisos de administrador.
 
-<figure><img src="../../.gitbook/assets/image (547).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (574).png" alt=""><figcaption></figcaption></figure>

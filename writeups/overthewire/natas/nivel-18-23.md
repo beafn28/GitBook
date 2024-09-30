@@ -9,11 +9,11 @@ Ingresamos las credenciales para el nivel 18.
 
 Tras iniciar sesión, nos encontramos con la página de inicio del **Nivel 18**. Se nos muestra en la página para hacer **Login** con nuestro usuario y contraseña pero que iniciemos sesión con las credenciales típicas admin:admin.&#x20;
 
-<figure><img src="../../../.gitbook/assets/image (283).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (310).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (284).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (311).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (285).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (312).png" alt=""><figcaption></figcaption></figure>
 
 En el código fuente, la directiva
 
@@ -69,7 +69,7 @@ Ingresamos las credenciales para el nivel 19.
 
 Tras iniciar sesión, nos encontramos con la página de inicio del **Nivel 19**.  Se nos muestra en la página para hacer **Login** con nuestro usuario y contraseña. Como los valores de `PHPSESSID` no siguen un patrón secuencial, es necesario analizar la aleatoriedad para intentar predecirlos. Para lograr esto, debemos recolectar una cantidad significativa de valores de `PHPSESSID` generados y luego aplicar técnicas estadísticas para entender el patrón.
 
-<figure><img src="../../../.gitbook/assets/image (286).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (313).png" alt=""><figcaption></figcaption></figure>
 
 ```python
 #!/usr/bin/env python
@@ -235,7 +235,7 @@ while x <= 0xf:
 sys.exit(1)
 ```
 
-<figure><img src="../../../.gitbook/assets/image (287).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (314).png" alt=""><figcaption></figcaption></figure>
 
 ### NIVEL 20
 
@@ -246,9 +246,9 @@ Ingresamos las credenciales para el nivel 20.
 
 Tras iniciar sesión, nos encontramos con la página de inicio del **Nivel 20**.  Se nos muestra en la página para cambiar nuestro nombre pero debemos iniciar sesión como administrador.&#x20;
 
-<figure><img src="../../../.gitbook/assets/image (288).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (315).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (289).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (316).png" alt=""><figcaption></figcaption></figure>
 
 En este nivel, es realista decir que el ID de sesión no puede ser predicho. De hecho, parece ser totalmente aleatorio.
 
@@ -331,7 +331,7 @@ Este código realiza un ataque de manipulación de sesión en un desafío de seg
    * Envía una segunda solicitud GET usando la misma cookie de sesión obtenida en la primera solicitud.
    * Debido a la manipulación de la sesión en la primera solicitud, la segunda puede devolver una respuesta diferente, posiblemente dando acceso a privilegios administrativos o información sensible.
 
-<figure><img src="../../../.gitbook/assets/image (290).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (317).png" alt=""><figcaption></figcaption></figure>
 
 ### NIVEL 21
 
@@ -342,9 +342,9 @@ Ingresamos las credenciales para el nivel 21.
 
 Tras iniciar sesión, nos encontramos con la página de inicio del **Nivel 21**. Se nos muestra que la página ha sido colocada en otra URL por lo que revisamos el código fuente.&#x20;
 
-<figure><img src="../../../.gitbook/assets/image (291).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (318).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (292).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (319).png" alt=""><figcaption></figcaption></figure>
 
 La función `print_credentials()` en la página principal verifica si `$_SESSION` tiene el parámetro `admin` y si su valor es igual a 1.
 
@@ -394,7 +394,7 @@ print(r.text)
 
 Este código realiza dos solicitudes HTTP GET: la primera establece el valor `admin=1` en la sesión para obtener la cookie de sesión, y la segunda usa esa cookie para acceder a la página principal y obtener las credenciales para el siguiente nivel.
 
-<figure><img src="../../../.gitbook/assets/image (293).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (320).png" alt=""><figcaption></figcaption></figure>
 
 ### NIVEL 22
 
@@ -405,9 +405,9 @@ Ingresamos las credenciales para el nivel 22.
 
 Tras iniciar sesión, nos encontramos con la página de inicio del **Nivel 22**. NO se nos muestra nada relevante por lo que revisamos el código fuente.&#x20;
 
-<figure><img src="../../../.gitbook/assets/image (294).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (321).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (295).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (322).png" alt=""><figcaption></figcaption></figure>
 
 Viendo el código fuente realizamos este comando:
 
@@ -422,7 +422,7 @@ curl -i -XGET -u natas22:d8rwGBl0Xslg3b76uh3fEbSlnOUBlozz http://natas22.natas.l
 * **Mostrar Encabezados y Respuesta**:
   * La opción `-i` incluye los encabezados HTTP en la respuesta, por lo que puedes ver información adicional sobre la respuesta, como el código de estado HTTP y otros encabezados.
 
-<figure><img src="../../../.gitbook/assets/image (296).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (323).png" alt=""><figcaption></figcaption></figure>
 
 ### NIVEL 23
 
@@ -433,9 +433,9 @@ Ingresamos las credenciales para el nivel 23.
 
 Tras iniciar sesión, nos encontramos con la página de inicio del **Nivel 23**. Se nos muestra para ingresar una contraseña por lo que revisamos el código fuente para más información.
 
-<figure><img src="../../../.gitbook/assets/image (298).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (325).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (299).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (326).png" alt=""><figcaption></figcaption></figure>
 
 Viendo el código fuente realizamos este comando:
 

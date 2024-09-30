@@ -9,9 +9,9 @@ Ingresamos las credenciales para el nivel 12.
 
 Tras iniciar sesión, nos encontramos con la página de inicio del **Nivel 12**. Se nos muestra que se puede subir archivos **JPEG** de máximo **1 KB** por lo que veremos el código fuente para más información.
 
-<figure><img src="../../../.gitbook/assets/image (351).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (378).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (352).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (379).png" alt=""><figcaption></figcaption></figure>
 
 Al analizar el código, observamos que cuando subimos un archivo, se genera un nombre aleatorio para el archivo y se le asigna la extensión `.jpg`. Además, hay una restricción de tamaño: el archivo no puede superar los **1000 bytes (1 KB)**, por lo que no podemos subir cualquier imagen.
 
@@ -26,7 +26,7 @@ Sin embargo, dado que no existe una restricción sobre la extensión del archivo
 
 Este script ejecutará el comando para leer el contenido del archivo `/etc/natas_webpass/natas13` y mostrará la salida en la página.
 
-<figure><img src="../../../.gitbook/assets/image (353).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (380).png" alt=""><figcaption></figcaption></figure>
 
 Al seleccionar el archivo para subir y abrir el inspector de elementos en **Chrome**, podemos observar que se genera automáticamente un nombre aleatorio para el archivo de imagen.
 
@@ -59,9 +59,9 @@ Ingresamos las credenciales para el nivel 13:
 
 Tras iniciar sesión, nos encontramos con la página de inicio del **Nivel 13**. Se nos muestra como el nivel anterior pero con una diferencia en la que por razones de seguridad solo aceptan imágenes por lo que veremos el código fuente para más información.
 
-<figure><img src="../../../.gitbook/assets/image (354).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (381).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (355).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (382).png" alt=""><figcaption></figcaption></figure>
 
 En este nivel, se ha implementado el uso de la función `exif_imagetype` de PHP, la cual verifica si el archivo seleccionado es una imagen válida.
 
@@ -118,15 +118,15 @@ Ingresamos las credenciales para el nivel 14:
 
 Tras iniciar sesión, nos encontramos con la página de inicio del **Nivel 14**. Se nos muestra en la página para hacer **Login** con nuestro usuario y contraseña por lo que veremos el código de fuente para más información.&#x20;
 
-<figure><img src="../../../.gitbook/assets/image (269).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (296).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (270).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (297).png" alt=""><figcaption></figcaption></figure>
 
 Al analizar el código, notamos que la consulta **SQL** para verificar las credenciales de usuario y contraseña está escrita en una sola línea y no incluye medidas de seguridad. Esto permite realizar un ataque de **inyección SQL**.
 
 Para explotar esta vulnerabilidad, ingresa las cadenas `" OR "1"="1` tanto en el campo de usuario como en el de contraseña. Al hacer clic en el botón de inicio de sesión, podrás acceder a la contraseña para el siguiente nivel.
 
-<figure><img src="../../../.gitbook/assets/image (271).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (298).png" alt=""><figcaption></figcaption></figure>
 
 ## NIVEL 15
 
@@ -137,9 +137,9 @@ Ingresamos las credenciales para el nivel 15:
 
 Tras iniciar sesión, nos encontramos con la página de inicio del **Nivel 15**.  Se nos muestra como una comprobación si existe el usuario que ingresamos en la base de datos por lo que veremos el código de fuente para más información.&#x20;
 
-<figure><img src="../../../.gitbook/assets/image (272).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (299).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (273).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (300).png" alt=""><figcaption></figcaption></figure>
 
 Al analizar el código, vemos que se muestra cómo se ha creado la tabla `users` (dentro de comentarios), que incluye los campos `username` y `password`.
 
@@ -162,7 +162,7 @@ Para ejecutar este script y obtener la contraseña del siguiente nivel, simpleme
 php natas15.php
 ```
 
-<figure><img src="../../../.gitbook/assets/image (274).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (301).png" alt=""><figcaption></figcaption></figure>
 
 ## NIVEL 16
 
@@ -173,9 +173,9 @@ Ingresamos las credenciales para el nivel 16:
 
 Tras iniciar sesión, nos encontramos con la página de inicio del **Nivel 16**.  Nos aparece un buscador de palabras pero filtrando ciertos caracteres por razones de seguridad que tengamos en nuestra entrada por lo que miramos el código fuente para más información.
 
-<figure><img src="../../../.gitbook/assets/image (276).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (303).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (278).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (305).png" alt=""><figcaption></figcaption></figure>
 
 Al analizar el código, observamos lo siguiente:
 
@@ -202,7 +202,7 @@ Para ejecutar el script y descubrir la contraseña para el siguiente nivel, usa 
 php natas16.php
 ```
 
-<figure><img src="../../../.gitbook/assets/image (279).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (306).png" alt=""><figcaption></figcaption></figure>
 
 ## NIVEL 17
 
@@ -213,9 +213,9 @@ Ingresamos las credenciales para el nivel 17:
 
 Tras iniciar sesión, nos encontramos con la página de inicio del **Nivel 17**. Se nos muestra como una comprobación si existe el usuario que ingresamos en la base de datos por lo que veremos el código de fuente para más información.&#x20;
 
-<figure><img src="../../../.gitbook/assets/image (280).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (307).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (281).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (308).png" alt=""><figcaption></figcaption></figure>
 
 Este nivel es de tipo **inyección SQL ciega basada en tiempo**, como se puede deducir del código fuente. Por lo tanto, intentemos realizar un ataque de fuerza bruta en este nivel, similar a los otros niveles de SQL. A continuación, se presenta el script guardado como archivo `.py` para llevar a cabo el ataque de fuerza bruta en la terminal usando Python.
 
@@ -271,7 +271,7 @@ while True:
 print("Password found: " + "".join(current_password))
 ```
 
-<figure><img src="../../../.gitbook/assets/image (282).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (309).png" alt=""><figcaption></figcaption></figure>
 
 
 

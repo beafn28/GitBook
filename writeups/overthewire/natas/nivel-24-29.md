@@ -9,9 +9,9 @@ Ingresamos las credenciales para el nivel 24.
 
 Tras iniciar sesión, nos encontramos con la página de inicio del **Nivel 24**. Se nos muestra para ingresar una contraseña pero para más información revisamos el código fuente.
 
-<figure><img src="../../../.gitbook/assets/image (250).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (277).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (251).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (278).png" alt=""><figcaption></figcaption></figure>
 
 En este nivel, la contraseña se verifica utilizando la función `strcmp()`. Según la documentación, esta función solo devuelve valores mayores que 0, menores que 0 e iguales a 0. Por lo tanto, nuestro objetivo es que el valor de retorno sea igual a 0.
 
@@ -23,7 +23,7 @@ Para ello, realizamos este comando:
 curl -X GET -u natas24:MeuqmfJ8DDKuTr5pcvzFKSwlxedZYEWd http://natas24.natas.labs.overthewire.org/?passwd%5b%5d
 ```
 
-<figure><img src="../../../.gitbook/assets/image (252).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (279).png" alt=""><figcaption></figcaption></figure>
 
 ### NIVEL 25
 
@@ -34,9 +34,9 @@ Ingresamos las credenciales para el nivel 25.
 
 Tras iniciar sesión, nos encontramos con la página de inicio del **Nivel 25**. Se nos muestra un texto científico y que se puede traducir en otro idioma por lo que  revisamos el código fuente.
 
-<figure><img src="../../../.gitbook/assets/image (253).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (280).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (254).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (281).png" alt=""><figcaption></figcaption></figure>
 
 A primera vista, parece que el parámetro `lang` podría ser el vehículo del ataque. Según el código fuente, se realizan algunas comprobaciones sobre él...
 
@@ -90,7 +90,7 @@ Este script en Python está diseñado para realizar un ataque de inyección a un
 5. **Procesamiento de la Respuesta:**
    * Lee la respuesta línea por línea y busca cualquier línea que contenga un corchete de cierre `]`, imprimiendo esas líneas en la consola.
 
-<figure><img src="../../../.gitbook/assets/image (255).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (282).png" alt=""><figcaption></figcaption></figure>
 
 ### NIVEL 26
 
@@ -101,9 +101,9 @@ Ingresamos las credenciales para el nivel 26.
 
 Tras iniciar sesión, nos encontramos con la página de inicio del **Nivel 26**. Se nos muestra para ingresar unas coordenadas para dibujar una línea por lo que  revisamos el código fuente.
 
-<figure><img src="../../../.gitbook/assets/image (256).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (283).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (257).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (284).png" alt=""><figcaption></figcaption></figure>
 
 El código PHP realiza las siguientes acciones:
 
@@ -139,7 +139,7 @@ echo base64_encode(serialize($output));
 
 Esta es la cadena generada: `YToxOntpOjA7Tzo2OiJMb2dnZXIiOjM6e3M6MTU6IgBMb2dnZXIAbG9nRmlsZSI7czoxNDoiaW1nL291dHB1dC5waHAiO3M6MTU6IgBMb2dnZXIAaW5pdE1zZyI7czoyNDoiI+KAk3Nlc3Npb24gc3RhcnRlZOKAkyMKIjtzOjE1OiIATG9nZ2VyAGV4aXRNc2ciO3M6NTE6Ijw/cGhwIGluY2x1ZGVfb25jZSgnL2V0Yy9uYXRhc193ZWJwYXNzL25hdGFzMjcnKTs/PiI7fX0=`
 
-<figure><img src="../../../.gitbook/assets/image (258).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (285).png" alt=""><figcaption></figcaption></figure>
 
 ### NIVEL 27
 
@@ -150,9 +150,9 @@ Ingresamos las credenciales para el nivel 27.
 
 Tras iniciar sesión, nos encontramos con la página de inicio del **Nivel 27**. Se nos muestra en la página para hacer **Login** con nuestro usuario y contraseña por lo que revisamos el código fuente.
 
-<figure><img src="../../../.gitbook/assets/image (259).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (286).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (260).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (287).png" alt=""><figcaption></figcaption></figure>
 
 Código tomado de referencia para resolver el nivel [Repositorio de referencia](https://github.com/ImChet/natas27/blob/main/solution.py)
 
@@ -178,7 +178,7 @@ Código tomado de referencia para resolver el nivel [Repositorio de referencia](
 
 * Se usa una expresión regular para extraer y mostrar la contraseña del usuario `natas28`.
 
-<figure><img src="../../../.gitbook/assets/image (261).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (288).png" alt=""><figcaption></figcaption></figure>
 
 ### NIVEL 28
 
@@ -190,7 +190,7 @@ Ingresamos las credenciales para el nivel 28.
 Tras iniciar sesión, nos encontramos con la página de inicio del **Nivel 28**. Se nos muestra algo para ingresar y buscar una broma.\
 
 
-<figure><img src="../../../.gitbook/assets/image (263).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (290).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../../.gitbook/assets/Captura de pantalla 2024-08-20 214533.png" alt=""><figcaption></figcaption></figure>
 
@@ -204,7 +204,7 @@ Si limpiamos esta URL eliminando todo hasta `query=` y luego decodificamos la UR
 
 Esta es una cadena codificada en base64, pero los intentos de decodificarla en algo útil usando CyberChef no dieron resultados.
 
-<figure><img src="../../../.gitbook/assets/image (264).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (291).png" alt=""><figcaption></figcaption></figure>
 
 **Error de Padding PKCS#7 y Análisis del Modo ECB**
 
@@ -233,7 +233,7 @@ Este script es una solución para el desafío Natas28 en la plataforma OverTheWi
 3. **Inyección SQL:** Envía la consulta manipulada al servidor, que ejecuta el SQL malicioso.
 4. **Extracción de Datos:** Recupera el resultado de la inyección SQL, buscando específicamente las credenciales para el siguiente nivel, `natas29`.
 
-<figure><img src="../../../.gitbook/assets/image (265).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (292).png" alt=""><figcaption></figcaption></figure>
 
 ### NIVEL 29
 
@@ -244,7 +244,7 @@ Ingresamos las credenciales para el nivel 29.
 
 Tras iniciar sesión, nos encontramos con la página de inicio del **Nivel 29**. Se nos muestra texto pero al parecer no es legible.
 
-<figure><img src="../../../.gitbook/assets/image (266).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (293).png" alt=""><figcaption></figcaption></figure>
 
 Este script nos ayuda para el desafío Natas29 en la plataforma OverTheWire. &#x20;
 
@@ -253,13 +253,13 @@ Este script nos ayuda para el desafío Natas29 en la plataforma OverTheWire. &#x
    * **Ejecución Remota de Comandos:** Envía una solicitud para ejecutar el comando `whoami` en el servidor a través de una vulnerabilidad en la función `open()` de Perl, mostrando el usuario actual del servidor.
    * **Obtención de Contraseña:** Envía otra solicitud para leer el archivo que contiene la contraseña del siguiente nivel (`natas30`), obteniendo así la contraseña necesaria para avanzar al siguiente desafío.
 
-<figure><img src="../../../.gitbook/assets/image (267).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (294).png" alt=""><figcaption></figcaption></figure>
 
 La URL intenta leer el contenido del archivo `/etc/natas_webpass/natas30` en el servidor usando la vulnerabilidad de ejecución remota de comandos en Perl. Luego, reemplaza los saltos de línea en el contenido del archivo con espacios para hacer que el resultado sea más legible en una sola línea.
 
 [http://natas29.natas.labs.overthewire.org/index.pl?file=|cat+%22/etc/nat%22%22as\_webpass/nat%22%22as30%22|tr+%27\n%27+%27+%27](http://natas29.natas.labs.overthewire.org/index.pl?file=|cat+%22/etc/nat%22%22as\_webpass/nat%22%22as30%22|tr+%27\n%27+%27+%27)
 
-<figure><img src="../../../.gitbook/assets/image (268).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (295).png" alt=""><figcaption></figcaption></figure>
 
 
 

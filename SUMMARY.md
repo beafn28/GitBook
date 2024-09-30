@@ -67,6 +67,7 @@
   * [Avengers](writeups/the-hacker-labs/avengers.md)
   * [Can you hack me?](writeups/the-hacker-labs/can-you-hack-me.md)
   * [Fruits](writeups/the-hacker-labs/fruits.md)
+  * [Microchoft](writeups/the-hacker-labs/microchoft.md)
 
 ## APUNTES HACKING
 
@@ -147,12 +148,39 @@
   * [Bind Shells](apuntes-hacking/shells-and-payloads/bind-shells.md)
   * [Reverse Shells](apuntes-hacking/shells-and-payloads/reverse-shells.md)
   * [Payloads](apuntes-hacking/shells-and-payloads/payloads/README.md)
-    * [Automating Payloads & Delivery with Metasploit](apuntes-hacking/shells-and-payloads/payloads/automating-payloads-and-delivery-with-metasploitpo.md)
+    * [Automating Payloads & Delivery with Metasploit](apuntes-hacking/shells-and-payloads/payloads/automating-payloads-and-delivery-with-metasploit.md)
     * [Crafting Payloads with MSFvenom](apuntes-hacking/shells-and-payloads/payloads/crafting-payloads-with-msfvenom.md)
     * [Infiltrating Windows](apuntes-hacking/shells-and-payloads/payloads/infiltrating-windows.md)
     * [Infiltrating Unix/Linux](apuntes-hacking/shells-and-payloads/payloads/infiltrating-unix-linux.md)
     * [Spawning Interactive Shells](apuntes-hacking/shells-and-payloads/payloads/spawning-interactive-shells.md)
+  * [Introduction to Web Shells](apuntes-hacking/shells-and-payloads/introduction-to-web-shells/README.md)
+    * [Laudanum, One Webshell to Rule Them All](apuntes-hacking/shells-and-payloads/introduction-to-web-shells/laudanum-one-webshell-to-rule-them-all.md)
+    * [Antak Webshell](apuntes-hacking/shells-and-payloads/introduction-to-web-shells/antak-webshell.md)
+    * [PHP Web Shells](apuntes-hacking/shells-and-payloads/introduction-to-web-shells/php-web-shells.md)
+  * [Detection & Prevention](apuntes-hacking/shells-and-payloads/detection-and-prevention.md)
+* [Metasploit](apuntes-hacking/metasploit/README.md)
+  * [MSFConsole](apuntes-hacking/metasploit/msfconsole.md)
+  * [Modules](apuntes-hacking/metasploit/modules.md)
+  * [Targets](apuntes-hacking/metasploit/targets.md)
+  * [Payloads](apuntes-hacking/metasploit/payloads.md)
+  * [Encoders](apuntes-hacking/metasploit/encoders.md)
+  * [Databases](apuntes-hacking/metasploit/databases.md)
+  * [Plugins](apuntes-hacking/metasploit/plugins.md)
+  * [Sessions](apuntes-hacking/metasploit/sessions.md)
+  * [Meterpreter](apuntes-hacking/metasploit/meterpreter.md)
+  * [Writing and Importing Modules](apuntes-hacking/metasploit/writing-and-importing-modules.md)
+  * [Introduction to MSFVenom](apuntes-hacking/metasploit/introduction-to-msfvenom.md)
+  * [Firewall and IDS/IPS Evasion](apuntes-hacking/metasploit/firewall-and-ids-ips-evasion.md)
+* [Password Attacks](apuntes-hacking/password-attacks/README.md)
+  * [John The Ripper](apuntes-hacking/password-attacks/john-the-ripper.md)
+  * [Network Services](apuntes-hacking/password-attacks/network-services.md)
+  * [Password Mutations](apuntes-hacking/password-attacks/password-mutations.md)
 
 ## Mis CTFs
 
 * [Pequeñas Mentirosas](mis-ctfs/pequenas-mentirosas.md)
+* [Bienvenidos](mis-ctfs/bienvenidos.md)
+
+## PREPARAR EJPTv2
+
+* [Máquinas](preparar-ejptv2/maquinas.md)

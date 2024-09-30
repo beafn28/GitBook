@@ -14,7 +14,7 @@ ping -c 1 172.17.0.2
 
 para verificar la conectividad de red.
 
-<figure><img src="../../.gitbook/assets/image (321).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (348).png" alt=""><figcaption></figcaption></figure>
 
 A continuación, se realiza el comando:
 
@@ -143,4 +143,4 @@ id
 
 y ya somos **root**.
 
-<figure><img src="../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (30).png" alt=""><figcaption></figcaption></figure>

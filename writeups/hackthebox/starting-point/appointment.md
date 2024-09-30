@@ -26,7 +26,7 @@ Iniciamos la máquina y verificamos la conexión.
 ping -c 1 10.129.189.92
 ```
 
-<figure><img src="../../../.gitbook/assets/image (30).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (57).png" alt=""><figcaption></figcaption></figure>
 
 Observamos que tenemos conexión y que es una máquina **Linux** ya que su **ttl=63**.
 
@@ -40,13 +40,13 @@ nmap -p- --min-rate 5000 -sV 10.129.189.92
 
 para realizar un escaneo de puertos y servicios detallado en la dirección IP.
 
-<figure><img src="../../../.gitbook/assets/image (31).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (58).png" alt=""><figcaption></figcaption></figure>
 
 ### 4. 🚪 **Acceso Inicial**
 
 Como podemos observar durante el escaneo, el puerto **80** perteneciendo al servicio **HTTP** está abierto, por lo que se procederá a indagar más.
 
-<figure><img src="../../../.gitbook/assets/image (32).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (59).png" alt=""><figcaption></figcaption></figure>
 
 Es un formulario de **Login** probamos a hacer una **SQL Injection** para que nos deje loguear ya que metemos cualquier valor se envía pero no nos dice nada.
 
@@ -64,7 +64,7 @@ Estos códigos se suelen ingresar en los campos de nombre de usuario o contrase�
 
 Para más detalles y cómo defenderse de estos ataques, puedes consultar la página de [HackTricks sobre SQL login bypass](https://github.com/HackTricks-wiki/hacktricks/blob/master/pentesting-web/login-bypass/sql-login-bypass.md)​
 
-<figure><img src="../../../.gitbook/assets/image (33).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (60).png" alt=""><figcaption></figcaption></figure>
 
 ### 6. ❓Preguntas
 
@@ -122,4 +122,4 @@ _La primera palabra en la página devuelta después de un login exitoso como adm
 
 e3d0796d002a446c0e622226f42e9672
 
-<figure><img src="../../../.gitbook/assets/image (34).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (61).png" alt=""><figcaption></figcaption></figure>

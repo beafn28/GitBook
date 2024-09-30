@@ -6,7 +6,7 @@ icon: square-terminal
 
 ## 🧩 **Whoami**
 
-<figure><img src="../../.gitbook/assets/image (300).png" alt="https://overthewire.org/wargames/"><figcaption><p><a href="https://overthewire.org/wargames/"><strong>https://overthewire.org/wargames/</strong></a></p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (327).png" alt="https://overthewire.org/wargames/"><figcaption><p><a href="https://overthewire.org/wargames/"><strong>https://overthewire.org/wargames/</strong></a></p></figcaption></figure>
 
 **OverTheWire** es una plataforma de ciberseguridad que se centra en ofrecer juegos y retos educativos diseñados para enseñar y mejorar tus habilidades en seguridad informática y hacking ético a través de la resolución de retos en un entorno de juego.
 

@@ -33,7 +33,7 @@ Iniciamos la máquina y verificamos la conexión.
 ping -c 1 10.129.137.77
 ```
 
-<figure><img src="../../../.gitbook/assets/image (616).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (643).png" alt=""><figcaption></figcaption></figure>
 
 Observamos que tenemos conexión y que es una máquina **Linux** ya que su **ttl=63**.
 
@@ -47,7 +47,7 @@ nmap -p- --min-rate 5000 -sV 10.129.137.77
 
 para realizar un escaneo de puertos y servicios detallado en la dirección IP.
 
-<figure><img src="../../../.gitbook/assets/image (617).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (644).png" alt=""><figcaption></figcaption></figure>
 
 ### 4. 🚪 **Acceso Inicial**
 
@@ -55,7 +55,7 @@ Como podemos observar durante el escaneo que el **puerto 21** perteneciente al *
 
 Primero, accedemos a un servidor FTP utilizando el usuario `anonymous`. Esto nos permite descargar un archivo que probablemente está protegido con contraseña.
 
-<figure><img src="../../../.gitbook/assets/image (618).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (645).png" alt=""><figcaption></figcaption></figure>
 
 El archivo descargado está protegido con una contraseña. Por lo tanto, necesitamos una herramienta como **John the Ripper** para obtener dicha contraseña.
 
@@ -63,7 +63,7 @@ El archivo descargado está protegido con una contraseña. Por lo tanto, necesit
 zip2john backup.zip > hash.txt
 ```
 
-<figure><img src="../../../.gitbook/assets/image (619).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (646).png" alt=""><figcaption></figcaption></figure>
 
 John the Ripper es una herramienta muy útil para romper contraseñas de archivos protegidos. Vamos a usarlo en conjunto con `zip2john`, que convierte el archivo comprimido en un formato que **John** pueda procesar.
 
@@ -71,29 +71,29 @@ John the Ripper es una herramienta muy útil para romper contraseñas de archivo
 john --wordlist=/usr/share/wordlists/rockyou.txt hash.txt
 ```
 
-<figure><img src="../../../.gitbook/assets/image (620).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (647).png" alt=""><figcaption></figcaption></figure>
 
 Ahora que tenemos la contraseña, podemos descomprimir el archivo protegido.
 
-<figure><img src="../../../.gitbook/assets/image (621).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (648).png" alt=""><figcaption></figcaption></figure>
 
 Mostramos el contenido del archivo `index.php` en el que se nos indica el nombre del usuario y su contraseña aunque en formato **MD5**.
 
-<figure><img src="../../../.gitbook/assets/image (623).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (650).png" alt=""><figcaption></figcaption></figure>
 
 A través de esta página desciframos la contraseña [https://www.dcode.fr/funcion-hash-md5](https://www.dcode.fr/funcion-hash-md5)
 
-<figure><img src="../../../.gitbook/assets/image (625).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (652).png" alt=""><figcaption></figcaption></figure>
 
 Accedemos con las credenciales obtenidas en los pasos anteriores.
 
-<figure><img src="../../../.gitbook/assets/image (622).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (649).png" alt=""><figcaption></figcaption></figure>
 
 Obtenemos el valor de la cookie de cualquier coche.
 
-<figure><img src="../../../.gitbook/assets/image (626).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (653).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (627).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (654).png" alt=""><figcaption></figcaption></figure>
 
 ```bash
 sqlmap --url="http://10.129.137.77/dashboard.php?search=meta" --cookie="PHPSESSID=q9uc4eavt4kd65pgi5rc32jvgu" --os-shell
@@ -105,19 +105,19 @@ No hace falta probar más campos si hemos encontrado ya uno que no es ejecutable
 rlwrap nc -lvnp 443
 ```
 
-<figure><img src="../../../.gitbook/assets/image (628).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (655).png" alt=""><figcaption></figcaption></figure>
 
 Tras conseguir la reverse shell y así poder acceder mostramos el contenido del fichero `dashboard.php` en el que se nos muestra un usuario y una contraseña.
 
-<figure><img src="../../../.gitbook/assets/image (629).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (656).png" alt=""><figcaption></figcaption></figure>
 
 ### 5. 🔑 **Captura de la Flag**
 
 Vemos que podemos usar **vi** con permisos de root. Accedemos al directorio `/var/lib/postgresql` en el que encontramos la flag del usuario.
 
-<figure><img src="../../../.gitbook/assets/image (630).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (657).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (631).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (658).png" alt=""><figcaption></figcaption></figure>
 
 Accedemos a través de **SSH** al usuario con sus credenciales.
 
@@ -125,7 +125,7 @@ Accedemos a través de **SSH** al usuario con sus credenciales.
 ssh postgres@10.129.137.77
 ```
 
-<figure><img src="../../../.gitbook/assets/image (632).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (659).png" alt=""><figcaption></figcaption></figure>
 
 Debemos de modificar el archivo de configuración utilizando **vi**.
 
@@ -135,13 +135,13 @@ Debemos de modificar el archivo de configuración utilizando **vi**.
 
 Observamos está página [https://gtfobins.github.io/gtfobins/vi/](https://gtfobins.github.io/gtfobins/vi/). Una vez en **vi**, presiona **escape** y luego escribe `:!/bin/bash`.
 
-<figure><img src="../../../.gitbook/assets/image (633).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (660).png" alt=""><figcaption></figcaption></figure>
 
 Accedemos al directorio de root en el que contiene la bandera de root.
 
-<figure><img src="../../../.gitbook/assets/image (634).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (661).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (635).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (662).png" alt=""><figcaption></figcaption></figure>
 
 ### 6. ❓Preguntas
 

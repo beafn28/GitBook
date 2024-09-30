@@ -110,6 +110,6 @@ Al parecer, es una contraseña. En la carpeta **home** hay tres usuarios en los 
 sudo ruby -e 'exec "/bin/sh"
 ```
 
-<figure><img src="../../.gitbook/assets/image (498).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (525).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (499).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (526).png" alt=""><figcaption></figcaption></figure>

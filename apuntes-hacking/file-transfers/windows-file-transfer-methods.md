@@ -10,7 +10,7 @@ El ataque Astaroth generalmente siguió estos pasos: un enlace malicioso en un c
 
 Todas las cargas útiles estaban codificadas en base64 y fueron decodificadas utilizando la herramienta Certutil, lo que resultó en la creación de varios archivos DLL. La herramienta _regsvr32_ se utilizó para cargar uno de los DLL decodificados, que luego descifró y cargó otros archivos hasta que finalmente el payload Astaroth fue inyectado en el proceso _Userinit_. A continuación se muestra una representación gráfica del ataque.
 
-<figure><img src="../../.gitbook/assets/image (671).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (698).png" alt=""><figcaption></figcaption></figure>
 
 Este es un excelente ejemplo de múltiples métodos de transferencia de archivos y de cómo los actores maliciosos utilizan esos métodos para evadir las defensas.
 
@@ -20,7 +20,7 @@ En esta sección, se hablará del uso de algunas herramientas nativas de Windows
 
 Tenemos acceso a la máquina MS02, y necesitamos descargar un archivo desde nuestra máquina Pwnbox. Veamos cómo podemos lograr esto utilizando múltiples métodos de descarga de archivos.
 
-<figure><img src="../../.gitbook/assets/image (672).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (699).png" alt=""><figcaption></figcaption></figure>
 
 ### Codificación y Decodificación Base64 en PowerShell
 
@@ -129,7 +129,7 @@ PS C:\htb> Invoke-WebRequest https://raw.githubusercontent.com/PowerShellMafia/P
 
 ## Errores comunes en PowerShell
 
-<figure><img src="../../.gitbook/assets/image (673).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (700).png" alt=""><figcaption></figcaption></figure>
 
 ### **Error de Parsing de Internet Explorer**
 
@@ -392,7 +392,7 @@ Las empresas suelen permitir el tráfico saliente utilizando los protocolos HTTP
 
 Cuando utilizas SMB, primero intenta conectarse mediante el protocolo SMB, y si no encuentra un recurso compartido SMB, intentará conectarse mediante HTTP.
 
-<figure><img src="../../.gitbook/assets/image (674).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (701).png" alt=""><figcaption></figcaption></figure>
 
 ### **Configuración del Servidor WebDav**
 

@@ -25,7 +25,7 @@ Iniciamos la máquina y verificamos la conexión.
 ping -c 1 10.129.241.245
 ```
 
-<figure><img src="../../../.gitbook/assets/image (35).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (62).png" alt=""><figcaption></figcaption></figure>
 
 Observamos que tenemos conexión y que es una máquina **Linux** ya que su **ttl=63**.
 
@@ -39,7 +39,7 @@ nmap -p- --min-rate 5000 -sV 10.129.241.245
 
 para realizar un escaneo de puertos y servicios detallado en la dirección IP.
 
-<figure><img src="../../../.gitbook/assets/image (36).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (63).png" alt=""><figcaption></figcaption></figure>
 
 ### 4. 🚪 **Acceso Inicial**
 
@@ -49,7 +49,7 @@ Como podemos observar durante el escaneo, el puerto **3306** perteneciendo al se
 mysql -h 10.129.241.245 -u root
 ```
 
-<figure><img src="../../../.gitbook/assets/image (37).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (64).png" alt=""><figcaption></figcaption></figure>
 
 ### 5. 🔑 **Captura de la Flag**
 
@@ -101,4 +101,4 @@ _La cuarta base de datos única para este host se llama htb._
 
 7b4bec00d1a39e3dd4e021ec3d915da8
 
-<figure><img src="../../../.gitbook/assets/image (38).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (65).png" alt=""><figcaption></figcaption></figure>

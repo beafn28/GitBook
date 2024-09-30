@@ -4,7 +4,7 @@ icon: square-terminal
 
 # The Hacker Labs
 
-<figure><img src="../../.gitbook/assets/image (40).png" alt=""><figcaption><p><a href="https://thehackerslabs.com/">https://thehackerslabs.com/</a></p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (67).png" alt=""><figcaption><p><a href="https://thehackerslabs.com/">https://thehackerslabs.com/</a></p></figcaption></figure>
 
 ## 🌟 **Características Principales**
 

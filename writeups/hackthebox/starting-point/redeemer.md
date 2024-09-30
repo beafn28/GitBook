@@ -23,7 +23,7 @@ Iniciamos la máquina y verificamos la conexión.
 ping -c 1 10.129.200.227
 ```
 
-<figure><img src="../../../.gitbook/assets/image (61).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (88).png" alt=""><figcaption></figcaption></figure>
 
 Observamos que tenemos conexión y que es una máquina **Linux** ya que su **ttl=63**.
 
@@ -37,21 +37,21 @@ nmap -p- --min-rate 5000 -sV 10.129.200.227
 
 para realizar un escaneo de puertos y servicios detallado en la dirección IP.
 
-<figure><img src="../../../.gitbook/assets/image (62).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (89).png" alt=""><figcaption></figcaption></figure>
 
 ### 4. 🚪 **Acceso Inicial**
 
 Como podemos observar durante el escaneo, el puerto **6379** perteneciente al servicio **Redis** está abierto, lo que indica que una instancia de Redis (versión 5.0.7) está en ejecución. Además, los puertos **44386** y **49455** aparecen como filtrados, lo que sugiere que podrían estar protegidos por un firewall o reglas de filtrado de tráfico. Por lo tanto, se procederá a indagar más sobre el servicio Redis en el puerto 6379 para evaluar posibles vulnerabilidades y configuraciones incorrectas que podrían ser explotadas.
 
-<figure><img src="../../../.gitbook/assets/image (63).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (90).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (64).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (91).png" alt=""><figcaption></figcaption></figure>
 
 Redis permite crear múltiples bases de datos dentro de una sola instancia. Para seleccionar una base de datos específica, utilizamos el comando `select` seguido del índice de la base de datos.
 
 Para contar el número de claves presentes en una base de datos en particular, ejecutamos el comando `keys *` después de seleccionar la base de datos deseada. En este caso, seleccionamos la base de datos con índice 0 y ejecutamos el comando para obtener el número de claves.
 
-<figure><img src="../../../.gitbook/assets/image (65).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (92).png" alt=""><figcaption></figcaption></figure>
 
 ### 5. 🔑 **Captura de la Flag**
 
@@ -61,7 +61,7 @@ Como podemos observar anteriormente sale una flag por lo que ejecutamos.
 get flag
 ```
 
-<figure><img src="../../../.gitbook/assets/image (66).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (93).png" alt=""><figcaption></figcaption></figure>
 
 ### 6. ❓Preguntas
 
@@ -119,4 +119,4 @@ _El comando **keys \*** se utiliza para recuperar todas las claves en una base d
 
 03e1d2b376c37ab3f5319922053953eb
 
-<figure><img src="../../../.gitbook/assets/image (67).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (94).png" alt=""><figcaption></figcaption></figure>

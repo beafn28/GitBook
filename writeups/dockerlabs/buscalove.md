@@ -14,7 +14,7 @@ ping -c 1 172.21.0.2
 
 para verificar la conectividad de red.
 
-<figure><img src="../../.gitbook/assets/image (325).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (352).png" alt=""><figcaption></figcaption></figure>
 
 A continuación, realizamos el comando:
 
@@ -50,7 +50,7 @@ Ahora buscaremos directorios con la herramienta **Gobuster** a través de:
 gobuster dir -u http://172.21.0.2/ -w /opt/SecLists/Discovery/Web-Content/directory-list-2.3-small.txt -t 
 ```
 
-<figure><img src="../../.gitbook/assets/image (326).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (353).png" alt=""><figcaption></figcaption></figure>
 
 Vemos que hay un directorio **WordPress**, por lo que indagaremos en él, aunque no encontraremos nada relevante en el código fuente. Hacemos un escaneo de los archivos que se encuentren en ese directorio con:
 
@@ -156,5 +156,5 @@ para ver si hay algo para explotar.
 
 Podemos usar **env** para ejecutar una shell con permisos de **root**.
 
-<figure><img src="../../.gitbook/assets/image (497).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (524).png" alt=""><figcaption></figcaption></figure>
 

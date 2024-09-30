@@ -9,9 +9,9 @@ Ingresamos las credenciales para el nivel 30.
 
 Tras iniciar sesión, nos encontramos con la página de inicio del **Nivel 30**. Se nos muestra en la página para hacer **Login** con nuestro usuario y contraseña por lo que revisamos el código fuente.
 
-<figure><img src="../../../.gitbook/assets/image (377).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (404).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (378).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (405).png" alt=""><figcaption></figcaption></figure>
 
 Este código Perl verifica si el método de solicitud es "POST" y si se proporcionan un nombre de usuario y una contraseña. Si es así, establece una conexión a la base de datos, forma una consulta usando `$dbh->quote(param())`, y la ejecuta. Si hay un resultado, se imprime; de lo contrario, se muestra "fail :(".
 
@@ -61,7 +61,7 @@ response_text = make_request("natas28", "'lol' or 1")
 print(response_text)
 ```
 
-<figure><img src="../../../.gitbook/assets/image (379).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (406).png" alt=""><figcaption></figcaption></figure>
 
 ### NIVEL 31
 
@@ -72,9 +72,9 @@ Ingresamos las credenciales para el nivel 31.
 
 Tras iniciar sesión, nos encontramos con la página de inicio del **Nivel 31**. Se nos muestra para subir archivos .csv por lo que revisamos el código fuente.
 
-<figure><img src="../../../.gitbook/assets/image (380).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (407).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (381).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (408).png" alt=""><figcaption></figcaption></figure>
 
 Inicialmente, pensé en un ataque de inyección CSV, donde se usan valores que comienzan con `=` y otros operadores, los cuales se evalúan cuando se abre el archivo. Investigé sobre estos ataques y probé varios payloads, pero no tuve éxito. Esto probablemente se debe a que el archivo CSV no se está abriendo de la manera necesaria (no se evalúa nada, solo se abre como un archivo de texto).
 
@@ -92,7 +92,7 @@ Con Burp abierto y el tráfico de tu navegador siendo proxyado a través de Burp
 
 En la pestaña Proxy > History, haz clic derecho en la solicitud y selecciona "Send to Repeater".
 
-<figure><img src="../../../.gitbook/assets/image (382).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (409).png" alt=""><figcaption></figcaption></figure>
 
 Necesitarás hacer dos modificaciones. Primero, copia y pega uno de los bloques de `form-data` antes de los datos del CSV, utilizando `Content-Disposition: form-data; name="file"` seguido de `ARGV`. Asegúrate de que los datos del límite (`boundary`) coincidan con los de los otros bloques.
 
@@ -111,9 +111,9 @@ Ingresamos las credenciales para el nivel 32.
 
 Tras iniciar sesión, nos encontramos con la página de inicio del **Nivel 32**. Se nos muestra para subir archivos .csv por lo que revisamos el código fuente. Parecido al nivel anterior.
 
-<figure><img src="../../../.gitbook/assets/image (383).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (410).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (384).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (411).png" alt=""><figcaption></figcaption></figure>
 
 El código no tiene mucha diferencia relevante del anterior por lo que he creado este script para obtener la contraseña teniendo en cuenta más o menos como la obtuvimos anteriormente.
 
@@ -163,7 +163,7 @@ Este script realiza lo siguiente:
 3. **Extrae la Contraseña**: Analiza la respuesta del servidor para encontrar la contraseña del siguiente nivel usando una expresión regular.
 4. **Guarda las Credenciales**: Simula el almacenamiento de las credenciales del siguiente nivel (nivel 33).
 
-<figure><img src="../../../.gitbook/assets/image (385).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (412).png" alt=""><figcaption></figcaption></figure>
 
 ### NIVEL 33
 
@@ -174,9 +174,9 @@ Ingresamos las credenciales para el nivel 33.
 
 Tras iniciar sesión, nos encontramos con la página de inicio del **Nivel 33**. Se nos muestra para subir un Firmware.
 
-<figure><img src="../../../.gitbook/assets/image (386).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (413).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (387).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (414).png" alt=""><figcaption></figcaption></figure>
 
 El código fuente define una clase llamada `Executor()` que se activa cuando se carga un archivo:
 
@@ -283,7 +283,7 @@ response = requests.post(url + '/index.php', auth=auth, data={'filename': 'phar:
 print(response.text)
 ```
 
-<figure><img src="../../../.gitbook/assets/image (390).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (417).png" alt=""><figcaption></figcaption></figure>
 
 ### NIVEL 34
 
@@ -294,4 +294,4 @@ Ingresamos las credenciales para el nivel 34.
 
 Tras iniciar sesión, nos encontramos con la página de inicio del **Nivel 34**. Finalizamos de momento todos los niveles.
 
-<figure><img src="../../../.gitbook/assets/image (389).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (416).png" alt=""><figcaption></figcaption></figure>

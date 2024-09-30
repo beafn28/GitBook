@@ -14,7 +14,7 @@ ping -c 1 172.17.0.2
 
 para verificar la conectividad de red.
 
-<figure><img src="../../.gitbook/assets/image (115).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (142).png" alt=""><figcaption></figcaption></figure>
 
 A continuación, se realiza el comando:
 
@@ -24,7 +24,7 @@ nmap -p- --open -sT --min-rate 5000 -vvv -n -Pn 172.17.0.2 -oG allPorts
 
 para realizar un escaneo de puertos y servicios detallado en la dirección IP.
 
-<figure><img src="../../.gitbook/assets/image (117).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (144).png" alt=""><figcaption></figcaption></figure>
 
 Como podemos observar durante el escaneo, el puerto **22** perteneciente al servicio **SSH** y el puerto **80** perteneciente al servicio **HTTP** están abiertos, por lo que se procederá a indagar más.
 
@@ -38,21 +38,21 @@ sudo nmap -sCV -p22,80 -v 172.17.0.2
 
 para obtener más información sobre esos puertos específicamente.
 
-<figure><img src="../../.gitbook/assets/image (119).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (146).png" alt=""><figcaption></figcaption></figure>
 
 Seguimos indagando más sobre los puertos y ahora exploramos el servicio **HTTP**. Se ingresó la dirección IP en el navegador, lo que llevó a que la página web sobre un centro de operaciones.
 
-<figure><img src="../../.gitbook/assets/image (120).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (147).png" alt=""><figcaption></figcaption></figure>
 
 Parece ser que la página está diseñada principalmente para la generación de reportes y la subida de archivos. Sin embargo, tras explorarla un poco más y hacer algunas pruebas, descubrí algo más interesante que podría ser útil ya que con la subida de archivos no tuvo éxito.
 
-<figure><img src="../../.gitbook/assets/image (121).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (148).png" alt=""><figcaption></figcaption></figure>
 
 ### 🚀 **EXPLOTACIÓN**
 
 Dado que hemos logrado la capacidad de ejecutar comandos de forma remota, el siguiente paso será leer el contenido del archivo `/etc/passwd` para identificar los usuarios presentes en el sistema. Para ello, simplemente ejecutamos el siguiente comando.
 
-<figure><img src="../../.gitbook/assets/image (122).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (149).png" alt=""><figcaption></figcaption></figure>
 
 Observamos que existe un usuario llamado **samara** en el sistema. Con esta información, podemos intentar acceder a la clave privada de SSH del usuario. Para ello, podríamos ejecutar el siguiente comando.
 
@@ -60,7 +60,7 @@ Observamos que existe un usuario llamado **samara** en el sistema. Con esta info
 ;cat /home/samara/.ssh/id_rsa
 ```
 
-<figure><img src="../../.gitbook/assets/image (123).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (150).png" alt=""><figcaption></figcaption></figure>
 
 Una vez que hemos obtenido la clave privada de SSH, la copiamos en un archivo en nuestra máquina local, nombrándolo `id_rsa`. A continuación, le asignamos los permisos adecuados con el siguiente comando:
 

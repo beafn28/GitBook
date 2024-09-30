@@ -8,7 +8,7 @@
 
 Utiliza esta contraseña para iniciar sesión en `krypton.labs.overthewire.org` con el nombre de usuario `krypton1` usando SSH en el puerto 2231. Puedes encontrar los archivos para otros niveles en `/krypton/`.
 
-<figure><img src="../../.gitbook/assets/image (403).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (430).png" alt=""><figcaption></figcaption></figure>
 
 ### NIVEL 1
 
@@ -17,11 +17,11 @@ Ingresa las credenciales para el Nivel 1:
 * **Usuario:** `krypton1`
 * **Contraseña:** `KRYPTONISGREAT`
 
-<figure><img src="../../.gitbook/assets/image (404).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (431).png" alt=""><figcaption></figcaption></figure>
 
 La contraseña para el nivel 2 está en el archivo `krypton2`. Está **encriptada** usando una rotación simple y también en un formato de cifrado no estándar. Cuando se utilizan caracteres alfabéticos para el texto cifrado, es común agrupar las letras en bloques de **5 letras**, independientemente de los límites de las palabras. Esto ayuda a ocultar patrones. Este archivo ha conservado los límites de las palabras del texto plano y los ha trasladado al texto cifrado.
 
-<figure><img src="../../.gitbook/assets/image (405).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (432).png" alt=""><figcaption></figcaption></figure>
 
 Para descifrar el texto cifrado en **ROT13** usando el archivo `krypton2`, puedes usar el siguiente comando:
 
@@ -29,9 +29,9 @@ Para descifrar el texto cifrado en **ROT13** usando el archivo `krypton2`, puede
 cat krypton2 | tr 'A-Za-z' 'N-ZA-Mn-za-m'
 ```
 
-<figure><img src="../../.gitbook/assets/image (406).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (433).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (407).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (434).png" alt=""><figcaption></figcaption></figure>
 
 ### NIVEL 2
 
@@ -40,9 +40,9 @@ Ingresa las credenciales para el Nivel 2:
 * **Usuario:** `krypton2`
 * **Contraseña:** `ROTTEN`
 
-<figure><img src="../../.gitbook/assets/image (409).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (436).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (410).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (437).png" alt=""><figcaption></figcaption></figure>
 
 Primero, necesitamos crear un directorio temporal para nuestro trabajo. Puedes hacerlo con el siguiente comando:
 
@@ -70,7 +70,7 @@ ln -s /krypton/krypton2/keyfile.dat
 
 Luego, usa `ls` para verificar que el enlace simbólico se ha creado correctamente en tu directorio temporal.
 
-<figure><img src="../../.gitbook/assets/image (411).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (438).png" alt=""><figcaption></figcaption></figure>
 
 Asegúrate de tener los permisos necesarios en el directorio actual ejecutando:
 
@@ -88,7 +88,7 @@ cat /krypton/krypton2/krypton3 | tr a-zA-Z o-za-nO-ZA-N
 
 Esto aplicará un cifrado César para obtener el texto plano.
 
-<figure><img src="../../.gitbook/assets/image (412).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (439).png" alt=""><figcaption></figcaption></figure>
 
 ### NIVEL 3
 
@@ -97,9 +97,9 @@ Ingresa las credenciales para el Nivel 3:
 * **Usuario:** `krypton3`
 * **Contraseña:** `CAESARISEASY`
 
-<figure><img src="../../.gitbook/assets/image (413).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (440).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (414).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (441).png" alt=""><figcaption></figcaption></figure>
 
 Este proceso se basa en un cifrado por sustitución, cuyo objetivo es descifrar un mensaje cifrado. Para lograrlo, se implementaron dos pasos fundamentales:
 
@@ -306,7 +306,7 @@ Ingresa las credenciales para el Nivel 4:
 * **Usuario:** `krypton4`
 * **Contraseña:** `BRUTE`
 
-<figure><img src="../../.gitbook/assets/image (415).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (442).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../.gitbook/assets/Captura de pantalla 2024-08-22 111951.png" alt=""><figcaption></figcaption></figure>
 
@@ -333,9 +333,9 @@ Al igual que en el nivel anterior, cuanto más largo sea el texto cifrado, más 
 
 Usando una herramienta como [Dcode.fr](https://www.dcode.fr/), copia y pega el texto de `found1` en el sitio web. Introduce `6` como la longitud de la clave.
 
-<figure><img src="../../.gitbook/assets/image (416).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (443).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (417).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (444).png" alt=""><figcaption></figcaption></figure>
 
 Sabiendo la clave he creado este script para obtener la contraseña para el siguiente nivel.
 
@@ -378,13 +378,13 @@ Ingresa las credenciales para el Nivel 5:
 * **Usuario:** `krypton5`
 * **Contraseña:** `CLEARTEXT`
 
-<figure><img src="../../.gitbook/assets/image (418).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (445).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (419).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (446).png" alt=""><figcaption></figcaption></figure>
 
 Si volvemos a [Dcode.fr](https://www.dcode.fr/vigenere-cipher), introducimos el texto de `found1` y seleccionamos la opción de Descifrado Automático, la herramienta realiza ambos pasos instantáneamente por nosotros.
 
-<figure><img src="../../.gitbook/assets/image (420).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (447).png" alt=""><figcaption></figcaption></figure>
 
 Usando el script del anterior nivel obtenemos la contraseña para el siguiente nivel. Ejecutándolo con este comando:
 
@@ -400,11 +400,11 @@ Ingresa las credenciales para el Nivel 6:
 * **Usuario:** `krypton6`
 * **Contraseña:** `RANDOM`
 
-<figure><img src="../../.gitbook/assets/image (421).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (448).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (422).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (449).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (423).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (450).png" alt=""><figcaption></figcaption></figure>
 
 Creamos un directorio temporal con el comando:
 
@@ -528,7 +528,7 @@ for i in range(0, cipherlength):
 print(flag)
 ```
 
-<figure><img src="../../.gitbook/assets/image (400).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (427).png" alt=""><figcaption></figcaption></figure>
 
 ### NIVEL 7
 
@@ -537,6 +537,6 @@ Ingresa las credenciales para el Nivel 7:
 * **Usuario:** `krypton7`
 * **Contraseña:** `LFSRISNOTRANDOM`
 
-<figure><img src="../../.gitbook/assets/image (401).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (428).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (402).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (429).png" alt=""><figcaption></figcaption></figure>

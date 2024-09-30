@@ -104,4 +104,4 @@ Usamos la explotación **SUID** con **env** a través del comando:
 
 Finalmente, hemos conseguido ser **root**.
 
-<figure><img src="../../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (31).png" alt=""><figcaption></figcaption></figure>

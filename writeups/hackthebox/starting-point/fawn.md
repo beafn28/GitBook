@@ -23,7 +23,7 @@ Iniciamos la máquina y verificamos la conexión.
 ping -c 1 10.129.12.83
 ```
 
-<figure><img src="../../../.gitbook/assets/image (68).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (95).png" alt=""><figcaption></figcaption></figure>
 
 Observamos que tenemos conexión y que es una máquina **Linux** ya que su **ttl=63**.
 
@@ -37,7 +37,7 @@ nmap 10.129.12.83
 
 para realizar un escaneo de puertos y servicios detallado en la dirección IP.
 
-<figure><img src="../../../.gitbook/assets/image (69).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (96).png" alt=""><figcaption></figcaption></figure>
 
 ### 4. 🚪 **Acceso Inicial**
 
@@ -51,9 +51,9 @@ Nos hemos conectado al servicio **FTP** utilizando el usuario **anonymous**, que
 
 Tras estar dentro listamos y encontramos un archivo llamado`flag.txt` que deberá mostrar la flag que nos preguntan por eso nos lo descargamos.
 
-<figure><img src="../../../.gitbook/assets/image (71).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (98).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (72).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (99).png" alt=""><figcaption></figcaption></figure>
 
 ### 6. ❓Preguntas
 
@@ -127,5 +127,5 @@ _El comando `get` se utiliza en FTP para descargar un archivo desde el servidor 
 
 035db21c881520061c53e0536e44f815
 
-<figure><img src="../../../.gitbook/assets/image (502).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (529).png" alt=""><figcaption></figcaption></figure>
 

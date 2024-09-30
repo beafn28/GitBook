@@ -10,7 +10,7 @@ Sin DNS, navegar por el mundo en línea sería como conducir sin un mapa o GPS: 
 
 Imagina que quieres visitar un sitio web como [www.ejemplo.com](http://www.ejemplo.com). Escribes este nombre de dominio amigable en tu navegador, pero tu computadora no entiende palabras: habla el lenguaje de los números, específicamente las direcciones IP. Entonces, ¿cómo encuentra tu computadora la dirección IP del sitio web? Aquí entra el DNS, el traductor confiable de Internet.
 
-<figure><img src="../../../.gitbook/assets/image (656).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (683).png" alt=""><figcaption></figcaption></figure>
 
 1. **Tu Computadora Pide Direcciones (Consulta DNS)**: Cuando ingresas el nombre de dominio, tu computadora primero revisa su memoria (caché) para ver si recuerda la dirección IP de una visita anterior. Si no, se dirige a un resolvedor DNS, que generalmente es proporcionado por tu proveedor de servicios de Internet (ISP).
 2. **El Resolvedor DNS Revisa su Mapa (Búsqueda Recursiva)**: El resolvedor también tiene una caché, y si no encuentra la dirección IP allí, comienza un viaje a través de la jerarquía del DNS. Empieza preguntando a un servidor de nombres raíz, que es como el bibliotecario de Internet.

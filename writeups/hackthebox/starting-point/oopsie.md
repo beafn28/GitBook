@@ -29,7 +29,7 @@ Iniciamos la máquina y verificamos la conexión.
 ping -c 1 10.129.245.165
 ```
 
-<figure><img src="../../../.gitbook/assets/image (564).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (591).png" alt=""><figcaption></figcaption></figure>
 
 Observamos que tenemos conexión y que es una máquina **Linux** ya que su **ttl=63**.
 
@@ -43,25 +43,25 @@ nmap -p- --min-rate 5000 -sV 10.129.245.165
 
 para realizar un escaneo de puertos y servicios detallado en la dirección IP.
 
-<figure><img src="../../../.gitbook/assets/image (565).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (592).png" alt=""><figcaption></figcaption></figure>
 
 ### 4. 🚪 **Acceso Inicial**
 
 Como podemos observar durante el escaneo el puerto **22** perteneciente al servicio **SSH** y el puerto **80** perteneciente al servicio **HTTP** están abiertos, por lo que se procederá a indagar más.
 
-<figure><img src="../../../.gitbook/assets/image (566).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (593).png" alt=""><figcaption></figcaption></figure>
 
 Revisando el código fuente encontramos esto interesante.
 
-![](<../../../.gitbook/assets/image (567).png>)&#x20;
+![](<../../../.gitbook/assets/image (594).png>)&#x20;
 
 Probemos acceder a: [http://10.129.245.165/cdn-cgi/login/](http://10.129.245.165/cdn-cgi/login/). Tenemos permisos y hemos encontrado otra página que es un panel de **Login**.
 
-<figure><img src="../../../.gitbook/assets/image (568).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (595).png" alt=""><figcaption></figcaption></figure>
 
 Las credenciales son las de la máquina anterior de **Archetype** por lo que iniciamos sesión.
 
-<figure><img src="../../../.gitbook/assets/image (569).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (596).png" alt=""><figcaption></figcaption></figure>
 
 En las demás páginas, encontramos información sobre la marca y los clientes. Sin embargo, no podemos acceder a la página de **Uploads** porque no tenemos los permisos necesarios; se requieren derechos de **super administrador**.
 
@@ -120,7 +120,7 @@ Ahora buscaremos directorios con la herramienta **Gobuster** a través de:
 gobuster dir -u http://10.129.245.165/ -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt
 ```
 
-<figure><img src="../../../.gitbook/assets/image (575).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (602).png" alt=""><figcaption></figcaption></figure>
 
 Es posible que el desarrollador haya olvidado implementar la validación de entrada de usuario, por lo que deberíamos probar si podemos subir otros archivos, como una shell web en PHP.
 
@@ -140,23 +140,23 @@ Ahora, iniciamos un listener en el puerto 443 con:
 nc -lvnp 443
 ```
 
-<figure><img src="../../../.gitbook/assets/image (570).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (597).png" alt=""><figcaption></figcaption></figure>
 
 ### 5. 🔑 **Captura de la Flag**
 
 Una vez dentro investigamos distintos directorios para ver donde se encuentra la flag. La flag se encuentra en el directorio `/home/robert.`
 
-<figure><img src="../../../.gitbook/assets/image (571).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (598).png" alt=""><figcaption></figcaption></figure>
 
 Debemos escalar privilegios para encontrar la flag del **root**. Parece ser las credenciales para conectarnos a través de **SSH**.
 
-<figure><img src="../../../.gitbook/assets/image (572).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (599).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (573).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (600).png" alt=""><figcaption></figcaption></figure>
 
 Pertenece al grupo **bugtracker**.
 
-<figure><img src="../../../.gitbook/assets/image (574).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (601).png" alt=""><figcaption></figcaption></figure>
 
 Hacemos estos comandos en robert.
 
@@ -236,4 +236,4 @@ f2c74ee8db7983851ab2a96a44eb7981
 
 af13b0bee69f8a877c3faf667f7beacf
 
-<figure><img src="../../../.gitbook/assets/image (576).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (603).png" alt=""><figcaption></figcaption></figure>

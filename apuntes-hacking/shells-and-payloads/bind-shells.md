@@ -6,7 +6,7 @@ En muchos casos, trabajaremos para establecer una shell en un sistema en una red
 
 Con una _bind shell_, el sistema objetivo inicia un oyente (_listener_) y espera una conexión desde el sistema del pentester (la caja de ataque).
 
-<figure><img src="../../.gitbook/assets/image (675).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (702).png" alt=""><figcaption></figcaption></figure>
 
 ### **Ejemplo de Bind Shell**
 
