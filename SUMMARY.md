@@ -175,6 +175,7 @@
   * [John The Ripper](apuntes-hacking/password-attacks/john-the-ripper.md)
   * [Network Services](apuntes-hacking/password-attacks/network-services.md)
   * [Password Mutations](apuntes-hacking/password-attacks/password-mutations.md)
+  * [Password Reuse / Default Passwords](apuntes-hacking/password-attacks/password-reuse-default-passwords.md)
 
 ## Mis CTFs
 
