@@ -42,7 +42,7 @@ para obtener más información sobre esos puertos específicamente.
 
 Seguimos indagando más sobre los puertos y ahora indagamos sobre el **servicio HTTP**. Se ingresó la **dirección IP** en el navegador lo que llevó a que la página web nos da la bienvenida Beatriz a la plataforma [Root Acces](https://rootacc.es/index.php?sid=585994e8f11ab449e8ccbd8e65e13a59). Descubrimos que **Beatriz** puede ser un usuario y tiene sentido ya que es la que crea los CTF.
 
-<figure><img src="../.gitbook/assets/imagen (15).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/imagen (55).png" alt=""><figcaption></figcaption></figure>
 
 ### 🚀 **EXPLOTACIÓN**
 
@@ -94,4 +94,12 @@ sudo python3 -c 'import os; os.system("/bin/sh")'
 
 Ya somos **root** por lo que ahora encontraremos la bandera en su directorio.
 
-<figure><img src="../.gitbook/assets/imagen (22).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/imagen (56).png" alt=""><figcaption></figcaption></figure>
+
+Esta bandera está codificada en base64 la decodificamos con este comando:
+
+```bash
+echo "aHR0cHM6Ly9yb290YWNjLmVzCg==" | base64 --decode
+```
+
+<figure><img src="../.gitbook/assets/imagen (57).png" alt=""><figcaption></figcaption></figure>
