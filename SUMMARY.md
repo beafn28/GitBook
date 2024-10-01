@@ -176,6 +176,7 @@
   * [Network Services](apuntes-hacking/password-attacks/network-services.md)
   * [Password Mutations](apuntes-hacking/password-attacks/password-mutations.md)
   * [Password Reuse / Default Passwords](apuntes-hacking/password-attacks/password-reuse-default-passwords.md)
+  * [Attacking SAM](apuntes-hacking/password-attacks/attacking-sam.md)
 
 ## Mis CTFs
 
