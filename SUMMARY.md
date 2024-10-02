@@ -177,6 +177,7 @@
   * [Password Mutations](apuntes-hacking/password-attacks/password-mutations.md)
   * [Password Reuse / Default Passwords](apuntes-hacking/password-attacks/password-reuse-default-passwords.md)
   * [Attacking SAM](apuntes-hacking/password-attacks/attacking-sam.md)
+  * [Attacking LSASS](apuntes-hacking/password-attacks/attacking-lsass.md)
 
 ## Mis CTFs
 
