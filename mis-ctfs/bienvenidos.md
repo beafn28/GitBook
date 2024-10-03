@@ -1,5 +1,6 @@
 ---
 description: '✍️ Autor: beafn28🔍 Dificultad: Fácil 📅 Fecha de creación: 29/09/2024'
+hidden: true
 ---
 
 # Bienvenidos
