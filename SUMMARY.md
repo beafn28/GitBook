@@ -180,6 +180,7 @@
   * [Attacking LSASS](apuntes-hacking/password-attacks/attacking-lsass.md)
   * [Attacking Active Directory & NTDS.dit](apuntes-hacking/password-attacks/attacking-active-directory-and-ntds.dit.md)
   * [Credential Hunting in Windows](apuntes-hacking/password-attacks/credential-hunting-in-windows.md)
+  * [Credential Hunting in Linux](apuntes-hacking/password-attacks/credential-hunting-in-linux.md)
 
 ## Mis CTFs
 
