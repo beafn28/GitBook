@@ -178,6 +178,7 @@
   * [Password Reuse / Default Passwords](apuntes-hacking/password-attacks/password-reuse-default-passwords.md)
   * [Attacking SAM](apuntes-hacking/password-attacks/attacking-sam.md)
   * [Attacking LSASS](apuntes-hacking/password-attacks/attacking-lsass.md)
+  * [Attacking Active Directory & NTDS.dit](apuntes-hacking/password-attacks/attacking-active-directory-and-ntds.dit.md)
 
 ## Mis CTFs
 
