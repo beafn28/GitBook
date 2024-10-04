@@ -179,6 +179,7 @@
   * [Attacking SAM](apuntes-hacking/password-attacks/attacking-sam.md)
   * [Attacking LSASS](apuntes-hacking/password-attacks/attacking-lsass.md)
   * [Attacking Active Directory & NTDS.dit](apuntes-hacking/password-attacks/attacking-active-directory-and-ntds.dit.md)
+  * [Credential Hunting in Windows](apuntes-hacking/password-attacks/credential-hunting-in-windows.md)
 
 ## Mis CTFs
 
