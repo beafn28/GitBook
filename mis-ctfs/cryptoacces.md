@@ -5,13 +5,6 @@ hidden: true
 
 # CryptoAcces
 
-```bash
-┌──(beafn28㉿kali)-[~/Desktop]
-└─$ openssl enc -aes-256-cbc -d -in ~/Desktop/alice_aes.enc -out ~/Desktop/alice_password.txt -k 'supercomplexkey!' -iter 10000
-```
-
-wget -r -np -nH --cut-dirs=2 --reject "index.html\*" http://172.17.0.2/hidden/
-
 ### 🔍 RECONOCIMIENTO
 
 En primer lugar, tras conectarnos a la máquina, utilizamos el comando:
