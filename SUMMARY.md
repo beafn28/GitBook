@@ -188,6 +188,7 @@
 
 * [Pequeñas Mentirosas](mis-ctfs/pequenas-mentirosas.md)
 * [Bienvenidos](mis-ctfs/bienvenidos.md)
+* [CryptoAcces](mis-ctfs/cryptoacces.md)
 
 ## PREPARAR EJPTv2
 
