@@ -1,5 +1,5 @@
 ---
-description: '✍️ Autor: beafn28🔍 Dificultad: Medio📅 Fecha de creación: 26/09/2024'
+description: '✍️ Autor: beafn28🔍 Dificultad: Medio📅 Fecha de creación: 5/10/2024'
 hidden: true
 ---
 
