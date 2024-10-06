@@ -2,13 +2,11 @@
 
 ## Máquinas de Hack The Box&#x20;
 
-| Nombre      | Dificultad | Enlace Writeup                                                                            | Hecha o No | Estado   |
-| ----------- | ---------- | ----------------------------------------------------------------------------------------- | ---------- | -------- |
-| Jerry       | Fácil      | [Writeup Jerry](https://medium.com/ctf-writeups/hack-the-box-jerry-write-up-6f045601315f) | ❌          | Retirada |
-| Validation  | Fácil      | [Writeup Validation](https://medium.com/@l0w3/validation-htb-writeup-d76185029b15)        | ❌          | Retirada |
-| Horizontall | Fácil      | [Writeup Máquina 3](http://enlace.com)                                                    | ❌          | Retirada |
-| Jeeves      | Fácil      |                                                                                           |            |          |
-| Flustered   | Fácil      |                                                                                           |            | Activa   |
+<table><thead><tr><th>Nombre</th><th>Dificultad</th><th>Enlace</th><th>Estado</th><th>Técnicas</th><th>Sistema Operativo</th><th data-type="checkbox">Hecha o No</th></tr></thead><tbody><tr><td>Jerry</td><td>Fácil</td><td><a href="https://app.hackthebox.com/machines/Jerry">https://app.hackthebox.com/machines/Jerry</a></td><td>Retirada</td><td>File Upload, Apache Tomcat</td><td>Windows</td><td>false</td></tr><tr><td>Validation</td><td>Fácil</td><td><a href="https://app.hackthebox.com/machines/Validation">https://app.hackthebox.com/machines/Validation</a></td><td>Retirada</td><td>SQL Injection, Reverse Shell </td><td>Linux</td><td>false</td></tr><tr><td>Horizontall</td><td>Fácil</td><td><a href="https://app.hackthebox.com/machines/Horizontall">https://app.hackthebox.com/machines/Horizontall</a></td><td>Retirada</td><td> CMS Strapi, Command Injection,</td><td><br>Linux</td><td>false</td></tr><tr><td>Jeeves</td><td>Medio</td><td><a href="https://app.hackthebox.com/machines/Jeeves">https://app.hackthebox.com/machines/Jeeves</a></td><td>Retirada</td><td>Jenkins, Payload Powershell</td><td>Windows</td><td>false</td></tr><tr><td>Flustered</td><td>Medio</td><td><a href="https://app.hackthebox.com/machines/Flustered">https://app.hackthebox.com/machines/Flustered</a></td><td>Retirada</td><td>SSTI vulnerability</td><td>Linux</td><td>false</td></tr></tbody></table>
+
+## Máquinas de The Hacker Labs
+
+<table><thead><tr><th>Nombre</th><th>Dificultad</th><th>Enlace</th><th>Estado</th><th>Técnicas</th><th>Sistema Operativa</th><th data-type="checkbox">Hecha o No</th></tr></thead><tbody><tr><td>Fruits</td><td>Principiante</td><td></td><td>Activa</td><td>LFI</td><td></td><td>false</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td>false</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td>false</td></tr></tbody></table>
 
 ## Máquinas de TryHackMe&#x20;
 
