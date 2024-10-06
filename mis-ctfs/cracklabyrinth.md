@@ -1,6 +1,5 @@
 ---
 description: '✍️ Autor: beafn28🔍 Dificultad: Fácil📅 Fecha de creación: 5/10/2024'
-hidden: true
 ---
 
 # CrackLabyrinth
