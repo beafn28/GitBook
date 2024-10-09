@@ -19,3 +19,7 @@
 ## Máquinas de VulnHub
 
 <table data-full-width="true"><thead><tr><th>Nombre</th><th>Dificultad</th><th>Enlace</th><th>Estado</th><th>Técnicas </th><th>Sistema Operativo</th><th data-type="checkbox">Hecha o No</th></tr></thead><tbody><tr><td>DarkHole:1</td><td>Fácil</td><td><a href="https://www.vulnhub.com/entry/darkhole-1,724/">https://www.vulnhub.com/entry/darkhole-1,724/</a></td><td>Activa</td><td>Burpsuite, Revshell, SUID </td><td>Linux</td><td>false</td></tr><tr><td>Election:1</td><td>Media</td><td><a href="https://www.vulnhub.com/entry/election-1,503/">https://www.vulnhub.com/entry/election-1,503/</a></td><td>Activa</td><td>Searchsploit, SUID, Burpsuite</td><td>Linux</td><td>false</td></tr><tr><td>Symphonos:1</td><td>Fácil</td><td><a href="https://www.vulnhub.com/entry/symfonos-1,322/">https://www.vulnhub.com/entry/symfonos-1,322/</a></td><td>Activa</td><td>Samba, WordPress (LFI), SUID</td><td>Linux</td><td>false</td></tr></tbody></table>
+
+## Máquinas Vulnyx
+
+<table data-full-width="true"><thead><tr><th>Nombre</th><th>Dificultad</th><th>Enlace</th><th>Estado</th><th>Técnicas </th><th>Sistema Operativo</th><th data-type="checkbox">Hecha o No</th></tr></thead><tbody><tr><td></td><td>Fácil</td><td></td><td>Activa</td><td></td><td>Linux</td><td>false</td></tr><tr><td></td><td>Fácil</td><td></td><td>Activa</td><td></td><td>Linux</td><td>false</td></tr><tr><td></td><td>Fácil</td><td></td><td>Activa</td><td></td><td>Linux</td><td>false</td></tr></tbody></table>
