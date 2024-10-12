@@ -68,6 +68,7 @@
   * [Can you hack me?](writeups/the-hacker-labs/can-you-hack-me.md)
   * [Fruits](writeups/the-hacker-labs/fruits.md)
   * [Microchoft](writeups/the-hacker-labs/microchoft.md)
+  * [TickTakRoot](writeups/the-hacker-labs/ticktakroot.md)
 
 ## APUNTES HACKING
 

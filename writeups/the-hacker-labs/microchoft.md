@@ -12,7 +12,7 @@ En primer lugar, miramos la **IP** de la máquina víctima con este comando:
 sudo arp-scan --interface=eth0 --localnet
 ```
 
-<figure><img src="../../.gitbook/assets/imagen.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/imagen (15).png" alt=""><figcaption></figcaption></figure>
 
 En segundo lugar, tras conectarnos a la máquina, utilizamos el comando:
 
@@ -22,7 +22,7 @@ ping -c 1 192.168.1.57
 
 para verificar la conectividad de red.
 
-<figure><img src="../../.gitbook/assets/imagen (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/imagen (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Definitivamente es una máquina Windows porque el TTL=128.
 
@@ -34,7 +34,7 @@ sudo nmap -p- --open -sS -Pn --min-rate 5000 -n 192.168.1.57
 
 para realizar un escaneo de puertos y servicios detallado en la dirección IP.
 
-<figure><img src="../../.gitbook/assets/imagen (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/imagen (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 Como podemos observar durante el escaneo, los siguientes puertos están abiertos:
 
@@ -58,7 +58,7 @@ sudo nmap -sCV -p135,139,445 -v 192.168.1.57
 
 para obtener más información sobre ese puerto específicamente.
 
-<figure><img src="../../.gitbook/assets/imagen (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/imagen (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 Como podemos observar durante el escaneo, el puerto **445/tcp** perteneciente al servicio **Microsoft-DS** está abierto. Este puerto es utilizado para compartir archivos y otros recursos en redes Windows mediante el protocolo SMB (Server Message Block).
 
@@ -75,7 +75,7 @@ Por eso mismo revisamos si es vulnerable por si acaso con el comando:
 nmap -p445 --script="vuln and safe" 192.168.1.57
 ```
 
-<figure><img src="../../.gitbook/assets/imagen (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/imagen (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### 🚀 **EXPLOTACIÓN**
 
@@ -85,7 +85,7 @@ Con la información obtenida anteriormente, realizamos el comando:
 msfconsole
 ```
 
-<figure><img src="../../.gitbook/assets/imagen (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/imagen (5) (1).png" alt=""><figcaption></figcaption></figure>
 
 A continuación se intentará explotar esa vulnerabilidad a través de la herramienta **Metasploit**. Se busca la vulnerabilidad exacta que obtenida en el anterior escaneo.
 
@@ -93,7 +93,7 @@ A continuación se intentará explotar esa vulnerabilidad a través de la herram
 search ms17-010
 ```
 
-<figure><img src="../../.gitbook/assets/imagen (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/imagen (6) (1).png" alt=""><figcaption></figcaption></figure>
 
 Revisamos el segundo ya que tenemos un **Windows 7** de máquina víctima.
 
@@ -101,7 +101,7 @@ Revisamos el segundo ya que tenemos un **Windows 7** de máquina víctima.
 use 2
 ```
 
-<figure><img src="../../.gitbook/assets/imagen (7).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/imagen (7) (1).png" alt=""><figcaption></figcaption></figure>
 
 Miramos las opciones que tenemos que configurar con el comando:
 
@@ -109,14 +109,14 @@ Miramos las opciones que tenemos que configurar con el comando:
 show options
 ```
 
-<figure><img src="../../.gitbook/assets/imagen (8).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/imagen (8) (1).png" alt=""><figcaption></figcaption></figure>
 
 A continuación, configuramos los parámetros necesarios para realizar el ataque:
 
 * **RHOSTS**: Definimos la dirección IP del host remoto (objetivo) como `192.168.1.57`.
 * **LHOST**: Establecemos la dirección IP de nuestro host local (atacante) como `192.158.1.50`.
 
-<figure><img src="../../.gitbook/assets/imagen (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/imagen (9) (1).png" alt=""><figcaption></figcaption></figure>
 
 Después de haber configurado estos parámetros correctamente, procederemos a verificar si el objetivo es explotable. Esto implica ejecutar la explotación para confirmar si la vulnerabilidad está presente y si podemos obtener acceso o control del sistema remoto.
 
@@ -124,7 +124,7 @@ Después de haber configurado estos parámetros correctamente, procederemos a ve
 exploit
 ```
 
-<figure><img src="../../.gitbook/assets/imagen (10).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/imagen (10) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### 🔐 PRIVILEGIOS
 
@@ -134,7 +134,7 @@ Al estar dentro ejecutamos:
 pwd
 ```
 
-<figure><img src="../../.gitbook/assets/imagen (11).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/imagen (11) (1).png" alt=""><figcaption></figcaption></figure>
 
 A medida que avanzamos en nuestra investigación, revisaremos los directorios de los usuarios **Admin** y **Lola** para encontrar las diferentes flags requeridas en este reto.
 
