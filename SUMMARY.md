@@ -69,6 +69,7 @@
   * [Fruits](writeups/the-hacker-labs/fruits.md)
   * [Microchoft](writeups/the-hacker-labs/microchoft.md)
   * [TickTakRoot](writeups/the-hacker-labs/ticktakroot.md)
+  * [Grillo](writeups/the-hacker-labs/grillo.md)
 
 ## APUNTES HACKING
 
