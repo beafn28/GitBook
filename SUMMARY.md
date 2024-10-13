@@ -191,7 +191,7 @@
 
 * [Pequeñas Mentirosas](mis-ctfs/pequenas-mentirosas.md)
 * [Bienvenidos](mis-ctfs/bienvenidos.md)
-* [CrackLabyrinth](mis-ctfs/cracklabyrinth.md)
+* [CryptoLabyrinth](mis-ctfs/cryptolabyrinth.md)
 
 ## PREPARAR EJPTv2
 
