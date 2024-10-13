@@ -70,6 +70,7 @@
   * [Microchoft](writeups/the-hacker-labs/microchoft.md)
   * [TickTakRoot](writeups/the-hacker-labs/ticktakroot.md)
   * [Grillo](writeups/the-hacker-labs/grillo.md)
+  * [Mortadela](writeups/the-hacker-labs/mortadela.md)
 
 ## APUNTES HACKING
 
