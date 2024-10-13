@@ -72,6 +72,7 @@
   * [Grillo](writeups/the-hacker-labs/grillo.md)
   * [Mortadela](writeups/the-hacker-labs/mortadela.md)
   * [Zapas Guapas](writeups/the-hacker-labs/zapas-guapas.md)
+  * [Sal y Azúcar](writeups/the-hacker-labs/sal-y-azucar.md)
 
 ## APUNTES HACKING
 
