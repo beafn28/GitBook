@@ -6,7 +6,7 @@ En muchos casos de sistemas vulnerables, es más probable que un administrador p
 
 Como se muestra en la imagen, al iniciar un "listener" para una concha inversa en nuestra caja de ataque, usamos algún método (como la carga de archivos no restringida o la inyección de comandos) para forzar que el objetivo inicie una conexión hacia nuestra caja, haciendo que la caja de ataque se convierta en el **servidor** y el objetivo en el **cliente**.
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (24).png" alt=""><figcaption></figcaption></figure>
 
 No siempre necesitamos reinventar los payloads (comandos y código). Herramientas como el **Reverse Shell Cheat Sheet** contienen listas de comandos y generadores de shells inversas automatizadas que podemos usar en la práctica o en compromisos reales. Sin embargo, muchos administradores conocen estos recursos, por lo que podrían ajustar sus controles de seguridad para detectarlos. En algunos casos, necesitaremos personalizar nuestros ataques.
 
