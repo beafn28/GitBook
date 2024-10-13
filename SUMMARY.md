@@ -71,6 +71,7 @@
   * [TickTakRoot](writeups/the-hacker-labs/ticktakroot.md)
   * [Grillo](writeups/the-hacker-labs/grillo.md)
   * [Mortadela](writeups/the-hacker-labs/mortadela.md)
+  * [Zapas Guapas](writeups/the-hacker-labs/zapas-guapas.md)
 
 ## APUNTES HACKING
 

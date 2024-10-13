@@ -127,7 +127,7 @@ aún no somos **root**, por lo que hacemos:
 sudo -l
 ```
 
-para ver si hay algo para explotar pero no tenemos permisos. Por lo que buscamos SUIS.
+para ver si hay algo para explotar pero no tenemos permisos. Por lo que buscamos SUID.
 
 ```bash
 find / -perm -4000 -ls 2> /dev/null
