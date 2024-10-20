@@ -73,6 +73,7 @@
   * [Mortadela](writeups/the-hacker-labs/mortadela.md)
   * [Zapas Guapas](writeups/the-hacker-labs/zapas-guapas.md)
   * [Sal y Azúcar](writeups/the-hacker-labs/sal-y-azucar.md)
+  * [Cyberpunk](writeups/the-hacker-labs/cyberpunk.md)
 
 ## APUNTES HACKING
 
