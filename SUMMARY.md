@@ -75,6 +75,7 @@
   * [Sal y Azúcar](writeups/the-hacker-labs/sal-y-azucar.md)
   * [Cyberpunk](writeups/the-hacker-labs/cyberpunk.md)
   * [Papafrita](writeups/the-hacker-labs/papafrita.md)
+  * [PizzaHot](writeups/the-hacker-labs/pizzahot.md)
 
 ## APUNTES HACKING
 
