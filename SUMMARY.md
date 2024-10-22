@@ -74,6 +74,7 @@
   * [Zapas Guapas](writeups/the-hacker-labs/zapas-guapas.md)
   * [Sal y Azúcar](writeups/the-hacker-labs/sal-y-azucar.md)
   * [Cyberpunk](writeups/the-hacker-labs/cyberpunk.md)
+  * [Papafrita](writeups/the-hacker-labs/papafrita.md)
 
 ## APUNTES HACKING
 
