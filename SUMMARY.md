@@ -201,3 +201,4 @@
 ## PREPARAR EJPTv2
 
 * [Máquinas](preparar-ejptv2/maquinas.md)
+* [Curso de Mario](preparar-ejptv2/curso-de-mario.md)
