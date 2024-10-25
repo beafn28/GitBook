@@ -29,3 +29,6 @@ Es una configuración de red en máquinas virtuales que permite que varias máqu
 
 <figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
+### Tipos de Redes
+
+<table data-header-hidden data-full-width="true"><thead><tr><th></th><th></th><th></th><th></th><th></th><th></th><th></th></tr></thead><tbody><tr><td><strong>Clase de Red</strong></td><td><strong>Rango de Direcciones IP</strong></td><td><strong>Primera IP Usable</strong></td><td><strong>Última IP Usable</strong></td><td><strong>Máscara de Red</strong></td><td><strong>CIDR</strong></td><td><strong>Cantidad de Hosts</strong></td></tr><tr><td><strong>Clase A</strong></td><td>0.0.0.0 - 127.255.255.255</td><td>1.0.0.1</td><td>126.255.255.254</td><td>255.0.0.0</td><td>/8</td><td>16,777,214</td></tr><tr><td><strong>Clase B</strong></td><td>128.0.0.0 - 191.255.255.255</td><td>128.0.0.1</td><td>191.255.255.254</td><td>255.255.0.0</td><td>/16</td><td>65,534</td></tr><tr><td><strong>Clase C</strong></td><td>192.0.0.0 - 223.255.255.255</td><td>192.0.0.1</td><td>223.255.255.254</td><td>255.255.255.0</td><td>/24</td><td>254</td></tr></tbody></table>
