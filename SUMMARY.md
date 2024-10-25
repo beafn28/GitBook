@@ -203,3 +203,4 @@
 * [Máquinas](preparar-ejptv2/maquinas.md)
 * [Curso de Mario](preparar-ejptv2/curso-de-mario/README.md)
   * [Presentación + Preparación de Laboratorios](preparar-ejptv2/curso-de-mario/presentacion-+-preparacion-de-laboratorios.md)
+  * [Conceptos Básicos de Hacking](preparar-ejptv2/curso-de-mario/conceptos-basicos-de-hacking.md)
