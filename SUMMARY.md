@@ -205,3 +205,4 @@
 * [Curso de Mario](preparar-ejptv2/curso-de-mario/README.md)
   * [Presentación + Preparación de Laboratorios](preparar-ejptv2/curso-de-mario/presentacion-+-preparacion-de-laboratorios.md)
   * [Conceptos Básicos de Hacking](preparar-ejptv2/curso-de-mario/conceptos-basicos-de-hacking.md)
+  * [Explotación de Vulnerabilidades y Ataques de Fuerza Bruta](preparar-ejptv2/curso-de-mario/explotacion-de-vulnerabilidades-y-ataques-de-fuerza-bruta.md)
