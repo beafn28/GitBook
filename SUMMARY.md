@@ -76,6 +76,7 @@
   * [Cyberpunk](writeups/the-hacker-labs/cyberpunk.md)
   * [Papafrita](writeups/the-hacker-labs/papafrita.md)
   * [PizzaHot](writeups/the-hacker-labs/pizzahot.md)
+  * [Decryptor](writeups/the-hacker-labs/decryptor.md)
 
 ## APUNTES HACKING
 
