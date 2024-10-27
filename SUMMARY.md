@@ -78,6 +78,7 @@
   * [PizzaHot](writeups/the-hacker-labs/pizzahot.md)
   * [Decryptor](writeups/the-hacker-labs/decryptor.md)
   * [Academy](writeups/the-hacker-labs/academy.md)
+  * [Cocido andaluz](writeups/the-hacker-labs/cocido-andaluz.md)
 
 ## APUNTES HACKING
 
