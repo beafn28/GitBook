@@ -77,6 +77,7 @@
   * [Papafrita](writeups/the-hacker-labs/papafrita.md)
   * [PizzaHot](writeups/the-hacker-labs/pizzahot.md)
   * [Decryptor](writeups/the-hacker-labs/decryptor.md)
+  * [Academy](writeups/the-hacker-labs/academy.md)
 
 ## APUNTES HACKING
 
