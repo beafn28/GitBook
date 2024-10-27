@@ -8,3 +8,5 @@ icon: '3'
 
 {% embed url="https://drive.google.com/drive/folders/1EOkfWHycCEsO2QU6DHhloN7pnDAu6-vg" %}
 
+## Uso Básico de Metasploit – Explotación EternalBlue en Windows
+
