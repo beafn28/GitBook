@@ -142,3 +142,23 @@ http://<IP máquina víctima>/uploads/archivo.php?cmd=<URL encodeada>
 
 {% embed url="https://tryhackme.com/room/vulnversity" %}
 
+Cuando no nos dejan subir un archivo en `.php` cambiamos la extensión a .`phtml` ya que a efectos prácticos es lo mismo.
+
+```bash
+mv pwned.php pwned.phtml
+```
+
+Realizamos fuzzing para ver donde se subió el archivo.
+
+## Burp Suite – Modificar Peticiones HTTP
+
+{% embed url="https://tryhackme.com/room/vulnversity" %}
+
+Vamos a ajustes y configuramos el proxy de esta manera.
+
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+Interceptamos la conexión al dar al archivo de la Reverse Shell. Cambiamos la extensión del archivo y le damos a **Forward**. Apagamos la intercepción.
+
+## Burp Suite – Uso del Repeater
+

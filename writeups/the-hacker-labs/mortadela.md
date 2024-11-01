@@ -66,7 +66,7 @@ wpscan --url http://192.168.1.68/wordpress/ --plugins-detection aggressive
 
 Se nos muestra un plugin llamado **wpdiscuz** y su versión por lo que a través de **searchsploit** miraremos si esa versión contiene alguna vulnerabilidad para explotar con **Metasploit**.
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### 🚀 **EXPLOTACIÓN**
 
