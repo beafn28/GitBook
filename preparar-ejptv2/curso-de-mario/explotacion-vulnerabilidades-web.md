@@ -137,3 +137,8 @@ Tras esto dar a la opción **Encode as URL**.
 ```bash
 http://<IP máquina víctima>/uploads/archivo.php?cmd=<URL encodeada>
 ```
+
+## Bypass Restricción de File Upload
+
+{% embed url="https://tryhackme.com/room/vulnversity" %}
+
