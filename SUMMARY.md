@@ -209,3 +209,4 @@
   * [Conceptos Básicos de Hacking](preparar-ejptv2/curso-de-mario/conceptos-basicos-de-hacking.md)
   * [Explotación de Vulnerabilidades y Ataques de Fuerza Bruta](preparar-ejptv2/curso-de-mario/explotacion-de-vulnerabilidades-y-ataques-de-fuerza-bruta.md)
   * [Explotación vulnerabilidades Web](preparar-ejptv2/curso-de-mario/explotacion-vulnerabilidades-web.md)
+  * [Enumeración y Explotación del Protócolo SMB, SAMBA, SNMP, IIS y RDP](preparar-ejptv2/curso-de-mario/enumeracion-y-explotacion-del-protocolo-smb-samba-snmp-iis-y-rdp.md)
