@@ -212,3 +212,4 @@
   * [Enumeración y Explotación del Protócolo SMB, SAMBA, SNMP, IIS y RDP](preparar-ejptv2/curso-de-mario/enumeracion-y-explotacion-del-protocolo-smb-samba-snmp-iis-y-rdp.md)
   * [Hacking Entornos CMS](preparar-ejptv2/curso-de-mario/hacking-entornos-cms.md)
   * [Escalada de Privilegios + Post Explotación](preparar-ejptv2/curso-de-mario/escalada-de-privilegios-+-post-explotacion.md)
+  * [Pivoting con Metasploit](preparar-ejptv2/curso-de-mario/pivoting-con-metasploit.md)
