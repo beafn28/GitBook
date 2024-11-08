@@ -34,8 +34,4 @@
 {% step %}
 ### Pivoting con Metasploit&#x20;
 {% endstep %}
-
-{% step %}
-### Laboratorios de Pentesting (Práctica)
-{% endstep %}
 {% endstepper %}
