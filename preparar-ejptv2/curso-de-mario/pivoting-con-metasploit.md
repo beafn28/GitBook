@@ -532,3 +532,80 @@ Para realizar un ataque de fuerza bruta en el servicio SSH, utiliza **Hydra**:
 ```bash
 hydra -l dimitri -P /usr/share/wordlists/rockyou.txt ssh://127.0.0.1 -s 222
 ```
+
+## Cómo Hacer Pivoting mediante SSH – \[OPCIONAL]
+
+{% embed url="https://sourceforge.net/projects/metasploitable/files/Metasploitable2" %}
+
+### 1. Configuración del Entorno
+
+En este escenario, tenemos tres máquinas configuradas de la siguiente manera:
+
+1. **Máquina Atacante**: Kali Linux
+   * Conexión de red: Adaptador en modo puente.
+2. **Máquina Intermedia**: Ubuntu
+   * Conexión de red: Adaptador en modo puente y otro adaptador en red interna.
+3. **Máquina Objetivo**: Metasploitable2
+   * Conexión de red: Adaptador en modo red interna (conectada solo con la máquina intermedia Ubuntu).
+
+**Objetivo**: Realizar un pivoting desde Kali Linux para acceder a la máquina Metasploitable2 a través de Ubuntu, utilizando SSH y la herramienta SSHuttle.
+
+### 2. Configurar SSH en la Máquina Intermedia (Ubuntu)
+
+1.  **Instalar y habilitar SSH** en la máquina intermedia Ubuntu si no está ya configurado:
+
+    ```bash
+    sudo apt update
+    sudo apt install openssh-server -y
+    sudo systemctl enable ssh
+    sudo systemctl start ssh
+    ```
+2.  **Verificar las interfaces de red** en Ubuntu para identificar las IP disponibles:
+
+    ```bash
+    bashCopiar códigohostname -I
+    ```
+
+    Esto mostrará las direcciones IP asignadas a cada interfaz. Necesitaremos la IP del adaptador en **modo puente** para conectarnos desde Kali Linux.
+
+### 3. Conectar Kali Linux a Ubuntu a través de SSHuttle
+
+1.  En Kali Linux, usa **SSHuttle** para enrutar el tráfico de red hacia la red interna de Ubuntu, permitiendo el acceso a la máquina Metasploitable2:
+
+    ```bash
+    sshuttle -r <usuario_en_ubuntu>@<IP_de_ubuntu> 10.10.10.0/24
+    ```
+
+    Donde:
+
+    * `<usuario_en_ubuntu>` es el usuario en la máquina Ubuntu.
+    * `<IP_de_ubuntu>` es la dirección IP del adaptador en modo puente en la máquina Ubuntu.
+    * `10.10.10.0/24` es el rango de la red interna (ajusta este rango según la configuración de tu red interna).
+
+    **Explicación**: El comando indica a **SSHuttle** que redirija todo el tráfico para la red `10.10.10.0/24` a través de la conexión SSH con Ubuntu. Esto nos permite "pivotar" hacia la máquina Metasploitable2, situada en la red interna.
+
+### 4. Identificar la IP de la Máquina Objetivo (Metasploitable2)
+
+En la máquina intermedia (Ubuntu), ejecuta **arp-scan** para descubrir los dispositivos conectados en la red interna y obtener la IP de la máquina Metasploitable2:
+
+```bash
+sudo arp-scan -I enp0s8 --localnet
+```
+
+Donde:
+
+* `enp0s8` es la interfaz configurada en red interna en Ubuntu (ajusta el nombre de la interfaz según tu sistema).
+
+Este comando mostrará las IPs de los dispositivos activos en la red interna. Anota la IP de Metasploitable2 para acceder a ella en el siguiente paso.
+
+### 5. Acceder a la Máquina Objetivo desde Kali Linux
+
+Ahora, desde **Kali Linux**, puedes acceder directamente a la máquina Metasploitable2 usando la IP obtenida en el paso anterior.
+
+Puedes, por ejemplo, abrir la IP de Metasploitable2 en un navegador o realizar escaneos de puertos utilizando herramientas como `nmap`:
+
+```bash
+nmap -sV <IP_de_metasploitable2>
+```
+
+Esto te permitirá enumerar servicios y realizar pruebas en la máquina objetivo como si estuviera en la misma red que Kali Linux.
