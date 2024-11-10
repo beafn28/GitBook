@@ -28,6 +28,7 @@
   * [SecretJenkins](writeups/dockerlabs/secretjenkins.md)
 * [TryHackMe](writeups/tryhackme/README.md)
   * [Brooklyn Nine Nine](writeups/tryhackme/brooklyn-nine-nine.md)
+  * [Blue](writeups/tryhackme/blue.md)
 * [HackTheBox](writeups/hackthebox/README.md)
   * [Nibbles](writeups/hackthebox/nibbles.md)
   * [Starting Point](writeups/hackthebox/starting-point/README.md)
