@@ -27,6 +27,7 @@
   * [FirstHacking](writeups/dockerlabs/firsthacking.md)
   * [SecretJenkins](writeups/dockerlabs/secretjenkins.md)
   * [HedgeHog](writeups/dockerlabs/hedgehog.md)
+  * [AnonymousPingu](writeups/dockerlabs/anonymouspingu.md)
 * [TryHackMe](writeups/tryhackme/README.md)
   * [Brooklyn Nine Nine](writeups/tryhackme/brooklyn-nine-nine.md)
   * [Blue](writeups/tryhackme/blue.md)
