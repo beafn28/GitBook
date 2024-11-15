@@ -95,11 +95,17 @@ sudo -l
 
 para ver si hay algo para explotar.
 
-<figure><img src="../../.gitbook/assets/image (772).png" alt=""><figcaption></figcaption></figure>
+```
+sudo -u sonic -i
+```
 
 Ahora somos el usuario **Sonic**.
 
 <figure><img src="../../.gitbook/assets/image (771).png" alt=""><figcaption></figcaption></figure>
+
+```bash
+sudo -u root -i
+```
 
 Escalamos privilegios a **root**.&#x20;
 
