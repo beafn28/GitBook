@@ -34,6 +34,7 @@
   * [Candy](writeups/dockerlabs/candy.md)
   * [JenkHack](writeups/dockerlabs/jenkhack.md)
   * [ShowTime](writeups/dockerlabs/showtime.md)
+  * [Upload](writeups/dockerlabs/upload.md)
 * [TryHackMe](writeups/tryhackme/README.md)
   * [Brooklyn Nine Nine](writeups/tryhackme/brooklyn-nine-nine.md)
   * [Blue](writeups/tryhackme/blue.md)
