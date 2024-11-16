@@ -32,6 +32,7 @@
   * [Dockerlabs](writeups/dockerlabs/dockerlabs.md)
   * [Pressenter](writeups/dockerlabs/pressenter.md)
   * [Candy](writeups/dockerlabs/candy.md)
+  * [JenkHack](writeups/dockerlabs/jenkhack.md)
 * [TryHackMe](writeups/tryhackme/README.md)
   * [Brooklyn Nine Nine](writeups/tryhackme/brooklyn-nine-nine.md)
   * [Blue](writeups/tryhackme/blue.md)
