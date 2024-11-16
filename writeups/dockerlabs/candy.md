@@ -66,7 +66,7 @@ Ahora buscaremos directorios y archivos con la herramienta **Gobuster** a travé
 gobuster dir -u http://172.17.0.2/ -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt -x html,php,txt,xml
 ```
 
-
+<figure><img src="../../.gitbook/assets/image (806).png" alt=""><figcaption></figcaption></figure>
 
 Nos encontramos un directorio llamado `/administrator` y entramos en él y nos pide unas credenciales que hemos encontrado anteriormente.
 
