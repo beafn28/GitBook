@@ -30,6 +30,7 @@
   * [AnonymousPingu](writeups/dockerlabs/anonymouspingu.md)
   * [ChocolateLovers](writeups/dockerlabs/chocolatelovers.md)
   * [Dockerlabs](writeups/dockerlabs/dockerlabs.md)
+  * [HiddenCat (completar)](writeups/dockerlabs/hiddencat-completar.md)
 * [TryHackMe](writeups/tryhackme/README.md)
   * [Brooklyn Nine Nine](writeups/tryhackme/brooklyn-nine-nine.md)
   * [Blue](writeups/tryhackme/blue.md)
