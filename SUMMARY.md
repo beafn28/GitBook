@@ -35,6 +35,7 @@
   * [JenkHack](writeups/dockerlabs/jenkhack.md)
   * [ShowTime](writeups/dockerlabs/showtime.md)
   * [Upload](writeups/dockerlabs/upload.md)
+  * [Verdejo](writeups/dockerlabs/verdejo.md)
 * [TryHackMe](writeups/tryhackme/README.md)
   * [Brooklyn Nine Nine](writeups/tryhackme/brooklyn-nine-nine.md)
   * [Blue](writeups/tryhackme/blue.md)
