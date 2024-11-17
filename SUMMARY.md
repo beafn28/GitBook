@@ -39,6 +39,7 @@
   * [WalkingCMS](writeups/dockerlabs/walkingcms.md)
   * [WhereIsMyWebShell](writeups/dockerlabs/whereismywebshell.md)
   * [Whoiam](writeups/dockerlabs/whoiam.md)
+  * [Winterfell](writeups/dockerlabs/winterfell.md)
 * [TryHackMe](writeups/tryhackme/README.md)
   * [Brooklyn Nine Nine](writeups/tryhackme/brooklyn-nine-nine.md)
   * [Blue](writeups/tryhackme/blue.md)
