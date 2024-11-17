@@ -54,6 +54,8 @@ Si enviamos el texto nos sale esto.
 
 <figure><img src="../../.gitbook/assets/image (839).png" alt=""><figcaption></figcaption></figure>
 
+### 🚀 **EXPLOTACIÓN**
+
 Comenzamos verificando si es posible ejecutar un ataque XSS.
 
 ```bash
