@@ -46,7 +46,7 @@ Seguimos indagando más sobre los puertos y ahora indagamos sobre el **servicio 
 
 <figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
-Ahora buscaremos directorios y archivos con la herramienta **Gobuster** a través de:
+Ahora buscaremos directorios con la herramienta **Gobuster** a través de:
 
 ```bash
 gobuster dir -u http://172.17.0.2/ -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt
