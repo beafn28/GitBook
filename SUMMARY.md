@@ -47,6 +47,7 @@
   * [Paradise](writeups/dockerlabs/paradise.md)
   * [Balurero](writeups/dockerlabs/balurero.md)
   * [Allien](writeups/dockerlabs/allien.md)
+  * [Vendetta](writeups/dockerlabs/vendetta.md)
 * [TryHackMe](writeups/tryhackme/README.md)
   * [Brooklyn Nine Nine](writeups/tryhackme/brooklyn-nine-nine.md)
   * [Blue](writeups/tryhackme/blue.md)

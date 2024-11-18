@@ -28,6 +28,8 @@ para realizar un escaneo de puertos y servicios detallado en la dirección IP.
 
 ![](<../../.gitbook/assets/1 (2).png>)
 
+> Nota: he pegado una foto que no es de esta máquina. Lo demás está bien.
+
 Como podemos observar durante el escaneo que el **puerto 21** perteneciente al **servicio FTP** está abierto por lo que a continuación se indagará más.
 
 ### 🔎 **EXPLORACIÓN**
