@@ -40,7 +40,7 @@ para obtener más información sobre esos puertos específicamente.
 
 <figure><img src="../../.gitbook/assets/image (916).png" alt=""><figcaption></figcaption></figure>
 
-Seguimos indagando más sobre los puertos y ahora indagamos sobre el **servicio HTTP**. Se ingresó la **dirección IP** en el navegador lo que llevó a que la página web sea una página bajo desarollo podemos ver que hay una pestaña de Login.
+Seguimos indagando más sobre los puertos y ahora indagamos sobre el **servicio HTTP**. Se ingresó la **dirección IP** en el navegador lo que llevó a que la página web sea una página bajo desarrollo podemos ver que hay una pestaña de Login.
 
 <figure><img src="../../.gitbook/assets/image (918).png" alt=""><figcaption></figcaption></figure>
 

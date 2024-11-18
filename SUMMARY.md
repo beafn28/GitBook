@@ -44,6 +44,7 @@
   * [Psycho](writeups/dockerlabs/psycho.md)
   * [Mirame](writeups/dockerlabs/mirame.md)
   * [Backend](writeups/dockerlabs/backend.md)
+  * [Paradise](writeups/dockerlabs/paradise.md)
 * [TryHackMe](writeups/tryhackme/README.md)
   * [Brooklyn Nine Nine](writeups/tryhackme/brooklyn-nine-nine.md)
   * [Blue](writeups/tryhackme/blue.md)
