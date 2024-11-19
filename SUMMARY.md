@@ -49,6 +49,7 @@
   * [Allien](writeups/dockerlabs/allien.md)
   * [Vendetta](writeups/dockerlabs/vendetta.md)
   * [FindYourStyle](writeups/dockerlabs/findyourstyle.md)
+  * [Stellarjwt](writeups/dockerlabs/stellarjwt.md)
 * [TryHackMe](writeups/tryhackme/README.md)
   * [Brooklyn Nine Nine](writeups/tryhackme/brooklyn-nine-nine.md)
   * [Blue](writeups/tryhackme/blue.md)
