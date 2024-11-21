@@ -239,3 +239,4 @@
   * [Hacking Entornos CMS](preparar-ejptv2/curso-de-mario/hacking-entornos-cms.md)
   * [Escalada de Privilegios + Post Explotación](preparar-ejptv2/curso-de-mario/escalada-de-privilegios-+-post-explotacion.md)
   * [Pivoting con Metasploit](preparar-ejptv2/curso-de-mario/pivoting-con-metasploit.md)
+* [Laboratorio de preparación eJPTv2 | Simulación de examen](preparar-ejptv2/laboratorio-de-preparacion-ejptv2-or-simulacion-de-examen.md)
