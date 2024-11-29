@@ -60,37 +60,37 @@ Tras estar dentro listamos y encontramos dos directorios en lo que accederemos p
 #### Tarea 1: ¿Qué significa el acrónimo VM?
 
 **Server Message Block**\
-_El acrónimo SMB corresponde a "Server Message Block", un protocolo de red utilizado para compartir archivos, impresoras y otros recursos entre nodos en una red._
+&#xNAN;_&#x45;l acrónimo SMB corresponde a "Server Message Block", un protocolo de red utilizado para compartir archivos, impresoras y otros recursos entre nodos en una red._
 
 #### Tarea 2: ¿En qué puerto opera SMB?
 
 **445**\
-_El puerto 445 es utilizado por el protocolo SMB para la comunicación directa sobre TCP/IP sin necesidad de NetBIOS._
+&#xNAN;_&#x45;l puerto 445 es utilizado por el protocolo SMB para la comunicación directa sobre TCP/IP sin necesidad de NetBIOS._
 
 #### Tarea 3: ¿Cuál es el nombre del servicio en el puerto 445 que apareció en nuestro escaneo de Nmap?
 
 **microsoft-ds**\
-_El servicio en el puerto 445 que Nmap identifica comúnmente es "microsoft-ds", utilizado por SMB._
+&#xNAN;_&#x45;l servicio en el puerto 445 que Nmap identifica comúnmente es "microsoft-ds", utilizado por SMB._
 
 #### Tarea 4: ¿Cuál es el 'flag' o 'switch' que podemos usar con la utilidad smbclient para 'listar' los recursos compartidos en Dancing?
 
 **-L**\
-_El comando `smbclient -L` se utiliza para listar los recursos compartidos disponibles en un servidor SMB._
+&#xNAN;_&#x45;l comando `smbclient -L` se utiliza para listar los recursos compartidos disponibles en un servidor SMB._
 
 #### Tarea 5: ¿Cuántos recursos compartidos hay en Dancing?
 
 **4**\
-_Hay un total de 4 recursos compartidos en el servidor SMB llamado "Dancing"._
+&#xNAN;_&#x48;ay un total de 4 recursos compartidos en el servidor SMB llamado "Dancing"._
 
 #### Tarea 6: ¿Cuál es el nombre del recurso compartido al que podemos acceder al final con una contraseña en blanco?
 
 **WorkShares**\
-_El recurso compartido al que se puede acceder con una contraseña en blanco se llama "WorkShares"._
+&#xNAN;_&#x45;l recurso compartido al que se puede acceder con una contraseña en blanco se llama "WorkShares"._
 
 #### Tarea 7: ¿Cuál es el comando que podemos usar dentro del shell de SMB para descargar los archivos que encontramos?
 
 **get**\
-_El comando `get` se usa dentro del shell de SMB para descargar archivos desde el servidor a la máquina local._
+&#xNAN;_&#x45;l comando `get` se usa dentro del shell de SMB para descargar archivos desde el servidor a la máquina local._
 
 **Tarea 8: Envía la flag de root**\
 5f61c10dffbc77a704d76016a22f1664

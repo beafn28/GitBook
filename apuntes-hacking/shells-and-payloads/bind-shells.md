@@ -92,7 +92,7 @@ Los comandos anteriores son considerados nuestro _payload_ y entregamos este _pa
 
 De vuelta en el cliente, utilizaremos Netcat para conectarnos al servidor ahora que una shell en el servidor está siendo servida.
 
-### **No. 2: Cliente - Conectándose a la shell **_**bind**_** en el objetivo**
+### **No. 2: Cliente - Conectándose a la shell&#x20;**_**bind**_**&#x20;en el objetivo**
 
 ```bash
 sherlock28@htb[/htb]$ nc -nv 10.129.41.200 7777

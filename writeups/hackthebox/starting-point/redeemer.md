@@ -68,52 +68,52 @@ get flag
 #### Tarea 1: ¿Qué puerto TCP está abierto en la máquina?
 
 **6379**\
-_El puerto TCP **6379** está abierto en la máquina, que es comúnmente utilizado por Redis._
+&#xNAN;_&#x45;l puerto TCP **6379** está abierto en la máquina, que es comúnmente utilizado por Redis._
 
 #### Tarea 2: ¿Qué servicio se está ejecutando en el puerto que está abierto en la máquina?
 
 **Redis**\
-_El servicio que se está ejecutando en el puerto abierto **6379** es **Redis**, un almacén de valores clave._
+&#xNAN;_&#x45;l servicio que se está ejecutando en el puerto abierto **6379** es **Redis**, un almacén de valores clave._
 
 #### Tarea 3: ¿Qué tipo de base de datos es Redis? Elige entre las siguientes opciones: (i) Base de Datos en Memoria, (ii) Base de Datos Tradicional
 
 **Base de Datos en Memoria**\
-_Redis es una **Base de Datos en Memoria**, lo que significa que almacena datos en la memoria del sistema para un acceso rápido._
+&#xNAN;_&#x52;edis es una **Base de Datos en Memoria**, lo que significa que almacena datos en la memoria del sistema para un acceso rápido._
 
 #### Tarea 4: ¿Qué utilidad de línea de comandos se utiliza para interactuar con el servidor Redis? Escribe el nombre del programa que introducirías en la terminal sin argumentos.
 
 **redis-cli**\
-_La utilidad de línea de comandos **redis-cli** se utiliza para interactuar con el servidor Redis._
+&#xNAN;_&#x4C;a utilidad de línea de comandos **redis-cli** se utiliza para interactuar con el servidor Redis._
 
 #### Tarea 5: ¿Qué flag se usa con la utilidad de línea de comandos de Redis para especificar el nombre del host?
 
 **-h**\
-_La flag **-h** se usa con `redis-cli` para especificar el nombre del host del servidor Redis._
+&#xNAN;_&#x4C;a flag **-h** se usa con `redis-cli` para especificar el nombre del host del servidor Redis._
 
 #### Tarea 6: Una vez conectado a un servidor Redis, ¿qué comando se utiliza para obtener la información y estadísticas sobre el servidor Redis?
 
 **info**\
-_El comando **info** se usa en Redis para obtener información y estadísticas sobre el servidor._
+&#xNAN;_&#x45;l comando **info** se usa en Redis para obtener información y estadísticas sobre el servidor._
 
 #### Tarea 7: ¿Cuál es la versión del servidor Redis que se está utilizando en la máquina objetivo?
 
 **5.0.7**\
-_El servidor Redis en la máquina objetivo está utilizando la versión **5.0.7**._
+&#xNAN;_&#x45;l servidor Redis en la máquina objetivo está utilizando la versión **5.0.7**._
 
 #### Tarea 8: ¿Qué comando se utiliza para seleccionar la base de datos deseada en Redis?
 
 **select**\
-_El comando **select** se usa para elegir una base de datos específica dentro de Redis._
+&#xNAN;_&#x45;l comando **select** se usa para elegir una base de datos específica dentro de Redis._
 
 #### Tarea 9: ¿Cuántas claves hay en la base de datos con índice 0?
 
 **4**\
-_Hay 4 claves presente en la base de datos con índice 0._
+&#xNAN;_&#x48;ay 4 claves presente en la base de datos con índice 0._
 
 #### Tarea 10: ¿Qué comando se utiliza para obtener todas las claves en una base de datos?
 
 **keys \***\
-_El comando **keys \*** se utiliza para recuperar todas las claves en una base de datos específica de Redis._
+&#xNAN;_&#x45;l comando **keys \*** se utiliza para recuperar todas las claves en una base de datos específica de Redis._
 
 #### Tarea 11: Enviar Flag
 

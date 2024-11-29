@@ -65,37 +65,37 @@ select * from config;
 #### **Tarea 1:** Durante nuestro escaneo, ¿ qué puerto encontramos sirviendo MySQL?
 
 **3306**\
-_El puerto 3306 es el puerto estándar utilizado por MySQL para comunicaciones con bases de datos._
+&#xNAN;_&#x45;l puerto 3306 es el puerto estándar utilizado por MySQL para comunicaciones con bases de datos._
 
 #### **Tarea 2:** ¿Qué versión de MySQL desarrollada por la comunidad está ejecutándose en el objetivo?
 
 **MariaDB**\
-_La versión de MySQL que se está utilizando es MariaDB, una bifurcación desarrollada por la comunidad._
+&#xNAN;_&#x4C;a versión de MySQL que se está utilizando es MariaDB, una bifurcación desarrollada por la comunidad._
 
 #### **Tarea 3:** Al usar el cliente de línea de comandos de MySQL, ¿qué opción necesitamos usar para especificar un nombre de usuario para iniciar sesión?
 
 **-u**\
-_La opción -u se utiliza para especificar el nombre de usuario en el cliente de línea de comandos de MySQL._
+&#xNAN;_&#x4C;a opción -u se utiliza para especificar el nombre de usuario en el cliente de línea de comandos de MySQL._
 
 #### **Tarea 4:** ¿Qué nombre de usuario nos permite iniciar sesión en esta instancia de MariaDB sin proporcionar una contraseña?
 
 **root**\
-_El nombre de usuario root permite iniciar sesión sin contraseña en muchas configuraciones predeterminadas de MariaDB._
+&#xNAN;_&#x45;l nombre de usuario root permite iniciar sesión sin contraseña en muchas configuraciones predeterminadas de MariaDB._
 
 #### **Tarea 5:** En SQL, ¿ qué símbolo se usa para especificar dentro de la consulta que queremos mostrar todo lo que hay en una tabla?
 
 **\***\
-_El símbolo \* se utiliza en SQL para seleccionar todos los campos de una tabla._
+&#xNAN;_&#x45;l símbolo \* se utiliza en SQL para seleccionar todos los campos de una tabla._
 
 #### **Tarea 6:** En SQL, ¿qué símbolo necesitamos para terminar cada consulta?
 
 **;**\
-_El símbolo ; se usa para finalizar cada consulta en SQL._
+&#xNAN;_&#x45;l símbolo ; se usa para finalizar cada consulta en SQL._
 
 #### **Tarea 7:** Hay tres bases de datos en esta instancia de MySQL que son comunes a todas las instancias de MySQL. ¿Cuál es el nombre de la cuarta que es única para este host?
 
 **htb**\
-_La cuarta base de datos única para este host se llama htb._
+&#xNAN;_&#x4C;a cuarta base de datos única para este host se llama htb._
 
 #### Tarea 8: Enviar Flag
 

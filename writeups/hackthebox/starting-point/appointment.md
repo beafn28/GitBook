@@ -71,52 +71,52 @@ Para más detalles y cómo defenderse de estos ataques, puedes consultar la pág
 #### **Tarea 1:** ¿Qué significa el acrónimo SQL?
 
 **Structured Query Language**\
-_Structured Query Language es el significado de SQL, que se utiliza para gestionar y manipular bases de datos relacionales._
+&#xNAN;_&#x53;tructured Query Language es el significado de SQL, que se utiliza para gestionar y manipular bases de datos relacionales._
 
 #### **Tarea 2:** ¿Cuál es uno de los tipos más comunes de vulnerabilidades SQL?
 
 **SQL injection**\
-_SQL injection es una de las vulnerabilidades más comunes en aplicaciones que usan bases de datos SQL._
+&#xNAN;_&#x53;QL injection es una de las vulnerabilidades más comunes en aplicaciones que usan bases de datos SQL._
 
 #### **Tarea 3:** ¿Cuál es la clasificación en el OWASP Top 10 de 2021 para esta vulnerabilidad?
 
 **A03:2021-Injection**\
-_La inyección de código, como SQL injection, se clasifica bajo A03:2021-Injection en el OWASP Top 10 de 2021._
+&#xNAN;_&#x4C;a inyección de código, como SQL injection, se clasifica bajo A03:2021-Injection en el OWASP Top 10 de 2021._
 
 #### **Tarea 4:** ¿Qué servicio y versión reporta Nmap que están corriendo en el puerto 80 del objetivo?
 
 **Apache httpd 2.4.38 ((Debian))**\
-_Nmap indica que el servicio Apache httpd 2.4.38 (Debian) está ejecutándose en el puerto 80._
+&#xNAN;_&#x4E;map indica que el servicio Apache httpd 2.4.38 (Debian) está ejecutándose en el puerto 80._
 
 #### **Tarea 5:** ¿Cuál es el puerto estándar utilizado para el protocolo HTTPS?
 
 **443**\
-_El puerto 443 es el puerto estándar para el protocolo HTTPS._
+&#xNAN;_&#x45;l puerto 443 es el puerto estándar para el protocolo HTTPS._
 
 #### **Tarea 6:** ¿Cómo se llama una carpeta en la terminología de aplicaciones web?
 
 **Directory**\
-_En las aplicaciones web, una carpeta se denomina directory._
+&#xNAN;_&#x45;n las aplicaciones web, una carpeta se denomina directory._
 
 #### Tarea 7: ¿Qué código de respuesta HTTP se da para errores de 'No Encontrado'?
 
 **404**\
-_El código 404 es la respuesta HTTP estándar para un error de "Not Found"._
+&#xNAN;_&#x45;l código 404 es la respuesta HTTP estándar para un error de "Not Found"._
 
 #### **Tarea 8:** Gobuster es una herramienta utilizada para fuerza bruta de directorios en un servidor web. ¿Qué switch usamos con Gobuster para especificar que buscamos directorios y no subdominios?
 
 **dir**\
-_El switch dir se usa con Gobuster para buscar directorios._
+&#xNAN;_&#x45;l switch dir se usa con Gobuster para buscar directorios._
 
 #### **Tarea 9:** ¿Qué carácter único se puede usar para comentar el resto de una línea en MySQL?
 
 **#**\
-_El carácter # se usa para comentar una línea en MySQL._
+&#xNAN;_&#x45;l carácter # se usa para comentar una línea en MySQL._
 
 #### **Tarea 10:** Si la entrada del usuario no se maneja con cuidado, podría interpretarse como un comentario. Usa un comentario para iniciar sesión como administrador sin conocer la contraseña. ¿Cuál es la primera palabra en la página web devuelta?
 
 **Congratulations**\
-_La primera palabra en la página devuelta después de un login exitoso como administrador es Congratulations._
+&#xNAN;_&#x4C;a primera palabra en la página devuelta después de un login exitoso como administrador es Congratulations._
 
 #### Tarea 11: Enviar Flag
 
