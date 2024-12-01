@@ -2,7 +2,6 @@
 description: >-
   ✍️ Autor: beafn28🔍 Dificultad: Fácil  📅 Fecha de creación: 1/12/2024
   🐳Dockerlabs
-hidden: true
 ---
 
 # Elevator
