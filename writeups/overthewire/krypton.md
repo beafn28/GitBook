@@ -459,7 +459,7 @@ EICTDGYIYZKTHNSIRFXYCPFUEOCKRNEICTDGYIYZKTHNSIRFXYCPFUEOCKRNEICTDGYIYZKTHN
 Hacemos lo mismo con un archivo lleno de caracteres 'B':
 
 ```bash
-bashCopiar códigotouch lot_of_b
+touch lot_of_b
 touch lot_of_b_out
 chmod 777 .
 echo "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB" > lot_of_b
