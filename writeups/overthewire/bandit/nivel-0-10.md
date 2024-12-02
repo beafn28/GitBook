@@ -26,7 +26,7 @@ La contraseña para el siguiente nivel se almacena en un archivo llamado **«–
 
 <figure><img src="../../../.gitbook/assets/image (186).png" alt=""><figcaption></figcaption></figure>
 
-Tambi´´en se puede usar este comando para obtener la contraseña cat ./-
+También se puede usar este comando para obtener la contraseña cat ./-
 
 La contraseña es `263JGJPfgU6LtdEvgfWU1XP5yac29mFx`
 
