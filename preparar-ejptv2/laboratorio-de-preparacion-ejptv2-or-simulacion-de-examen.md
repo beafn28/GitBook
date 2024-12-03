@@ -181,5 +181,14 @@ nikto -url http://doc.hmv
 En el panel de Login.
 
 ```
-' OR==1-- -'
+' OR==1;-- -'
 ```
+
+Hacemos un captura con BurpSuite y lo guardamos en un fichero para hacer sqlmap.
+
+```
+sqlmap -r post_request
+```
+
+En el perfil podemos cambiar la imagen de perfil por lo que intentamos subir una Reverse Shell. Hacemos posteriormente un tratamiento de la TTY.
+
