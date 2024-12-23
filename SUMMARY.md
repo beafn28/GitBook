@@ -245,4 +245,4 @@
 
 ## INE&#x20;
 
-* [Page 1](ine/page-1.md)
+* [Assessment Methodologies: Footprinting & Scanning](ine/assessment-methodologies-footprinting-and-scanning.md)
