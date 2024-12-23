@@ -246,3 +246,4 @@
 ## INE&#x20;
 
 * [Assessment Methodologies: Footprinting & Scanning](ine/assessment-methodologies-footprinting-and-scanning.md)
+* [Assessment Methodologies: Enumeration](ine/assessment-methodologies-enumeration.md)
