@@ -53,6 +53,7 @@
   * [File](writeups/dockerlabs/file.md)
   * [Redirection (Por completar)](writeups/dockerlabs/redirection-por-completar.md)
   * [Extraviado](writeups/dockerlabs/extraviado.md)
+  * [Patriaquerida](writeups/dockerlabs/patriaquerida.md)
 * [TryHackMe](writeups/tryhackme/README.md)
   * [Brooklyn Nine Nine](writeups/tryhackme/brooklyn-nine-nine.md)
   * [Blue](writeups/tryhackme/blue.md)
