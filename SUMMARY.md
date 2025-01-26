@@ -112,6 +112,7 @@
   * [Quokka](writeups/the-hacker-labs/quokka.md)
   * [Campana Feliz](writeups/the-hacker-labs/campana-feliz.md)
   * [Bocata de Calamares](writeups/the-hacker-labs/bocata-de-calamares.md)
+  * [Casa Paco](writeups/the-hacker-labs/casa-paco.md)
 
 ## APUNTES HACKING
 
