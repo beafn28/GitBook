@@ -110,6 +110,7 @@
   * [Cocido andaluz](writeups/the-hacker-labs/cocido-andaluz.md)
   * [Find Me](writeups/the-hacker-labs/find-me.md)
   * [Quokka](writeups/the-hacker-labs/quokka.md)
+  * [Campana Feliz](writeups/the-hacker-labs/campana-feliz.md)
 
 ## APUNTES HACKING
 
