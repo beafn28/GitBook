@@ -111,6 +111,7 @@
   * [Find Me](writeups/the-hacker-labs/find-me.md)
   * [Quokka](writeups/the-hacker-labs/quokka.md)
   * [Campana Feliz](writeups/the-hacker-labs/campana-feliz.md)
+  * [Bocata de Calamares](writeups/the-hacker-labs/bocata-de-calamares.md)
 
 ## APUNTES HACKING
 
