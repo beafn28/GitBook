@@ -77,6 +77,8 @@ Como podemos comprobar es un WordPress por lo que añadimos el dominio **faculta
 
 <figure><img src="../.gitbook/assets/image (1043).png" alt=""><figcaption></figcaption></figure>
 
+### 🚀 **EXPLOTACIÓN**
+
 Al tener el directorio wp-admin sabemos que es un panel de login pero no tenemos las credenciales por lo que con **WPScan** enumeramos el usuario.
 
 ```bash
@@ -97,3 +99,79 @@ Ingresamos las credenciales en el panel de **login**.
 
 <figure><img src="../.gitbook/assets/image (1046).png" alt=""><figcaption></figcaption></figure>
 
+Vemos que hay un apartado para subir archivos por lo que adjuntamos una [ReverseShell](https://www.revshells.com/).
+
+<figure><img src="../.gitbook/assets/image (1047).png" alt=""><figcaption></figcaption></figure>
+
+Nos ponemos en escucha.
+
+```bash
+nc -nlvp 443
+```
+
+<figure><img src="../.gitbook/assets/image (1048).png" alt=""><figcaption></figcaption></figure>
+
+Hacemos el [tratamiento de la TTY](https://invertebr4do.github.io/tratamiento-de-tty/) para trabajar más cómodos.
+
+### 🔐 **PRIVILEGIOS**
+
+Al estar dentro y ejecutar:
+
+```bash
+whoami
+```
+
+aún no somos **root**, por lo que hacemos:
+
+```bash
+sudo -l
+```
+
+para ver si hay algo para explotar.
+
+<figure><img src="../.gitbook/assets/image (1049).png" alt=""><figcaption></figcaption></figure>
+
+{% embed url="https://gtfobins.github.io/gtfobins/php/" %}
+
+```bash
+sudo -u gabri php -r "system('/bin/bash');"
+```
+
+Como comprobamos en el mensaje la contraseña de Vivian está en el mail de Gabri.
+
+<figure><img src="../.gitbook/assets/image (1050).png" alt=""><figcaption></figcaption></figure>
+
+Mostramos el contenido que es la contraseña codificada en **Brainfuck** por lo que la decodificamos.
+
+<figure><img src="../.gitbook/assets/image (1051).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/image (1052).png" alt=""><figcaption></figcaption></figure>
+
+Iniciamos sesión con las credenciales.
+
+<figure><img src="../.gitbook/assets/image (1053).png" alt=""><figcaption></figcaption></figure>
+
+Tenemos permisos de **root** para ejecutar un script.
+
+<figure><img src="../.gitbook/assets/image (1054).png" alt=""><figcaption></figcaption></figure>
+
+Vemos el contenido y así podemos modificarlo para escalar privilegios.
+
+<figure><img src="../.gitbook/assets/image (1055).png" alt=""><figcaption></figcaption></figure>
+
+```bash
+#!/bin/bash
+bash
+```
+
+Ejecutamos.
+
+```
+sudo /opt/vivian/script.sh
+```
+
+<figure><img src="../.gitbook/assets/image (1056).png" alt=""><figcaption></figcaption></figure>
+
+Ya somos **root** por lo que ahora encontraremos la bandera en sus directorios.
+
+Te deseo mucho éxito en tu búsqueda de las flags! Recuerda prestar atención a cada detalle, examinar los archivos y servicios con detenimiento, y utilizar todas las herramientas disponibles para encontrarlas. La clave para el éxito está en la perseverancia y en no dejar ningún rincón sin explorar. ¡Adelante, hacker! 💻🔍🚀
