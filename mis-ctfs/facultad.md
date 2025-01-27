@@ -2,7 +2,6 @@
 description: >-
   ✍️ Autor: beafn28🔍 Dificultad: Fácil📅 Fecha de creación: 30/1/2025 🖥️The
   Hacker Labs
-hidden: true
 ---
 
 # Facultad
