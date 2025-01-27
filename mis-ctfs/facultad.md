@@ -154,7 +154,7 @@ Tenemos permisos de **root** para ejecutar un script.
 
 <figure><img src="../.gitbook/assets/image (1054).png" alt=""><figcaption></figcaption></figure>
 
-Vemos el contenido y así podemos modificarlo para escalar privilegios.
+Vemos el contenido y así podemos modificarlo para escalar privilegios. Nos damos cuenta que el script se ejecuta cada 10 segundos en el /etc/crontab.
 
 <figure><img src="../.gitbook/assets/image (1055).png" alt=""><figcaption></figcaption></figure>
 
