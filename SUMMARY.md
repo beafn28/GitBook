@@ -115,6 +115,7 @@
   * [Casa Paco](writeups/the-hacker-labs/casa-paco.md)
 * [Vulnyx](writeups/vulnyx/README.md)
   * [Fuser](writeups/vulnyx/fuser.md)
+  * [Blogguer](writeups/vulnyx/blogguer.md)
 
 ## APUNTES HACKING
 
