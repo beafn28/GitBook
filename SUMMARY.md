@@ -118,6 +118,7 @@
   * [Blogguer](writeups/vulnyx/blogguer.md)
   * [Lower](writeups/vulnyx/lower.md)
   * [Exec](writeups/vulnyx/exec.md)
+  * [Diff3r3ntS3c](writeups/vulnyx/diff3r3nts3c.md)
 
 ## APUNTES HACKING
 
