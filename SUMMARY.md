@@ -116,6 +116,7 @@
 * [Vulnyx](writeups/vulnyx/README.md)
   * [Fuser](writeups/vulnyx/fuser.md)
   * [Blogguer](writeups/vulnyx/blogguer.md)
+  * [Lower](writeups/vulnyx/lower.md)
 
 ## APUNTES HACKING
 
