@@ -113,6 +113,8 @@
   * [Campana Feliz](writeups/the-hacker-labs/campana-feliz.md)
   * [Bocata de Calamares](writeups/the-hacker-labs/bocata-de-calamares.md)
   * [Casa Paco](writeups/the-hacker-labs/casa-paco.md)
+* [Vulnyx](writeups/vulnyx/README.md)
+  * [Fuser](writeups/vulnyx/fuser.md)
 
 ## APUNTES HACKING
 
