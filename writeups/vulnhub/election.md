@@ -44,7 +44,19 @@ Revisamos el puerto 80. Es la página de por defecto de Apache.
 
 <figure><img src="../../.gitbook/assets/Captura de pantalla 2025-01-29 191119.png" alt=""><figcaption></figcaption></figure>
 
-
+Ahora buscaremos directorios con la herramienta **Gobuster** a través de:&#x20;
 
 ```bash
+gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -x html,htm,php,txt,xml,js -u http://192.168.1.69
 ```
+
+<figure><img src="../../.gitbook/assets/image (1079).png" alt=""><figcaption></figcaption></figure>
+
+Entramos en el fichero **robots.txt**.
+
+<figure><img src="../../.gitbook/assets/image (1080).png" alt=""><figcaption></figcaption></figure>
+
+Entramos en el directorio **/election**.
+
+<figure><img src="../../.gitbook/assets/image (1081).png" alt=""><figcaption></figcaption></figure>
+
