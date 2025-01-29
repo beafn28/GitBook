@@ -92,6 +92,7 @@
     * [Nivel 31-34](writeups/overthewire/bandit/nivel-31-34.md)
 * [Vulnhub](writeups/vulnhub/README.md)
   * [Wakanda](writeups/vulnhub/wakanda.md)
+  * [Election](writeups/vulnhub/election.md)
 * [The Hacker Labs](writeups/the-hacker-labs/README.md)
   * [Avengers](writeups/the-hacker-labs/avengers.md)
   * [Can you hack me?](writeups/the-hacker-labs/can-you-hack-me.md)
