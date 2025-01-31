@@ -4,7 +4,7 @@ description: '🔍 Dificultad: Muy Fácil'
 
 # Experience
 
-🔍 **RECONOCIMIENTO**
+### 🔍 **RECONOCIMIENTO**
 
 En primer lugar, tras conectarnos a la máquina, utilizamos el comando:
 
