@@ -4,7 +4,7 @@ description: '🔍 Dificultad: Muy Fácil'
 
 # Diff3r3ntS3c
 
-### 🔍 **RECONOCIMIENTO**
+🔍 **RECONOCIMIENTO**
 
 En primer lugar, tras conectarnos a la máquina, utilizamos el comando:
 
@@ -19,21 +19,79 @@ para verificar la conectividad de red.
 A continuación, se realiza el comando:
 
 ```bash
-nmap -p- --open 192.168.1.74 --min-rate 5000 -n
+nmap -p- --open 192.168.1.64 --min-rate 5000 -n
 ```
 
 para realizar un escaneo de puertos y servicios detallado en la dirección IP.
 
-<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1082).png" alt=""><figcaption></figcaption></figure>
 
-Como podemos observar durante el escaneo, el **puerto 22** perteneciente al **servicio SS**H, el **puerto 80** perteneciente al **servicio HTTP**, el **puerto 139** y el **puerto 445**, ambos pertenecientes al **servicio SMB** (Server Message Block), están abiertos, por lo que a continuación se indagará más.
+Como podemos observar durante el escaneo el **puerto 80** perteneciente al **servicio HTTP** está abierto, por lo que a continuación se indagará más.
 
 ### 🔎 **EXPLORACIÓN**
 
 Se utiliza el comando:
 
 ```bash
-sudo nmap -sCV -p22,80,139,445 -v 192.168.1.74
+sudo nmap -sCV -p80 -v 192.168.1.64
 ```
 
 para obtener más información sobre ese puerto específicamente.
+
+<figure><img src="../../.gitbook/assets/image (1083).png" alt=""><figcaption></figcaption></figure>
+
+Revisamos el puerto 80.&#x20;
+
+<figure><img src="../../.gitbook/assets/Captura de pantalla 2025-01-31 111248.png" alt=""><figcaption></figcaption></figure>
+
+Vemos que se pueden subir archivos pero con una extensión poco común que es **.phtml** por lo que subimos una Reverse Shell con esa extensión.
+
+{% embed url="https://www.revshells.com/" %}
+
+<figure><img src="../../.gitbook/assets/image (1088).png" alt=""><figcaption></figcaption></figure>
+
+Revisamos directorios para ver dónde se ha subido.
+
+```bash
+gobuster dir -u http://192.168.1.64 -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt -x html,txt,php,xml
+```
+
+<figure><img src="../../.gitbook/assets/image (1087).png" alt=""><figcaption></figcaption></figure>
+
+Hay un directorio **/uploads** por lo que se habrá subido ahí.
+
+<figure><img src="../../.gitbook/assets/image (1089).png" alt=""><figcaption></figcaption></figure>
+
+Nos ponemos en escucha.
+
+<figure><img src="../../.gitbook/assets/image (1090).png" alt=""><figcaption></figcaption></figure>
+
+Hacemos el [tratamiento de la TTY](https://invertebr4do.github.io/tratamiento-de-tty/) para trabajar más cómodos.
+
+### 🔐 PRIVILEGIOS
+
+Al estar dentro y ejecutar:
+
+```bash
+whoami
+```
+
+aún no somos **root**, por lo que hacemos:
+
+```bash
+sudo -l
+```
+
+para ver si hay algo para explotar. No tenemos permisos SUDO.
+
+En el directorio **/home/candidate** hay un directorio oculto y que contiene un archivo.&#x20;
+
+<figure><img src="../../.gitbook/assets/image (1091).png" alt=""><figcaption></figcaption></figure>
+
+Revisando el **/etc/crontab** se ejecuta cada minuto el script.
+
+<figure><img src="../../.gitbook/assets/image (1092).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (1094).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (1093).png" alt=""><figcaption></figcaption></figure>
