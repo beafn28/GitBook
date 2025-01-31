@@ -44,6 +44,8 @@ Revisamos el puerto 80.&#x20;
 
 <figure><img src="../../.gitbook/assets/Captura de pantalla 2025-01-31 111248.png" alt=""><figcaption></figcaption></figure>
 
+### 🚀 **EXPLOTACIÓN**
+
 Vemos que se pueden subir archivos pero con una extensión poco común que es **.phtml** por lo que subimos una Reverse Shell con esa extensión.
 
 {% embed url="https://www.revshells.com/" %}
@@ -92,6 +94,10 @@ Revisando el **/etc/crontab** se ejecuta cada minuto el script.
 
 <figure><img src="../../.gitbook/assets/image (1092).png" alt=""><figcaption></figcaption></figure>
 
+Modificamos el contenido del archivo para que cuando se ejecuta nos haga una conexión remota.
+
 <figure><img src="../../.gitbook/assets/image (1094).png" alt=""><figcaption></figcaption></figure>
+
+Al ponernos en escucha y recibir la conexión vemos que ya nos conectamos como root.
 
 <figure><img src="../../.gitbook/assets/image (1093).png" alt=""><figcaption></figcaption></figure>
