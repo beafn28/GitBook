@@ -123,6 +123,7 @@
   * [Hacking Station](writeups/vulnyx/hacking-station.md)
   * [Experience](writeups/vulnyx/experience.md)
   * [Eternal](writeups/vulnyx/eternal.md)
+  * [Agent](writeups/vulnyx/agent.md)
 
 ## APUNTES HACKING
 

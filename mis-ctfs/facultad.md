@@ -27,7 +27,7 @@ nmap -sVC -p- -n --min-rate 5000 192.168.1.61
 
 para realizar un escaneo de puertos y servicios detallado en la dirección IP.
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Como podemos observar durante el escaneo que el **puerto 22** perteneciente al **servicio SSH** y el **puerto 80** perteneciente al **servicio HTTP** están abiertos por lo que a continuación se indagará más.
 
@@ -155,7 +155,7 @@ Tenemos permisos de **root** para ejecutar un script.
 
 <figure><img src="../.gitbook/assets/image (1054).png" alt=""><figcaption></figcaption></figure>
 
-Vemos el contenido y así podemos modificarlo para escalar privilegios. Nos damos cuenta que el script se ejecuta cada 10 segundos en el /etc/crontab.
+Vemos el contenido y así podemos modificarlo para escalar privilegios. Nos damos cuenta que el script se ejecuta cada minuto en el **/etc/crontab**.
 
 <figure><img src="../.gitbook/assets/image (1055).png" alt=""><figcaption></figcaption></figure>
 

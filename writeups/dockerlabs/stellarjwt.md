@@ -38,13 +38,13 @@ sudo nmap -sCV -p22,80 -v 172.17.0.2
 
 para obtener más información sobre esos puertos específicamente.
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Seguimos indagando más sobre los puertos y ahora indagamos sobre el **servicio HTTP**. Se ingresó la **dirección IP** en el navegador lo que llevó a que la página web sea algo de la NASA.&#x20;
 
-<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Ahora buscaremos directorios y archivos con la herramienta **Gobuster** a través de:
 
@@ -52,21 +52,21 @@ Ahora buscaremos directorios y archivos con la herramienta **Gobuster** a travé
 gobuster dir -u http://172.17.0.2/ -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt -x html,txt,php,xml
 ```
 
-<figure><img src="../../.gitbook/assets/image (10) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (10) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Encontramos un directorio `/universe` que entramos en él.
 
-<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### 🚀 **EXPLOTACIÓN**
 
 Revisando el código fuente encontramos un fragmento interesante.
 
-<figure><img src="../../.gitbook/assets/image (7) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (7) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Decodificamos esa cadena con esta [página](https://cyberchef.org/#recipe=JWT_Decode\(\)).
 
-<figure><img src="../../.gitbook/assets/image (8) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (8) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Nos logueamos con ese usuario y con la contraseña **Gottfried**.
 
@@ -74,7 +74,7 @@ Nos logueamos con ese usuario y con la contraseña **Gottfried**.
 ssh neptuno@172.17.0.2
 ```
 
-<figure><img src="../../.gitbook/assets/image (9) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (9) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### 🔐 **PRIVILEGIOS**
 
@@ -94,7 +94,7 @@ para ver si hay algo para explotar. No tenemos permisos **SUDO**.
 
 Listando los directorios tenemos un archivo oculto.
 
-<figure><img src="../../.gitbook/assets/image (11) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (11) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Vemos que tenemos 3 usuarios y uno de ellos es la **nasa** asi que nos logueamos ya que la contraseña es **Eisenhower.**
 
