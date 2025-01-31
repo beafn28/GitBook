@@ -121,6 +121,7 @@
   * [Exec](writeups/vulnyx/exec.md)
   * [Diff3r3ntS3c](writeups/vulnyx/diff3r3nts3c.md)
   * [Hacking Station](writeups/vulnyx/hacking-station.md)
+  * [Experience](writeups/vulnyx/experience.md)
 
 ## APUNTES HACKING
 
