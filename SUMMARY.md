@@ -124,6 +124,7 @@
   * [Experience](writeups/vulnyx/experience.md)
   * [Eternal](writeups/vulnyx/eternal.md)
   * [Agent](writeups/vulnyx/agent.md)
+  * [Infected](writeups/vulnyx/infected.md)
 
 ## APUNTES HACKING
 
