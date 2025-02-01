@@ -244,6 +244,11 @@
   * [Passwd, Shadow & Opasswd](apuntes-hacking/password-attacks/passwd-shadow-and-opasswd.md)
   * [Pass the Hash (PtH)](apuntes-hacking/password-attacks/pass-the-hash-pth.md)
 
+## WEB SECURITY&#x20;
+
+* [Path Traversal](web-security/path-traversal.md)
+* [SQL Injection](web-security/sql-injection.md)
+
 ## Mis CTFs
 
 * [Pequeñas Mentirosas](mis-ctfs/pequenas-mentirosas.md)
@@ -264,8 +269,3 @@
   * [Escalada de Privilegios + Post Explotación](preparar-ejptv2/curso-de-mario/escalada-de-privilegios-+-post-explotacion.md)
   * [Pivoting con Metasploit](preparar-ejptv2/curso-de-mario/pivoting-con-metasploit.md)
 * [Laboratorio de preparación eJPTv2 | Simulación de examen](preparar-ejptv2/laboratorio-de-preparacion-ejptv2-or-simulacion-de-examen.md)
-
-## INE&#x20;
-
-* [Assessment Methodologies: Footprinting & Scanning](ine/assessment-methodologies-footprinting-and-scanning.md)
-* [Assessment Methodologies: Enumeration](ine/assessment-methodologies-enumeration.md)
