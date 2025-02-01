@@ -52,6 +52,8 @@ Nos logueamos con las credenciales por defecto de Tomcat.&#x20;
 
 {% embed url="https://book.hacktricks.wiki/en/network-services-pentesting/pentesting-web/tomcat/index.html" %}
 
+### 🚀 **EXPLOTACIÓN**
+
 <figure><img src="../../.gitbook/assets/image (1139).png" alt=""><figcaption></figcaption></figure>
 
 ```bash

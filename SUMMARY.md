@@ -127,6 +127,7 @@
   * [Infected](writeups/vulnyx/infected.md)
   * [Admin](writeups/vulnyx/admin.md)
   * [War](writeups/vulnyx/war.md)
+  * [Hosting](writeups/vulnyx/hosting.md)
 
 ## APUNTES HACKING
 
