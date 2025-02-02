@@ -248,6 +248,7 @@
 
 * [Path Traversal](web-security/path-traversal.md)
 * [SQL Injection](web-security/sql-injection.md)
+* [Control de Acceso](web-security/control-de-acceso.md)
 
 ## Mis CTFs
 
