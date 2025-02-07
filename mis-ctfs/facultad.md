@@ -31,8 +31,6 @@ para realizar un escaneo de puertos y servicios detallado en la dirección IP.
 
 Como podemos observar durante el escaneo que el **puerto 22** perteneciente al **servicio SSH** y el **puerto 80** perteneciente al **servicio HTTP** están abiertos por lo que a continuación se indagará más.
 
-<figure><img src="../.gitbook/assets/image (1035).png" alt=""><figcaption></figcaption></figure>
-
 ### 🔎 **EXPLORACIÓN**
 
 Se utiliza el comando:
