@@ -1,6 +1,6 @@
 # BoardLight
 
-✍️ Autor: Hack The Box 🔍 Dificultad: Fácil 📅 Fecha de creación: 25/05/2024
+✍️ Autor: cY83rR0H1t 🔍 Dificultad: Fácil 📅 Fecha de creación: 25/05/2024
 
 ### 🔍 RECONOCIMIENTO
 
@@ -156,5 +156,4 @@ Ya somos **root** por lo que tenemos el máximo de los privilegios y al entrar e
 
 <figure><img src="../../.gitbook/assets/Captura de pantalla 2024-09-12 a las 11.44.51.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/Captura de pantalla 2024-09-12 a las 11.45.32.png" alt=""><figcaption></figcaption></figure>
-
+<figure><img src="../../.gitbook/assets/image (1164).png" alt=""><figcaption></figcaption></figure>
