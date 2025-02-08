@@ -27,3 +27,19 @@ Revisando el archivo `robots.txt`:\
 `https://insecure-website.com/robots.txt`
 
 Usando ataques de fuerza bruta con listas de palabras para encontrar rutas ocultas.
+
+```
+
+var isAdmin = false;
+if (isAdmin) {
+   var topLinksTag = document.getElementsByClassName("top-links")[0];
+   var adminPanelTag = document.createElement('a');
+   adminPanelTag.setAttribute('href', '/admin-a6hrd8');
+   adminPanelTag.innerText = 'Admin panel';
+   topLinksTag.append(adminPanelTag);
+   var pTag = document.createElement('p');
+   pTag.innerText = '|';
+   topLinksTag.appendChild(pTag);
+}
+
+```

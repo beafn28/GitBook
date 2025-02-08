@@ -76,7 +76,7 @@ Es un panel de login por lo que probamos las credenciales más comunes. Probamos
 
 Revisamos la versión por Internet si tiene alguna vulnerabilidad. Efectivamente tiene una vulnerabilidad que intentaremos explotar haciendo una Reverse Shell.
 
-{% embed url="https://github.com/nikn0laty/Exploit-for-Dolibarr-17.0.0-CVE-2023-3025" %}
+{% @github-files/github-code-block url="https://github.com/nikn0laty/Exploit-for-Dolibarr-17.0.0-CVE-2023-3025" %}
 
 Ejecutamos el script mientras nos ponemos en escucha para conectarnos.
 
