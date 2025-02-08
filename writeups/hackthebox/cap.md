@@ -118,3 +118,5 @@ os.system("/bin/bash")
 Ya somos **root**.
 
 <figure><img src="../../.gitbook/assets/image (1162).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (1163).png" alt=""><figcaption></figcaption></figure>
