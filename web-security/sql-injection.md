@@ -149,24 +149,40 @@ Las inyecciones SQL pueden aparecer en entradas JSON o XML. Ejemplo de SQLi en X
 </stockCheck>
 ```
 
-### Cómo prevenir SQL Injection
+## Cómo Prevenir la Inyección SQL
 
-#### Consultas parametrizadas (Prepared Statements)
+Puedes prevenir la mayoría de las instancias de inyección SQL usando consultas parametrizadas en lugar de concatenar cadenas dentro de la consulta. Estas consultas parametrizadas también se conocen como **sentencias preparadas**.
 
-Las consultas deben usar parámetros en lugar de concatenación de cadenas:
+### Código Vulnerable
 
+El siguiente código es vulnerable a la inyección SQL porque la entrada del usuario se concatena directamente en la consulta:
+
+```java
+String query = "SELECT * FROM products WHERE category = '"+ input + "'";
+Statement statement = connection.createStatement();
+ResultSet resultSet = statement.executeQuery(query);
 ```
+
+### Prevención de Inyección SQL con Sentencias Preparadas
+
+Puedes reescribir este código de manera que evite que la entrada del usuario interfiera con la estructura de la consulta:
+
+```java
 PreparedStatement statement = connection.prepareStatement("SELECT * FROM products WHERE category = ?");
 statement.setString(1, input);
 ResultSet resultSet = statement.executeQuery();
 ```
 
-#### Otras medidas de seguridad
+### Usos de Consultas Parametrizadas
 
-* **Validación de entrada**: Asegurar que los valores recibidos sean del tipo y formato esperados.
-* **Lista blanca de valores permitidos**: Especialmente en nombres de tablas, columnas y cláusulas como `ORDER BY`.
-* **Principio de privilegios mínimos**: Limitar el acceso de las cuentas de la base de datos.
-* **Monitorización y logging**: Detectar patrones anómalos en consultas SQL.
+Puedes usar consultas parametrizadas para cualquier situación donde la entrada no confiable aparezca como datos dentro de la consulta, incluyendo la cláusula **WHERE** y los valores en una sentencia **INSERT** o **UPDATE**. Sin embargo, no pueden usarse para manejar entradas no confiables en otras partes de la consulta, como los nombres de tablas o columnas, o la cláusula **ORDER BY**. La funcionalidad de la aplicación que coloca datos no confiables en estas partes de la consulta debe tomar un enfoque diferente, como:
+
+* **Lista blanca** de valores de entrada permitidos.
+* Usar lógica diferente para entregar el comportamiento requerido.
+
+### Requisitos para una Consulta Parametrizada Eficaz
+
+Para que una consulta parametrizada sea eficaz en la prevención de la inyección SQL, la cadena utilizada en la consulta debe ser siempre una constante codificada de manera fija. Nunca debe contener datos variables de ninguna fuente. No te dejes tentar a decidir caso por caso si un dato es confiable y continuar usando concatenación de cadenas dentro de la consulta en casos que se consideren "seguros". Es fácil cometer errores sobre el origen posible de los datos o que cambios en otro código puedan "corromper" los datos confiables.
 
 ## SQL Injection Cheat Sheet
 
