@@ -156,7 +156,7 @@ Realizamos fuzzing para ver donde se subió el archivo.
 
 Vamos a ajustes y configuramos el proxy de esta manera.
 
-<figure><img src="../../.gitbook/assets/image (9) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (9) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Interceptamos la conexión al dar al archivo de la Reverse Shell. Cambiamos la extensión del archivo y le damos a **Forward**. Apagamos la intercepción.
 
