@@ -90,4 +90,4 @@ Nos logueamos con credenciales típicas como son **admin**:**qwerty123**.
 
 **Task 6:** Consulta los requisitos de contraseña para Magento y también intenta buscar las contraseñas más comunes de 2023. ¿Qué contraseña proporciona acceso a la cuenta de administrador?
 
-* **admin123**
+* **qwerty123**
