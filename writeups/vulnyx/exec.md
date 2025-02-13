@@ -107,9 +107,9 @@ para ver si hay algo para explotar.&#x20;
 <pre class="language-bash"><code class="lang-bash"><strong>sudo -u s3cur4 /usr/bin/bash
 </strong></code></pre>
 
-<figure><img src="../../.gitbook/assets/image (8) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (8) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (9) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (9) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 {% embed url="https://gtfobins.github.io/gtfobins/apt/#suid" %}
 
@@ -118,6 +118,6 @@ sudo -u root /usr/bin/apt changelog apt
 !/bin/bash
 ```
 
-<figure><img src="../../.gitbook/assets/image (10) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (10) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Ya somos **root**.

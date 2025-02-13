@@ -76,6 +76,7 @@
     * [Unified](writeups/hackthebox/starting-point/unified.md)
     * [Explosion](writeups/hackthebox/starting-point/explosion.md)
     * [Preignition](writeups/hackthebox/starting-point/preignition.md)
+    * [Mongod](writeups/hackthebox/starting-point/mongod.md)
   * [BoardLight](writeups/hackthebox/boardlight.md)
   * [Cap](writeups/hackthebox/cap.md)
   * [TwoMillion](writeups/hackthebox/twomillion.md)

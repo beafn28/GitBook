@@ -14,7 +14,7 @@ ping -c 1 192.168.1.91
 
 para verificar la conectividad de red.
 
-<figure><img src="../../.gitbook/assets/image (12) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (12) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 A continuación, se realiza el comando:
 
@@ -78,7 +78,7 @@ hydra -l geralt -P diccionario.txt 192.168.1.91 -s 8080 http-post-form "/j_sprin
 
 Iniciamos sesión en **Jenkins** con las credenciales.
 
-<figure><img src="../../.gitbook/assets/image (8) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (8) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Seleccionamos **manage jenkin**s y luego **script console** que nos permite enviar una reverse shell mediante **Groovy** mediante nos ponemos en escucha.
 
