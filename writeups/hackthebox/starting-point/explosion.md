@@ -25,7 +25,7 @@ Iniciamos la máquina y verificamos la conexión.
 ping -c 1 10.129.150.176
 ```
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
 
 Observamos que tenemos conexión y que es una máquina **Windows** ya que su **ttl=127**.
 
@@ -39,7 +39,7 @@ nmap -sC -Pn 10.129.150.176
 
 para realizar un escaneo de puertos y servicios detallado en la dirección IP.
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### 4. 🚪 **Acceso Inicial**
 
@@ -48,17 +48,19 @@ Como podemos observar durante el escaneo, el puerto **135** perteneciente al ser
 <pre><code><strong>xfreerdp /v:10.129.150.176 /cert-ignore /u:Administrator
 </strong></code></pre>
 
-<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 Se nos abre una instancia de un **Windows**. Abrimos el CMD y somos administradores.
 
-### **5.** ![](<../../../.gitbook/assets/image (15).png>)**Captura de la Flag**
+### 5. 🔑 **Captura de la Flag**
 
 <figure><img src="../../../.gitbook/assets/Captura de pantalla 2025-02-13 104320.png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../../.gitbook/assets/Captura de pantalla 2025-02-13 104423.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
+
+### 6. ❓Preguntas
 
 **Tarea 1**\
 ¿Para qué significa el acrónimo de tres letras RDP?\
