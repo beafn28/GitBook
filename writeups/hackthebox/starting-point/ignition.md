@@ -1,6 +1,6 @@
 # Ignition
 
-### 1. 📝 **Introducción**
+1\. 📝 **Introducción**
 
 * **Nivel de Dificultad**: Muy fácil.
 * **Tags:**&#x20;
