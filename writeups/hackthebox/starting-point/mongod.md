@@ -33,7 +33,7 @@ Observamos que tenemos conexión y que es una máquina **Linux** ya que su **ttl
 A continuación, se realiza el comando:
 
 ```bash
-nmap -sC -Pn 10.129.163.203
+nmap -sV -T4 -vv -p- 10.129.163.203
 ```
 
 para realizar un escaneo de puertos y servicios detallado en la dirección IP.
@@ -42,7 +42,7 @@ para realizar un escaneo de puertos y servicios detallado en la dirección IP.
 
 ### 4. 🚪 **Acceso Inicial**
 
-Como podemos observar durante el escaneo, el puerto 22 perteneciente al servicio **SSH** y el puerto **27017** correspondiente a **MongoDB** están abiertos. A continuación, se indagará más sobre estos servicios.
+Como podemos observar durante el escaneo, el puerto **22** perteneciente al servicio **SSH** y el puerto **27017** correspondiente a **MongoDB** están abiertos. A continuación, se indagará más sobre estos servicios.
 
 Descargamos MongoDB.
 
