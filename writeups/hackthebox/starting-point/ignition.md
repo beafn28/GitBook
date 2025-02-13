@@ -1,6 +1,6 @@
 # Ignition
 
-1\. 📝 **Introducción**
+### 1. 📝 **Introducción**
 
 * **Nivel de Dificultad**: Muy fácil.
 * **Tags:**&#x20;
@@ -24,7 +24,7 @@ Iniciamos la máquina y verificamos la conexión.
 ping -c 1 10.129.69.90
 ```
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
 
 Observamos que tenemos conexión y que es una máquina **Linux** ya que su **ttl=63**.
 
@@ -38,7 +38,7 @@ nmap -sCV -Pn 10.129.69.90
 
 para realizar un escaneo de puertos y servicios detallado en la dirección IP.
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### 4. 🚪 **Acceso Inicial**
 
@@ -56,7 +56,7 @@ gobuster dir -u http://ignition.htb -w /usr/share/dirb/wordlists/common.txt -x p
 
 Revisamos el directorio `/admin`.
 
-<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 Nos logueamos con credenciales típicas como son **admin**:**qwerty123**.
 
@@ -64,7 +64,7 @@ Nos logueamos con credenciales típicas como son **admin**:**qwerty123**.
 
 <figure><img src="../../../.gitbook/assets/Captura de pantalla 2025-02-13 175138.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### 6. ❓Preguntas
 

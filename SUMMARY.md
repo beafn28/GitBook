@@ -79,6 +79,8 @@
     * [Mongod](writeups/hackthebox/starting-point/mongod.md)
     * [Synced](writeups/hackthebox/starting-point/synced.md)
     * [Ignition](writeups/hackthebox/starting-point/ignition.md)
+    * [Bike](writeups/hackthebox/starting-point/bike.md)
+    * [Funnel](writeups/hackthebox/starting-point/funnel.md)
   * [BoardLight](writeups/hackthebox/boardlight.md)
   * [Cap](writeups/hackthebox/cap.md)
   * [TwoMillion](writeups/hackthebox/twomillion.md)
