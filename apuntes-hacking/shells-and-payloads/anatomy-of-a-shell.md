@@ -30,7 +30,7 @@ Vamos a usar **Parrot OS Pwnbox** para explorar más sobre la anatomía de un sh
 
 ### **Ejemplo de Terminal**
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Al seleccionar el ícono, se abrió la aplicación **MATE terminal emulator**, que ha sido preconfigurada para usar un **intérprete de lenguaje de comandos**. En este caso, se nos da una pista del intérprete en uso al ver el símbolo **$**. Este símbolo se usa en **Bash, Ksh, POSIX**, y muchos otros lenguajes de shell para marcar el inicio del **prompt** del shell, donde el usuario puede comenzar a escribir comandos. Cuando escribimos nuestro texto aleatorio y presionamos enter, el intérprete nos informó que no reconoció el comando que ingresamos. Este es **Bash** indicando que no reconoció la instrucción.
 
