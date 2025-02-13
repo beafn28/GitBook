@@ -12,7 +12,7 @@ Aunque Linux puede comunicarse mediante FTP o SMB como Windows, la mayoría del 
 
 Tenemos acceso a la máquina **NIX04** y necesitamos descargar un archivo desde nuestra máquina **Pwnbox**. Veremos cómo podemos lograr esto utilizando varios métodos de descarga de archivos.
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Codificación y Decodificación Base64
 

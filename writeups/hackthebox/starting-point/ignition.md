@@ -21,7 +21,73 @@ sudo openvpn nombre_del_archivo.vpn
 Iniciamos la máquina y verificamos la conexión.
 
 ```bash
-ping -c 1 10.129.1.27
+ping -c 1 10.129.69.90
 ```
 
-<figure><img src="../../../.gitbook/assets/Captura de pantalla 2025-02-13 165216.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+Observamos que tenemos conexión y que es una máquina **Linux** ya que su **ttl=63**.
+
+### 3. 🔍 **Reconocimiento**
+
+A continuación, se realiza el comando:
+
+```bash
+nmap -sCV -Pn 10.129.69.90
+```
+
+para realizar un escaneo de puertos y servicios detallado en la dirección IP.
+
+<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+### 4. 🚪 **Acceso Inicial**
+
+Como podemos observar durante el escaneo, el puerto **80** perteneciente al servicio **HTTP** está abierto. A continuación, se indagará más sobre estos servicios. Ponemos el dominio en el `/etc/hosts`.
+
+<figure><img src="../../../.gitbook/assets/Captura de pantalla 2025-02-13 174332.png" alt=""><figcaption></figcaption></figure>
+
+Revisamos directorios.
+
+```
+gobuster dir -u http://ignition.htb -w /usr/share/dirb/wordlists/common.txt -x php,html
+```
+
+
+
+Revisamos el directorio `/admin`.
+
+<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
+Nos logueamos con credenciales típicas como son **admin**:**qwerty123**.
+
+### 5. 🔑 **Captura de la Flag**
+
+<figure><img src="../../../.gitbook/assets/Captura de pantalla 2025-02-13 175138.png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+
+### 6. ❓Preguntas
+
+**Task 1:** ¿Cuál es la versión del servicio que se está ejecutando en el puerto 80?
+
+* **nginx 1.14.2**
+
+**Task 2:** ¿Cuál es el código de estado HTTP de 3 dígitos que se devuelve al visitar http://{IP de la máquina}/?
+
+* **302**
+
+**Task 3:** ¿Cuál es el nombre del host virtual que la página web espera que se acceda?
+
+* **ignition.htb**
+
+**Task 4:** ¿Cuál es la ruta completa al archivo en una computadora Linux que mantiene una lista local de pares de nombres de dominio a direcciones IP?
+
+* **/etc/hosts**
+
+**Task 5:** Usa una herramienta para hacer fuerza bruta a los directorios en el servidor web. ¿Cuál es la URL completa de la página de inicio de sesión de Magento?
+
+* [**http://ignition.htb/admin**](http://ignition.htb/admin)
+
+**Task 6:** Consulta los requisitos de contraseña para Magento y también intenta buscar las contraseñas más comunes de 2023. ¿Qué contraseña proporciona acceso a la cuenta de administrador?
+
+* **admin123**
