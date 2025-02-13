@@ -74,6 +74,7 @@
     * [Oopsie](writeups/hackthebox/starting-point/oopsie.md)
     * [Vaccine](writeups/hackthebox/starting-point/vaccine.md)
     * [Unified](writeups/hackthebox/starting-point/unified.md)
+    * [Explosion](writeups/hackthebox/starting-point/explosion.md)
   * [BoardLight](writeups/hackthebox/boardlight.md)
   * [Cap](writeups/hackthebox/cap.md)
   * [TwoMillion](writeups/hackthebox/twomillion.md)
