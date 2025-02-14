@@ -82,6 +82,7 @@
     * [Bike](writeups/hackthebox/starting-point/bike.md)
     * [Funnel](writeups/hackthebox/starting-point/funnel.md)
     * [Pennyworth](writeups/hackthebox/starting-point/pennyworth.md)
+    * [Tactics](writeups/hackthebox/starting-point/tactics.md)
   * [BoardLight](writeups/hackthebox/boardlight.md)
   * [Cap](writeups/hackthebox/cap.md)
   * [TwoMillion](writeups/hackthebox/twomillion.md)
