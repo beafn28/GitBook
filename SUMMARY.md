@@ -84,6 +84,7 @@
     * [Pennyworth](writeups/hackthebox/starting-point/pennyworth.md)
     * [Tactics](writeups/hackthebox/starting-point/tactics.md)
     * [Included](writeups/hackthebox/starting-point/included.md)
+    * [Markup](writeups/hackthebox/starting-point/markup.md)
   * [BoardLight](writeups/hackthebox/boardlight.md)
   * [Cap](writeups/hackthebox/cap.md)
   * [TwoMillion](writeups/hackthebox/twomillion.md)
