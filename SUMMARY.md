@@ -85,6 +85,7 @@
     * [Tactics](writeups/hackthebox/starting-point/tactics.md)
     * [Included](writeups/hackthebox/starting-point/included.md)
     * [Markup](writeups/hackthebox/starting-point/markup.md)
+    * [Base](writeups/hackthebox/starting-point/base.md)
   * [BoardLight](writeups/hackthebox/boardlight.md)
   * [Cap](writeups/hackthebox/cap.md)
   * [TwoMillion](writeups/hackthebox/twomillion.md)
