@@ -1,6 +1,6 @@
 # Base
 
-### 1. 📝 **Introducción**
+1\. 📝 **Introducción**
 
 * **Nivel de Dificultad**: Muy fácil.
 * **Tags:**&#x20;
@@ -30,7 +30,7 @@ sudo openvpn nombre_del_archivo.vpn
 Iniciamos la máquina y verificamos la conexión.
 
 ```bash
-ping -c 1 10.129.30.230
+ping -c 1 10.129.238.219
 ```
 
 <figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
@@ -42,7 +42,20 @@ Observamos que tenemos conexión y que es una máquina **Linux** ya que su **ttl
 A continuación, se realiza el comando:
 
 ```bash
-nmap -sCV -Pn 10.129.28.231
+nmap -sCV -Pn 10.129.238.219
 ```
 
 para realizar un escaneo de puertos y servicios detallado en la dirección IP.&#x20;
+
+<figure><img src="../../../.gitbook/assets/Captura de pantalla 2025-02-14 200328.png" alt=""><figcaption></figcaption></figure>
+
+
+
+Como podemos observar durante el escaneo, el puerto **22** perteneciente al servicio **SSH** y el puerto **80** correspondiente a **HTTP** están abiertos. A continuación, se indagará más sobre estos servicios.
+
+<figure><img src="../../../.gitbook/assets/Captura de pantalla 2025-02-14 200842.png" alt=""><figcaption></figcaption></figure>
+
+Revisamos directorios.
+
+```
+```
