@@ -33,7 +33,7 @@ Iniciamos la máquina y verificamos la conexión.
 ping -c 1 10.129.238.219
 ```
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
 
 Observamos que tenemos conexión y que es una máquina **Linux** ya que su **ttl=63**.
 
@@ -49,7 +49,7 @@ para realizar un escaneo de puertos y servicios detallado en la dirección IP.&#
 
 <figure><img src="../../../.gitbook/assets/Captura de pantalla 2025-02-14 200328.png" alt=""><figcaption></figcaption></figure>
 
-
+### 4. 🚪 **Acceso Inicial**
 
 Como podemos observar durante el escaneo, el puerto **22** perteneciente al servicio **SSH** y el puerto **80** correspondiente a **HTTP** están abiertos. A continuación, se indagará más sobre estos servicios.
 
@@ -58,4 +58,115 @@ Como podemos observar durante el escaneo, el puerto **22** perteneciente al serv
 Revisamos directorios.
 
 ```
+gobuster dir -u http://10.129.238.219 -w /usr/share/seclists/Discovery/Web-Content/raft-large-directories-lowercase.txt
 ```
+
+<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+Nos llama atención el directorio `/login`.
+
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+Mostramos el contenido de **login.php.swp**.
+
+```bash
+strings login.php.swp | tac
+```
+
+Después de analizar el código fuente en PHP, se observa que las credenciales ingresadas por el usuario se comparan con las variables almacenadas en `config.php` para verificar si coinciden.
+
+¡Espera un momento! En el código se utiliza `strcmp`, y en este caso, su uso es inseguro. Esto da lugar a una vulnerabilidad de tipo _juggling_.
+
+Subimos una Reverse Shell.&#x20;
+
+<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
+Nos ponemos en escucha.
+
+```
+http://10.129.238.219/_uploaded/
+```
+
+<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+
+Revisamos el contenido del archivo **config.php**.
+
+<figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+
+Revisando el archivo `/etc/passwd` encontramos un usuario llamado **john**.
+
+<figure><img src="../../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+
+Iniciamos sesión con ese usuario y la contraseña que descubrimos anteriormente.
+
+<figure><img src="../../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+
+Viendo los permisos SUDO.
+
+```bash
+sudo -l
+```
+
+{% embed url="https://gtfobins.github.io/gtfobins/find/" %}
+
+```
+sudo /usr/bin/find /bin -exec /bin/bash \;
+```
+
+### 5. 🔑 **Captura de la Flag**
+
+<figure><img src="../../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../../.gitbook/assets/Captura de pantalla 2025-02-14 213808.png" alt=""><figcaption></figcaption></figure>
+
+### 6. ❓Preguntas
+
+#### **Tarea 1**
+
+**¿Qué dos puertos TCP están abiertos en el host remoto?**\
+22,80
+
+#### **Tarea 2**
+
+**¿Cuál es la ruta relativa en el servidor web para la página de inicio de sesión?**\
+/login/login.php
+
+#### **Tarea 3**
+
+**¿Cuántos archivos hay en el directorio '/login'?**\
+3
+
+#### **Tarea 4**
+
+**¿Cuál es la extensión de archivo de un archivo de intercambio (swap)?**\
+.swp
+
+#### **Tarea 5**
+
+**¿Qué función de PHP se utiliza en el código backend para comparar el nombre de usuario y la contraseña enviados por el usuario con los valores válidos?**\
+strcmp()
+
+#### **Tarea 6**
+
+**¿En qué directorio se almacenan los archivos subidos?**\
+/\_uploaded
+
+#### **Tarea 7**
+
+**¿Qué usuario existe en el host remoto con un directorio home?**\
+john
+
+#### **Tarea 8**
+
+**¿Cuál es la contraseña del usuario presente en el sistema?**\
+thisisagoodpassword
+
+#### **Tarea 9**
+
+**¿Cuál es la ruta completa del comando que el usuario john puede ejecutar como root en el host remoto?**\
+/usr/bin/find
+
+#### **Tarea 10**
+
+**¿Qué acción puede usar el comando 'find' para ejecutar comandos?**\
+exec

