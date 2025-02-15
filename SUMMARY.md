@@ -90,6 +90,7 @@
   * [Cap](writeups/hackthebox/cap.md)
   * [TwoMillion](writeups/hackthebox/twomillion.md)
   * [Lame](writeups/hackthebox/lame.md)
+  * [Legacy](writeups/hackthebox/legacy.md)
 * [OverTheWire](writeups/overthewire/README.md)
   * [Natas](writeups/overthewire/natas/README.md)
     * [Nivel 0-5](writeups/overthewire/natas/nivel-0-5.md)
