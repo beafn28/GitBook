@@ -94,6 +94,7 @@
   * [Devel](writeups/hackthebox/devel.md)
   * [Beep](writeups/hackthebox/beep.md)
   * [Optimum](writeups/hackthebox/optimum.md)
+  * [Arctic](writeups/hackthebox/arctic.md)
 * [OverTheWire](writeups/overthewire/README.md)
   * [Natas](writeups/overthewire/natas/README.md)
     * [Nivel 0-5](writeups/overthewire/natas/nivel-0-5.md)
