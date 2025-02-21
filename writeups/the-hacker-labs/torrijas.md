@@ -56,7 +56,7 @@ Nos llama la atención que hay un **wordpress** por lo que indagamos más en ese
 
 <figure><img src="../../.gitbook/assets/Captura de pantalla 2025-02-21 160040.png" alt=""><figcaption></figcaption></figure>
 
-Enumeramos los usuarios y los plugins con WPScan.
+Enumeramos los usuarios y los plugins con **WPScan**.
 
 ```
 ```
