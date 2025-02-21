@@ -66,7 +66,7 @@ Dado que esta versión es vulnerable a SSRF y que el puerto 80 estaba filtrado, 
 
 <figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
 
-
+### 🚀 **EXPLOTACIÓN**
 
 Recargamos de nuevo.
 
