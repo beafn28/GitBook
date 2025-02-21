@@ -61,7 +61,7 @@ Revisamos directorios.
 gobuster dir -u http://10.129.238.219 -w /usr/share/seclists/Discovery/Web-Content/raft-large-directories-lowercase.txt
 ```
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Nos llama atención el directorio `/login`.
 
@@ -79,7 +79,7 @@ Después de analizar el código fuente en PHP, se observa que las credenciales i
 
 Subimos una Reverse Shell.&#x20;
 
-<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Nos ponemos en escucha.
 
