@@ -1,5 +1,5 @@
 ---
-description: '✍️ Autor: sau123🔍 Dificultad: Fácil 📅 Fecha de creación: 15/04/2022'
+description: '✍️ Autor: mrh4sh 🔍 Dificultad: Fácil 📅 Fecha de creación: 30/06/2018'
 ---
 
 # Jerry

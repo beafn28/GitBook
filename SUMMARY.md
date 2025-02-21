@@ -96,7 +96,7 @@
   * [Optimum](writeups/hackthebox/optimum.md)
   * [Arctic](writeups/hackthebox/arctic.md)
   * [Jerry](writeups/hackthebox/jerry.md)
-  * [Page 1](writeups/hackthebox/page-1.md)
+  * [Sau](writeups/hackthebox/sau.md)
 * [OverTheWire](writeups/overthewire/README.md)
   * [Natas](writeups/overthewire/natas/README.md)
     * [Nivel 0-5](writeups/overthewire/natas/nivel-0-5.md)
