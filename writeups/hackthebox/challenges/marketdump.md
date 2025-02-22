@@ -27,3 +27,5 @@ Lo decodificamos a través de esta página.
 {% embed url="https://gchq.github.io/CyberChef/" %}
 
 <figure><img src="../../../.gitbook/assets/Captura de pantalla 2025-02-22 a las 18.01.32.png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../../.gitbook/assets/Captura de pantalla 2025-02-22 a las 18.02.51.png" alt=""><figcaption></figcaption></figure>
