@@ -100,6 +100,7 @@
   * [GoodGames](writeups/hackthebox/goodgames.md)
   * [Challenges](writeups/hackthebox/challenges/README.md)
     * [Emdee five for life](writeups/hackthebox/challenges/emdee-five-for-life.md)
+    * [MarketDump](writeups/hackthebox/challenges/marketdump.md)
 * [OverTheWire](writeups/overthewire/README.md)
   * [Natas](writeups/overthewire/natas/README.md)
     * [Nivel 0-5](writeups/overthewire/natas/nivel-0-5.md)
