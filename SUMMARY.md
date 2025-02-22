@@ -98,6 +98,7 @@
   * [Jerry](writeups/hackthebox/jerry.md)
   * [Sau](writeups/hackthebox/page-1.md)
   * [GoodGames](writeups/hackthebox/goodgames.md)
+  * [Challenges](writeups/hackthebox/challenges.md)
 * [OverTheWire](writeups/overthewire/README.md)
   * [Natas](writeups/overthewire/natas/README.md)
     * [Nivel 0-5](writeups/overthewire/natas/nivel-0-5.md)
