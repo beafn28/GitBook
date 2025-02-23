@@ -52,7 +52,7 @@ Revisamos el puerto 80.
 No vemos nada así a primera vista ni tampoco en el código fuente por lo que vamos a escanear directorios.
 
 ```
-ffuf -w /usr/share/wordlists/SecLists/Discovery/Web-Content/directory-list-2.3-small.txt -u http://10.10.10.171/FUZZ
+ffuf -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-2.3-small.txt -u http://10.10.10.171/FUZZ
 ```
 
 <figure><img src="../../.gitbook/assets/image (1313).png" alt=""><figcaption></figcaption></figure>
