@@ -57,7 +57,7 @@ Le damos a iniciar como invitado.
 Vemos que hay dos usuarios llamados **Hazard** y **Admin**. Hazard tiene un problema con el router de CISCO. Hacemos una búsqueda de directorios.
 
 ```bash
-ffuf -w /usr/share/wordlists/SecLists/Discovery/Web-Content/directory-list-2.3-small.txt -u http://10.10.10.149/FUZZ
+ffuf -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-2.3-small.txt -u http://10.10.10.149/FUZZ
 ```
 
 <figure><img src="../../.gitbook/assets/image (1289).png" alt=""><figcaption></figcaption></figure>
