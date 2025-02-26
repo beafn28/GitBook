@@ -4,7 +4,7 @@
 
 La **reconocimiento web** es la base de una evaluación de seguridad exhaustiva. Este proceso implica la recopilación sistemática y meticulosa de información sobre un sitio web o aplicación web objetivo. Piensa en ello como la fase preparatoria antes de profundizar en un análisis más detallado y posible explotación. Forma parte crítica de la fase de "Recopilación de Información" en el proceso de Pruebas de Penetración (_Penetration Testing_).
 
-<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Objetivos Principales del Reconocimiento Web
 

