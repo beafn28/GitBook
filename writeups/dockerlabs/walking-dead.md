@@ -51,4 +51,20 @@ Revisando el código fuente encontramos una carpeta llamado **hidden** con un ar
 Revisamos directorios.
 
 ```
+gobuster dir -u "http://172.17.0.2/" -w /usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt -x txt,html,php
 ```
+
+<figure><img src="../../.gitbook/assets/Captura de pantalla 2025-02-26 212212.png" alt=""><figcaption></figcaption></figure>
+
+Nos parece interesante el archivo **backup.txt**.
+
+```
+```
+
+<figure><img src="../../.gitbook/assets/Captura de pantalla 2025-02-26 212501.png" alt=""><figcaption></figcaption></figure>
+
+Nos dice que no se pueden listar directorios. Realizamos fuzzing para un parámetro vulnerable.
+
+```bash
+```
+

@@ -48,7 +48,7 @@ para que nos proporcione más información sobre esos puertos específicamente.
 
 Reviso el puerto 55555.
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Mirando la página nos sale la versión por lo que buscamos si tiene un CVE para explotar.
 
