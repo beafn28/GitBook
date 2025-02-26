@@ -1,5 +1,5 @@
 ---
-description: '✍️ Autor: s1egfr1ed🔍 Dificultad: Muy Fácil 📅 Fecha de creación: 13/02/2025'
+description: '✍️ Autor: s1egfr1ed🔍 Dificultad: Fácil 📅 Fecha de creación: 13/02/2025'
 ---
 
 # Internship

@@ -56,6 +56,7 @@
   * [Patriaquerida](writeups/dockerlabs/patriaquerida.md)
   * [Tproot](writeups/dockerlabs/tproot.md)
   * [Internship](writeups/dockerlabs/internship.md)
+  * [Walking Dead](writeups/dockerlabs/walking-dead.md)
 * [TryHackMe](writeups/tryhackme/README.md)
   * [Brooklyn Nine Nine](writeups/tryhackme/brooklyn-nine-nine.md)
   * [Blue](writeups/tryhackme/blue.md)
