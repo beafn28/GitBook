@@ -304,4 +304,16 @@
   * [Hacking Entornos CMS](preparar-ejptv2/curso-de-mario/hacking-entornos-cms.md)
   * [Escalada de Privilegios + Post Explotación](preparar-ejptv2/curso-de-mario/escalada-de-privilegios-+-post-explotacion.md)
   * [Pivoting con Metasploit](preparar-ejptv2/curso-de-mario/pivoting-con-metasploit.md)
-* [Laboratorio de preparación eJPTv2 | Simulación de examen](preparar-ejptv2/laboratorio-de-preparacion-ejptv2-or-simulacion-de-examen.md)
+
+## Preparar OSCP
+
+* [Información](preparar-oscp/informacion.md)
+* [Máquinas](preparar-oscp/maquinas/README.md)
+  * [Linux](preparar-oscp/maquinas/linux/README.md)
+    * [Fácil](preparar-oscp/maquinas/linux/facil.md)
+    * [Medio](preparar-oscp/maquinas/linux/medio.md)
+    * [Difícil](preparar-oscp/maquinas/linux/dificil.md)
+  * [Windows](preparar-oscp/maquinas/windows/README.md)
+    * [Fácil](preparar-oscp/maquinas/windows/facil.md)
+    * [Medio](preparar-oscp/maquinas/windows/medio.md)
+    * [Difícil](preparar-oscp/maquinas/windows/dificil.md)
