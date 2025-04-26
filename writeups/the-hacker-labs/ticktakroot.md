@@ -50,9 +50,9 @@ Entramos al servicio **FTP** de forma anónima por si encontramos algo relevante
 
 Listamos el contenido y el directorio **login** que dentro tiene un archivo de texto por lo que nos los descargamos a nuestra máquina local para ver el contenido.
 
-<figure><img src="../../.gitbook/assets/imagen (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/imagen (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/imagen (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/imagen (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Se nos muestra un par de nombres que pueden ser posibles usuarios pero si nos damos cuenta cuando nos hemos conectado por **FTP** se nos muestra el nombre de **Robin** que será el usuario.&#x20;
 
@@ -74,7 +74,7 @@ Al realizar el ataque de fuerza bruta, hemos descubierto la contraseña de **rob
 ssh robin@192.168.1.66
 ```
 
-<figure><img src="../../.gitbook/assets/imagen (3) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/imagen (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### 🔐 PRIVILEGIOS
 
@@ -92,7 +92,7 @@ sudo -l
 
 para ver si hay algo para explotar.
 
-<figure><img src="../../.gitbook/assets/imagen (4) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/imagen (4) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 El comando `timeout` se utiliza para ejecutar un comando y finalizarlo si no se completa en un tiempo específico. Sin embargo, este comando puede ser vulnerable a ciertas técnicas de explotación que permiten escalar privilegios. Para más información sobre cómo explotar el comando `timeout` y ejemplos prácticos, puedes consultar la página de [GTFObins](https://gtfobins.github.io/gtfobins/timeout/).
 
@@ -100,6 +100,6 @@ El comando `timeout` se utiliza para ejecutar un comando y finalizarlo si no se 
 /usr/bin/timeout_suid 7d /bin/sh -p
 ```
 
-<figure><img src="../../.gitbook/assets/imagen (6) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/imagen (6) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Te deseo mucho éxito en tu búsqueda de las flags! Recuerda prestar atención a cada detalle, examinar los archivos y servicios con detenimiento, y utilizar todas las herramientas disponibles para encontrarlas. La clave para el éxito está en la perseverancia y en no dejar ningún rincón sin explorar. ¡Adelante, hacker! 💻🔍🚀

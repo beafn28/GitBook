@@ -22,7 +22,7 @@ ping -c 1 192.168.1.57
 
 para verificar la conectividad de red.
 
-<figure><img src="../../.gitbook/assets/imagen (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/imagen (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Definitivamente es una máquina Windows porque el TTL=128.
 
@@ -34,7 +34,7 @@ sudo nmap -p- --open -sS -Pn --min-rate 5000 -n 192.168.1.57
 
 para realizar un escaneo de puertos y servicios detallado en la dirección IP.
 
-<figure><img src="../../.gitbook/assets/imagen (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/imagen (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Como podemos observar durante el escaneo, los siguientes puertos están abiertos:
 
@@ -58,7 +58,7 @@ sudo nmap -sCV -p135,139,445 -v 192.168.1.57
 
 para obtener más información sobre ese puerto específicamente.
 
-<figure><img src="../../.gitbook/assets/imagen (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/imagen (3) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Como podemos observar durante el escaneo, el puerto **445/tcp** perteneciente al servicio **Microsoft-DS** está abierto. Este puerto es utilizado para compartir archivos y otros recursos en redes Windows mediante el protocolo SMB (Server Message Block).
 
@@ -75,7 +75,7 @@ Por eso mismo revisamos si es vulnerable por si acaso con el comando:
 nmap -p445 --script="vuln and safe" 192.168.1.57
 ```
 
-<figure><img src="../../.gitbook/assets/imagen (4) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/imagen (4) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### 🚀 **EXPLOTACIÓN**
 
@@ -85,7 +85,7 @@ Con la información obtenida anteriormente, realizamos el comando:
 msfconsole
 ```
 
-<figure><img src="../../.gitbook/assets/imagen (5) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/imagen (5) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 A continuación se intentará explotar esa vulnerabilidad a través de la herramienta **Metasploit**. Se busca la vulnerabilidad exacta que obtenida en el anterior escaneo.
 
@@ -93,7 +93,7 @@ A continuación se intentará explotar esa vulnerabilidad a través de la herram
 search ms17-010
 ```
 
-<figure><img src="../../.gitbook/assets/imagen (6) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/imagen (6) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Revisamos el segundo ya que tenemos un **Windows 7** de máquina víctima.
 

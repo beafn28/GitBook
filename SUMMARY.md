@@ -57,6 +57,7 @@
   * [Tproot](writeups/dockerlabs/tproot.md)
   * [Internship](writeups/dockerlabs/internship.md)
   * [Walking Dead](writeups/dockerlabs/walking-dead.md)
+  * [Bicho](writeups/dockerlabs/bicho.md)
 * [TryHackMe](writeups/tryhackme/README.md)
   * [Brooklyn Nine Nine](writeups/tryhackme/brooklyn-nine-nine.md)
   * [Blue](writeups/tryhackme/blue.md)
@@ -279,7 +280,7 @@
   * [Passwd, Shadow & Opasswd](apuntes-hacking/password-attacks/passwd-shadow-and-opasswd.md)
   * [Pass the Hash (PtH)](apuntes-hacking/password-attacks/pass-the-hash-pth.md)
 
-## WEB SECURITY&#x20;
+## WEB SECURITY
 
 * [Path Traversal](web-security/path-traversal.md)
 * [SQL Injection](web-security/sql-injection.md)

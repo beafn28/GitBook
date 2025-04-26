@@ -24,7 +24,7 @@ nmap -sVC -p- -n --min-rate 5000 172.17.0.2
 
 para realizar un escaneo de puertos y servicios detallado en la dirección IP.
 
-<figure><img src="../../.gitbook/assets/imagen.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/imagen (6).png" alt=""><figcaption></figcaption></figure>
 
 Como podemos observar durante el escaneo que el **puerto 22** perteneciente al **servicio SSH** y el **puerto 80** perteneciente al **servicio HTTP** están abiertos por lo que a continuación se indagará más.&#x20;
 
@@ -38,25 +38,25 @@ sudo nmap -sCV -p22,80 -v 172.17.0.2
 
 para obtener más información sobre esos puertos específicamente.
 
-<figure><img src="../../.gitbook/assets/imagen (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/imagen (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 En el puerto 80 corre la página por defecto de Apache por lo que realizamos un escaneo de directorios.
 
-<figure><img src="../../.gitbook/assets/imagen (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/imagen (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 ```bash
 gobuster dir -u http://172.17.0.2/ -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt -x html,txt,php,xml
 ```
 
-<figure><img src="../../.gitbook/assets/imagen (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/imagen (5) (1).png" alt=""><figcaption></figcaption></figure>
 
 Observamos que se encuentra un archivo llamado **index.php**, así que procederemos a explorar el contenido de esa ruta.
 
-<figure><img src="../../.gitbook/assets/imagen (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/imagen (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 Nos indican directamente dónde buscar, así que accedemos a la ruta: **172.17.0.2/.hidden\_pass**.
 
-<figure><img src="../../.gitbook/assets/imagen (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/imagen (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 Encontramos lo que parece ser una contraseña: **balu**.
 
@@ -68,7 +68,7 @@ Dado que existen rutas visibles, utilizaremos **FFUZ** para explorar más a fond
 ffuf -u "http://172.17.0.2/index.php?FUZZ=/etc/passwd" -w directory-list-2.3-medium.txt -fw 12
 ```
 
-<figure><img src="../../.gitbook/assets/imagen (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/imagen (6) (1).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../.gitbook/assets/imagen (7).png" alt=""><figcaption></figcaption></figure>
 
