@@ -78,4 +78,28 @@ sudo -l
 
 <figure><img src="../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
 
-No tenemos permisos sudo pero en su directorio principal si listamos y mostramos el contenido de
+No tenemos permisos sudo pero en su directorio principal si listamos y mostramos el contenido del archivo **app.py** vemos una contraseña.
+
+<figure><img src="../../.gitbook/assets/image (1339).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (1340).png" alt=""><figcaption></figcaption></figure>
+
+Nos cambiamos al otro usuario con esa contraseña encontrada.
+
+```bash
+su balulero
+```
+
+<figure><img src="../../.gitbook/assets/image (1341).png" alt=""><figcaption></figcaption></figure>
+
+Revisando el historial nos encontramos que ha cambiado un fichero por lo que revisamos.
+
+<figure><img src="../../.gitbook/assets/image (1342).png" alt=""><figcaption></figcaption></figure>
+
+Hemos encontrado al parecer la contraseña de root por lo que nos logueamos.
+
+```bash
+su root
+```
+
+<figure><img src="../../.gitbook/assets/image (1343).png" alt=""><figcaption></figcaption></figure>

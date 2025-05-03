@@ -57,7 +57,7 @@
   * [Tproot](writeups/dockerlabs/tproot.md)
   * [Internship](writeups/dockerlabs/internship.md)
   * [Walking Dead](writeups/dockerlabs/walking-dead.md)
-  * [Bicho (Por completar)](writeups/dockerlabs/bicho-por-completar.md)
+  * [Bicho (Por completar)](writeups/dockerlabs/bicho.md)
   * [BaluFood](writeups/dockerlabs/balufood.md)
 * [TryHackMe](writeups/tryhackme/README.md)
   * [Brooklyn Nine Nine](writeups/tryhackme/brooklyn-nine-nine.md)

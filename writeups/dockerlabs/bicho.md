@@ -2,7 +2,7 @@
 description: '✍️ Autor: Trr0r🔍 Dificultad: Fácil 📅 Fecha de creación: 22/04/2025'
 ---
 
-# Bicho
+# Bicho (Por completar)
 
 ### 🔍 RECONOCIMIENTO
 
