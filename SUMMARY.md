@@ -167,6 +167,7 @@
     * [Nivel 31-34](writeups/overthewire/bandit/nivel-31-34.md)
 * [Proving Ground Play](writeups/proving-ground-play/README.md)
   * [Monitoring](writeups/proving-ground-play/monitoring.md)
+  * [DriftingBlues6](writeups/proving-ground-play/driftingblues6.md)
 
 ## APUNTES HACKING
 
