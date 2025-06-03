@@ -1,4 +1,4 @@
-# 👩‍💻 ¡Bienvenidos a mi GitBook!
+# 👩‍💻 ¡Bienvenidos a mi HackBook!
 
 ### 🖥️ Whoami
 
@@ -18,4 +18,5 @@ Si quieres ponerte en contacto conmigo para discutir proyectos, colaborar en tem
 
 * **Email:** [beafn23@gmail.com](mailto:beafn23@gmail.com)
 * **LinkedIn:** [linkedin.com/in/beatriz-fresno-naumova-3797b931b](https://www.linkedin.com/in/beatriz-fresno-naumova-3797b931b)
+* **Blog:** [beafn28.es](https://beafn28.es)
 * **GitHub:** [github.com/beafn28](https://github.com/beafn28)
