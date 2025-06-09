@@ -322,3 +322,7 @@
     * [Fácil](preparar-oscp/maquinas/windows/facil.md)
     * [Medio](preparar-oscp/maquinas/windows/medio.md)
     * [Difícil](preparar-oscp/maquinas/windows/dificil.md)
+
+## PREPARAR PT1
+
+* [Organización](preparar-pt1/organizacion.md)
