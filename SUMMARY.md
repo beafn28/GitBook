@@ -62,6 +62,7 @@
 * [TryHackMe](writeups/tryhackme/README.md)
   * [Brooklyn Nine Nine](writeups/tryhackme/brooklyn-nine-nine.md)
   * [Blue](writeups/tryhackme/blue.md)
+  * [Pickle Rick](writeups/tryhackme/pickle-rick.md)
 * [HackTheBox](writeups/hackthebox/README.md)
   * [Nibbles](writeups/hackthebox/nibbles.md)
   * [Starting Point](writeups/hackthebox/starting-point/README.md)
