@@ -294,6 +294,7 @@
 * [Laboratorios PortSwigger](web-security/laboratorios-portswigger/README.md)
   * [SQL Injection](web-security/laboratorios-portswigger/sql-injection.md)
   * [Authentication](web-security/laboratorios-portswigger/authentication.md)
+  * [Path Traversal](web-security/laboratorios-portswigger/path-traversal.md)
 
 ## Mis CTFs
 
