@@ -22,4 +22,10 @@ Tras ver el error que nos da está claro que sí lo es para ello realizamos esta
 
 <figure><img src="../../.gitbook/assets/Captura de pantalla 2025-06-22 215543.png" alt=""><figcaption></figcaption></figure>
 
+También otra opción es poner lo siguiente y enviarlo:
+
+```
+productId=1&storeId=3;whoami
+```
+
 Ya sabemos que el usuario es **peter-VlOzEk.**
