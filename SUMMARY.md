@@ -291,6 +291,9 @@
 * [Path Traversal](web-security/path-traversal.md)
 * [SQL Injection](web-security/sql-injection.md)
 * [Control de Acceso](web-security/control-de-acceso.md)
+* [Laboratorios PortSwigger](web-security/laboratorios-portswigger/README.md)
+  * [SQL Injection](web-security/laboratorios-portswigger/sql-injection.md)
+  * [Authentication](web-security/laboratorios-portswigger/authentication.md)
 
 ## Mis CTFs
 
