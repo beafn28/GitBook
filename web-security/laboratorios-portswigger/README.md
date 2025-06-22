@@ -7,3 +7,11 @@
 {% content-ref url="authentication.md" %}
 [authentication.md](authentication.md)
 {% endcontent-ref %}
+
+{% content-ref url="path-traversal.md" %}
+[path-traversal.md](path-traversal.md)
+{% endcontent-ref %}
+
+{% content-ref url="os-command-injection.md" %}
+[os-command-injection.md](os-command-injection.md)
+{% endcontent-ref %}
