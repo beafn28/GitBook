@@ -43,7 +43,7 @@ sudo nmap -sCV -p135,139,445 -v 10.10.10.4
 
 para que nos proporcione más información sobre esos puertos específicamente.
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Miramos el protocolo SMB.
 
@@ -53,7 +53,7 @@ smbmap -H 10.10.10.4
 
 No vemos nada. Revisamos si tiene un CVE.
 
-<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### 🚀 **EXPLOTACIÓN**
 

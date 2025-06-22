@@ -27,7 +27,7 @@ Es una configuración de red que permite a la VM acceder a Internet a través de
 
 Es una configuración de red en máquinas virtuales que permite que varias máquinas virtuales se comuniquen entre sí dentro de un entorno aislado, sin tener acceso a la red externa o a Internet. Este tipo de configuración es útil cuando deseas crear un laboratorio de pruebas donde las máquinas se comuniquen de manera privada, sin interferir con la red física del host ni con la red local (LAN).
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Tipos de Redes
 

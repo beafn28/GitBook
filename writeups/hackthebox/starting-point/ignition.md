@@ -56,7 +56,7 @@ gobuster dir -u http://ignition.htb -w /usr/share/dirb/wordlists/common.txt -x p
 
 Revisamos el directorio `/admin`.
 
-<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Nos logueamos con credenciales típicas como son **admin**:**qwerty123**.
 

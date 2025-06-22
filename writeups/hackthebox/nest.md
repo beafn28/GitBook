@@ -43,7 +43,7 @@ sudo nmap -sCV -p445,4386 -v 10.10.10.178
 
 para que nos proporcione más información sobre esos puertos específicamente.
 
-<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Ponemos el dominio en el `/etc/hosts`.
 
@@ -57,7 +57,7 @@ Listamos recursos compartidos.
 smbclient -L 10.10.10.178
 ```
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Listamos el contenido de los recursos compartidos.
 

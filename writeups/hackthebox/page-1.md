@@ -52,11 +52,11 @@ Reviso el puerto 55555.
 
 Mirando la página nos sale la versión por lo que buscamos si tiene un CVE para explotar.
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Al realizar una búsqueda en Google, se puede identificar que esta versión es vulnerable a una falla de SSRF (Server Side Request Forgery), CVE-2023-27163, que afecta al componente de la API de Request Baskets, específicamente en el endpoint `/api/baskets/{name}`. Esta vulnerabilidad permite a los atacantes realizar solicitudes manipuladas a la API, lo que les da acceso a recursos internos de la red e información sensible.
 
-<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Enviamos la petición como se nos indica.
 

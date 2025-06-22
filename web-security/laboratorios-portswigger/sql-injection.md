@@ -28,7 +28,7 @@ Sabiendo esto hacemos la búsqueda:
 
 Podemos observar como salen 4 elementos cuando salían 3 anteriormente.
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
 Podemos ver que hay una inyección por lo que realizamos esta sentencia.
 
@@ -74,4 +74,4 @@ SELECT * FROM usuarios WHERE username='administrator' AND contraseña= '' OR 1=1
 
 Por lo tanto insertamos eso en el login.
 
-<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>

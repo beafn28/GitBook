@@ -16,7 +16,7 @@ image?filename=33.jpg
 
 Por lo que si el contenido no está correctamente filtrado se podrá a acceder a otras cosas como en este caso lo que nos pide el enunciado para ello realizamos lo siguiente en el **Repeater**.
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 Observamos que el error que muestre es que no encuentra el archivo cosa a nuestro favor para ello realizamos lo siguiente:
 
@@ -25,7 +25,7 @@ Observamos que el error que muestre es que no encuentra el archivo cosa a nuestr
 ```
 
 {% hint style="info" %}
-Se podrá ../ tantas veces ya que a priori no sabemos donde se encuentra
+Se podrá ../ tantas veces ya que a priori no sabemos donde se encuentra. Podemos también hacerlo con Intruder y ver cuando cambia la respuesta.
 {% endhint %}
 
 Sabiendo esto y al enviar varias peticiones encontramos la solución.

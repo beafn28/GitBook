@@ -40,11 +40,11 @@ sudo nmap -sCV -p22,5000 -v 172.17.0.2
 
 para obtener más información sobre esos puertos específicamente.
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Revisamos el puerto 5000.
 
-<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### 🚀 **EXPLOTACIÓN**
 
