@@ -15,3 +15,7 @@
 {% content-ref url="os-command-injection.md" %}
 [os-command-injection.md](os-command-injection.md)
 {% endcontent-ref %}
+
+{% content-ref url="business-logic-vulnerabilities.md" %}
+[business-logic-vulnerabilities.md](business-logic-vulnerabilities.md)
+{% endcontent-ref %}
