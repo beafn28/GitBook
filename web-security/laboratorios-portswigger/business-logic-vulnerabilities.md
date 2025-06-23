@@ -27,6 +27,8 @@ Por lo que ahora ya podemos comprar la chaqueta.
 
 <figure><img src="../../.gitbook/assets/image (1370).png" alt=""><figcaption></figcaption></figure>
 
+## Lab: High-level logic vulnerability
+
 ### Enunciado
 
 Este laboratorio **no valida adecuadamente la entrada del usuario**. Puedes explotar una **falla lógica** en el flujo de compra para adquirir artículos a un **precio no previsto**. **Comprar una "Lightweight l33t leather jacket"** (una chaqueta de cuero l33t ligera).
@@ -124,8 +126,6 @@ Credenciales disponibles:
 Vemos que es la misma página pero nos sale un descuento. Nos lo copiamos y nos logueamos con las credenciales dadas. Compramos y metemos el cupón que se nos ha descontado 5 dolares.
 
 <figure><img src="../../.gitbook/assets/image (1384).png" alt=""><figcaption></figcaption></figure>
-
-NEWCUST5
 
 La petición tiene un token, claramente tiene sentido para no usar ese descuento otra vez. Lo comprobamos y no se puede. Mientras revisamos la web nos podemos suscribir a una newsletter.&#x20;
 
