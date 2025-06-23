@@ -90,7 +90,7 @@ Usamos **dirbuster** para encontrar más enlaces.
 dirb https://0a4000c70468f41e81f92b91005c008b.web-security-academy.net/
 ```
 
-
+<figure><img src="../../.gitbook/assets/image (1389).png" alt=""><figcaption></figcaption></figure>
 
 Nos llama la atención este enlace.
 
