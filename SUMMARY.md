@@ -299,6 +299,7 @@
   * [Business logic vulnerabilities](web-security/laboratorios-portswigger/business-logic-vulnerabilities.md)
   * [Information disclosure](web-security/laboratorios-portswigger/information-disclosure.md)
   * [Access control](web-security/laboratorios-portswigger/access-control.md)
+  * [File upload vulnerabilities](web-security/laboratorios-portswigger/file-upload-vulnerabilities.md)
 
 ## Mis CTFs
 
