@@ -19,3 +19,7 @@
 {% content-ref url="business-logic-vulnerabilities.md" %}
 [business-logic-vulnerabilities.md](business-logic-vulnerabilities.md)
 {% endcontent-ref %}
+
+{% content-ref url="information-disclosure.md" %}
+[information-disclosure.md](information-disclosure.md)
+{% endcontent-ref %}
