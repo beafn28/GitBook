@@ -16,7 +16,7 @@ image?filename=33.jpg
 
 Por lo que si el contenido no está correctamente filtrado se podrá a acceder a otras cosas como en este caso lo que nos pide el enunciado para ello realizamos lo siguiente en el **Repeater**.
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Observamos que el error que muestre es que no encuentra el archivo cosa a nuestro favor para ello realizamos lo siguiente:
 
