@@ -23,3 +23,7 @@
 {% content-ref url="information-disclosure.md" %}
 [information-disclosure.md](information-disclosure.md)
 {% endcontent-ref %}
+
+{% content-ref url="access-control.md" %}
+[access-control.md](access-control.md)
+{% endcontent-ref %}
