@@ -27,3 +27,7 @@
 {% content-ref url="access-control.md" %}
 [access-control.md](access-control.md)
 {% endcontent-ref %}
+
+{% content-ref url="file-upload-vulnerabilities.md" %}
+[file-upload-vulnerabilities.md](file-upload-vulnerabilities.md)
+{% endcontent-ref %}
