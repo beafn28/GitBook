@@ -297,6 +297,7 @@
   * [Path Traversal](web-security/laboratorios-portswigger/path-traversal.md)
   * [OS command injection](web-security/laboratorios-portswigger/os-command-injection.md)
   * [Business logic vulnerabilities](web-security/laboratorios-portswigger/business-logic-vulnerabilities.md)
+  * [Information disclosure](web-security/laboratorios-portswigger/information-disclosure.md)
 
 ## Mis CTFs
 
