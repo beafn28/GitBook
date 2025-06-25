@@ -338,3 +338,7 @@
 ## PREPARAR PT1
 
 * [Organización](preparar-pt1/organizacion.md)
+
+## PREPARAR EWPTXV3
+
+* [Organización](preparar-ewptxv3/organizacion.md)
