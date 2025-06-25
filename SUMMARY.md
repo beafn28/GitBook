@@ -301,6 +301,7 @@
   * [Access control](web-security/laboratorios-portswigger/access-control.md)
   * [File upload vulnerabilities](web-security/laboratorios-portswigger/file-upload-vulnerabilities.md)
   * [Race conditions](web-security/laboratorios-portswigger/race-conditions.md)
+  * [Server-side request forgery (SSRF)](web-security/laboratorios-portswigger/server-side-request-forgery-ssrf.md)
 
 ## Mis CTFs
 

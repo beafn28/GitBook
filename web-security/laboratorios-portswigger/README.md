@@ -35,3 +35,7 @@
 {% content-ref url="race-conditions.md" %}
 [race-conditions.md](race-conditions.md)
 {% endcontent-ref %}
+
+{% content-ref url="server-side-request-forgery-ssrf.md" %}
+[server-side-request-forgery-ssrf.md](server-side-request-forgery-ssrf.md)
+{% endcontent-ref %}
