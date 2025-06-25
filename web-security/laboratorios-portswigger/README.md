@@ -39,3 +39,7 @@
 {% content-ref url="server-side-request-forgery-ssrf.md" %}
 [server-side-request-forgery-ssrf.md](server-side-request-forgery-ssrf.md)
 {% endcontent-ref %}
+
+{% content-ref url="xml-external-entity-xxe-injection.md" %}
+[xml-external-entity-xxe-injection.md](xml-external-entity-xxe-injection.md)
+{% endcontent-ref %}
