@@ -300,6 +300,7 @@
   * [Information disclosure](web-security/laboratorios-portswigger/information-disclosure.md)
   * [Access control](web-security/laboratorios-portswigger/access-control.md)
   * [File upload vulnerabilities](web-security/laboratorios-portswigger/file-upload-vulnerabilities.md)
+  * [Race conditions](web-security/laboratorios-portswigger/race-conditions.md)
 
 ## Mis CTFs
 
