@@ -31,3 +31,7 @@
 {% content-ref url="file-upload-vulnerabilities.md" %}
 [file-upload-vulnerabilities.md](file-upload-vulnerabilities.md)
 {% endcontent-ref %}
+
+{% content-ref url="race-conditions.md" %}
+[race-conditions.md](race-conditions.md)
+{% endcontent-ref %}

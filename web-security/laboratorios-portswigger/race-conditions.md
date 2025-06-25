@@ -12,3 +12,14 @@ El flujo de compra de este laboratorio contiene una **condición de carrera (rac
 
 ### Resolución&#x20;
 
+Nos logueamos y añadimos el cupón cuando añadimos el carrito pero no podemos aún comprarla. Mandamos la petición a **Repeater**. Para explotar necesitamos mandar varias peticiones a la vez. Hacemos `Ctrl+R` como 50 veces. Creamos un grupo seleccionando todas las peticiones y las enviamos.
+
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+Recargamos la página.
+
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+Ya podemos comprarla se ha aplicado el descuento varias veces.
+
+<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
