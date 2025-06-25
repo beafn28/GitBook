@@ -75,3 +75,14 @@ SELECT * FROM usuarios WHERE username='administrator' AND contraseña= '' OR 1=1
 Por lo tanto insertamos eso en el login.
 
 <figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+
+## Lab: SQL injection attack, querying the database type and version on Oracle
+
+### Enunciado
+
+Este laboratorio contiene una **vulnerabilidad de inyección SQL** en el filtro de categoría de productos. Puedes usar un ataque **UNION** para recuperar los resultados de una consulta inyectada.
+
+### Resolución
+
+Mandamos a **Repeater** la petición cuando filtras por categoría.
+
