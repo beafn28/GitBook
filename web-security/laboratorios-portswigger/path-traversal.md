@@ -31,3 +31,14 @@ Se podrá ../ tantas veces ya que a priori no sabemos donde se encuentra. Podemo
 Sabiendo esto y al enviar varias peticiones encontramos la solución.
 
 <figure><img src="../../.gitbook/assets/image (1369).png" alt=""><figcaption></figcaption></figure>
+
+## Lab: File path traversal, traversal sequences blocked with absolute path bypass
+
+### Enunciado
+
+Este laboratorio contiene una **vulnerabilidad de recorrido de directorios (path traversal)** en la visualización de imágenes de productos.
+
+La aplicación **bloquea las secuencias de recorrido (`../`)**, pero **trata el nombre de archivo proporcionado como relativo a un directorio de trabajo predeterminado**. **Recuperar el contenido del archivo `/etc/passwd`**.
+
+### Resolución
+
