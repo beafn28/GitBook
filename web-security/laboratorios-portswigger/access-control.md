@@ -10,7 +10,7 @@ Este laboratorio tiene un panel de administración sin protección. Resuelve el 
 
 Como primer paso vemos el **robots.txt** y nos dice donde se encuentra el panel de administración.
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Entramos en el directorio y ya podemos eliminar al usuario.
 
