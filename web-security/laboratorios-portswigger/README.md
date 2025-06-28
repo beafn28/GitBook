@@ -4,6 +4,10 @@
 [sql-injection.md](sql-injection.md)
 {% endcontent-ref %}
 
+{% content-ref url="cross-site-scripting.md" %}
+[cross-site-scripting.md](cross-site-scripting.md)
+{% endcontent-ref %}
+
 {% content-ref url="authentication.md" %}
 [authentication.md](authentication.md)
 {% endcontent-ref %}
