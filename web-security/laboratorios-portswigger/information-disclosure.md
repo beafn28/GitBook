@@ -14,9 +14,9 @@ La petición busca un número por lo que si forzamos el error en vez de un núme
 https://0a57002a03a3a181803e536600db00d4.web-security-academy.net/product?productId=a
 ```
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Se nos muestra la versión del Apache que es la solución y sabemos que usa Java.
 
@@ -30,15 +30,15 @@ Este laboratorio contiene una **página de depuración (debug)** que revela info
 
 Siempre cuando nos presenten una web es recomendable ver el código fuente ya que puede mostrarnos información relevante en este caso un enlace comentado.
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 También se nos muestra en Target, ahora buscamos ese enlace.
 
-<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Se nos muestra una página default de la versión del PHP pero en este laboratorio no se nos pide eso sino encontrar el valor de la `SECRET_KEY` por lo que buscamos dentro de la página.
 
-<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Lab: Source code disclosure via backup files
 
@@ -50,15 +50,15 @@ Este laboratorio **filtra su código fuente** a través de archivos de respaldo 
 
 Otra cosa que hay que mirar en estos casos para encontrar información es el fichero **robots.txt.**
 
-<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Vemos que hay un directorio `/backup`. Por lo que accedemos a él.
 
-<figure><img src="../../.gitbook/assets/image (6) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (6) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Abrimos el archivo.
 
-<figure><img src="../../.gitbook/assets/image (7) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (7) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Podemos ver el código fuente y vemos la información de una conexión de la base de datos como la contraseña.
 
@@ -81,19 +81,19 @@ Credenciales disponibles:
 
 Nos logueamos. Como vimos anteriormente en otros laboratorios hay una pestaña admin que nos dice lo siguiente.
 
-<figure><img src="../../.gitbook/assets/image (8) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (8) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Enviamos esa petición al **Repeater**. Cambiamos la petición de GET a TRACE para que el servidor nos devuelva en el cuerpo de la respuesta todos los encabezados que recibió, lo cual puede revelar el nombre del encabezado personalizado necesario para bypassar la autenticación.
 
-<figure><img src="../../.gitbook/assets/image (9) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (9) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Nos sale información de los encabezados. Vemos que también comprueba la IP es decir vemos que si es una Ip que no sea localhost es denegada por lo que modificamos ese encabezado con **Proxy**.
 
-<figure><img src="../../.gitbook/assets/image (10) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (10) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Al interceptar añadimos el encabezado pero con la IP de localhost (no la pública).&#x20;
 
-<figure><img src="../../.gitbook/assets/image (11) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (11) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Para eliminarle también tenemos que poner ese encabezado y enviarlo.
 
@@ -113,11 +113,11 @@ Escaneamos los directorios con **Dirbuster**.
 
 Encontramos un directorio interesante que es el **.git.**
 
-<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Revisando encontramos en logs información sobre los commits.
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Para ver el contenido nos lo descargamos.
 
