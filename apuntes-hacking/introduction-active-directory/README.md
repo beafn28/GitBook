@@ -1,8 +1,8 @@
 # Introduction Active Directory
 
-{% file src="../.gitbook/assets/Introduction_To_Active_Directory_Module_Cheat_Sheet.pdf" %}
+{% file src="../../.gitbook/assets/Introduction_To_Active_Directory_Module_Cheat_Sheet.pdf" %}
 
-<figure><img src="../.gitbook/assets/whyad5.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/whyad5.png" alt=""><figcaption></figcaption></figure>
 
 ## Estructura de Active Directory
 
@@ -72,7 +72,7 @@ Sin embargo, como veremos más adelante, **las relaciones de confianza pueden in
 
 ### Ejemplo de diagrama de bosques y dominios
 
-<figure><img src="../.gitbook/assets/ilflog2.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/ilflog2.png" alt=""><figcaption></figcaption></figure>
 
 El siguiente gráfico conceptual describe dos bosques:
 
@@ -652,7 +652,7 @@ Una **trust** establece **autenticación entre dominios o bosques**, permitiendo
 
 #### Ejemplo de Trust
 
-<figure><img src="../.gitbook/assets/trusts-diagram.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/trusts-diagram.png" alt=""><figcaption></figcaption></figure>
 
 #### Transitividad y Dirección
 
