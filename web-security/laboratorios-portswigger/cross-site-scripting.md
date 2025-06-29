@@ -30,7 +30,7 @@ Para resolver el laboratorio, envía un comentario que invoque la función `aler
 
 Vamos a escribir un comentario con el payload del anterior laboratorio.
 
-<figure><img src="../../.gitbook/assets/image (25).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (26).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
@@ -130,7 +130,7 @@ Esta vez no tenemos ninguna barra de búsqueda ni nada por lo que revisamos el c
 
 Este código, en esencia, toma el valor que se encuentra después del símbolo **#** en la URL y lo utiliza para buscar ese término dentro de la página. Una vez que lo localiza, realiza un desplazamiento automático (scroll) hasta la sección donde se encuentra.
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 Sabiendo esto realizamos este payload.
 
@@ -138,7 +138,7 @@ Sabiendo esto realizamos este payload.
 <iframe src="https://0aac008603b76d4880f22bb200c80064.web-security-academy.net/#" onload="this.src+='<img src=/ onerror=print()>'"></iframe>
 ```
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 Al pulsar el botón de **Deliver exploit to victim** completamos el laboratorio.
 
@@ -156,7 +156,7 @@ Para resolver el laboratorio, realiza un ataque de XSS que inyecte un atributo y
 
 Comprobamos que se refleja en el navegador. Vemos el código fuente.
 
-<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
 No podemos hacer los payloads normales porque los signos > y < nos lo urlcodeapor lo que realizamos que tras unas simples comillas en el código fuente se deja un espacio y en ese espacio aprovechamos para añadir un payload.
 
@@ -165,7 +165,7 @@ test" mirar código fuente espacio
 test"onmouseover='alert(1)'
 ```
 
-<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
 ## Lab: Stored XSS into anchor `href` attribute with double quotes HTML-encoded
 
@@ -179,11 +179,11 @@ Para resolver el laboratorio, envía un comentario que invoque la función `aler
 
 Vamos a escribir un comentario.
 
-<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
 
 Si pulsamos se nos redirige a la website que hemos puesto al escribir el comentario entonces ahí pondremos el payload.
 
-<figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
 
 Ponemos el siguiente payload en el campo website.
 
@@ -191,9 +191,9 @@ Ponemos el siguiente payload en el campo website.
 javascript:alert(1)
 ```
 
-<figure><img src="../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
 
 ## Lab: Reflected XSS into a JavaScript string with angle brackets HTML encoded
 
@@ -205,7 +205,7 @@ javascript:alert(1)
 
 Buscamos algo y vemos el código fuente.  &#x20;
 
-<figure><img src="../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
 
 Si ponemos una comilla simple después de algo nos da error pero no se ejecuta. Realizamos este payload.
 
@@ -214,7 +214,7 @@ Si ponemos una comilla simple después de algo nos da error pero no se ejecuta. 
 ';alert(1);'
 ```
 
-<figure><img src="../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
 
 ## Lab: DOM XSS in `document.write` sink using source `location.search` inside a select element
 
@@ -232,13 +232,13 @@ Los datos se insertan dentro de un elemento **select**.
 
 Vemos el códsigo fuente del stock del producto.
 
-<figure><img src="../../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
 
 Viendo el código si añadimos en el enlace lo siguiente vemos que se almacena y se crea.
 
-<figure><img src="../../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
-
 <figure><img src="../../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
 
 Podemos modificar ese desplegable por lo que realizamos este payload.
 
@@ -246,7 +246,7 @@ Podemos modificar ese desplegable por lo que realizamos este payload.
 </select><script>alert(1)</script>
 ```
 
-<figure><img src="../../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
 
 ## Lab: DOM XSS in AngularJS expression with angle brackets and double quotes HTML-encoded
 
@@ -264,7 +264,7 @@ Cuando se añade una directiva al código HTML, puedes ejecutar expresiones de J
 
 Buscamos algo y vemos el código fuente.
 
-<figure><img src="../../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
 
 En el **body** se define el atributo **ng-app**, que indica el elemento raíz de AngularJS y marca el inicio de la aplicación. Al establecerlo en el **body**, todo el contenido dentro de esa etiqueta será procesado como parte de la aplicación Angular, interpretando cualquier expresión de Angular que se incluya.
 
@@ -279,9 +279,9 @@ Para explotar esto, utilizamos el payload:
 * Los dobles corchetes `{{ }}` hacen que Angular evalúe la expresión.
 * `constructor.constructor` permite crear y ejecutar código arbitrario, como si definiéramos una nueva función cuyo contenido será `alert(1)`.
 
-<figure><img src="../../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
-
 <figure><img src="../../.gitbook/assets/image (16).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
 
 ## Lab: Reflected DOM XSS
 
@@ -297,13 +297,13 @@ Las vulnerabilidades DOM reflejadas ocurren cuando la aplicación del lado del s
 
 Vemos las peticiones para analizarlas y vemos que la de búsqueda no tiene nada interesante pero la petición que se genera en el frontend sí.
 
-<figure><img src="../../.gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
-
 <figure><img src="../../.gitbook/assets/image (18).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (19).png" alt=""><figcaption></figcaption></figure>
 
 Se nos devuelve la respuesta en formato JSON por lo que intentamos meter un alert.
 
-<figure><img src="../../.gitbook/assets/image (19).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (20).png" alt=""><figcaption></figcaption></figure>
 
 No hay problema ya que se inyecta sin problema. Buscamos con el siguiente payload.
 
@@ -311,7 +311,7 @@ No hay problema ya que se inyecta sin problema. Buscamos con el siguiente payloa
 test\"-alert(1)}//
 ```
 
-<figure><img src="../../.gitbook/assets/image (20).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (21).png" alt=""><figcaption></figcaption></figure>
 
 ## Lab: Stored DOM XSS
 
@@ -323,11 +323,11 @@ Este laboratorio demuestra una vulnerabilidad de tipo DOM XSS almacenado en la f
 
 Escribimos un comentario para comprender el funcionamiento.
 
-<figure><img src="../../.gitbook/assets/image (21).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (22).png" alt=""><figcaption></figcaption></figure>
 
 Se ha publicado sin problemas. Vemos el código fuente.
 
-<figure><img src="../../.gitbook/assets/image (22).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (23).png" alt=""><figcaption></figcaption></figure>
 
 Aquí está el problema: se usa el método **replace**, que solo sustituye la **primera coincidencia**. Por ejemplo, si aplicamos `replace` para cambiar la **a** por **e** en "rascar", obtendremos "rescar".
 
@@ -337,6 +337,6 @@ Sabiendo esto, podemos diseñar un payload XSS típico, pero poniendo los signos
 <><img src=x onerror=alert(1)> #en comentario
 ```
 
-<figure><img src="../../.gitbook/assets/image (23).png" alt=""><figcaption></figcaption></figure>
-
 <figure><img src="../../.gitbook/assets/image (24).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (25).png" alt=""><figcaption></figcaption></figure>

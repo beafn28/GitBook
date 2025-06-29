@@ -185,4 +185,4 @@ sudo ./monitor.sh
 
 Con estos pasos, obtendremos acceso root. Luego, al ir a `/root/root.txt`, podremos ver la bandera ROOT.
 
-<figure><img src="../../.gitbook/assets/image (26) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (26) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
