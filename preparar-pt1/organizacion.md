@@ -4,8 +4,8 @@
 
 | Nombre                  | Tipo               | ¿Hecha? |
 | ----------------------- | ------------------ | ------- |
-| Pickle Rick             | Web                | \[ ]    |
-| Billing                 | Web                | \[ ]    |
+| Pickle Rick             | Web                | \[X ]   |
+| Billing                 | Web                | \[X ]   |
 | Rabbit Store            | Web                | \[ ]    |
 | Silver Platter          | Web                | \[ ]    |
 | AVenger                 | Web / AV Evasion   | \[ ]    |
@@ -20,6 +20,10 @@
 | K2                      | Active Directory   | \[ ]    |
 | AD: Authenticated Enum. | Active Directory   | \[ ]    |
 | Writing Pentest Reports | Reportes / Crítica | \[ ]    |
+| Active                  | Active Directory   | \[ ]    |
+| Resolute                | Active Directory   | \[ ]    |
+| Forest                  | Active Directory   | \[ ]    |
+| Cascade                 | Active Directory   | \[ ]    |
 
 ## Herramientas
 

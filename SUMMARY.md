@@ -287,6 +287,7 @@
   * [Pass the Hash (PtH)](apuntes-hacking/password-attacks/pass-the-hash-pth.md)
 * [Introduction Active Directory](apuntes-hacking/introduction-active-directory/README.md)
   * [Active Directory Protocols](apuntes-hacking/introduction-active-directory/active-directory-protocols.md)
+  * [All About Users](apuntes-hacking/introduction-active-directory/all-about-users.md)
 
 ## WEB SECURITY
 
