@@ -21,9 +21,15 @@
 | AD: Authenticated Enum. | Active Directory   | \[ ]    |
 | Writing Pentest Reports | Reportes / Crítica | \[ ]    |
 | Active                  | Active Directory   | \[ ]    |
-| Resolute                | Active Directory   | \[ ]    |
+| Return                  | Active Directory   | \[ ]    |
 | Forest                  | Active Directory   | \[ ]    |
 | Cascade                 | Active Directory   | \[ ]    |
+| Sauna                   | Active Directory   | \[ ]    |
+| Support                 | Active Directory   | \[ ]    |
+| Timelapse               | Active Directory   | \[ ]    |
+| Access                  | Active Directory   | \[ ]    |
+| Cicada                  | Active Directory   | \[ ]    |
+| EscapeTwo               | Active Directory   | \[ ]    |
 
 ## Herramientas
 
