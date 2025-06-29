@@ -413,7 +413,7 @@ AD tiene **grupos de seguridad integrados** con privilegios importantes.
 ### Ejemplo: Detalles del Grupo Server Operators
 
 ```powershell
-powershellCopiarEditarGet-ADGroup -Identity "Server Operators" -Properties *
+Get-ADGroup -Identity "Server Operators" -Properties *
 ```
 
 **Salida resumida:**
@@ -425,7 +425,7 @@ powershellCopiarEditarGet-ADGroup -Identity "Server Operators" -Properties *
 ### Ejemplo: Detalles del Grupo Domain Admins
 
 ```powershell
-powershellCopiarEditarGet-ADGroup -Identity "Domain Admins" -Properties * | select DistinguishedName,GroupCategory,GroupScope,Name,Members
+Get-ADGroup -Identity "Domain Admins" -Properties * | select DistinguishedName,GroupCategory,GroupScope,Name,Members
 ```
 
 **Salida resumida:**
@@ -470,7 +470,7 @@ whoami /priv
 #### Ejemplo: Usuario de Dominio Estándar
 
 ```powershell
-powershellCopiarEditarPS> whoami /priv
+PS> whoami /priv
 
 SeChangeNotifyPrivilege       Enabled
 SeIncreaseWorkingSetPrivilege Disabled
@@ -481,7 +481,7 @@ SeIncreaseWorkingSetPrivilege Disabled
 #### Ejemplo: Domain Admin (No Elevado)
 
 ```powershell
-powershellCopiarEditarPS> whoami /priv
+PS> whoami /priv
 
 SeShutdownPrivilege           Disabled
 SeChangeNotifyPrivilege       Enabled
@@ -495,7 +495,7 @@ SeTimeZonePrivilege           Disabled
 #### Ejemplo: Domain Admin (Elevado)
 
 ```powershell
-powershellCopiarEditarPS> whoami /priv
+PS> whoami /priv
 
 SeIncreaseQuotaPrivilege                  Disabled
 SeBackupPrivilege                         Disabled
@@ -509,7 +509,7 @@ SeImpersonatePrivilege                    Enabled
 #### Ejemplo: Backup Operators
 
 ```powershell
-powershellCopiarEditarPS> whoami /priv
+PS> whoami /priv
 
 SeShutdownPrivilege           Disabled
 SeChangeNotifyPrivilege       Enabled
