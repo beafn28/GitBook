@@ -288,6 +288,7 @@
 * [Introduction Active Directory](apuntes-hacking/introduction-active-directory/README.md)
   * [Active Directory Protocols](apuntes-hacking/introduction-active-directory/active-directory-protocols.md)
   * [All About Users](apuntes-hacking/introduction-active-directory/all-about-users.md)
+  * [Digging in Deeper](apuntes-hacking/introduction-active-directory/digging-in-deeper.md)
 
 ## WEB SECURITY
 
