@@ -688,7 +688,9 @@ Las consultas básicas maliciosas las detecta como ataques.
 
 <figure><img src="../../.gitbook/assets/image (7) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-Probamos a urlcodearlas.
+Probamos a ponerlas hexadecimal.
+
+> Hay una extensión llamada HackVector
 
 <figure><img src="../../.gitbook/assets/image (8) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
