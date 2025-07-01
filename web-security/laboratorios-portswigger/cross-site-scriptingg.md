@@ -1,4 +1,4 @@
-# Cross-site scripting
+# Cross-site scriptingg
 
 ## Lab: Reflected XSS into HTML context with nothing encoded
 
@@ -32,7 +32,7 @@ Vamos a escribir un comentario con el payload del anterior laboratorio.
 
 <figure><img src="../../.gitbook/assets/image (26).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Lab: DOM XSS in `document.write` sink using source `location.search`
 
@@ -48,17 +48,17 @@ Utiliza la función **document.write** de JavaScript, que escribe datos en la p�
 
 Observamos que al buscar se refleja en la página pero no de la misma manera por lo que inspeccionamos a ver qué pasa.
 
-<figure><img src="../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Lo que hemos buscado se encuentra en el atributo **src** de una imagen por lo que realizamos el siguiente payload.
 
 ```
-"><img src=x onerror=alert('MardukWasHere')>
+"><img src=x onerror=alert('BEAFN28')>
 ```
 
-<figure><img src="../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Lab: DOM XSS in `innerHTML` sink using source `location.search`
 
@@ -130,7 +130,7 @@ Esta vez no tenemos ninguna barra de búsqueda ni nada por lo que revisamos el c
 
 Este código, en esencia, toma el valor que se encuentra después del símbolo **#** en la URL y lo utiliza para buscar ese término dentro de la página. Una vez que lo localiza, realiza un desplazamiento automático (scroll) hasta la sección donde se encuentra.
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Sabiendo esto realizamos este payload.
 
@@ -138,7 +138,7 @@ Sabiendo esto realizamos este payload.
 <iframe src="https://0aac008603b76d4880f22bb200c80064.web-security-academy.net/#" onload="this.src+='<img src=/ onerror=print()>'"></iframe>
 ```
 
-<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 Al pulsar el botón de **Deliver exploit to victim** completamos el laboratorio.
 
@@ -156,16 +156,16 @@ Para resolver el laboratorio, realiza un ataque de XSS que inyecte un atributo y
 
 Comprobamos que se refleja en el navegador. Vemos el código fuente.
 
-<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 
-No podemos hacer los payloads normales porque los signos > y < nos lo urlcodeapor lo que realizamos que tras unas simples comillas en el código fuente se deja un espacio y en ese espacio aprovechamos para añadir un payload.
+No podemos hacer los payloads normales porque los signos > y < nos lo urlcodea por lo que realizamos que tras unas simples comillas en el código fuente se deja un espacio y en ese espacio aprovechamos para añadir un payload.
 
 ```
 test" mirar código fuente espacio
 test"onmouseover='alert(1)'
 ```
 
-<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Lab: Stored XSS into anchor `href` attribute with double quotes HTML-encoded
 
@@ -230,7 +230,7 @@ Los datos se insertan dentro de un elemento **select**.
 
 ### Resolución
 
-Vemos el códsigo fuente del stock del producto.
+Vemos el cód igo fuente del stock del producto.
 
 <figure><img src="../../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
 
@@ -340,3 +340,35 @@ Sabiendo esto, podemos diseñar un payload XSS típico, pero poniendo los signos
 <figure><img src="../../.gitbook/assets/image (24).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../.gitbook/assets/image (25).png" alt=""><figcaption></figcaption></figure>
+
+## Lab: Reflected XSS into HTML context with most tags and attributes blocked
+
+### Enunciado
+
+**Este laboratorio contiene una vulnerabilidad de XSS reflejado (reflected XSS) en la funcionalidad de búsqueda**, pero utiliza un **firewall de aplicaciones web (WAF)** para protegerse contra vectores comunes de XSS. **Realizar un ataque de cross-site scripting que logre evadir el WAF y llame a la función `print()`.**
+
+### Resolución
+
+No nos deja aplicar las etiquetas que hemos usado comunes. Por lo que interceptamos la petición de búsqueda y la mandamos al Intruder. Vamos realizar un ataque de tipo Sniper por lo que copiamos los tags del cheatsheet en el payload.
+
+<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+Acepta la etiqueta **body**.
+
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+Ahora vemos eventos existentes (copiados del cheatsheet) de esa etiqueta por lo que lo comprobamos en el **Intruder**.
+
+<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+
+Esos eventos son los que nos da código 200, tenemos que averiguar cuál de ellos nos viene bien para hacer la inyección. Usamos **onresize**.
+
+```
+<body onresize=print()>
+<iframe src="https://0a9f00c7038cee398175256c005400dd.web-security-academy.net/?search=<body onresize=print()>" onload=this.style.width='100px'></iframe>
+```
+
+## Lab: Reflected XSS into HTML context with all tags blocked except custom ones
+

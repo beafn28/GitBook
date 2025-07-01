@@ -24,7 +24,7 @@ nmap 10.10.146.1626
 
 para realizar un escaneo de puertos y servicios detallado en la dirección IP.
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Como podemos observar durante el escaneo el puerto **22** perteneciente al servicio **SSH** y el puerto **80** perteneciente al servicio **HTTP** están abiertos, por lo que se procederá a indagar más.
 
@@ -38,7 +38,7 @@ sudo nmap -sCV -p22,80 -v 10.10.146.162
 
 para obtener más información sobre esos puertos específicamente.
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Revisamos el puerto 80.
 
@@ -58,7 +58,7 @@ gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -x 
 
 Encontramos una página de login y un robots.txt interesantes.
 
-<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Nos logueamos con el usuario y contraseña descubierta anteriormente.
 
@@ -66,7 +66,7 @@ Nos logueamos con el usuario y contraseña descubierta anteriormente.
 
 Es un panel de comandos por lo que listamos y vemos el contenido.
 
-<div><figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure> <figure><img src="../../.gitbook/assets/Captura de pantalla 2025-06-19 222225.png" alt=""><figcaption></figcaption></figure> <figure><img src="../../.gitbook/assets/Captura de pantalla 2025-06-19 222253.png" alt=""><figcaption></figcaption></figure></div>
+<div><figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure> <figure><img src="../../.gitbook/assets/Captura de pantalla 2025-06-19 222225.png" alt=""><figcaption></figcaption></figure> <figure><img src="../../.gitbook/assets/Captura de pantalla 2025-06-19 222253.png" alt=""><figcaption></figcaption></figure></div>
 
 ### 🚀 **EXPLOTACIÓN**
 
