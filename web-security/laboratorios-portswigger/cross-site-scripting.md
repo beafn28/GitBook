@@ -1,4 +1,4 @@
-# Cross-site scriptingg
+# Cross-site scripting
 
 ## Lab: Reflected XSS into HTML context with nothing encoded
 
@@ -32,7 +32,7 @@ Vamos a escribir un comentario con el payload del anterior laboratorio.
 
 <figure><img src="../../.gitbook/assets/image (26).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Lab: DOM XSS in `document.write` sink using source `location.search`
 
@@ -48,7 +48,7 @@ Utiliza la función **document.write** de JavaScript, que escribe datos en la p�
 
 Observamos que al buscar se refleja en la página pero no de la misma manera por lo que inspeccionamos a ver qué pasa.
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Lo que hemos buscado se encuentra en el atributo **src** de una imagen por lo que realizamos el siguiente payload.
 
@@ -56,9 +56,9 @@ Lo que hemos buscado se encuentra en el atributo **src** de una imagen por lo qu
 "><img src=x onerror=alert('BEAFN28')>
 ```
 
-<figure><img src="../../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (4) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Lab: DOM XSS in `innerHTML` sink using source `location.search`
 
@@ -74,7 +74,7 @@ Utiliza una asignación a **innerHTML**, que modifica el contenido HTML de un el
 
 Lo primero es buscar algo y ver dónde y cómo se almacena.
 
-<figure><img src="../../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Se ve reflejado lo que buscamos en la web y se almacena en el **innerHTML** de la etiqueta **\<span>**. Sabiendo esto realizamos el siguiente payload.
 
@@ -82,9 +82,9 @@ Se ve reflejado lo que buscamos en la web y se almacena en el **innerHTML** de l
 </span><img src=/ onerror=alert(1) />//
 ```
 
-<figure><img src="../../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (6) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (7) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (7) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Lab: DOM XSS in jQuery anchor `href` attribute sink using `location.search` source
 
@@ -100,7 +100,7 @@ Utiliza la función **$** de la biblioteca jQuery para encontrar un elemento de 
 
 Escribimos un feedback para ver dónde está la vulnerabilidad.
 
-<figure><img src="../../.gitbook/assets/image (8) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (8) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Vemos que por defecto nos añade el parámetro **returnPath** y añadimos cualquier valor.
 
@@ -130,7 +130,7 @@ Esta vez no tenemos ninguna barra de búsqueda ni nada por lo que revisamos el c
 
 Este código, en esencia, toma el valor que se encuentra después del símbolo **#** en la URL y lo utiliza para buscar ese término dentro de la página. Una vez que lo localiza, realiza un desplazamiento automático (scroll) hasta la sección donde se encuentra.
 
-<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Sabiendo esto realizamos este payload.
 
@@ -138,7 +138,7 @@ Sabiendo esto realizamos este payload.
 <iframe src="https://0aac008603b76d4880f22bb200c80064.web-security-academy.net/#" onload="this.src+='<img src=/ onerror=print()>'"></iframe>
 ```
 
-<figure><img src="../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Al pulsar el botón de **Deliver exploit to victim** completamos el laboratorio.
 
@@ -156,7 +156,7 @@ Para resolver el laboratorio, realiza un ataque de XSS que inyecte un atributo y
 
 Comprobamos que se refleja en el navegador. Vemos el código fuente.
 
-<figure><img src="../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 No podemos hacer los payloads normales porque los signos > y < nos lo urlcodea por lo que realizamos que tras unas simples comillas en el código fuente se deja un espacio y en ese espacio aprovechamos para añadir un payload.
 
@@ -165,7 +165,7 @@ test" mirar código fuente espacio
 test"onmouseover='alert(1)'
 ```
 
-<figure><img src="../../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Lab: Stored XSS into anchor `href` attribute with double quotes HTML-encoded
 
@@ -179,11 +179,11 @@ Para resolver el laboratorio, envía un comentario que invoque la función `aler
 
 Vamos a escribir un comentario.
 
-<figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
 
 Si pulsamos se nos redirige a la website que hemos puesto al escribir el comentario entonces ahí pondremos el payload.
 
-<figure><img src="../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>
 
 Ponemos el siguiente payload en el campo website.
 
@@ -191,9 +191,9 @@ Ponemos el siguiente payload en el campo website.
 javascript:alert(1)
 ```
 
-<figure><img src="../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (8) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (7) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Lab: Reflected XSS into a JavaScript string with angle brackets HTML encoded
 
@@ -351,17 +351,17 @@ Sabiendo esto, podemos diseñar un payload XSS típico, pero poniendo los signos
 
 No nos deja aplicar las etiquetas que hemos usado comunes. Por lo que interceptamos la petición de búsqueda y la mandamos al Intruder. Vamos realizar un ataque de tipo Sniper por lo que copiamos los tags del cheatsheet en el payload.
 
-<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
 
 Acepta la etiqueta **body**.
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Ahora vemos eventos existentes (copiados del cheatsheet) de esa etiqueta por lo que lo comprobamos en el **Intruder**.
 
-<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 Esos eventos son los que nos da código 200, tenemos que averiguar cuál de ellos nos viene bien para hacer la inyección. Usamos **onresize**.
 
@@ -378,3 +378,76 @@ Este laboratorio bloquea todas las etiquetas HTML excepto las personalizadas (cu
 
 ### Resolución
 
+No nos sirve las etiquetas comunes.
+
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+Empleamos un servidor de explotación para generar un vector que incorpora una etiqueta personalizada con un identificador específico y un evento asociado que se dispara al recibir el foco. Al añadir un hashtag al final de la URL que hace referencia a esa etiqueta, el navegador, al cargar la página, intenta enfocarla automáticamente. Este comportamiento provoca la activación del evento malicioso sin requerir ninguna interacción por parte del usuario.
+
+Ponemos en el body el siguiente payload.
+
+```
+<script> 
+location='https://0a70006803e0cb33e9d1e11500ea0075.web-security-academy.net/?search=<etiqueta id=x onfocus=alert(document.cookie) tabindex=1>#x';
+</script>
+```
+
+Se lo enviamos a la víctima y completamos laboratorio.
+
+## Lab: Reflected XSS with some SVG markup allowed
+
+### Enunciado
+
+Este laboratorio tiene una vulnerabilidad sencilla de XSS reflejado. El sitio bloquea etiquetas comunes pero omite algunas etiquetas y eventos de SVG. Para resolver el laboratorio, realiza un ataque de cross-site scripting que invoque la función `alert()`.
+
+### Resolución
+
+No nos sirve las etiquetas comunes ni nos deja crearlas customizadas. Interceptamos la petición para enviarlo al Intruder.
+
+<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+Encontramos estos tags vamos a ver información del primero.
+
+{% embed url="https://developer.mozilla.org/en-US/docs/Web/SVG/Reference/Element/animateTransform" %}
+
+Para ver qué eventos realizamos también otra fuerza bruta.
+
+<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+
+Sabiendo esto el payload sería el siguiente.
+
+```
+<svg><animateTransform onbegin=alert(0)>
+```
+
+<figure><img src="../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+
+## Lab: Reflected XSS in canonical link tag
+
+### Enunciado
+
+Este laboratorio refleja la entrada del usuario en una etiqueta `link` con el atributo `canonical` y escapa los signos de mayor y menor (< y >). Para resolver el laboratorio, realiza un ataque de cross-site scripting en la página principal que inyecte un atributo que invoque la función `alert()`. Para ayudarte con el exploit, puedes asumir que el usuario simulado presionará las siguientes combinaciones de teclas:
+
+* ALT+SHIFT+X
+* CTRL+ALT+X
+* Alt+X
+
+Ten en cuenta que la solución prevista para este laboratorio solo es posible en Chrome.
+
+### Resolución
+
+Miramos el código fuente.
+
+<figure><img src="../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+
+Aprovechamos este comportamiento para inyectar atributos como accesskey y onclick, vinculando la ejecución de código a una combinación de teclas. Al presionar, por ejemplo, Alt+Shift+X, el navegador dispara el evento y ejecuta la función. Aunque no se activa automáticamente al cargar la página, se considera válido porque no exige interacción directa con el contenido ni clics.
+
+{% embed url="https://developer.mozilla.org/es/docs/Web/HTML/Reference/Global_attributes/accesskey" %}
+
+```
+?'accesskey='x'onclick='alert(1)
+```
