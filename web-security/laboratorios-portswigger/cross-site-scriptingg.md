@@ -372,3 +372,9 @@ Esos eventos son los que nos da código 200, tenemos que averiguar cuál de ello
 
 ## Lab: Reflected XSS into HTML context with all tags blocked except custom ones
 
+### Enunciado
+
+Este laboratorio bloquea todas las etiquetas HTML excepto las personalizadas (custom tags). Realizar un ataque de cross-site scripting (XSS) que inyecte una etiqueta personalizada y que muestre automáticamente un `alert(document.cookie)`.
+
+### Resolución
+
