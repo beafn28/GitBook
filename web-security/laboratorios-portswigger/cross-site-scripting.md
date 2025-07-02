@@ -466,8 +466,120 @@ Buscamos algo y vemos el código fuente.
 
 <figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
+La variable **searchTerms** almacena el valor ingresado en la búsqueda. Luego, **document.write** inserta ese valor en el DOM dentro de una etiqueta `<img>`. Aunque se aplica **encodeURIComponent** para escapar caracteres en la URL, la inyección ocurre antes de esa codificación al romper el contexto del script con `</script>`, permitiendo ejecutar HTML arbitrario.
+
+Para explotar esto, usamos un payload que cierra el `<script>` y añade código malicioso:
+
 ```
 </script><img src=x onerror=alert(1)>
 ```
 
 <figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+
+## Lab: Reflected XSS into a JavaScript string with angle brackets and double quotes HTML-encoded and single quotes escaped
+
+### Enunciado
+
+Este laboratorio contiene una vulnerabilidad de **cross-site scripting (XSS) reflejado** en la funcionalidad de seguimiento de consultas de búsqueda, donde los **signos de mayor/menor (angle brackets) y las comillas dobles** están codificados en HTML y **las comillas simples están escapadas**.
+
+Para resolver este laboratorio, realiza un ataque de XSS que **rompa la cadena de JavaScript** y llame a la función **alert**.
+
+### Resolución
+
+Miramos el código fuente para ver el resultado de la búsqueda.
+
+<figure><img src="../../.gitbook/assets/image (1473).png" alt=""><figcaption></figcaption></figure>
+
+Recordemos que no podemos usar comillas simples ni corchetes angulares. Realizamos el siguiente payload.
+
+```
+\'-alert(1)//
+```
+
+Funciona porque la barra invertida escapa la barra que usa el servidor para proteger la comilla simple, logrando cerrar la cadena en JavaScript. Después inyecta `alert(1)`, y `//` comenta el resto del código para evitar errores de sintaxis.
+
+<figure><img src="../../.gitbook/assets/image (1474).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (1475).png" alt=""><figcaption></figcaption></figure>
+
+## Lab: Stored XSS into `onclick` event with angle brackets and double quotes HTML-encoded and single quotes and backslash escaped
+
+### Enunciado
+
+Este laboratorio contiene una vulnerabilidad de cross-site scripting (XSS) almacenado en la funcionalidad de comentarios. Para resolver el laboratorio, envía un comentario que ejecute la función `alert` cuando se haga clic en el nombre del autor del comentario.
+
+### Resolución
+
+Dejamos un comentario para ver cómo funciona el servidor.
+
+<figure><img src="../../.gitbook/assets/image (1476).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (1477).png" alt=""><figcaption></figcaption></figure>
+
+Sabiendo esto realizamos este payload.
+
+```
+https://test.com?&apos;-alert(1)-&apos;
+```
+
+**Lo que hace:**
+
+* Usamos `&apos;` para cerrar la comilla simple del atributo `href` del enlace.
+* Inyecta `-alert(1)-` como código JavaScript malicioso.
+* El navegador convierte `&apos;` en `'`, rompiendo el valor del `href`.
+
+<figure><img src="../../.gitbook/assets/image (1478).png" alt=""><figcaption></figcaption></figure>
+
+## Lab: Reflected XSS into a template literal with angle brackets, single, double quotes, backslash and backticks Unicode-escaped
+
+### Enunciado
+
+Este laboratorio contiene una vulnerabilidad de **cross-site scripting reflejado** en la funcionalidad de búsqueda del blog. La reflexión ocurre dentro de un **template string** (cadena plantilla), donde los signos de mayor/menor (`<`, `>`), las comillas simples y dobles están codificadas en HTML, y las comillas invertidas (backticks) están escapadas. Para resolver este laboratorio, realiza un ataque de **cross-site scripting** que llame a la función **alert** dentro del **template string**.
+
+### Resolución
+
+Buscamos algo para ver el código fuente.
+
+<figure><img src="../../.gitbook/assets/image (1479).png" alt=""><figcaption></figcaption></figure>
+
+El código usa **template strings** (las comillas invertidas \`) en JavaScript, lo que permite interpolar variables o ejecutar expresiones con `${}`.
+
+Como el valor que ingresamos se inserta sin filtrar en esa plantilla dentro de `<script>`, podemos inyectar algo como:
+
+```
+${alert(1)}
+```
+
+Esto ejecuta **alert(1)** porque la interpolación se evalúa como código JavaScript.
+
+<figure><img src="../../.gitbook/assets/image (1480).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (1481).png" alt=""><figcaption></figcaption></figure>
+
+## Lab: Exploiting cross-site scripting to steal cookies
+
+### Enunciado
+
+Este laboratorio contiene una vulnerabilidad de **XSS almacenado** en la función de comentarios del blog. Un usuario víctima simulado verá todos los comentarios después de que se publiquen. Para resolver el laboratorio, explota la vulnerabilidad para **exfiltrar la cookie de sesión de la víctima** y luego **usa esta cookie para suplantarla**.
+
+> Para evitar que la plataforma Academy se use para atacar sistemas externos arbitrarios, nuestro firewall bloquea las interacciones entre los laboratorios y sistemas externos. Para resolver el laboratorio, debes usar el **servidor público predeterminado de Burp Collaborator**. Algunos usuarios notarán que hay una solución alternativa para este laboratorio que no requiere Burp Collaborator. Sin embargo, es **mucho menos sutil** que exfiltrar la cookie.
+
+### Resolución
+
+Interceptamos la petición para mandarla al **Repeater**.
+
+<figure><img src="../../.gitbook/assets/Captura de pantalla 2025-07-02 220522 (2).png" alt=""><figcaption></figcaption></figure>
+
+Copiamos el payload del Burp Collaborator y lo URLcodeamos.
+
+<figure><img src="../../.gitbook/assets/Captura de pantalla 2025-07-02 220756 (1).png" alt=""><figcaption></figcaption></figure>
+
+Enviamos la petición. Ya hemos robado las cookies.
+
+<figure><img src="../../.gitbook/assets/Captura de pantalla 2025-07-02 220846 (1).png" alt=""><figcaption></figcaption></figure>
+
+En la petición de login cambiamos la cookie con la que hemos robado y la enviamos.
+
+<figure><img src="../../.gitbook/assets/Captura de pantalla 2025-07-02 221229 (1).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/Captura de pantalla 2025-07-02 221209 (1).png" alt=""><figcaption></figcaption></figure>
