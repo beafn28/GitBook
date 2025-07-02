@@ -10,11 +10,11 @@ Este laboratorio tiene un panel de administración sin protección. Resuelve el 
 
 Como primer paso vemos el **robots.txt** y nos dice donde se encuentra el panel de administración.
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Entramos en el directorio y ya podemos eliminar al usuario.
 
-<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Lab: Unprotected admin functionality with unpredictable URL
 
@@ -28,9 +28,9 @@ Resuelve el laboratorio accediendo al panel de administración y usándolo para 
 
 En Target vemos un directorio llamado **/admin-ihvmqe** por lo que accedemos.
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Lab: User role controlled by request parameter
 
@@ -44,11 +44,11 @@ Este laboratorio tiene un panel de administración en la ruta **/admin**, que id
 
 Nos logueamos y entramos en el directorio **/admin** y vemos la petición.
 
-<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Enviamos al **Repeater** y cambiamos el valor de **Admin** a **True** y lo enviamos.
 
-<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Sabiendo esto interceptamos en **Proxy** y le damos a **Forward** cuando cambiemos el valor. Tras esto interceptamos ahora esta petición de a continuación y hacemos lo mismo.
 

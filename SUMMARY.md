@@ -308,6 +308,8 @@
   * [Server-side request forgery (SSRF)](web-security/laboratorios-portswigger/server-side-request-forgery-ssrf.md)
   * [XML external entity (XXE) injection](web-security/laboratorios-portswigger/xml-external-entity-xxe-injection.md)
   * [Cross-site scripting](web-security/laboratorios-portswigger/cross-site-scripting.md)
+  * [Cross-site request forgery (CSRF)](web-security/laboratorios-portswigger/cross-site-request-forgery-csrf.md)
+  * [Clickjacking](web-security/laboratorios-portswigger/clickjacking.md)
 * [Curso web s4vitar](web-security/curso-web-s4vitar.md)
 
 ## Mis CTFs

