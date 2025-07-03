@@ -583,3 +583,19 @@ En la petición de login cambiamos la cookie con la que hemos robado y la enviam
 <figure><img src="../../.gitbook/assets/Captura de pantalla 2025-07-02 221229 (1).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../.gitbook/assets/Captura de pantalla 2025-07-02 221209 (1).png" alt=""><figcaption></figcaption></figure>
+
+## Lab: Exploiting cross-site scripting to capture passwords
+
+### Enunciado
+
+**Este laboratorio contiene una vulnerabilidad de XSS almacenado (stored XSS) en la función de comentarios del blog.**
+
+Un usuario víctima simulado **visualiza todos los comentarios después de que se publican**.
+
+**Para resolver el laboratorio**, explota la vulnerabilidad para **exfiltrar el nombre de usuario y la contraseña de la víctima**, y luego **utiliza esas credenciales para iniciar sesión en la cuenta de la víctima**.
+
+> Para evitar que la plataforma Academy se utilice para atacar a terceros, nuestro firewall bloquea las interacciones entre los laboratorios y sistemas externos arbitrarios. Para resolver el laboratorio, **debes usar el servidor público predeterminado de Burp Collaborator**.
+
+### Resolución
+
+S3WWXWA<
