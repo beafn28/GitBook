@@ -15,7 +15,7 @@ Puedes iniciar sesión en tu propia cuenta con estas credenciales:
 
 Nos logueamos. Interceptamos la petición de cambiar el email para mandarla al **Repeater**.
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Es el único parámetro que se envía. Vamos al **exploit server** y ahí creamos la plantilla HTML maliciosa.
 
@@ -34,7 +34,7 @@ Es el único parámetro que se envía. Vamos al **exploit server** y ahí creamo
 
 Lo mandamos a la víctima y completamos el laboratorio.
 
-<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Lab: CSRF where token validation depends on request method
 

