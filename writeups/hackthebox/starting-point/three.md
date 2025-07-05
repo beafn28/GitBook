@@ -27,7 +27,7 @@ Iniciamos la máquina y verificamos la conexión.
 ping -c 1 10.129.126.143
 ```
 
-<figure><img src="../../../.gitbook/assets/image (32).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (32) (1).png" alt=""><figcaption></figcaption></figure>
 
 Observamos que tenemos conexión y que es una máquina **Linux** ya que su **ttl=63**.
 
@@ -41,7 +41,7 @@ nmap -p- --min-rate 5000 -sV 10.129.126.143
 
 para realizar un escaneo de puertos y servicios detallado en la dirección IP.
 
-<figure><img src="../../../.gitbook/assets/image (33).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (33) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### 4. 🚪 **Acceso Inicial**
 
