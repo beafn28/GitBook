@@ -289,6 +289,9 @@
   * [Active Directory Protocols](apuntes-hacking/introduction-active-directory/active-directory-protocols.md)
   * [All About Users](apuntes-hacking/introduction-active-directory/all-about-users.md)
   * [Digging in Deeper](apuntes-hacking/introduction-active-directory/digging-in-deeper.md)
+* [Active Directory Enumeration & Attacks](apuntes-hacking/active-directory-enumeration-and-attacks/README.md)
+  * [Tools](apuntes-hacking/active-directory-enumeration-and-attacks/tools.md)
+  * [Initial Enumeration](apuntes-hacking/active-directory-enumeration-and-attacks/initial-enumeration.md)
 
 ## WEB SECURITY
 
