@@ -16,6 +16,10 @@
 [clickjacking.md](clickjacking.md)
 {% endcontent-ref %}
 
+{% content-ref url="dom-based-vulnerabilities.md" %}
+[dom-based-vulnerabilities.md](dom-based-vulnerabilities.md)
+{% endcontent-ref %}
+
 {% content-ref url="authentication.md" %}
 [authentication.md](authentication.md)
 {% endcontent-ref %}

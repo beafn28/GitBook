@@ -310,6 +310,7 @@
   * [Cross-site scripting](web-security/laboratorios-portswigger/cross-site-scripting.md)
   * [Cross-site request forgery (CSRF)](web-security/laboratorios-portswigger/cross-site-request-forgery-csrf.md)
   * [Clickjacking](web-security/laboratorios-portswigger/clickjacking.md)
+  * [DOM-based vulnerabilities](web-security/laboratorios-portswigger/dom-based-vulnerabilities.md)
 * [Curso web s4vitar](web-security/curso-web-s4vitar.md)
 
 ## Mis CTFs
