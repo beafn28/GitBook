@@ -8,6 +8,14 @@
 [cross-site-scripting.md](cross-site-scripting.md)
 {% endcontent-ref %}
 
+{% content-ref url="cross-site-request-forgery-csrf.md" %}
+[cross-site-request-forgery-csrf.md](cross-site-request-forgery-csrf.md)
+{% endcontent-ref %}
+
+{% content-ref url="clickjacking.md" %}
+[clickjacking.md](clickjacking.md)
+{% endcontent-ref %}
+
 {% content-ref url="authentication.md" %}
 [authentication.md](authentication.md)
 {% endcontent-ref %}
