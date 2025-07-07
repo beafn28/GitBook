@@ -302,7 +302,7 @@ req2.send(data);
 
 ### Escape de sandbox AngularJS sin cadenas
 
-<figure><img src="../.gitbook/assets/image (3) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Miramos la versión y la mejor opción. Este es el trozo de código.
 
