@@ -13,7 +13,7 @@ Si **e.data** contiene código HTML o JavaScript, **el navegador lo interpretar�
 
 Además, **observamos que la respuesta no incluye la cabecera `x-frame-options`:**
 
-<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
 
 Esto permite **incrustar el sitio en un iframe**.
 
@@ -88,7 +88,7 @@ El listener tomará el contenido y lo pasará al sink en la página principal:
 postMessage("{\"type\":\"load-channel\", \"url\":\"javascript:print()\"}", "*")
 ```
 
-<figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
 
 Creamos el siguiente paylaod.
 
@@ -100,7 +100,7 @@ Creamos el siguiente paylaod.
 </html>
 ```
 
-<figure><img src="../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Lab: DOM-based open redirection
 

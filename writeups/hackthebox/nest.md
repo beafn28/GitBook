@@ -71,11 +71,11 @@ smbclient \\\\nest.htb\\Users -N
 smbclient \\\\nest.htb\\Data -N
 ```
 
-<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 En la ruta `/Shared/Templates/HR` hay un archivo interesante.
 
-<figure><img src="../../.gitbook/assets/image (6) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (6) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Tenemos unas credenciales por lo que con los usuarios descubiertos antes realizamos fuerza bruta.
 
@@ -83,7 +83,7 @@ Tenemos unas credenciales por lo que con los usuarios descubiertos antes realiza
 crackmapexec smb nest.htb -u usuarios -p 'welcome2019' --continue-on-success
 ```
 
-<figure><img src="../../.gitbook/assets/image (7) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (7) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Intenté iniciar sesión con los tres usuarios y, al usar **TempUser**, obtuve un archivo, pero estaba vacío. Volví a acceder al recurso compartido **Data** como **TempUser** y descargué los archivos. Entre ellos, encontré un archivo llamado **RU\_Config.xml**.
 

@@ -326,11 +326,11 @@ Sí está en la tabla de usuarios por lo que vamos a ver su contraseña. Primero
 
 Ya sabemos que la contraseña tiene longitud mayor que 1 por lo que vamos a ver cuánta longitud.
 
-<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Vamos a comprobar los caracteres que tiene la contraseña yendo al **Intruder.**
 
-<figure><img src="../../.gitbook/assets/image (7) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (7) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Iría caracter a caracter y sabemos que la primera es una **e**. Mejor script en Python para hacerlo 20 veces o Cluster bomb.
 
@@ -628,7 +628,7 @@ Miramos en el cheatsheet como sería la consulta a realizar.
 Ester laboratorio se hace con BurpSuite Professional
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Generamos 1 payload en **Collaborator** y lo copiamos en la consulta.
 
@@ -682,11 +682,11 @@ La base de datos contiene una tabla **users**, que almacena los nombres de usuar
 
 La vulnerabilidad está en el stock del producto.
 
-<figure><img src="../../.gitbook/assets/image (6) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (6) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Las consultas básicas maliciosas las detecta como ataques.
 
-<figure><img src="../../.gitbook/assets/image (7) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (7) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Probamos a ponerlas hexadecimal.
 

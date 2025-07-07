@@ -562,7 +562,7 @@ Puedes iniciar sesión a través de tu cuenta de redes sociales con las siguient
 
 ### Resolución
 
-<figure><img src="../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (7) (1).png" alt=""><figcaption></figcaption></figure>
 
 Como se puede observar, **no incluye el atributo SameSite**, así que **Chrome aplica automáticamente la restricción Lax por defecto**.
 
@@ -666,7 +666,7 @@ Según la documentación de Mozilla, **podemos usar la etiqueta `<meta>` para co
 </html>
 ```
 
-<figure><img src="../../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Lab: CSRF with broken Referer validation
 
@@ -685,7 +685,7 @@ Según la documentación de Mozilla, **podemos usar la etiqueta `<meta>` para co
 
 Nos logueamos y vemos la petición de cambiar email.
 
-<figure><img src="../../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (6) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Vemos que no tenemos CSRF token por lo que realizamos lo siguiente.
 
@@ -706,7 +706,7 @@ Vemos que no tenemos CSRF token por lo que realizamos lo siguiente.
 </html>
 ```
 
-<figure><img src="../../.gitbook/assets/image (7) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (7) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Nos sale como el anterior laboratorio pero aún así con la etiqueta meta no lo solucionamos. Vemos la cabecera de Referer.
 
