@@ -101,3 +101,87 @@ Creamos el siguiente paylaod.
 ```
 
 <figure><img src="../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+
+## Lab: DOM-based open redirection
+
+### Enunciado
+
+Este laboratorio contiene una vulnerabilidad de redirección abierta basada en DOM (DOM-based open-redirection). Exploita esta vulnerabilidad y redirige a la víctima hacia el servidor de exploits.
+
+### Resolución
+
+Vemos el código fuente de los post.
+
+<figure><img src="../../.gitbook/assets/image (1505).png" alt=""><figcaption></figcaption></figure>
+
+Verifica si el objeto **location** contiene **url=**[**http://loquesea.com**](http://loquesea.com) o **url=**[**https://loquesea.com**](https://loquesea.com). Si encuentra ese parámetro, **asigna el valor a `location.href`** para redirigir a esa dirección.
+
+<figure><img src="../../.gitbook/assets/image (1506).png" alt=""><figcaption></figcaption></figure>
+
+Es **vulnerable a redirección abierta basada en DOM**.
+
+Para **explotarla**, podemos **añadir el payload como parámetro GET**:
+
+```
+/post?postId=9&url=https://exploit-0a6200ff03db6e4e8148c45501ce0070.exploit-server.net/
+```
+
+Así, **forzamos la redirección** a nuestro servidor de exploits.
+
+<figure><img src="../../.gitbook/assets/image (1508).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (1507).png" alt=""><figcaption></figcaption></figure>
+
+## Lab: DOM-based cookie manipulation
+
+### Enunciado
+
+Este laboratorio demuestra una manipulación de cookies en el lado del cliente basada en DOM. Inyecta una cookie que provoque un ataque XSS en otra página y ejecute la función `print()`. Para ello, deberás usar el servidor de exploits para redirigir a la víctima a las páginas correctas.
+
+### Resolución
+
+Vemos el código fuente de los productos.
+
+<figure><img src="../../.gitbook/assets/image (1509).png" alt=""><figcaption></figcaption></figure>
+
+Aquí vemos que hay un **sink peligroso**: `document.cookie`. La **fuente** de datos (input controlado por el atacante) es **`window.location`**.
+
+Esto significa que **se establecerá una nueva cookie** llamada `lastViewdProduct`, **usando como valor la propiedad `window.location`**.
+
+Refrescamos la página.
+
+<figure><img src="../../.gitbook/assets/image (1510).png" alt=""><figcaption></figcaption></figure>
+
+Cuando actualizamos la página, **se genera dinámicamente un nuevo enlace `<a>`** con el atributo **href** igual a **`window.location`**.
+
+Esto significa que **podemos inyectar código malicioso en la URL**.
+
+```
+/product?productId=1&payload='><img src=errorpls onerror="print()">
+```
+
+Al incluir este payload, **cerramos el atributo href y añadimos un elemento `<img>` con un evento `onerror` que ejecuta `print()`.**
+
+<figure><img src="../../.gitbook/assets/image (1511).png" alt=""><figcaption></figcaption></figure>
+
+Refrescamos la página.
+
+<figure><img src="../../.gitbook/assets/image (1512).png" alt=""><figcaption></figcaption></figure>
+
+Sabiendo esto ya podemos crear el payload HTML.
+
+```
+<html>
+    <body>
+        <iframe src="https://0af7002804ccb93881db16ef001d00b0.web-security-academy.net/product?productId=1&payload=%27%3E%3Cimg%20src%3Derrorpls%20onerror%3D%22print%28%29%22%3E" onload="if(!window.triggerXSSPayload)this.src='https://0af7002804ccb93881db16ef001d00b0.web-security-academy.net';window.triggerXSSPayload=1;"></iframe>
+    </body>
+</html>
+```
+
+Este **payload** generará un **elemento `<iframe>`** apuntando a nuestra URL con el payload que establece la cookie. Cuando se cargue, **verificamos si se activó el XSS**.
+
+Si **no se dispara**, entonces **cambiamos el atributo `src` del `<iframe>`** para que apunte a la **página principal del sitio vulnerable**.
+
+De este modo, **forzamos a que se cargue la cookie inyectada y se ejecute el payload XSS.**
+
+<figure><img src="../../.gitbook/assets/image (1513).png" alt=""><figcaption></figcaption></figure>
