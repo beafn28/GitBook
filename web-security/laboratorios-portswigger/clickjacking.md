@@ -116,7 +116,7 @@ Con el código dado lo enviamos a la víctima. También de manera manual sería 
 
 <figure><img src="../../.gitbook/assets/image (1496).png" alt=""><figcaption></figcaption></figure>
 
-### Lab: Clickjacking with a frame buster script
+## Lab: Clickjacking with a frame buster script
 
 ### Enunciado
 
