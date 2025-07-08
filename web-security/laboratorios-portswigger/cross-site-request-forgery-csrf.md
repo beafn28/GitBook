@@ -1,5 +1,7 @@
 # Cross-site request forgery (CSRF)
 
+## Lab: CSRF vulnerability with no defenses
+
 ### Enunciado
 
 Este laboratorio tiene una función para cambiar el correo electrónico que es vulnerable a ataques CSRF.
