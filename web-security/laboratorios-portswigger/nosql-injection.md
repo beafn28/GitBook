@@ -47,7 +47,7 @@ Bueno, eso es interesante: código de respuesta 500 y un error que indica que se
 
 <figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
-La consulta que enviamos en realidad terminaría recuperando todos los registros de la base de datos. Y la base de datos tendría más de un registro, pero el código del backend esperaría que la consulta devolviera solo un registro. Vamos a evadir la autenticación aprovechando la inyección NoSQL que encontramos en la funcionalidad de inicio de sesión:
+La consulta que enviamos en realidad terminaría recuperando todos los registros de la base de datos. Y la base de datos tendría más de un registro, pero el código del backend esperaría que la consulta devolviera solo un registro. Vamos a evadir la autenticación aprovechando la inyección **NoSQL** que encontramos en la funcionalidad de inicio de sesión:
 
 ```
 {"username":{"$regex":"^admin"},"password":{"$gt":""}}
