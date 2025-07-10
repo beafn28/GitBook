@@ -368,6 +368,7 @@
 ## PREPARAR PT1
 
 * [Organización](preparar-pt1/organizacion.md)
+* [Notas](preparar-pt1/notas.md)
 
 ## PREPARAR EWPTXV3
 
