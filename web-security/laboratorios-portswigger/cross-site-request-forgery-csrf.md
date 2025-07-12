@@ -17,7 +17,7 @@ Puedes iniciar sesión en tu propia cuenta con estas credenciales:
 
 Nos logueamos. Interceptamos la petición de cambiar el email para mandarla al **Repeater**.
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Es el único parámetro que se envía. Vamos al **exploit server** y ahí creamos la plantilla HTML maliciosa.
 
@@ -36,7 +36,7 @@ Es el único parámetro que se envía. Vamos al **exploit server** y ahí creamo
 
 Lo mandamos a la víctima y completamos el laboratorio.
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Lab: CSRF where token validation depends on request method
 
@@ -180,7 +180,7 @@ Interceptando la petición y lo mandamos a Repeater. Cuando accedo, **me redirig
 
 Nos damos cuenta que solo cambia la cookie de session pero no podemos hacer mucho más así que nos fijamos en el campò de búsqueda.
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Vemos un nuevo valor en la cookie por lo que podemos setear un valor que queremos en la cookie.
 
@@ -190,7 +190,7 @@ Vemos un nuevo valor en la cookie por lo que podemos setear un valor que queremo
 
 Habiendo leído esas páginas realizamos este paylaod.
 
-<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Ya hemos seteado una nueva cookie.
 
@@ -203,7 +203,7 @@ Ya hemos seteado una nueva cookie.
 <img src="https://0a84007904ed8a5482329ceb005f00d4.web-security-academy.net/search=prueba%0d%0aSet-Cookie:%20csrfKey=0s3QkhzdjMVzJXdwPWUSXhEq5tgPrvlH%3b%20SameSite=None" onerror="document.forms[0].submit();">
 ```
 
-<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Lab: CSRF where token is duplicated in cookie
 
@@ -220,7 +220,7 @@ Usa tu servidor de exploits para alojar una página HTML que realice un ataque C
 
 Nos logueamos para cambiar el email y ver esa petición.
 
-<figure><img src="../../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (10) (1).png" alt=""><figcaption></figcaption></figure>
 
 Como puedes ver, **el valor de nuestra cookie CSRF coincide con el valor del parámetro CSRF en el POST**. Esto es lo que se conoce como la defensa **“double submit”** contra ataques CSRF.
 
@@ -564,7 +564,7 @@ Puedes iniciar sesión a través de tu cuenta de redes sociales con las siguient
 
 ### Resolución
 
-<figure><img src="../../.gitbook/assets/image (7) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (7) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Como se puede observar, **no incluye el atributo SameSite**, así que **Chrome aplica automáticamente la restricción Lax por defecto**.
 
@@ -572,7 +572,7 @@ Normalmente, **las cookies con Lax no se envían en solicitudes POST de sitios c
 
 Esto significa que hay **un margen de dos minutos** en el que el usuario **puede quedar expuesto a ataques cross-site**.
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Como puedes ver, **el formulario no tiene un parámetro de token CSRF**, que normalmente ayudaría a prevenir ataques CSRF.
 
@@ -604,7 +604,7 @@ El pequeño inconveniente de este método es que **los navegadores bloquean las 
 </script>
 ```
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Lab: CSRF where Referer validation depends on header being present
 
@@ -623,7 +623,7 @@ El pequeño inconveniente de este método es que **los navegadores bloquean las 
 
 Nos logueamos para ver la petición al cambiar el email.
 
-<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 No hay un CSRF token por lo que realizamos el siguiente ataque.
 
@@ -644,7 +644,7 @@ No hay un CSRF token por lo que realizamos el siguiente ataque.
 </html>
 ```
 
-<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 **Como el encabezado Referer se puede manipular por completo**, en realidad **podemos saltarnos esta verificación**.
 
@@ -668,7 +668,7 @@ Según la documentación de Mozilla, **podemos usar la etiqueta `<meta>` para co
 </html>
 ```
 
-<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Lab: CSRF with broken Referer validation
 
@@ -687,7 +687,7 @@ Según la documentación de Mozilla, **podemos usar la etiqueta `<meta>` para co
 
 Nos logueamos y vemos la petición de cambiar email.
 
-<figure><img src="../../.gitbook/assets/image (6) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (6) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Vemos que no tenemos CSRF token por lo que realizamos lo siguiente.
 
@@ -708,15 +708,15 @@ Vemos que no tenemos CSRF token por lo que realizamos lo siguiente.
 </html>
 ```
 
-<figure><img src="../../.gitbook/assets/image (7) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (7) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Nos sale como el anterior laboratorio pero aún así con la etiqueta meta no lo solucionamos. Vemos la cabecera de Referer.
 
-<figure><img src="../../.gitbook/assets/image (8) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (8) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Nos salta error si enviamos distinta URL por lo que voy a intentar añadir un parámetro GET después de lo que se espera.
 
-<figure><img src="../../.gitbook/assets/image (9) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (9) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Según la documentación de Mozilla, **podemos usar la función de JavaScript `history.pushState()` para manipular la URL mostrada sin recargar la página**.
 

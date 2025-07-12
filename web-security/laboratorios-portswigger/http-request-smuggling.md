@@ -188,3 +188,95 @@ Vemos que finalmente logramos capturar la **request completa del usuario víctim
 Cuando conseguimos capturar la cookie de sesión del usuario víctima a través del ataque de request smuggling, copiamos su valor y lo reemplazamos en nuestro navegador usando las herramientas de desarrollador (inspector). De esta forma, al actualizar la página, el servidor nos reconoce como el usuario víctima y logramos acceder a su cuenta.
 
 <figure><img src="../../.gitbook/assets/image (1603).png" alt=""><figcaption></figcaption></figure>
+
+## Lab: Exploiting HTTP request smuggling to deliver reflected XSS
+
+### Enunciado
+
+Este laboratorio tiene un servidor frontal (front-end) y un servidor trasero (back-end), y el servidor frontal **no admite codificación chunked**.
+
+La aplicación también es vulnerable a **XSS reflejado** a través del **header User-Agent**.
+
+Para resolver el laboratorio, debes **inyectar (smuggle) una petición** al servidor back-end que provoque que la siguiente petición de un usuario reciba una respuesta que contenga un exploit XSS que ejecute `alert(1)`.
+
+> Aunque el laboratorio soporta HTTP/2, la solución prevista requiere técnicas que **solo son posibles en HTTP/1**. Puedes cambiar manualmente el protocolo en Burp Repeater en la sección **Request attributes** del panel **Inspector**.
+
+El laboratorio simula la actividad de un usuario víctima. Cada ciertas peticiones POST que hagas al laboratorio, el usuario víctima hará su propia petición. Puede que tengas que repetir el ataque varias veces hasta que ocurra la petición de la víctima en el momento adecuado.
+
+**Sugerencia:**\
+Ajustar manualmente los campos de longitud en ataques de request smuggling puede ser complicado. Nuestra extensión **HTTP Request Smuggler** para Burp está diseñada para ayudar en esto. Puedes instalarla desde el **BApp Store**.
+
+### Resolución
+
+Miramos código fuente.
+
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+Una petición _smuggled_ en formato **TE.CL**, declarando `Transfer-Encoding: chunked` para que el front-end lo interpretara como chunked mientras que el back-end usaba `Content-Length` para separar el cuerpo real. En el cuerpo inyectamos la siguiente petición secundaria:
+
+```
+GET /post?postId=10 HTTP/1.1
+User-Agent: "><script>alert(1)</script>
+```
+
+Esta petición secuestrada queda encolada en el servidor, de forma que cuando la siguiente víctima legítima solicita el post con `postId=10`, el servidor le sirve la respuesta que contiene el `User-Agent` inyectado.
+
+La respuesta del servidor muestra un **200 OK** con contenido HTML que incluye nuestro payload de XSS, confirmando que la inyección fue exitosa. En este escenario el atacante logra ejecutar `alert(1)` en el navegador de la víctima al aprovechar la confianza del back-end en la cabecera `User-Agent` y el mal manejo de la separación de peticiones entre el front-end y el back-end.
+
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
+## Lab: Response queue poisoning via H2.TE request smuggling
+
+### Enunciado
+
+Este laboratorio es vulnerable a _request smuggling_ porque el servidor front-end convierte solicitudes HTTP/2 en HTTP/1 incluso si tienen una longitud ambigua.
+
+Para resolver el laboratorio, elimina al usuario carlos usando _response queue poisoning_ para acceder al panel de administración en /admin. Un usuario administrador iniciará sesión aproximadamente cada 15 segundos.
+
+La conexión con el servidor back-end se reinicia cada 10 solicitudes, así que no te preocupes si queda en un estado incorrecto: solo envía algunas solicitudes normales para obtener una conexión nueva.
+
+### Resolución
+
+Empezamos construyendo un ataque de _request smuggling_ usando H2.TE. En la primera petición de la captura se ve que enviamos un `POST` en HTTP/2 con los encabezados `Transfer-Encoding: chunked` y `Content-Length: 84`. El objetivo aquí es crear una ambigüedad para que el front-end (que acepta HTTP/2) degrade la petición al back-end en HTTP/1.1 pero trate el cuerpo como chunked, mientras que el back-end usa el `Content-Length`. Con esto logramos desincronizar la interpretación de los límites del cuerpo entre los servidores. El resultado fue exitoso: en la primera respuesta se muestra un `200 OK` que incluye en los headers una cookie de sesión de un usuario administrador. Esa cookie aparece en la cabecera `Set-Cookie`, y la capturamos para usarla más adelante.&#x20;
+
+<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+
+Repetimos el mismo ataque de smuggling para aprovechar la sesión del administrador. Esta vez, tras enviar la petición manipulada, recibimos un `302 Found` que nos redirige a `/my-account?id=administrator`, confirmando que la sesión interceptada es válida y pertenece al admin.
+
+<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+
+Copiamos la cookie de administrador y la pegamos en nuestra sesión del navegador o en el cliente HTTP. Así, al acceder al panel de administración, eliminamos al usuario carlos con éxito.
+
+<figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+
+## Lab: H2.CL request smuggling
+
+### Enunciado
+
+Este laboratorio es vulnerable a _request smuggling_ porque el servidor front-end degrada las solicitudes HTTP/2 incluso si tienen una longitud ambigua.
+
+Para resolver el laboratorio, realiza un ataque de _request smuggling_ que haga que el navegador de la víctima cargue y ejecute un archivo JavaScript malicioso desde el servidor de explotación, llamando a `alert(document.cookie)`. El usuario víctima accede a la página de inicio cada 10 segundos.
+
+### Resolución
+
+Para resolver el lab, realizamos un ataque de request smuggling usando HTTP/2 con Content-Length ambiguo para inyectar una segunda petición hacia el backend. En la primera captura probamos con un GET sencillo para ajustar el contenido smuggled y verificamos que llegaba al backend (aunque devolvía 404). En la segunda captura construimos la petición final: tras el POST/HTTP/2 con chunked encoding, inyectamos un GET a /resources/js en nuestro exploit server. Allí servimos el payload JavaScript con `alert(document.cookie)`. Cuando la víctima visitó la página, el backend entregó nuestro archivo malicioso y se ejecutó en su navegador, resolviendo el lab.
+
+<figure><img src="../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+
+## Lab: HTTP/2 request smuggling via CRLF injection
+
+### Enunciado
+
+Este laboratorio es vulnerable a request smuggling porque el servidor front-end convierte las solicitudes HTTP/2 en HTTP/1 y no sanea adecuadamente las cabeceras entrantes.
+
+Para resolver el laboratorio, usa un vector de request smuggling exclusivo de HTTP/2 para obtener acceso a la cuenta de otro usuario. La víctima accede a la página de inicio cada 15 segundos.
+
+Si no estás familiarizado con las funciones exclusivas de Burp para pruebas con HTTP/2, consulta la documentación para ver los detalles sobre cómo usarlas.
+
+### Resolución
