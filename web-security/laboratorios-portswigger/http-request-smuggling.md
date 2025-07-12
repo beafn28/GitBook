@@ -210,7 +210,7 @@ Ajustar manualmente los campos de longitud en ataques de request smuggling puede
 
 Miramos código fuente.
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
 
 Una petición _smuggled_ en formato **TE.CL**, declarando `Transfer-Encoding: chunked` para que el front-end lo interpretara como chunked mientras que el back-end usaba `Content-Length` para separar el cuerpo real. En el cuerpo inyectamos la siguiente petición secundaria:
 
@@ -223,9 +223,9 @@ Esta petición secuestrada queda encolada en el servidor, de forma que cuando la
 
 La respuesta del servidor muestra un **200 OK** con contenido HTML que incluye nuestro payload de XSS, confirmando que la inyección fue exitosa. En este escenario el atacante logra ejecutar `alert(1)` en el navegador de la víctima al aprovechar la confianza del back-end en la cabecera `User-Agent` y el mal manejo de la separación de peticiones entre el front-end y el back-end.
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Lab: Response queue poisoning via H2.TE request smuggling
 
@@ -241,15 +241,15 @@ La conexión con el servidor back-end se reinicia cada 10 solicitudes, así que 
 
 Empezamos construyendo un ataque de _request smuggling_ usando H2.TE. En la primera petición de la captura se ve que enviamos un `POST` en HTTP/2 con los encabezados `Transfer-Encoding: chunked` y `Content-Length: 84`. El objetivo aquí es crear una ambigüedad para que el front-end (que acepta HTTP/2) degrade la petición al back-end en HTTP/1.1 pero trate el cuerpo como chunked, mientras que el back-end usa el `Content-Length`. Con esto logramos desincronizar la interpretación de los límites del cuerpo entre los servidores. El resultado fue exitoso: en la primera respuesta se muestra un `200 OK` que incluye en los headers una cookie de sesión de un usuario administrador. Esa cookie aparece en la cabecera `Set-Cookie`, y la capturamos para usarla más adelante.&#x20;
 
-<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 Repetimos el mismo ataque de smuggling para aprovechar la sesión del administrador. Esta vez, tras enviar la petición manipulada, recibimos un `302 Found` que nos redirige a `/my-account?id=administrator`, confirmando que la sesión interceptada es válida y pertenece al admin.
 
-<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 Copiamos la cookie de administrador y la pegamos en nuestra sesión del navegador o en el cliente HTTP. Así, al acceder al panel de administración, eliminamos al usuario carlos con éxito.
 
-<figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Lab: H2.CL request smuggling
 
@@ -263,11 +263,11 @@ Para resolver el laboratorio, realiza un ataque de _request smuggling_ que haga 
 
 Para resolver el lab, realizamos un ataque de request smuggling usando HTTP/2 con Content-Length ambiguo para inyectar una segunda petición hacia el backend. En la primera captura probamos con un GET sencillo para ajustar el contenido smuggled y verificamos que llegaba al backend (aunque devolvía 404). En la segunda captura construimos la petición final: tras el POST/HTTP/2 con chunked encoding, inyectamos un GET a /resources/js en nuestro exploit server. Allí servimos el payload JavaScript con `alert(document.cookie)`. Cuando la víctima visitó la página, el backend entregó nuestro archivo malicioso y se ejecutó en su navegador, resolviendo el lab.
 
-<figure><img src="../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (8) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (9) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Lab: HTTP/2 request smuggling via CRLF injection
 
@@ -280,3 +280,73 @@ Para resolver el laboratorio, usa un vector de request smuggling exclusivo de HT
 Si no estás familiarizado con las funciones exclusivas de Burp para pruebas con HTTP/2, consulta la documentación para ver los detalles sobre cómo usarlas.
 
 ### Resolución
+
+Vemos un intento fallido donde enviamos en la petición una cabecera `Test`, pero el servidor respondió con error 404.
+
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+Aprovechamos el _kettling_ para introducir un salto de línea literal (`\n`) dentro del valor de la cabecera, convirtiéndolo al ser downgraded a HTTP/1 en un separador válido de cabeceras. Así logramos inyectar `Transfer-Encoding: chunked` en la parte de las cabeceras del back-end, activando un _TE.CL desync_. En esta petición el servidor aceptó la carga y devolvió código 200 OK junto con el contenido HTML del perfil de la víctima, confirmando que la sesión del usuario Carlos había sido secuestrada.
+
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
+Logramos acceder como el usuario usando su cookie.
+
+<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+
+## Lab: HTTP/2 request splitting via CRLF injection
+
+### Enunciado
+
+Este laboratorio es vulnerable a **request smuggling** porque el servidor front-end convierte las solicitudes HTTP/2 en HTTP/1.1 y no sanea adecuadamente las cabeceras entrantes.
+
+Para resolver el laboratorio, elimina al usuario **carlos** utilizando **response queue poisoning** para acceder al panel de administración en **/admin**. Un usuario administrador iniciará sesión aproximadamente cada 10 segundos.
+
+La conexión con el servidor back-end se reinicia cada 10 solicitudes, así que no te preocupes si queda en un estado inconsistente: solo envía algunas peticiones normales para conseguir una conexión limpia.
+
+### Resolución
+
+Enviamos un encabezado personalizado llamado `Test`El servidor devuelve un error 404 "Not Found", lo que confirma que el backend interpreta nuestra inyección como una petición independiente.
+
+<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+
+Ajustamos las cabeceras. El servidor devuelve un 302 de redirección, lo que indica que se procesó correctamente.
+
+<figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+
+Con la cookie logramos acceder al panel de admin.
+
+<figure><img src="../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+
+## Lab: CL.0 request smuggling
+
+### Enunciado
+
+Este laboratorio es vulnerable a ataques de _request smuggling_ del tipo CL.0. El servidor back-end ignora el encabezado Content-Length en solicitudes hacia ciertos endpoints.
+
+Para resolver el laboratorio, identifica un endpoint vulnerable, _smugglea_ (inyecta) una solicitud hacia el back-end para acceder al panel de administración en /admin y luego elimina al usuario carlos.
+
+Este laboratorio se basa en vulnerabilidades reales descubiertas por PortSwigger Research. Para más detalles, consulta **Browser-Powered Desync Attacks: A New Frontier in HTTP Request Smuggling**.
+
+### Resolución
+
+Primero identificamos que el endpoint `/resources/images/blog.svg` no valida bien el encabezado `Content-Length`, permitiendo enviar un _smuggling_ CL.0. Aprovechamos que el backend ignora el `Content-Length` en rutas válidas, pero lo respeta en las inválidas.
+
+<figure><img src="../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+
+Creamos un grupo de peticiones con un GET camuflado tras un POST, probando con `/test` y `/prueba` para confirmar la técnica: las rutas inexistentes respetan el `Content-Length`, mientras que la ruta al recurso válido las ignora. Así verificamos la vulnerabilidad CL.0.
+
+<figure><img src="../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+
+Luego, cambiamos la ruta inyectada de `/prueba` a `/admin` en el smuggling, para colarnos en el panel de administración.
+
+<figure><img src="../../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
+
+Luego, cambiamos la ruta inyectada de `/prueba` a `/admin` en el smuggling, para colarnos en el panel de administración.
+
+<figure><img src="../../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (1604).png" alt=""><figcaption></figcaption></figure>
