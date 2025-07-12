@@ -55,3 +55,136 @@ El servidor frontend respetaba el encabezado Transfer-Encoding y procesaba el cu
 <figure><img src="../../.gitbook/assets/image (1582).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../.gitbook/assets/image (1583).png" alt=""><figcaption></figcaption></figure>
+
+## Lab: Exploiting HTTP request smuggling to bypass front-end security controls, CL.TE vulnerability
+
+### Enunciado
+
+Este laboratorio tiene un servidor front-end y uno back-end. El front-end no admite codificación chunked. Existe un panel de administración en **/admin**, pero el front-end bloquea el acceso a esa ruta.
+
+Para resolver el lab, debemos **inyectar (smuggle) una petición** al servidor back-end que acceda al panel de administración y elimine al usuario **carlos**.
+
+> Aunque el lab soporta HTTP/2, la solución prevista usa técnicas que solo son posibles en **HTTP/1**. Puedes cambiar de protocolo en Burp Repeater, en la sección **Request attributes** del panel **Inspector**.
+
+**Sugerencia:**\
+Ajustar manualmente los campos de longitud en ataques de request smuggling puede ser complicado. El complemento **HTTP Request Smuggler** de Burp está diseñado para ayudar. Puedes instalarlo desde el **BApp Store**.
+
+### Resolución
+
+<figure><img src="../../.gitbook/assets/image (1584).png" alt=""><figcaption></figcaption></figure>
+
+Nos bloquea el acceso por lo que mandamos la petición al Repeater y testeamos HTTP smuggling. El front-end ve **Content-Length** y lee solo la parte inicial (ignorando la parte smuggled).\
+El back-end, que respeta **Transfer-Encoding**, lee el cuerpo en chunked, interpretando los datos inyectados como una segunda petición.
+
+<figure><img src="../../.gitbook/assets/image (1585).png" alt=""><figcaption></figcaption></figure>
+
+Al enviarlo, el front-end solo procesa la primera parte, pero el back-end recibe la petición GET /admin y devuelve el contenido del panel de admin. En la respuesta vemos la lista de usuarios (wiener y carlos) y la opción de borrar.
+
+<figure><img src="../../.gitbook/assets/image (1586).png" alt=""><figcaption></figcaption></figure>
+
+Empaquetamos esa línea como el **chunk smuggled**, manteniendo bien formateadas las cabeceras y longitudes. El front-end ignora este contenido extra. El back-end, sin el filtro del front-end, procesa la petición de borrado y elimina al usuario **carlos**.
+
+<figure><img src="../../.gitbook/assets/image (1587).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (1588).png" alt=""><figcaption></figcaption></figure>
+
+## Lab: Exploiting HTTP request smuggling to bypass front-end security controls, TE.CL vulnerability
+
+### Enunciado
+
+Este laboratorio tiene un servidor **front-end** y uno **back-end**. El **back-end** **no soporta** codificación chunked. Hay un panel de administración en **/admin**, pero el **front-end** **bloquea el acceso directo** a esa ruta. Para resolver el lab, necesitamos **infiltrar (smuggle) una petición** hacia el back-end que acceda a **/admin** y elimine al usuario **carlos**.
+
+> Aunque el laboratorio admite HTTP/2, la solución correcta **requiere técnicas solo posibles en HTTP/1**.\
+> Puedes cambiar el protocolo manualmente en **Burp Repeater**, en la sección **Request attributes** del **Inspector**.
+
+**Sugerencia**\
+Ajustar manualmente los valores de longitud en los ataques de request smuggling puede ser complicado.\
+La extensión **HTTP Request Smuggler** para Burp Suite está diseñada para facilitar este proceso.\
+Puedes instalarla desde el **BApp Store**.
+
+### Resolución
+
+El filtro en el front-end impide el acceso directo.
+
+<figure><img src="../../.gitbook/assets/image (1589).png" alt=""><figcaption></figcaption></figure>
+
+Primero identificamos que el front-end del sitio bloquea directamente cualquier intento de acceder al path /admin devolviendo el mensaje de error "Path /admin is blocked". Sabemos por la descripción del laboratorio que existe un front-end y un back-end y que el back-end no aplica ese filtro pero además no soporta chunked encoding mientras que el front-end sí. Esa diferencia la podemos aprovechar con un ataque de HTTP Request Smuggling usando la técnica TE.CL para inyectar una petición prohibida que solo el back-end procesará.
+
+<figure><img src="../../.gitbook/assets/image (1590).png" alt=""><figcaption></figcaption></figure>
+
+Para preparar el ataque construimos una petición POST con Transfer-Encoding: chunked y un Content-Length pequeño que engaña al front-end. Escribimos el body de forma que declare un chunk de tamaño suficiente para incluir nuestra petición smuggled completa. El front-end procesa el body usando los chunks, separa la primera petición y la reenvía al back-end. El back-end, al no entender chunked, se guía por el Content-Length y lee menos datos de los que realmente enviamos, dejando en cola la segunda petición que en realidad es el GET /admin. Así logramos que el back-end ejecute la petición prohibida sin que el front-end la bloquee.
+
+<figure><img src="../../.gitbook/assets/image (1591).png" alt=""><figcaption></figcaption></figure>
+
+Al conseguir que el back-end responda al GET /admin pudimos ver la lista de usuarios, confirmando la presencia de carlos. En ese punto repetimos el mismo proceso pero esta vez modificando el contenido smuggled para que la segunda petición sea un GET /admin/delete?username=carlos. El cuerpo chunked incluía esa petición con todos los headers necesarios, engañando de nuevo al front-end que cortaba antes por Content-Length y dejando la petición de borrado lista para el back-end. El back-end la procesaba sin filtrar el path y eliminaba al usuario carlos.
+
+<figure><img src="../../.gitbook/assets/image (1592).png" alt=""><figcaption></figcaption></figure>
+
+## Lab: Exploiting HTTP request smuggling to reveal front-end request rewriting
+
+### Enunciado
+
+Este laboratorio involucra un servidor front-end y un servidor back-end, y el servidor front-end no admite codificación chunked.
+
+Hay un panel de administración en /admin, pero solo es accesible para personas con la dirección IP 127.0.0.1. El servidor front-end agrega un encabezado HTTP a las solicitudes entrantes que contiene su dirección IP. Es similar al encabezado X-Forwarded-For pero tiene un nombre diferente.
+
+Para resolver el laboratorio, haz un ataque de request smuggling hacia el servidor back-end que revele el nombre del encabezado que agrega el front-end. Luego, haz otro ataque de request smuggling que incluya ese encabezado, acceda al panel de administración y elimine al usuario carlos.
+
+> Aunque el laboratorio admite HTTP/2, la solución prevista requiere técnicas que solo son posibles en HTTP/1. Puedes cambiar manualmente de protocolo en Burp Repeater desde la sección de atributos de la solicitud en el panel Inspector.
+
+**Sugerencia**\
+Ajustar manualmente los campos de longitud en los ataques de request smuggling puede ser complicado. Nuestra extensión HTTP Request Smuggler para Burp fue diseñada para ayudar con esto. Puedes instalarla desde la BApp Store.
+
+### Resolución
+
+<figure><img src="../../.gitbook/assets/image (1593).png" alt=""><figcaption></figcaption></figure>
+
+Identificamos la cabecera que el front-end añade con la IP del cliente. Para lograrlo, enviamos un ataque de HTTP request smuggling usando TE.CL, donde la parte smuggled es un POST a la raíz (/) con un cuerpo controlado que incluía `search=test`. Al forzar al back-end a interpretar esta sección como una petición separada, conseguimos que la respuesta nos devolviera un buscador con el contenido del request parseado. Ahí vimos reflejada la cabecera `oabCwn-Ip` con nuestro valor de IP pública. Gracias a este comportamiento, pudimos deducir el nombre exacto del header que el front-end reescribe y usa para pasar la IP al back-end.
+
+<figure><img src="../../.gitbook/assets/image (1594).png" alt=""><figcaption></figcaption></figure>
+
+Modificamos el ataque smuggling para que la petición smuggled fuera un GET a `/admin`, e incluimos manualmente la cabecera `oabCwn-Ip: 127.0.0.1`. Esto engañó al back-end haciéndole creer que la solicitud provenía de localhost. Como resultado, en la respuesta vimos que se cargaba correctamente el panel de administración. De esta forma comprobamos que habíamos burlado el control de acceso basado en la IP del cliente.
+
+<figure><img src="../../.gitbook/assets/image (1595).png" alt=""><figcaption></figcaption></figure>
+
+Aquí enviamos otro ataque smuggling pero esta vez la petición smuggled fue un GET a `/admin/delete?username=carlos`, manteniendo la cabecera `oabCwn-Ip: 127.0.0.1`. Gracias a esto, el back-end procesó la eliminación del usuario Carlos como si la petición proviniera de localhost. En la respuesta obtuvimos un redireccionamiento 302 a `/admin`, confirmando que la eliminación se había realizado y que habíamos completado con éxito el objetivo del lab.
+
+<figure><img src="../../.gitbook/assets/image (1596).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (1597).png" alt=""><figcaption></figcaption></figure>
+
+## Lab: Exploiting HTTP request smuggling to capture other users' requests
+
+### Enunciado
+
+Este laboratorio involucra un servidor front-end y un servidor back-end, y el servidor front-end **no admite codificación chunked**.
+
+Para resolver el laboratorio, debes hacer un ataque de request smuggling al servidor back-end que provoque que la siguiente petición del usuario víctima se almacene en la aplicación. Luego, recupera la petición del usuario víctima y usa sus cookies para acceder a su cuenta.
+
+> Aunque el laboratorio admite HTTP/2, la solución prevista requiere técnicas que solo son posibles en HTTP/1. Puedes cambiar manualmente de protocolo en Burp Repeater desde la sección de atributos de la solicitud en el panel Inspector.\
+> El laboratorio simula la actividad de un usuario víctima. Cada cierto número de solicitudes POST que hagas al laboratorio, el usuario víctima realizará su propia solicitud. Es posible que necesites repetir tu ataque varias veces para asegurarte de que la solicitud del usuario víctima ocurra como se requiere.
+
+**Sugerencia**\
+Ajustar manualmente los campos de longitud en ataques de request smuggling puede ser complicado. Nuestra extensión **HTTP Request Smuggler** para Burp fue diseñada para ayudar con esto. Puedes instalarla desde la BApp Store.
+
+### Resolución
+
+Enviamos un POST normal a `/post/comment` para simular un comentario legítimo. El servidor nos devuelve un **302 Found** con la redirección a `/post/comment/confirmation`, confirmando que el comentario se ha procesado bien. Esto nos sirve para ver la estructura del request que luego vamos a querer capturar.
+
+<figure><img src="../../.gitbook/assets/image (1598).png" alt=""><figcaption></figcaption></figure>
+
+Construimos la petición smuggling en HTTP/1.1 usando Transfer-Encoding: chunked. La idea es inyectar dentro del cuerpo del request otro POST hacia `/post/comment`, para que se quede almacenado en el socket del backend y sea procesado cuando llegue la siguiente petición (del usuario víctima). Observamos el Content-Length elevado y el body con el POST incrustado. En la respuesta, vemos otro **302 Found** que nos confirma que la inyección llegó hasta el backend.
+
+<figure><img src="../../.gitbook/assets/image (1600).png" alt=""><figcaption></figcaption></figure>
+
+Volvemos a hacer el smuggling, pero ahora con otro comentario en el cuerpo inyectado. El servidor sigue aceptándolo. En estas repeticiones, ajustamos el contenido inyectado para perfeccionar la captura de la sesión del siguiente usuario que interactúe con la aplicación.
+
+<figure><img src="../../.gitbook/assets/image (1601).png" alt=""><figcaption></figcaption></figure>
+
+Vemos que finalmente logramos capturar la **request completa del usuario víctima**. El servidor nos responde **200 OK** y en el body podemos ver el request del otro usuario, incluyendo su cookie de sesión y otros headers. Este paso confirma que el ataque de request smuggling ha funcionado: hemos interceptado la petición del usuario víctima.
+
+<figure><img src="../../.gitbook/assets/image (1602).png" alt=""><figcaption></figcaption></figure>
+
+Cuando conseguimos capturar la cookie de sesión del usuario víctima a través del ataque de request smuggling, copiamos su valor y lo reemplazamos en nuestro navegador usando las herramientas de desarrollador (inspector). De esta forma, al actualizar la página, el servidor nos reconoce como el usuario víctima y logramos acceder a su cuenta.
+
+<figure><img src="../../.gitbook/assets/image (1603).png" alt=""><figcaption></figcaption></figure>
