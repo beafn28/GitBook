@@ -2,38 +2,19 @@
 
 ## Conceptos
 
-| Módulo                               | Prioridad   | Nota / Justificación                                                            |
-| ------------------------------------ | ----------- | ------------------------------------------------------------------------------- |
-| SQL injection                        | ✅ Sí        | Fundamental para el 15% de Injections.                                          |
-| Cross-site scripting                 | ⚠️ Opcional | No está explícito en el temario. Útil para recon y fuzzing pero no prioritario. |
-| Cross-site request forgery (CSRF)    | ⚠️ Opcional | No sale en el temario, bajo peso. Útil para metodología general.                |
-| Clickjacking                         | ❌ No        | Nada que ver con los objetivos del examen.                                      |
-| DOM-based vulnerabilities            | ⚠️ Opcional | Ayuda para fuzzing y recon, pero no es core.                                    |
-| Cross-origin resource sharing (CORS) | ⚠️ Opcional | Bueno para recon y comprensión, pero no core.                                   |
-| XML external entity (XXE) injection  | ✅ Sí        | Está en el temario (Server-Side Attacks, Filter Evasion).                       |
-| Server-side request forgery (SSRF)   | ✅ Sí        | Explicitamente en Server-Side Attacks y Filter Evasion.                         |
-| HTTP request smuggling               | ⚠️ Opcional | Útil para metodología avanzada, pero no listado en el temario.                  |
-| OS command injection                 | ✅ Sí        | Está en Server-Side Attacks e Injection Vulnerabilities.                        |
-| Server-side template injection       | ✅ Sí        | Directamente mapeado a Server-Side Attacks e Injection.                         |
-| Path traversal                       | ⚠️ Opcional | Ayuda para fuzzing / recon pero no mencionado directamente.                     |
-| Access control vulnerabilities       | ⚠️ Opcional | Útil para lógica de negocio y recon, pero no prioritario.                       |
-| Authentication                       | ✅ Sí        | Clave para Authentication Attacks y API Penetration Testing.                    |
-| WebSockets                           | ⚠️ Opcional | Interesante para recon, pero no listado en temario.                             |
-| Web cache poisoning                  | ❌ No        | No aplica para el temario dado.                                                 |
-| Insecure deserialization             | ✅ Sí        | Está en Server-Side Attacks explícitamente.                                     |
-| Information disclosure               | ⚠️ Opcional | Útil para Recon, pero no core.                                                  |
-| Business logic vulnerabilities       | ✅ Sí        | Imprescindible para API testing, recon y metodología.                           |
-| HTTP Host header attacks             | ⚠️ Opcional | No en temario directo pero vale para fuzzing y recon.                           |
-| OAuth authentication                 | ✅ Sí        | Clave en Authentication Attacks y API Pen Testing.                              |
-| File upload vulnerabilities          | ⚠️ Opcional | Puede ser útil para RCE/Injection pero no se destaca en el temario.             |
-| JWT                                  | ✅ Sí        | Específico en Authentication y API Penetration Testing.                         |
-| Essential skills                     | ✅ Sí        | Obligatorio para "Methodology" y el 10% dedicado a ello.                        |
-| Prototype pollution                  | ⚠️ Opcional | No aparece en el temario.                                                       |
-| GraphQL API vulnerabilities          | ✅ Sí        | Muy relevante para el 25% de API Pen Testing.                                   |
-| Race conditions                      | ⚠️ Opcional | Interesante para lógica de negocio pero no prioritario.                         |
-| NoSQL injection                      | ✅ Sí        | Directamente en Injection Vulnerabilities.                                      |
-| API testing                          | ✅ Sí        | El 25% del temario. Obligatorio.                                                |
-| Web LLM attacks                      | ❌ No        | No tiene nada que ver con el temario.                                           |
+<table><thead><tr><th>Módulo</th><th>Prioridad</th><th data-type="checkbox">Teoría</th><th data-type="checkbox">Práctica</th><th>Nota / Justificación</th></tr></thead><tbody><tr><td>SQL injection</td><td>✅ Sí</td><td>false</td><td>false</td><td>Fundamental para el 15% de Injections.</td></tr><tr><td>Cross-site scripting</td><td>⚠️ Opcional</td><td>false</td><td>false</td><td>No está explícito en el temario. Útil para recon y fuzzing pero no prioritario.</td></tr><tr><td>Cross-site request forgery (CSRF)</td><td>⚠️ Opcional</td><td>false</td><td>false</td><td>No sale en el temario, bajo peso. Útil para metodología general.</td></tr><tr><td>Clickjacking</td><td>❌ No</td><td>false</td><td>false</td><td>Nada que ver con los objetivos del examen.</td></tr><tr><td>DOM-based vulnerabilities</td><td>⚠️ Opcional</td><td>false</td><td>false</td><td>Ayuda para fuzzing y recon, pero no es core.</td></tr><tr><td>Cross-origin resource sharing (CORS)</td><td>⚠️ Opcional</td><td>false</td><td>false</td><td>Bueno para recon y comprensión, pero no core.</td></tr><tr><td>XML external entity (XXE) injection</td><td>✅ Sí</td><td>false</td><td>false</td><td>Está en el temario (Server-Side Attacks, Filter Evasion).</td></tr><tr><td>Server-side request forgery (SSRF)</td><td>✅ Sí</td><td>false</td><td>false</td><td>Explicitamente en Server-Side Attacks y Filter Evasion.</td></tr><tr><td>HTTP request smuggling</td><td>⚠️ Opcional</td><td>false</td><td>false</td><td>Útil para metodología avanzada, pero no listado en el temario.</td></tr><tr><td>OS command injection</td><td>✅ Sí</td><td>false</td><td>false</td><td>Está en Server-Side Attacks e Injection Vulnerabilities.</td></tr><tr><td>Server-side template injection</td><td>✅ Sí</td><td>false</td><td>false</td><td>Directamente mapeado a Server-Side Attacks e Injection.</td></tr><tr><td>Path traversal</td><td>⚠️ Opcional</td><td>false</td><td>false</td><td>Ayuda para fuzzing / recon pero no mencionado directamente.</td></tr><tr><td>Access control vulnerabilities</td><td>⚠️ Opcional</td><td>false</td><td>false</td><td>Útil para lógica de negocio y recon, pero no prioritario.</td></tr><tr><td>Authentication</td><td>✅ Sí</td><td>false</td><td>false</td><td>Clave para Authentication Attacks y API Penetration Testing.</td></tr><tr><td>WebSockets</td><td>⚠️ Opcional</td><td>false</td><td>false</td><td>Interesante para recon, pero no listado en temario.</td></tr><tr><td>Web cache poisoning</td><td>❌ No</td><td>false</td><td>false</td><td>No aplica para el temario dado.</td></tr><tr><td>Insecure deserialization</td><td>✅ Sí</td><td>false</td><td>false</td><td>Está en Server-Side Attacks explícitamente.</td></tr><tr><td>Information disclosure</td><td>⚠️ Opcional</td><td>false</td><td>false</td><td>Útil para Recon, pero no core.</td></tr><tr><td>Business logic vulnerabilities</td><td>✅ Sí</td><td>false</td><td>false</td><td>Imprescindible para API testing, recon y metodología.</td></tr><tr><td>HTTP Host header attacks</td><td>⚠️ Opcional</td><td>false</td><td>false</td><td>No en temario directo pero vale para fuzzing y recon.</td></tr><tr><td>OAuth authentication</td><td>✅ Sí</td><td>false</td><td>false</td><td>Clave en Authentication Attacks y API Pen Testing.</td></tr><tr><td>File upload vulnerabilities</td><td>⚠️ Opcional</td><td>false</td><td>false</td><td>Puede ser útil para RCE/Injection pero no se destaca en el temario.</td></tr><tr><td>JWT</td><td>✅ Sí</td><td>false</td><td>false</td><td>Específico en Authentication y API Penetration Testing.</td></tr><tr><td>Essential skills</td><td>✅ Sí</td><td>false</td><td>false</td><td>Obligatorio para "Methodology" y el 10% dedicado a ello.</td></tr><tr><td>Prototype pollution</td><td>⚠️ Opcional</td><td>false</td><td>false</td><td>No aparece en el temario.</td></tr><tr><td>GraphQL API vulnerabilities</td><td>✅ Sí</td><td>false</td><td>false</td><td>Muy relevante para el 25% de API Pen Testing.</td></tr><tr><td>Race conditions</td><td>⚠️ Opcional</td><td>false</td><td>false</td><td>Interesante para lógica de negocio pero no prioritario.</td></tr><tr><td>NoSQL injection</td><td>✅ Sí</td><td>false</td><td>false</td><td>Directamente en Injection Vulnerabilities.</td></tr><tr><td>API testing</td><td>✅ Sí</td><td>false</td><td>false</td><td>El 25% del temario. Obligatorio.</td></tr><tr><td>Web LLM attacks</td><td>❌ No</td><td>false</td><td>false</td><td>No tiene nada que ver con el temario.</td></tr></tbody></table>
+
+### Módulos HTB
+
+* [ ] API Attacks
+* [ ] Web Service & API Attacks
+* [ ] Attacking GraphQL
+* [ ] Attacking Authentication Mechanisms
+* [ ] SQL Injection Fundamentals
+* [ ] SQLMap Essentials
+* [ ] Introduction to NoSQL Injection
+* [ ] Advanced SQL Injections
+* [ ] Blind SQL Injection
 
 ## Recursos
 
