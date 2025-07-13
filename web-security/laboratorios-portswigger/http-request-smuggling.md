@@ -223,9 +223,9 @@ Esta petición secuestrada queda encolada en el servidor, de forma que cuando la
 
 La respuesta del servidor muestra un **200 OK** con contenido HTML que incluye nuestro payload de XSS, confirmando que la inyección fue exitosa. En este escenario el atacante logra ejecutar `alert(1)` en el navegador de la víctima al aprovechar la confianza del back-end en la cabecera `User-Agent` y el mal manejo de la separación de peticiones entre el front-end y el back-end.
 
-<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Lab: Response queue poisoning via H2.TE request smuggling
 
@@ -241,15 +241,15 @@ La conexión con el servidor back-end se reinicia cada 10 solicitudes, así que 
 
 Empezamos construyendo un ataque de _request smuggling_ usando H2.TE. En la primera petición de la captura se ve que enviamos un `POST` en HTTP/2 con los encabezados `Transfer-Encoding: chunked` y `Content-Length: 84`. El objetivo aquí es crear una ambigüedad para que el front-end (que acepta HTTP/2) degrade la petición al back-end en HTTP/1.1 pero trate el cuerpo como chunked, mientras que el back-end usa el `Content-Length`. Con esto logramos desincronizar la interpretación de los límites del cuerpo entre los servidores. El resultado fue exitoso: en la primera respuesta se muestra un `200 OK` que incluye en los headers una cookie de sesión de un usuario administrador. Esa cookie aparece en la cabecera `Set-Cookie`, y la capturamos para usarla más adelante.&#x20;
 
-<figure><img src="../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Repetimos el mismo ataque de smuggling para aprovechar la sesión del administrador. Esta vez, tras enviar la petición manipulada, recibimos un `302 Found` que nos redirige a `/my-account?id=administrator`, confirmando que la sesión interceptada es válida y pertenece al admin.
 
-<figure><img src="../../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Copiamos la cookie de administrador y la pegamos en nuestra sesión del navegador o en el cliente HTTP. Así, al acceder al panel de administración, eliminamos al usuario carlos con éxito.
 
-<figure><img src="../../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Lab: H2.CL request smuggling
 
@@ -283,17 +283,17 @@ Si no estás familiarizado con las funciones exclusivas de Burp para pruebas con
 
 Vemos un intento fallido donde enviamos en la petición una cabecera `Test`, pero el servidor respondió con error 404.
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
 
 Aprovechamos el _kettling_ para introducir un salto de línea literal (`\n`) dentro del valor de la cabecera, convirtiéndolo al ser downgraded a HTTP/1 en un separador válido de cabeceras. Así logramos inyectar `Transfer-Encoding: chunked` en la parte de las cabeceras del back-end, activando un _TE.CL desync_. En esta petición el servidor aceptó la carga y devolvió código 200 OK junto con el contenido HTML del perfil de la víctima, confirmando que la sesión del usuario Carlos había sido secuestrada.
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 Logramos acceder como el usuario usando su cookie.
 
-<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Lab: HTTP/2 request splitting via CRLF injection
 
@@ -309,11 +309,11 @@ La conexión con el servidor back-end se reinicia cada 10 solicitudes, así que 
 
 Enviamos un encabezado personalizado llamado `Test`El servidor devuelve un error 404 "Not Found", lo que confirma que el backend interpreta nuestra inyección como una petición independiente.
 
-<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 Ajustamos las cabeceras. El servidor devuelve un 302 de redirección, lo que indica que se procesó correctamente.
 
-<figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
 
 Con la cookie logramos acceder al panel de admin.
 
@@ -350,3 +350,79 @@ Luego, cambiamos la ruta inyectada de `/prueba` a `/admin` en el smuggling, para
 <figure><img src="../../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../.gitbook/assets/image (1604).png" alt=""><figcaption></figcaption></figure>
+
+## Lab: HTTP request smuggling, basic CL.TE vulnerability
+
+### Enunciado
+
+Este laboratorio involucra un servidor front-end y un servidor back-end, y el servidor front-end no admite codificación chunked. El servidor front-end rechaza las solicitudes que no usen el método GET o POST.
+
+Para resolver el laboratorio, haz un ataque de request smuggling para que la siguiente solicitud procesada por el servidor back-end parezca usar el método **GPOST**.
+
+> Aunque el laboratorio admite HTTP/2, la solución prevista requiere técnicas que solo son posibles en HTTP/1. Puedes cambiar el protocolo manualmente en Burp Repeater desde la sección de atributos de la solicitud en el panel Inspector.
+
+**Sugerencia**\
+Ajustar manualmente los campos de longitud en ataques de request smuggling puede ser complicado. Nuestra extensión HTTP Request Smuggler para Burp está diseñada para ayudar. Puedes instalarla desde la BApp Store.
+
+### Resolución
+
+El objetivo del lab era hacer que el back-end interpretara una solicitud con un método no permitido (en este caso **GPOST**), pero sin que el front-end la bloqueara antes. El front-end solo permitía métodos GET y POST, así que diseñamos un ataque para que la segunda petición, que empieza con **GPOST**, se “colara” al back-end.
+
+Para lograrlo:
+
+1. Enviamos una petición **POST** con `Transfer-Encoding: chunked` al front-end.
+2. Definimos un **Content-Length** engañoso para delimitar dónde termina el cuerpo de la petición real.
+3.  Insertamos el inicio de la siguiente petición en el cuerpo chunked:
+
+    ```
+    GPOST / HTTP/1.1
+    Origin:
+    ```
+
+    De este modo, el front-end procesó la primera parte (el POST válido) y pasó lo restante al back-end como una petición separada.
+
+El resultado fue que el back-end recibió y procesó **GPOST / HTTP/1.1**, que el front-end nunca habría aceptado directamente. Esto confirmó la vulnerabilidad CL.TE.
+
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+## Lab: HTTP request smuggling, basic TE.CL vulnerability
+
+### Enunciado
+
+Este laboratorio involucra un servidor front-end y un servidor back-end, y el servidor back-end **no admite codificación chunked**. El servidor front-end rechaza las solicitudes que no usen el método **GET** o **POST**.
+
+Para resolver el laboratorio, debes hacer **smuggling** de una solicitud hacia el servidor back-end, de forma que la siguiente solicitud procesada por el back-end parezca usar el método **GPOST**.
+
+> Aunque el laboratorio admite HTTP/2, la solución prevista requiere técnicas que solo son posibles en **HTTP/1**. Puedes cambiar manualmente de protocolo en Burp Repeater desde la sección **Request attributes** del panel **Inspector**.
+
+**Sugerencia**\
+Ajustar manualmente los campos de longitud en ataques de request smuggling puede ser complicado. Nuestra extensión **HTTP Request Smuggler** para Burp está diseñada para ayudar. Puedes instalarla desde la **BApp Store**.
+
+### Resolución
+
+En este laboratorio el objetivo era explotar un caso de request smuggling usando TE.CL para enviar un método no permitido al back-end específicamente GPOST la aplicación del lado del front-end no soporta codificación chunked y solo acepta métodos GET o POST para evadir esta restricción construimos una petición con Transfer-Encoding chunked y un Content-Length inconsistente de modo que el front-end interpreta solo la parte chunked y considera terminada la petición mientras que el back-end lee el resto como si fuera una segunda petición con el método GPOST al enviar este payload logramos que el front-end descarte el método GPOST pero que el back-end lo lea y responda con un error diciendo que el método no está reconocido confirmando así la vulnerabilidad de request smuggling en la forma básica TE.CL.
+
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
+## Lab: HTTP request smuggling, obfuscating the TE header
+
+### Enunciado
+
+Este laboratorio involucra un servidor front-end y un servidor back-end, y ambos manejan de forma diferente los encabezados HTTP duplicados. El servidor front-end rechaza las peticiones que no usen los métodos GET o POST.
+
+Para resolver el laboratorio, debes hacer un ataque de request smuggling para que la siguiente petición procesada por el servidor back-end parezca usar el método GPOST.
+
+> Aunque el laboratorio admite HTTP/2, la solución prevista requiere técnicas que solo son posibles en HTTP/1. Puedes cambiar manualmente el protocolo en Burp Repeater desde la sección de atributos de la solicitud en el panel Inspector.
+
+**Sugerencia**\
+Ajustar manualmente los campos de longitud en los ataques de request smuggling puede ser complicado. Nuestra extensión HTTP Request Smuggler para Burp fue diseñada para ayudar. Puedes instalarla desde la BApp Store.
+
+### Resolución
+
+Aprovechamos una diferencia en cómo el front-end y el back-end manejan encabezados duplicados enviamos dos cabeceras Transfer-Encoding una válida con chunked y otra con un valor inválido el front-end ve la inválida y descarta chunked dejando pasar la petición mientras el back-end procesa la válida como chunked con esto inyectamos un request smuggling que introduce un método GPOST en la cola del back-end consiguiendo que el servidor trate la siguiente petición como GPOST y resolviendo el laboratorio
+
+<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
