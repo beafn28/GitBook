@@ -12,7 +12,7 @@ Sabemos que las pruebas de penetración, y por lo tanto la enumeración, son pro
 * Enumeración basada en host
 * Enumeración basada en sistema operativo
 
-<figure><img src="../../.gitbook/assets/image (6) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (6) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 > **Nota**: Los componentes de cada capa mostrada representan las principales categorías y no una lista completa de todos los componentes a buscar. Además, es importante mencionar que las dos primeras capas (Presencia en Internet y Gateway) no se aplican totalmente al entorno de una intranet, como una infraestructura de Active Directory. Las capas para la infraestructura interna se cubrirán en otros módulos.
 
@@ -31,7 +31,7 @@ Sabemos que las pruebas de penetración, y por lo tanto la enumeración, son pro
 
 Imaginemos que todo el proceso de pruebas de penetración es un laberinto donde tenemos que identificar los huecos y encontrar el camino para ingresar de manera rápida y efectiva. Este tipo de laberinto podría verse como sigue:
 
-<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) ( (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) ( (6).png" alt=""><figcaption></figcaption></figure>
 
 > Los cuadrados representan los huecos o vulnerabilidades.
 
