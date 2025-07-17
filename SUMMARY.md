@@ -372,3 +372,7 @@
 ## PREPARAR CRTA
 
 * [1- Introducción a Red Team](preparar-crta/1-introduccion-a-red-team.md)
+
+## Notas&#x20;
+
+* [Active Directory](notas/active-directory.md)

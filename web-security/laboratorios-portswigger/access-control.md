@@ -10,7 +10,7 @@ Este laboratorio tiene un panel de administración sin protección. Resuelve el 
 
 Como primer paso vemos el **robots.txt** y nos dice donde se encuentra el panel de administración.
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Entramos en el directorio y ya podemos eliminar al usuario.
 
@@ -190,9 +190,9 @@ Para resolver el laboratorio, accede al panel de administración y elimina al us
 
 Para explotar esta vulnerabilidad de control de acceso basado en URL, identificamos que el servidor back-end respeta la cabecera `X-Original-URL`, incluso cuando el front-end bloquea el acceso directo a `/admin`. En el ataque, se envió una solicitud con la cabecera `X-Original-URL: /admin` para acceder al panel de administración que normalmente estaba bloqueado externamente. Luego, para eliminar al usuario `carlos`, se usó `X-Original-URL: /admin/delete?username=carlos`, logrando así ejecutar la acción privilegiada burlando la validación del front-end.
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
-
 <figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
