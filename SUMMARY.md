@@ -368,3 +368,7 @@
 ## PREPARAR EWPTXV3
 
 * [Organización](preparar-ewptxv3/organizacion.md)
+
+## PREPARAR CRTA
+
+* [1- Introducción a Red Team](preparar-crta/1-introduccion-a-red-team.md)
