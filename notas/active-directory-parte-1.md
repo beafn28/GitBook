@@ -1,6 +1,4 @@
-# Untitled
-
-## Active Directory Parte 1
+# Active Directory Parte 1
 
 ## Diagrama de Flujo del Ataque
 
