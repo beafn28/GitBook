@@ -151,6 +151,8 @@
   * [Admin](writeups/vulnyx/admin.md)
   * [War](writeups/vulnyx/war.md)
   * [Hosting](writeups/vulnyx/hosting.md)
+  * [Change](writeups/vulnyx/change.md)
+  * [Controler](writeups/vulnyx/controler.md)
 * [OverTheWire](writeups/overthewire/README.md)
   * [Natas](writeups/overthewire/natas/README.md)
     * [Nivel 0-5](writeups/overthewire/natas/nivel-0-5.md)
