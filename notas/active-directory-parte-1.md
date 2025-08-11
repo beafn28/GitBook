@@ -237,7 +237,7 @@ Unconstrained Delegation:
 
 * Usar Mimikatz (`sekurlsa::tickets`) para extraer TGT.
 
-#### Fase 11: Abuso de ACLs
+### Fase 11: Abuso de ACLs
 
 Añadir miembro a grupo:
 

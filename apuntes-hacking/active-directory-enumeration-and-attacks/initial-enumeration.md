@@ -112,7 +112,7 @@ filetype:pdf inurl:inlanefreight.com
 Resultado:
 
 * Documento: _corporate goals and strategy_.
-* ⚠️ Guardar localmente para análisis → buscar metadatos, nombres de usuarios, referencias a infraestructura interna.
+* Guardar localmente para análisis → buscar metadatos, nombres de usuarios, referencias a infraestructura interna.
 
 ### Hunting for Email Addresses
 
