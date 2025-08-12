@@ -380,3 +380,7 @@
 
 * [Active Directory Parte 2](notas/active-directory-parte-2.md)
 * [Active Directory Parte 1](notas/active-directory-parte-1.md)
+
+## PREPARAR CBBH
+
+* [Web Requests](preparar-cbbh/web-requests.md)
