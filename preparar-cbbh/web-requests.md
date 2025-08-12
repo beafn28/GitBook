@@ -291,3 +291,82 @@ http://94.237.54.192:58065/search.php
 
 ### CRUD API
 
+* **CRUD**: Create (POST), Read (GET), Update (PUT), Delete (DELETE) sobre entidades de base de datos.
+* Muchas APIs permiten especificar tabla y fila directamente en la URL (`/api.php/city/london`).
+* Respuestas suelen ir en **JSON**.
+* Autenticación puede requerir cookies o cabeceras (Authorization, JWT, etc.).
+
+#### Operaciones CRUD
+
+**Read (GET)**
+
+```
+curl http://<IP>:<PORT>/api.php/city/london
+curl -s http://<IP>:<PORT>/api.php/city/london | jq
+```
+
+* `-s` para salida silenciosa
+* `| jq` para formatear JSON
+
+Obtener coincidencias o todos los registros:
+
+```
+curl -s http://<IP>:<PORT>/api.php/city/le | jq
+curl -s http://<IP>:<PORT>/api.php/city/ | jq
+```
+
+**Create (POST)**
+
+```
+curl -X POST http://<IP>:<PORT>/api.php/city/ \
+-d '{"city_name":"HTB_City", "country_name":"HTB"}' \
+-H 'Content-Type: application/json'
+```
+
+Verificar creación:
+
+```
+curl -s http://<IP>:<PORT>/api.php/city/HTB_City | jq
+```
+
+**Update (PUT)**
+
+```
+curl -X PUT http://<IP>:<PORT>/api.php/city/london \
+-d '{"city_name":"New_HTB_City", "country_name":"HTB"}' \
+-H 'Content-Type: application/json'
+```
+
+Verificar cambio:
+
+```
+curl -s http://<IP>:<PORT>/api.php/city/New_HTB_City | jq
+```
+
+**Delete (DELETE)**
+
+```
+curl -X DELETE http://<IP>:<PORT>/api.php/city/New_HTB_City
+```
+
+Confirmar borrado:
+
+```
+curl -s http://<IP>:<PORT>/api.php/city/New_HTB_City | jq
+```
+
+#### Preguntas
+
+First, try to update any city's name to be 'flag'. Then, delete any city. Once done, search for a city named 'flag' to get the flag.
+
+```
+curl -s http://http://94.237.60.55:56227/api.php/city/ | jq
+
+curl -X PUT http://94.237.60.55:56227/api.php/city/london \
+-d '{"city_name":"flag", "country_name":"(UK)"}' \
+-H 'Content-Type: application/json'
+
+curl -X DELETE http://94.237.60.55:56227/api.php/city/Liverpool
+
+curl -s http://http://94.237.60.55:56227/api.php/city/flag
+```
