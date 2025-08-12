@@ -384,3 +384,7 @@
 ## PREPARAR CBBH
 
 * [Web Requests](preparar-cbbh/web-requests.md)
+
+## CVE
+
+* [Brute Force Login Vulnerability in Soosyze CMS 2.0 (CVE-2025-52392)](cve/brute-force-login-vulnerability-in-soosyze-cms-2.0-cve-2025-52392.md)
