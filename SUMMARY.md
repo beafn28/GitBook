@@ -384,6 +384,7 @@
 ## PREPARAR CBBH
 
 * [Web Requests](preparar-cbbh/web-requests.md)
+* [Introduction to Web Applications](preparar-cbbh/introduction-to-web-applications.md)
 
 ## CVE
 
