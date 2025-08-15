@@ -36,7 +36,7 @@ cat /flag.txt
 
 <figure><img src="../.gitbook/assets/image (1684).png" alt=""><figcaption></figcaption></figure>
 
-## Encoding/Decoding
+### Encoding/Decoding
 
 #### Preguntas
 
@@ -46,7 +46,7 @@ Decoficamos 4 veces por base64 y una por URL.
 
 <figure><img src="../.gitbook/assets/image (1685).png" alt=""><figcaption></figcaption></figure>
 
-## Proxying Tools
+### Proxying Tools
 
 Interceptar y analizar el tráfico HTTP/HTTPS de herramientas de línea de comando o aplicaciones usando un proxy web como **Burp Suite** o **OWASP ZAP**.
 
@@ -98,3 +98,44 @@ El uso de proxy puede **ralentizar** las herramientas, por lo que se recomienda 
 </code></pre>
 
 Interceptando con Burp, la respuesta es: msf test file.
+
+## Web Fuzzer
+
+### Burp Intruder
+
+#### Preguntas
+
+**Use Burp Intruder to fuzz for '.html' files under the /admin directory, to find a file containing the flag.**
+
+Configuramos en el **Intruder** el ataque con el diccionario **common.txt** de **SecLists**.
+
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+Empezamos ataque.
+
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+```
+ curl http://94.237.60.55:33802/admin/2010.html
+```
+
+<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
+### ZAP Fuzzer
+
+#### Preguntas
+
+**The directory we found above sets the cookie to the md5 hash of the username, as we can see the md5 cookie in the request for the (guest) user. Visit '/skills/' to get a request with a cookie, then try to use ZAP Fuzzer to fuzz the cookie for different md5 hashed usernames to get the flag. Use the "top-usernames-shortlist.txt" wordlist from Seclists.**
+
+Interceptamos la petición.
+
+<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+
+Decodificamos la cookie.
+
+<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+
+Realizamos el Fuzzing con los usuarios hasheados.
+
+<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+
