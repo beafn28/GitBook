@@ -385,6 +385,7 @@
 
 * [Web Requests](preparar-cbbh/web-requests.md)
 * [Introduction to Web Applications](preparar-cbbh/introduction-to-web-applications.md)
+* [Using Web Proxies](preparar-cbbh/using-web-proxies.md)
 
 ## CVE
 
