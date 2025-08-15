@@ -15,7 +15,7 @@ Nos logueamos. Mandamos al **Repeater** la petición y vemos que después de **/
 
 <figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Si mandamos otra vez ahora nos sale **hit** en **X-Cache**. Esto significa que la URL se ha quedado en la caché.
 

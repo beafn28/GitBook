@@ -18,7 +18,7 @@ Al ser vulnerable realizamos la inyección típica en SQL pero en NoSQL.
 category=Gifts%27%20||1||%27
 ```
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Lab: Exploiting NoSQL operator injection to bypass authentication
 

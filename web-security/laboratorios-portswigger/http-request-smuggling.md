@@ -223,7 +223,7 @@ Esta petición secuestrada queda encolada en el servidor, de forma que cuando la
 
 La respuesta del servidor muestra un **200 OK** con contenido HTML que incluye nuestro payload de XSS, confirmando que la inyección fue exitosa. En este escenario el atacante logra ejecutar `alert(1)` en el navegador de la víctima al aprovechar la confianza del back-end en la cabecera `User-Agent` y el mal manejo de la separación de peticiones entre el front-end y el back-end.
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
@@ -287,7 +287,7 @@ Vemos un intento fallido donde enviamos en la petición una cabecera `Test`, per
 
 Aprovechamos el _kettling_ para introducir un salto de línea literal (`\n`) dentro del valor de la cabecera, convirtiéndolo al ser downgraded a HTTP/1 en un separador válido de cabeceras. Así logramos inyectar `Transfer-Encoding: chunked` en la parte de las cabeceras del back-end, activando un _TE.CL desync_. En esta petición el servidor aceptó la carga y devolvió código 200 OK junto con el contenido HTML del perfil de la víctima, confirmando que la sesión del usuario Carlos había sido secuestrada.
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
@@ -402,7 +402,7 @@ Ajustar manualmente los campos de longitud en ataques de request smuggling puede
 
 En este laboratorio el objetivo era explotar un caso de request smuggling usando TE.CL para enviar un método no permitido al back-end específicamente GPOST la aplicación del lado del front-end no soporta codificación chunked y solo acepta métodos GET o POST para evadir esta restricción construimos una petición con Transfer-Encoding chunked y un Content-Length inconsistente de modo que el front-end interpreta solo la parte chunked y considera terminada la petición mientras que el back-end lee el resto como si fuera una segunda petición con el método GPOST al enviar este payload logramos que el front-end descarte el método GPOST pero que el back-end lo lea y responda con un error diciendo que el método no está reconocido confirmando así la vulnerabilidad de request smuggling en la forma básica TE.CL.
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
