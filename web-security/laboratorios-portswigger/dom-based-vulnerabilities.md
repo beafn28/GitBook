@@ -35,7 +35,7 @@ Pero para **resolver el laboratorio**, usaremos el payload que dispara **print()
 </iframe>
 ```
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Lab: DOM XSS using web messages and a JavaScript URL
 
@@ -47,7 +47,7 @@ Este laboratorio demuestra una vulnerabilidad de redirección basada en el DOM q
 
 Vemos el código fuente.&#x20;
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 En este caso, **el procesamiento del web message es vulnerable a XSS basado en DOM**, porque **el event listener no valida correctamente el origen de los mensajes recibidos ni las propiedades y funciones que usa.**
 
@@ -63,7 +63,7 @@ Además, **identificamos un&#x20;**_**sink**_**&#x20;peligroso** `location.href`
 </html>
 ```
 
-<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Lab: DOM XSS using web messages and `JSON.parse`
 
@@ -75,7 +75,7 @@ Este laboratorio utiliza web messaging y analiza el mensaje como JSON. Crea una 
 
 Vemos el código fuente.
 
-<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 En este caso, **hay un event listener que recibe mensajes web y los interpreta como datos JSON usando `JSON.parse`**. El problema es que **el listener no valida correctamente el origen del mensaje**, por lo que acepta cualquier entrada.
 
