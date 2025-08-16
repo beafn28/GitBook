@@ -33,7 +33,7 @@ text-align: left;
 
 Al ver el código fuente nos encontramos las credenciales.
 
-<figure><img src="../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (6) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### Preguntas (HTML Injection)
 
