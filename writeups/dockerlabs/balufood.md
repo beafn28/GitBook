@@ -26,7 +26,7 @@ nmap -sVC -p- -n --min-rate 5000 172.17.0.2
 
 para realizar un escaneo de puertos y servicios detallado en la dirección IP.
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Como podemos observar durante el escaneo, el **puerto 22** correspondiente al servicio **SSH** y el **puerto 5000**, comúnmente utilizado por **aplicaciones web en desarrollo**, se encuentran abiertos, por lo que a continuación se indagará más sobre ambos servicios, intentando establecer una conexión remota vía SSH y acceder mediante el navegador al servicio web en el puerto 5000 para identificar posibles vectores de ataque.
 

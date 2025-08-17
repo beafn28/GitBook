@@ -17,7 +17,7 @@ Puedes iniciar sesión en tu propia cuenta con estas credenciales:
 
 Nos logueamos. Interceptamos la petición de cambiar el email para mandarla al **Repeater**.
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Es el único parámetro que se envía. Vamos al **exploit server** y ahí creamos la plantilla HTML maliciosa.
 
@@ -572,7 +572,7 @@ Normalmente, **las cookies con Lax no se envían en solicitudes POST de sitios c
 
 Esto significa que hay **un margen de dos minutos** en el que el usuario **puede quedar expuesto a ataques cross-site**.
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Como puedes ver, **el formulario no tiene un parámetro de token CSRF**, que normalmente ayudaría a prevenir ataques CSRF.
 
