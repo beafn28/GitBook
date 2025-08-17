@@ -387,6 +387,7 @@
 * [Introduction to Web Applications](preparar-cbbh/introduction-to-web-applications.md)
 * [Using Web Proxies](preparar-cbbh/using-web-proxies.md)
 * [Introduction Gathering - Web Edition](preparar-cbbh/introduction-gathering-web-edition.md)
+* [Attacking Web Applications with FFUZ](preparar-cbbh/attacking-web-applications-with-ffuz.md)
 
 ## CVE
 

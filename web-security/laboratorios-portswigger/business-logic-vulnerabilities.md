@@ -17,11 +17,11 @@ Nos logueamos y claro no tenemos dinero para comprar esa chaqueta. Vamos a compr
 
 Comprobamos mandando la petición al **Repeater** que cada vez que enviamos aumenta la cantidad de chaquetas y por lo tanto de precio. Volvamos a borrar el carrito para cambiar el precio.
 
-<figure><img src="../../.gitbook/assets/image (17) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (17) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 No nos da error sino que redirige como antes por lo que al actualizar la página vemos que ha cambiado precio.
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Por lo que ahora ya podemos comprar la chaqueta.
 
