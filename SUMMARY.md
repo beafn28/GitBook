@@ -389,6 +389,7 @@
 * [Introduction Gathering - Web Edition](preparar-cbbh/introduction-gathering-web-edition.md)
 * [Attacking Web Applications with FFUZ](preparar-cbbh/attacking-web-applications-with-ffuz.md)
 * [JavaScript Deobfuscation](preparar-cbbh/javascript-deobfuscation.md)
+* [Cross-Site-Scripting (XSS)](preparar-cbbh/cross-site-scripting-xss.md)
 
 ## CVE
 
