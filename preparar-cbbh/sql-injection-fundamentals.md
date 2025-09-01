@@ -14,7 +14,7 @@
 mysql --skip-ssl -h 94.237.50.221 -P 33445 -u root -p
 ```
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 ### SQL Statements
 
@@ -27,7 +27,7 @@ show TABLES;
 select * from departments;
 ```
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Query Results
 
@@ -307,3 +307,25 @@ Buscamos entonces dónde se encuentra la flag.
 Mostramos contenido.
 
 <figure><img src="../.gitbook/assets/image (1707).png" alt=""><figcaption></figcaption></figure>
+
+## Skills Assessment
+
+Assess the web application and use a variety of techniques to gain remote code execution and find a flag in the / root directory of the file system. Submit the contents of the flag as your answer.
+
+Nos encontramos un panel de login y lo bypasseamos con una inyección básica.
+
+```
+' OR 1=1 LIMIT 1-- -'
+```
+
+Estamos dentro.
+
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+Vamos a ver cuántas columnas tiene.
+
+```
+'UNION+SELECT+1,2,3,4,5--+-
+```
+
+<figure><img src="../.gitbook/assets/image (1708).png" alt=""><figcaption></figcaption></figure>

@@ -159,7 +159,7 @@ dirb http://94.237.60.55:35284/ /usr/share/dirb/wordlists/common.txt
 
 Nos llama la atención el directorio `/devtools` por lo que lo buscamos.
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 Este archivo suponemos que realiza alguna inyección de comandos con el parámetro `ip` pero vamos a comprobarlo buscando la **flag**.
 
