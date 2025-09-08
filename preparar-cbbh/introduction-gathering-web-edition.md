@@ -272,18 +272,18 @@ Entramos en el **robots.txt**.
 curl http://web1337.inlanefreight.htb:30494/robots.txt
 ```
 
-<figure><img src="../.gitbook/assets/image (9) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (9) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ```
 curl http://web1337.inlanefreight.htb:30494/admin_h1dd3n -I
 curl  http://web1337.inlanefreight.htb:30494/admin_h1dd3n/
 ```
 
-<figure><img src="../.gitbook/assets/image (10) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (10) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Vemos el contenido.
 
-<figure><img src="../.gitbook/assets/image (11) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (11) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 **After crawling the inlanefreight.htb domain on the target system, what is the email address you have found? Respond with the full email, e.g., mail@inlanefreight.htb.**
 
@@ -298,7 +298,7 @@ ffuf -u http://web1337.inlanefreight.htb:30494 -w /usr/share/seclists/Discovery/
  -t 60 -H "Host: FUZZ.web1337.inlanefreight.htb" -ac
 ```
 
-<figure><img src="../.gitbook/assets/image (12) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (12) (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 Lo añadimos al `/etc/hosts`.
 

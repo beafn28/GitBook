@@ -181,7 +181,7 @@ Vemos el contenido.
 curl -s -X POST      -H "Host: admin.academy.htb"      -d "id=73"      http://94.237.57.115:35006/admin/admin.php
 ```
 
-<figure><img src="../.gitbook/assets/image (9) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (9) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Skills Assessment
 
@@ -197,7 +197,7 @@ curl -s -X POST      -H "Host: admin.academy.htb"      -d "id=73"      http://94
      -ac -ic -r
 ```
 
-<figure><img src="../.gitbook/assets/image (10) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (10) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 **Before you run your page fuzzing scan, you should first run an extension fuzzing scan. What are the different extensions accepted by the domains?**
 
@@ -217,7 +217,7 @@ ffuf -w "$WORDLIST":FUZZ -u http://test.academy.htb:35855/indexFUZZ    -ic -ac -
 ffuf -w "$WORDLIST":FUZZ -u http://faculty.academy.htb:35855/indexFUZZ -ic -ac -mc 200,403
 ```
 
-<figure><img src="../.gitbook/assets/image (11) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (11) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 **One of the pages you will identify should say 'You don't have access!'. What is the full page URL?**
 
@@ -243,7 +243,7 @@ Vemos todo hasta encontrar ese mensaje.
 curl http://faculty.academy.htb:35855/courses/linux-security.php7
 ```
 
-<figure><img src="../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (12) (1).png" alt=""><figcaption></figcaption></figure>
 
 **In the page from the previous question, you should be able to find multiple parameters that are accepted by the page. What are they?**
 

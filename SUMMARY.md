@@ -390,7 +390,8 @@
 * [Attacking Web Applications with FFUZ](preparar-cbbh/attacking-web-applications-with-ffuz.md)
 * [JavaScript Deobfuscation](preparar-cbbh/javascript-deobfuscation.md)
 * [Cross-Site-Scripting (XSS)](preparar-cbbh/cross-site-scripting-xss.md)
-* [SQL Injection Fundamentals](preparar-cbbh/sql-injection-fundamentals.md)
+* [SQL Injection Fundamentalsf](preparar-cbbh/sql-injection-fundamentalsf.md)
+* [SQLMap Essentials](preparar-cbbh/sqlmap-essentials.md)
 
 ## CVE
 

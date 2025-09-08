@@ -220,9 +220,9 @@ Decodificamos sabiendo el tipo.
 
 Creamos un ataque con el Intruder adjuntando los payloads correctos que nos encontramos antes.
 
-<figure><img src="../.gitbook/assets/image (9) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (9) (1) (1) (1) (2).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (10) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (10) (1) (1) (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 **You are using the 'auxiliary/scanner/http/coldfusion\_locale\_traversal' tool within Metasploit, but it is not working properly for you. You decide to capture the request sent by Metasploit so you can manually verify it and repeat it. Once you capture the request, what is the 'XXXXX' directory being called in '/XXXXX/administrator/..'?**
 
@@ -235,4 +235,4 @@ msf6 >set PROXIES HTTP:127.0.0.1:8080
 msf6 >exploit
 ```
 
-<figure><img src="../.gitbook/assets/image (11) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (11) (1) (1) (1) (2).png" alt=""><figcaption></figcaption></figure>
