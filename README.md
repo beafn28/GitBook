@@ -16,7 +16,7 @@ En este espacio, subo **writeups** de distintas plataformas de ciberseguridad y 
 
 Si quieres ponerte en contacto conmigo para discutir proyectos, colaborar en temas de ciberseguridad, o simplemente intercambiar ideas, puedes hacerlo a través de los siguientes canales:
 
-* **Email:** [beafn23@gmail.com](mailto:beafn23@gmail.com)
+* **Email:** beatrizfn.cv@gmail.com
 * **LinkedIn:** [linkedin.com/in/beatriz-fresno-naumova-3797b931b](https://www.linkedin.com/in/beatriz-fresno-naumova-3797b931b)
 * **Blog:** [beafn28.es](https://beafn28.es)
 * **GitHub:** [github.com/beafn28](https://github.com/beafn28)
