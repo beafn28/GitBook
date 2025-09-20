@@ -396,3 +396,4 @@
 ## CVE
 
 * [Brute Force Login Vulnerability in Soosyze CMS 2.0 (CVE-2025-52392)](cve/brute-force-login-vulnerability-in-soosyze-cms-2.0-cve-2025-52392.md)
+* [PoC - CVE-2025-9140 (Lingdang CRM 8.6.4.7) — SQL Injection](cve/poc-cve-2025-9140-lingdang-crm-8.6.4.7-sql-injection.md)
