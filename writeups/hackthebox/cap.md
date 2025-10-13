@@ -14,7 +14,7 @@ ping -c 1 10.10.10.245
 
 para verificar la conectividad de red.
 
-<figure><img src="../../.gitbook/assets/image (26) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (26) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 A continuación, realizamos el comando:
 

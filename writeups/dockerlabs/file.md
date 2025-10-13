@@ -129,7 +129,7 @@ Ahora tenemos permisos SUDO con [env ](https://gtfobins.github.io/gtfobins/env/#
 
 Ahora tenemos permisos SUDO para ejecutar con python un archivo.
 
-<figure><img src="../../.gitbook/assets/image (18) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (18) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Lo borramos y creamos con el mismo nombre pero con distinto contenido.
 
@@ -144,4 +144,4 @@ Lo ejecutamos.
 sudo /usr/bin/python3 /home/iker/geo_ip.py
 ```
 
-<figure><img src="../../.gitbook/assets/image (19) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (19) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>

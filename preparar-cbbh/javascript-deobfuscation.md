@@ -12,7 +12,7 @@
 curl http://94.237.50.221:31522
 ```
 
-<figure><img src="../.gitbook/assets/image (5) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## **Obfuscation**
 

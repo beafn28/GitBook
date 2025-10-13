@@ -30,7 +30,7 @@ Para resolver el laboratorio, envía un comentario que invoque la función `aler
 
 Vamos a escribir un comentario con el payload del anterior laboratorio.
 
-<figure><img src="../../.gitbook/assets/image (26) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (26) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
@@ -297,13 +297,13 @@ Las vulnerabilidades DOM reflejadas ocurren cuando la aplicación del lado del s
 
 Vemos las peticiones para analizarlas y vemos que la de búsqueda no tiene nada interesante pero la petición que se genera en el frontend sí.
 
-<figure><img src="../../.gitbook/assets/image (18) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (18) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (19) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (19) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Se nos devuelve la respuesta en formato JSON por lo que intentamos meter un alert.
 
-<figure><img src="../../.gitbook/assets/image (20) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (20) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 No hay problema ya que se inyecta sin problema. Buscamos con el siguiente payload.
 
@@ -311,7 +311,7 @@ No hay problema ya que se inyecta sin problema. Buscamos con el siguiente payloa
 test\"-alert(1)}//
 ```
 
-<figure><img src="../../.gitbook/assets/image (21) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (21) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Lab: Stored DOM XSS
 
@@ -323,11 +323,11 @@ Este laboratorio demuestra una vulnerabilidad de tipo DOM XSS almacenado en la f
 
 Escribimos un comentario para comprender el funcionamiento.
 
-<figure><img src="../../.gitbook/assets/image (22) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (22) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Se ha publicado sin problemas. Vemos el código fuente.
 
-<figure><img src="../../.gitbook/assets/image (23) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (23) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Aquí está el problema: se usa el método **replace**, que solo sustituye la **primera coincidencia**. Por ejemplo, si aplicamos `replace` para cambiar la **a** por **e** en "rascar", obtendremos "rescar".
 
@@ -337,9 +337,9 @@ Sabiendo esto, podemos diseñar un payload XSS típico, pero poniendo los signos
 <><img src=x onerror=alert(1)> #en comentario
 ```
 
-<figure><img src="../../.gitbook/assets/image (24) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (24) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (25) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (25) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Lab: Reflected XSS into HTML context with most tags and attributes blocked
 

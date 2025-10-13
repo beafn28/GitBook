@@ -16,7 +16,7 @@ ping -c 1 10.10.11.221
 
 para verificar la conectividad de red.
 
-<figure><img src="../../.gitbook/assets/image (18) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (18) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 A continuación, realizamos el comando:
 
@@ -72,7 +72,7 @@ Realizamos lo que nos comunica la pista.
 curl -s -X POST "http://2million.htb/api/v1/invite/generate"
 ```
 
-<figure><img src="../../.gitbook/assets/image (19) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (19) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Está el código en **base64** por lo que decodificamos.
 
@@ -154,7 +154,7 @@ Matizamos lo que se nos avisa.
 curl -s -X POST "http://2million.htb/api/v1/admin/vpn/generate" -H "Cookie: PHPSESSID=ekuhv9pthbgidsinr34h04n0hq" -H "Content-Type: application/json"| jq
 ```
 
-<figure><img src="../../.gitbook/assets/image (22) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (22) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Ahora nos pide el parámetro username.
 
@@ -162,7 +162,7 @@ Ahora nos pide el parámetro username.
 curl -s -X POST "http://2million.htb/api/v1/admin/vpn/generate" -H "Cookie: PHPSESSID=ekuhv9pthbgidsinr34h04n0hq" -H "Content-Type: application/json" -d '{"username":"beafn28"}'| jq
 ```
 
-<figure><img src="../../.gitbook/assets/image (23) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (23) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 La respuesta ya no está en JSON por lo que lo quitamos.
 

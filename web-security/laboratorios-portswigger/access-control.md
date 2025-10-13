@@ -134,9 +134,9 @@ Este laboratorio contiene una **vulnerabilidad de control de acceso**, donde se 
 
 Nos logueamos y miramos la petición para cambiar el id de wiener a carlos y enviar la petición (se hace en **Repeater**).
 
-<figure><img src="../../.gitbook/assets/image (18) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (18) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (19) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (19) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Lab: User ID controlled by request parameter with password disclosure
 
@@ -150,17 +150,17 @@ Este laboratorio tiene una página de cuenta de usuario que muestra la **contras
 
 Nos logueamos y vemos la petición. Cambiamos de nuevo el ID de wiener a administrator.
 
-<figure><img src="../../.gitbook/assets/image (21) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (21) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (20) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (20) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Como nos dice el enunciado la contraseña está enmascarada por lo que vamos a ver el código.
 
-<figure><img src="../../.gitbook/assets/image (22) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (22) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Nos volvemos a loguear con las credenciales y ya podemos acceder al panel y borrar el usuario.
 
-<figure><img src="../../.gitbook/assets/image (23) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (23) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Lab: Insecure direct object references
 
@@ -172,11 +172,11 @@ Este laboratorio **almacena los registros de chat de los usuarios directamente e
 
 Enviamos un mensaje y vemos la petición ya que se puede descargar el archivo. Cambiamos a **1.tx**t y enviamos la petición.
 
-<figure><img src="../../.gitbook/assets/image (24) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (24) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Copiamos la contraseña y entramos con esas credenciales.
 
-<figure><img src="../../.gitbook/assets/image (25) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (25) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Lab: URL-based access control can be circumvented
 

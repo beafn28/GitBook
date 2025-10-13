@@ -153,4 +153,4 @@ Nos llama la atención **service** por lo que buscamos en esta [página ](https:
 sudo /usr/sbin/service ../../bin/sh
 ```
 
-<figure><img src="../../.gitbook/assets/image (18) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (18) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>

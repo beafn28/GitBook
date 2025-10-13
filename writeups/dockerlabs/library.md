@@ -122,4 +122,4 @@ Con todo listo, simplemente necesitamos ejecutar el script con `sudo`. Cuando el
 
 Hemos logrado modificar los permisos del binario `bash`. Ahora, solo queda utilizar el comando `bash -p` para iniciar una **shell** con privilegios de **root**.
 
-<figure><img src="../../.gitbook/assets/image (27) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (27) (1) (1).png" alt=""><figcaption></figcaption></figure>
