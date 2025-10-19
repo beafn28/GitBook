@@ -4,15 +4,19 @@
 
 #### 🎓 Sobre mí
 
-Soy **Beatriz Fresno Naumova**, estudiante del último curso de Ingeniería Informática en la Universidad de Salamanca (USAL). A lo largo de mi trayectoria académica y personal, he desarrollado una profunda pasión por la ciberseguridad, un campo que me ha cautivado desde mis primeros años de estudio. Actualmente, me especializo en **pentesting**, donde aplico mis conocimientos para identificar y mitigar vulnerabilidades en sistemas y aplicaciones.
+Soy **Beatriz Fresno Naumova**, actualmente trabajando como **Junior Penetration Tester** en Advens, mientras compagino mi último curso de **Ingeniería Informática** en la Universidad de Salamanca.
 
-Mi aprendizaje ha sido tanto académico como autodidacta, y siempre estoy en busca de nuevos retos que me permitan seguir creciendo en este apasionante mundo de la seguridad informática.
+Me involucro activamente en la **identificación de vulnerabilidades** en aplicaciones web, software e infraestructuras de instituciones públicas y privadas, contribuyendo de forma responsable a la mejora de la **ciberseguridad**. También participo en la detección de **CVE** y el desarrollo de **Proof of Concepts (PoC)**, los cuales pueden consultarse en mi **blog**, dentro del apartado Proyectos → CVE.
+
+Además, exploro el impacto de la **computación cuántica** en la seguridad y participo regularmente en **CTFs (Capture The Flag)** como parte de mi formación práctica en seguridad ofensiva.
+
+Mi formación combina el enfoque académico con un aprendizaje autodidacta y continuo, reforzado por la preparación y obtención de **certificaciones** profesionales en ciberseguridad, que también pueden encontrarse detalladas en mi **blog**, dentro de la sección **Certificaciones**.
 
 #### 🌐 ¿Qué encontrarás aquí?
 
-En este espacio, subo **writeups** de distintas plataformas de ciberseguridad y **apuntes** de hacking. Mi objetivo es compartir mis conocimientos y experiencias, colaborar con otros profesionales y entusiastas del área, y contribuir a la comunidad de la ciberseguridad. Cada writeup que comparto refleja no solo la solución de un reto, sino también las estrategias, metodologías y herramientas que utilizo en mi día a día como estudiante y futura profesional de la seguridad.
+En este espacio comparto **writeups** de distintas plataformas, junto con **apuntes** técnicos sobre pentesting, explotación, redes y herramientas ofensivas. También encontrarás descripciones técnicas de los CVE que he descubierto y los Proof of Concepts (PoC) realizados. Además, documento el proceso de preparación y obtención de certificaciones profesionales en ciberseguridad, organizando los contenidos por temáticas para facilitar el estudio y el aprendizaje continuo.
 
-### 📬 Contacto
+#### 📬 Contacto
 
 Si quieres ponerte en contacto conmigo para discutir proyectos, colaborar en temas de ciberseguridad, o simplemente intercambiar ideas, puedes hacerlo a través de los siguientes canales:
 
