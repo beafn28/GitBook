@@ -1,4 +1,4 @@
-# 1- Introducción a Red Team
+# Conceptos
 
 ## 1.1 What is Red Teaming ?
 
@@ -321,17 +321,3 @@ Los **objetos** son las entidades físicas o lógicas que conforman una red orga
 #### **TGS (Ticket Granting Service)**
 
 * **Boleto utilizado para la autorización**, es decir, para obtener acceso a servicios específicos dentro de la red una vez autenticado.
-
-
-
-## 1.5 Technologies Exploitation in Red Teaming
-
-### &#xD;1.5.1 Web Technology
-
-### &#xD;1.5.2 Network Technology
-
-### &#xD;1.5.3 Cloud Technology
-
-### 1.5.4 Physical Red Teaming
-
-### &#xD;1.5.5 Wireless

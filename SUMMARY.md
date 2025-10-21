@@ -295,6 +295,7 @@
 * [Active Directory Enumeration & Attacks](apuntes-hacking/active-directory-enumeration-and-attacks/README.md)
   * [Tools](apuntes-hacking/active-directory-enumeration-and-attacks/tools.md)
   * [Initial Enumeration](apuntes-hacking/active-directory-enumeration-and-attacks/initial-enumeration.md)
+* [Hacking Android](apuntes-hacking/hacking-android.md)
 
 ## WEB SECURITY
 
@@ -374,7 +375,7 @@
 
 ## PREPARAR CRTA
 
-* [1- Introducción a Red Team](preparar-crta/1-introduccion-a-red-team.md)
+* [Conceptos](preparar-crta/conceptos.md)
 
 ## Notas&#x20;
 
