@@ -74,8 +74,7 @@ La página web tiene una vulnerabilidad **LFI** que permite acceder a archivos l
 ?love=../../../../../../etc/passwd
 ```
 
-en la URL, puedes ver el contenido del archivo `/etc/passwd`, que contiene información sobre los usuarios del sistema.\
-
+en la URL, puedes ver el contenido del archivo `/etc/passwd`, que contiene información sobre los usuarios del sistema.<br>
 
 <figure><img src="../../.gitbook/assets/7 (5).png" alt=""><figcaption></figcaption></figure>
 

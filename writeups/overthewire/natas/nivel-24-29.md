@@ -187,8 +187,7 @@ Ingresamos las credenciales para el nivel 28.
 * **Usuario:** `natas28`
 * **Contraseña:** `1JNwQM1Oi6J6j1k49Xyw7ZN6pXMQInVj`
 
-Tras iniciar sesión, nos encontramos con la página de inicio del **Nivel 28**. Se nos muestra algo para ingresar y buscar una broma.\
-
+Tras iniciar sesión, nos encontramos con la página de inicio del **Nivel 28**. Se nos muestra algo para ingresar y buscar una broma.<br>
 
 <figure><img src="../../../.gitbook/assets/image (290).png" alt=""><figcaption></figcaption></figure>
 
@@ -221,7 +220,7 @@ El modo ECB es inseguro porque no hay interdependencia entre los bloques de dato
 
 Según una pista útil de Wikipedia, el modo ECB puede hacer que los protocolos sin protección de integridad sean más susceptibles a ataques de repetición, ya que cada bloque se descifra de la misma manera. Esto permite la posibilidad de mezclar y combinar bloques para realizar un ataque de repetición.
 
-Este script es una solución para el desafío Natas28 en la plataforma OverTheWire. El objetivo es realizar una inyección SQL a través de una vulnerabilidad en el cifrado del parámetro `query` en la URL de la aplicación web. [GitHub source](https://github.com/Thraundil/natas/blob/master/natas28\_doit.py)
+Este script es una solución para el desafío Natas28 en la plataforma OverTheWire. El objetivo es realizar una inyección SQL a través de una vulnerabilidad en el cifrado del parámetro `query` en la URL de la aplicación web. [GitHub source](https://github.com/Thraundil/natas/blob/master/natas28_doit.py)
 
 #### Resumen de lo que hace el script:
 
@@ -257,7 +256,7 @@ Este script nos ayuda para el desafío Natas29 en la plataforma OverTheWire. &#x
 
 La URL intenta leer el contenido del archivo `/etc/natas_webpass/natas30` en el servidor usando la vulnerabilidad de ejecución remota de comandos en Perl. Luego, reemplaza los saltos de línea en el contenido del archivo con espacios para hacer que el resultado sea más legible en una sola línea.
 
-[http://natas29.natas.labs.overthewire.org/index.pl?file=|cat+%22/etc/nat%22%22as\_webpass/nat%22%22as30%22|tr+%27\n%27+%27+%27](http://natas29.natas.labs.overthewire.org/index.pl?file=|cat+%22/etc/nat%22%22as\_webpass/nat%22%22as30%22|tr+%27\n%27+%27+%27)
+[http://natas29.natas.labs.overthewire.org/index.pl?file=|cat+%22/etc/nat%22%22as\_webpass/nat%22%22as30%22|tr+%27\n%27+%27+%27](http://natas29.natas.labs.overthewire.org/index.pl?file=|cat+%22/etc/nat%22%22as_webpass/nat%22%22as30%22|tr+%27\n%27+%27+%27)
 
 <figure><img src="../../../.gitbook/assets/image (295).png" alt=""><figcaption></figcaption></figure>
 

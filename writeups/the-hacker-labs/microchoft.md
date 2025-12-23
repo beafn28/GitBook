@@ -66,8 +66,7 @@ Al analizar más a fondo, se ha detectado que el sistema operativo es **Windows 
 
 **EternalBlue**, que afecta versiones de Windows no actualizadas, explota una vulnerabilidad crítica en el protocolo SMBv1, lo que podría permitir la ejecución remota de código y, en consecuencia, el control completo del sistema afectado. Esta vulnerabilidad ha sido utilizada en ataques masivos como el ransomware **WannaCry**.
 
-Dado que estamos frente a un sistema operativo obsoleto (Windows 7), y que el puerto **445/tcp** está expuesto, se procederá a indagar más para determinar si el sistema es susceptible a esta vulnerabilidad y recomendar medidas de mitigación, como la actualización del sistema operativo o la desactivación del protocolo SMBv1.\
-
+Dado que estamos frente a un sistema operativo obsoleto (Windows 7), y que el puerto **445/tcp** está expuesto, se procederá a indagar más para determinar si el sistema es susceptible a esta vulnerabilidad y recomendar medidas de mitigación, como la actualización del sistema operativo o la desactivación del protocolo SMBv1.<br>
 
 Por eso mismo revisamos si es vulnerable por si acaso con el comando:
 

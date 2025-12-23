@@ -296,6 +296,15 @@
   * [Tools](apuntes-hacking/active-directory-enumeration-and-attacks/tools.md)
   * [Initial Enumeration](apuntes-hacking/active-directory-enumeration-and-attacks/initial-enumeration.md)
 * [Hacking Android](apuntes-hacking/hacking-android.md)
+* [Web Requests](apuntes-hacking/web-requests.md)
+* [Introduction to Web Applications](apuntes-hacking/introduction-to-web-applications.md)
+* [Using Web Proxies](apuntes-hacking/using-web-proxies.md)
+* [Introduction Gathering - Web Edition](apuntes-hacking/introduction-gathering-web-edition.md)
+* [Attacking Web Applications with FFUZ](apuntes-hacking/attacking-web-applications-with-ffuz.md)
+* [JavaScript Deobfuscation](apuntes-hacking/javascript-deobfuscation.md)
+* [Cross-Site-Scripting (XSS)](apuntes-hacking/cross-site-scripting-xss.md)
+* [SQL Injection Fundamentals](apuntes-hacking/sql-injection-fundamentals.md)
+* [SQLMap Essentials](apuntes-hacking/sqlmap-essentials.md)
 
 ## WEB SECURITY
 
@@ -369,37 +378,28 @@
     * [Medio](preparar-oscp/maquinas/windows/medio.md)
     * [Difícil](preparar-oscp/maquinas/windows/dificil.md)
 
-## PREPARAR EWPTXV3
+## Group 1
 
-* [Organización](preparar-ewptxv3/organizacion.md)
+* [Certificaciones](group-1/certificaciones.md)
 
-## PREPARAR CRTA
+## eWPTXv3
 
-* [Conceptos](preparar-crta/conceptos.md)
+* [Preparación](ewptxv3/preparacion.md)
+
+## CRTA
+
+* [Conceptos](crta/conceptos.md)
 
 ## Notas&#x20;
 
-* [Active Directory Parte 2](notas/active-directory-parte-2.md)
 * [Active Directory Parte 1](notas/active-directory-parte-1.md)
-
-## PREPARAR CBBH
-
-* [Web Requests](preparar-cbbh/web-requests.md)
-* [Introduction to Web Applications](preparar-cbbh/introduction-to-web-applications.md)
-* [Using Web Proxies](preparar-cbbh/using-web-proxies.md)
-* [Introduction Gathering - Web Edition](preparar-cbbh/introduction-gathering-web-edition.md)
-* [Attacking Web Applications with FFUZ](preparar-cbbh/attacking-web-applications-with-ffuz.md)
-* [JavaScript Deobfuscation](preparar-cbbh/javascript-deobfuscation.md)
-* [Cross-Site-Scripting (XSS)](preparar-cbbh/cross-site-scripting-xss.md)
-* [SQL Injection Fundamentalsf](preparar-cbbh/sql-injection-fundamentalsf.md)
-* [SQLMap Essentials](preparar-cbbh/sqlmap-essentials.md)
+* [Active Directory Parte 2](notas/active-directory-parte-2.md)
 
 ## CVE
 
 * [Brute Force Login Vulnerability in Soosyze CMS 2.0 (CVE-2025-52392)](cve/brute-force-login-vulnerability-in-soosyze-cms-2.0-cve-2025-52392.md)
-* [PoC - CVE-2025-9140 (Lingdang CRM 8.6.4.7) — SQL Injection](cve/poc-cve-2025-9140-lingdang-crm-8.6.4.7-sql-injection.md)
+* [PoC - CVE-2025-9140 (Lingdang CRM 8.6.4.7)- SQL Injection](cve/poc-cve-2025-9140-lingdang-crm-8.6.4.7-sql-injection.md)
 * [Broken Access Control in LibreTime analytics endpoints (CVE-2025-60427)](cve/broken-access-control-in-libretime-analytics-endpoints-cve-2025-60427.md)
-
-## Pro Labs
-
-* [Dante](pro-labs/dante.md)
+* [WordPress Upload.am – Contributor+ Arbitrary Option Disclosure (CVE-2025-12630)](cve/wordpress-upload.am-contributor+-arbitrary-option-disclosure-cve-2025-12630.md)
+* [Directus < 11.13.0 – Improper Permission Handling on Deleted Fields (CVE-2025-64746)](cve/directus-less-than-11.13.0-improper-permission-handling-on-deleted-fields-cve-2025-64746.md)
+* [nopCommerce <= 4.70 and 4.80.3 – Insufficient Session Cookie Invalidation (CVE-2025-11699)](cve/nopcommerce-less-than-4.70-and-4.80.3-insufficient-session-cookie-invalidation-cve-2025-11699.md)

@@ -2,7 +2,7 @@
 
 
 
-{% file src="../../.gitbook/assets/Information_Gathering_Web_Edition_Module_Cheat_Sheet.pdf" %}
+{% file src="../../.gitbook/assets/Information_Gathering_Web_Edition_Module_Cheat_Sheet (1).pdf" %}
 
 WHOIS es un protocolo ampliamente utilizado de consulta y respuesta diseñado para acceder a bases de datos que almacenan información sobre recursos de internet registrados. Aunque se asocia principalmente con nombres de dominio, WHOIS también puede proporcionar detalles sobre bloques de direcciones IP y sistemas autónomos. Piensa en él como una gran guía telefónica de internet que te permite buscar quién posee o es responsable de varios activos en línea.
 
@@ -155,4 +155,4 @@ Estos servidores de nombres están todos dentro del dominio facebook.com, lo que
 
 En general, la salida de WHOIS para facebook.com se alinea con las expectativas para un dominio bien establecido y seguro propiedad de una gran organización como Meta Platforms, Inc.
 
-Aunque el registro WHOIS proporciona información de contacto para problemas relacionados con el dominio, puede no ser directamente útil para identificar empleados individuales o vulnerabilidades específicas. Esto resalta la necesidad de combinar los datos WHOIS con otras técnicas de reconocimiento para comprender de manera integral la huella digital del objetivo.\
+Aunque el registro WHOIS proporciona información de contacto para problemas relacionados con el dominio, puede no ser directamente útil para identificar empleados individuales o vulnerabilidades específicas. Esto resalta la necesidad de combinar los datos WHOIS con otras técnicas de reconocimiento para comprender de manera integral la huella digital del objetivo.<br>

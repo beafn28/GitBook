@@ -116,8 +116,7 @@ Nuevamente, podemos ver que no tenemos acceso a la página web porque no hemos i
 
 <figure><img src="../../../.gitbook/assets/image (331).png" alt=""><figcaption></figcaption></figure>
 
-Como podemos ver, el encabezado del paquete almacena información de la cookie. Cambiemos `loggedin=0` a `loggedin=1`, y reenviemos ese paquete en el **Repeater** para obtener la contraseña del nuevo nivel.\
-
+Como podemos ver, el encabezado del paquete almacena información de la cookie. Cambiemos `loggedin=0` a `loggedin=1`, y reenviemos ese paquete en el **Repeater** para obtener la contraseña del nuevo nivel.<br>
 
 <figure><img src="../../../.gitbook/assets/image (332).png" alt=""><figcaption></figcaption></figure>
 

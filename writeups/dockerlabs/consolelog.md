@@ -135,4 +135,4 @@ Antes de seguir explorando otras formas de escalar privilegios, recordemos que t
 
 Después de realizar esta modificación, podremos acceder como `root` sin necesidad de credenciales. Con esto, hemos completado el acceso a la máquina.
 
-![](<../../.gitbook/assets/image (376).png>)\
+![](<../../.gitbook/assets/image (376).png>)<br>
