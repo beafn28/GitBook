@@ -77,4 +77,4 @@ Es una certificación para **entender conceptos fundamentales de cloud**, que a 
 
 Dicho esto, **pagar el precio completo únicamente por el ICCA probablemente no lo habría hecho**. Por sí sola, me lo pensaría bastante. Como complemento dentro de un bundle o una oferta, en cambio, **suma valor y se aprovecha bien**.
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>

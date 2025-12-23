@@ -378,13 +378,15 @@
     * [Medio](preparar-oscp/maquinas/windows/medio.md)
     * [Difícil](preparar-oscp/maquinas/windows/dificil.md)
 
-## Certificaciones
+## Reviews Certificaciones
 
-* [eJPTv2](certificaciones/ejptv2.md)
-* [eWPTXv3](certificaciones/ewptxv3.md)
-* [eCPPTv3](certificaciones/ecpptv3.md)
-* [CRTA](certificaciones/crta.md)
-* [ICCA](certificaciones/icca.md)
+* [eJPTv2](reviews-certificaciones/ejptv2.md)
+* [eWPTXv3](reviews-certificaciones/ewptxv3.md)
+* [eCPPTv3](reviews-certificaciones/ecpptv3.md)
+* [CRTA](reviews-certificaciones/crta.md)
+* [ICCA](reviews-certificaciones/icca.md)
+* [MCRTA](reviews-certificaciones/mcrta.md)
+* [AD-RTS](reviews-certificaciones/ad-rts.md)
 
 ## eWPTXv3
 

@@ -50,7 +50,7 @@ Viene en la anterior captura
 
 **What is the full domain returned when you query the mail records for facebook.com?**
 
-<figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Subdomain Bruteforcing
 
@@ -164,7 +164,7 @@ curl -s -I -H "Host: app.inlanefreight.local" http://10.129.193.142
 whatweb -H "Host: app.inlanefreight.local" http://10.129.193.142
 ```
 
-<figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 **On which operating system is the dev.inlanefreight.local webserver running in the target system? Respond with the name only, e.g., Debian.**
 
@@ -172,7 +172,7 @@ whatweb -H "Host: app.inlanefreight.local" http://10.129.193.142
 curl -s -I -H "Host: dev.inlanefreight.local" http://10.129.193.142
 ```
 
-<figure><img src="../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Crawling
 

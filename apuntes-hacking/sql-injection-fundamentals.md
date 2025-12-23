@@ -47,7 +47,7 @@ select * from departments;
 SELECT COUNT(*) AS num_records FROM titles WHERE emp_no > 10000 OR title NOT LIKE '%engineer%';
 ```
 
-<figure><img src="../.gitbook/assets/image (3) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## SQL Injections
 
@@ -336,7 +336,7 @@ Sabiendo el número de columnas (5) vamos a enumerar los usuarios.
 '+UNION+SELECT+NULL,NULL,NULL,USER(),NULL--+-
 ```
 
-<figure><img src="../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Ya sabemos el usuario por lo que hay que ver que privilegios tiene.
 

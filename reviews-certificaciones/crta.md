@@ -95,4 +95,4 @@ Es un examen donde:
 * Practicas pivoting y AD de forma coherente
 * Y sales con más criterio técnico
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
