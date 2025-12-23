@@ -45,7 +45,7 @@ Mi preparación se centró **exclusivamente en práctica técnica y análisis of
 | JWT                                  | ✅ Sí        | Específico en Authentication y API Penetration Testing.                         |
 | Essential skills                     | ✅ Sí        | Obligatorio para "Methodology" y el 10% dedicado a ello.                        |
 | Prototype pollution                  | ⚠️ Opcional | No aparece en el temario.                                                       |
-| GraphQL API vulnerabilities          | ✅ Sí        | Muy relevante para el 25% de API Pen Testing.                                   |
+| GraphQL API vulnerabilities          | ✅ Sí        | Muy relevante para el 25% de API.                                               |
 | Race conditions                      | ⚠️ Opcional | Interesante para lógica de negocio pero no prioritario.                         |
 | NoSQL injection                      | ✅ Sí        | Directamente en Injection Vulnerabilities.                                      |
 | API testing                          | ✅ Sí        | El 25% del temario. Obligatorio.                                                |
@@ -59,7 +59,7 @@ Mi preparación se centró **exclusivamente en práctica técnica y análisis of
 * Bypass de autenticación
 * Cracking y manipulación de JWT
   * Algoritmos débiles
-  * `alg: none`
+  * `alg:none`
   * Key confusion
   * Expiraciones mal gestionadas
 * Mala gestión de sesiones en APIs
