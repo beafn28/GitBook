@@ -378,9 +378,9 @@
     * [Medio](preparar-oscp/maquinas/windows/medio.md)
     * [Difícil](preparar-oscp/maquinas/windows/dificil.md)
 
-## Group 1
+## Certificaciones
 
-* [Certificaciones](group-1/certificaciones.md)
+* [eJPTv2](certificaciones/ejptv2.md)
 
 ## eWPTXv3
 

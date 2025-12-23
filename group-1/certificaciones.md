@@ -1,6 +1,0 @@
----
-icon: file-certificate
----
-
-# Certificaciones
-
