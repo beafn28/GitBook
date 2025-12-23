@@ -387,6 +387,7 @@
 * [ICCA](reviews-certificaciones/icca.md)
 * [MCRTA](reviews-certificaciones/mcrta.md)
 * [AD-RTS](reviews-certificaciones/ad-rts.md)
+* [eMAPTv2](reviews-certificaciones/emaptv2.md)
 
 ## eWPTXv3
 
