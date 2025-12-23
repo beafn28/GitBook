@@ -381,6 +381,7 @@
 ## Certificaciones
 
 * [eJPTv2](certificaciones/ejptv2.md)
+* [eWPTXv3](certificaciones/ewptxv3.md)
 
 ## eWPTXv3
 
