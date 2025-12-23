@@ -305,6 +305,9 @@
 * [Cross-Site-Scripting (XSS)](apuntes-hacking/cross-site-scripting-xss.md)
 * [SQL Injection Fundamentals](apuntes-hacking/sql-injection-fundamentals.md)
 * [SQLMap Essentials](apuntes-hacking/sqlmap-essentials.md)
+* [Introducción Red Team](apuntes-hacking/introduccion-red-team.md)
+* [Active Directory (Cheat Sheet 1)](apuntes-hacking/active-directory-cheat-sheet-1.md)
+* [Active Directory (Cheat Sheet 2)](apuntes-hacking/active-directory-cheat-sheet-2.md)
 
 ## WEB SECURITY
 
@@ -387,20 +390,8 @@
 * [ICCA](reviews-certificaciones/icca.md)
 * [MCRTA](reviews-certificaciones/mcrta.md)
 * [AD-RTS](reviews-certificaciones/ad-rts.md)
+* [CRT-ID](reviews-certificaciones/crt-id.md)
 * [eMAPTv2](reviews-certificaciones/emaptv2.md)
-
-## eWPTXv3
-
-* [Preparación](ewptxv3/preparacion.md)
-
-## CRTA
-
-* [Conceptos](crta/conceptos.md)
-
-## Notas&#x20;
-
-* [Active Directory Parte 1](notas/active-directory-parte-1.md)
-* [Active Directory Parte 2](notas/active-directory-parte-2.md)
 
 ## CVE
 
