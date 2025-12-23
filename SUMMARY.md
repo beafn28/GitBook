@@ -383,6 +383,8 @@
 * [eJPTv2](certificaciones/ejptv2.md)
 * [eWPTXv3](certificaciones/ewptxv3.md)
 * [eCPPTv3](certificaciones/ecpptv3.md)
+* [CRTA](certificaciones/crta.md)
+* [ICCA](certificaciones/icca.md)
 
 ## eWPTXv3
 

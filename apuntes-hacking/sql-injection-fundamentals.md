@@ -1,4 +1,4 @@
-# SQL Injection Fundamentalsf
+# SQL Injection Fundamentals
 
 {% file src="../.gitbook/assets/Sql_Injection_Fundamentals_Module_Cheat_Sheet.pdf" %}
 
@@ -14,7 +14,7 @@
 mysql --skip-ssl -h 94.237.50.221 -P 33445 -u root -p
 ```
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### SQL Statements
 
@@ -27,7 +27,7 @@ show TABLES;
 select * from departments;
 ```
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Query Results
 
@@ -37,7 +37,7 @@ select * from departments;
  SELECT last_name FROM employees WHERE first_name LIKE 'Bar%' AND hire_date = '1990-01-01';
 ```
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### SQL Operators
 
