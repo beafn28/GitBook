@@ -347,6 +347,8 @@
   * [Cross-origin resource sharing (CORS)](web-security/laboratorios-portswigger/cross-origin-resource-sharing-cors.md)
   * [Server-side template injection](web-security/laboratorios-portswigger/server-side-template-injection.md)
 * [Curso web s4vitar](web-security/curso-web-s4vitar.md)
+* [BSCP (Cheat Sheet)](web-security/bscp-cheat-sheet/README.md)
+  * [JWT](web-security/bscp-cheat-sheet/jwt.md)
 
 ## Mis CTFs
 
