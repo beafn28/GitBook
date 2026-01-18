@@ -405,3 +405,4 @@
 * [nopCommerce <= 4.70 and 4.80.3 – Insufficient Session Cookie Invalidation (CVE-2025-11699)](cve/nopcommerce-less-than-4.70-and-4.80.3-insufficient-session-cookie-invalidation-cve-2025-11699.md)
 * [Typesetter CMS Reflected XSS via Editing Component (CVE-2025-71164)](cve/typesetter-cms-reflected-xss-via-editing-component-cve-2025-71164.md)
 * [Typesetter CMS Reflected XSS via Status.php (CVE-2025-71165)](cve/typesetter-cms-reflected-xss-via-status.php-cve-2025-71165.md)
+* [Typesetter CMS Reflected XSS via Move Message Handling (CVE-2025-71166)](cve/typesetter-cms-reflected-xss-via-move-message-handling-cve-2025-71166.md)
