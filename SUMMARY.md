@@ -403,3 +403,4 @@
 * [WordPress Upload.am – Contributor+ Arbitrary Option Disclosure (CVE-2025-12630)](cve/wordpress-upload.am-contributor+-arbitrary-option-disclosure-cve-2025-12630.md)
 * [Directus < 11.13.0 – Improper Permission Handling on Deleted Fields (CVE-2025-64746)](cve/directus-less-than-11.13.0-improper-permission-handling-on-deleted-fields-cve-2025-64746.md)
 * [nopCommerce <= 4.70 and 4.80.3 – Insufficient Session Cookie Invalidation (CVE-2025-11699)](cve/nopcommerce-less-than-4.70-and-4.80.3-insufficient-session-cookie-invalidation-cve-2025-11699.md)
+* [Typesetter CMS Reflected XSS via Editing Component (CVE-2025-71164)](cve/typesetter-cms-reflected-xss-via-editing-component-cve-2025-71164.md)
