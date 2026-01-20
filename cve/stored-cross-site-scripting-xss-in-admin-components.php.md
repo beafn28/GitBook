@@ -2,7 +2,7 @@
 
 Product: GetSimple CMS
 
-Affected Version: 3.4.0.9
+Affected Version: 3.4.0.9, latest
 
 Vulnerable Component: Sidebar – Edit Components
 
@@ -10,7 +10,7 @@ Vulnerability Type: Stored Cross-Site Scripting (XSS)
 
 ### Description
 
-A **Stored Cross-Site Scripting (XSS)** vulnerability exists in **GetSimple CMS version 3.4.0.9**, within the `admin/components.php` file, specifically in the **Edit Components** functionality.
+A **Stored Cross-Site Scripting (XSS)** vulnerability exists in **GetSimple CMS version 3.4.0.9 (latest)**, within the `admin/components.php` file, specifically in the **Edit Components** functionality.
 
 The application allows administrators to insert arbitrary HTML content into the _Sidebar_ component without proper input validation, sanitization, or output encoding. As a result, malicious JavaScript code can be persistently stored and later executed in the context of any user who visits the affected page.
 
