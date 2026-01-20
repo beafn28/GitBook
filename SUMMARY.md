@@ -406,3 +406,4 @@
 * [Typesetter CMS Reflected XSS via Editing Component (CVE-2025-71164)](cve/typesetter-cms-reflected-xss-via-editing-component-cve-2025-71164.md)
 * [Typesetter CMS Reflected XSS via Status.php (CVE-2025-71165)](cve/typesetter-cms-reflected-xss-via-status.php-cve-2025-71165.md)
 * [Typesetter CMS Reflected XSS via Move Message Handling (CVE-2025-71166)](cve/typesetter-cms-reflected-xss-via-move-message-handling-cve-2025-71166.md)
+* [Stored Cross-Site Scripting (XSS) in admin/components.php](cve/stored-cross-site-scripting-xss-in-admin-components.php.md)
