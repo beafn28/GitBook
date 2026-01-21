@@ -6,13 +6,14 @@ hidden: true
 
 **Author:** Beatriz Fresno Naumova (beafn28)
 
-**Date:** 22/12/2025&#x20;
+**Date:** the date when the CVE is published
 
 **Vendor:** HP
 
 **Product:** HP ZBook Firefly 14 inch G11 (UEFI/BIOS)
 
-**Model:** ZBook Firefly 14 inch G11\
+**Model:** ZBook Firefly 14 inch G11
+
 **Component:** UEFI Administrator Authentication Policies / External Boot Restrictions
 
 **Attack type:** Local
