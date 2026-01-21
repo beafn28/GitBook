@@ -80,7 +80,7 @@ This issue is particularly relevant in enterprise, government, and high-assuranc
 
 **CVSS v4.0 Vector:**<br>
 
-**Base Score:** 4.8 (Medium)
+**Base Score:**&#x20;
 
 ### Mitigation
 
