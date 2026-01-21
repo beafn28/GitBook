@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # Stored Cross-Site Scripting (XSS) in admin/components.php
 
 Product: GetSimple CMS
