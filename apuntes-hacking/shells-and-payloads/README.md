@@ -2,7 +2,7 @@
 
 
 
-{% file src="../.gitbook/assets/Shells_Payloads_Module_Cheat_Sheet.pdf" %}
+{% file src="../../.gitbook/assets/Shells_Payloads_Module_Cheat_Sheet.pdf" %}
 
 ## Los Shells Nos Conectan, los Payloads Nos Entregan Shells
 

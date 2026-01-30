@@ -1,5 +1,7 @@
 # File Transfers
 
+{% file src="../../.gitbook/assets/File_Transfers_Module_Cheat_Sheet.pdf" %}
+
 ## Introducción
 
 Existen muchas situaciones en las que es necesario transferir archivos hacia o desde un sistema objetivo. Imaginemos el siguiente escenario:

@@ -1,6 +1,10 @@
 # Network Enumeration with NMAP
 
+{% file src="../../.gitbook/assets/Network_Enumeration_With_Nmap_Module_Cheat_Sheet.pdf" %}
+
 ## Introducción a Nmap
+
+
 
 **Nmap** (Network Mapper) es una herramienta de auditoría de seguridad y análisis de redes de código abierto, escrita en C, C++, Python y Lua. Está diseñada para escanear redes e identificar qué hosts están disponibles, los servicios y aplicaciones en ejecución, incluyendo sus nombres y versiones cuando es posible. Además, Nmap puede identificar sistemas operativos y versiones de los hosts, y evaluar configuraciones de filtros de paquetes, firewalls y sistemas de detección de intrusos (IDS).
 

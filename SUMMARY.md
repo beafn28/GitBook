@@ -409,4 +409,4 @@
 * [HP ZBook Firefly 14 inch G11 - UEFI Protection Bypass via Windows Recovery Environment (WinRE)](cve/hp-zbook-firefly-14-inch-g11-uefi-protection-bypass-via-windows-recovery-environment-winre.md)
 * [PoC - CVE-2025-10327 (RPi-Jukebox-RFID 2.8.0) – Remote Command Execution](cve/poc-cve-2025-10327-rpi-jukebox-rfid-2.8.0-remote-command-execution.md)
 * [birkir prime GraphQL GET-Based CSRF (CVE-2025-15550)](cve/birkir-prime-graphql-get-based-csrf-cve-2025-15550.md)
-* [Page 1](cve/page-1.md)
+* [FluentCMS Stored XSS via SVG Upload in File Management  (CVE-2025-15549)](cve/fluentcms-stored-xss-via-svg-upload-in-file-management-cve-2025-15549.md)
