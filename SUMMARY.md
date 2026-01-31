@@ -350,6 +350,7 @@
 * [BSCP (Cheat Sheet)](web-security/bscp-cheat-sheet/README.md)
   * [JWT](web-security/bscp-cheat-sheet/jwt.md)
   * [Authentication](web-security/bscp-cheat-sheet/authentication.md)
+  * [Web Sockets](web-security/bscp-cheat-sheet/web-sockets.md)
 
 ## Mis CTFs
 

@@ -39,7 +39,7 @@
 2. Cada dos credenciales para Carlos tenemos que loguearnos con Wiener.
 3.
 
-    <figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
 
 4. Ahora con las contraseñas hacemos lo siguiente para que cada dos credenciales poner la contraseña de Wiener.
@@ -58,3 +58,42 @@
 3. Sabemos tras esto cuál es el usuario y para las contraseñas realizamos un ataque de tipo Sniper para las contraseñas.
 4. Esperamos el bloqueo e iniciamos sesión.
 
+## Lab 8: Lógica rota en 2FA
+
+1. Interceptamos para generar un código 2FA válido para Carlos manipulando el parámetro verify.
+2. Enviar un código inválido en tu propio flujo de autenticación para reutilizar el endpoint de validación.
+3. Mediante Intruder realizar un ataque de fuerza bruta sobre el código de Carlos.
+4. Nos cogemos la cookie de sesión para loguear siendo Carlos.
+
+## Lab 9: Fuerza bruta de cookie de sesión persistente
+
+1. Nos logueamos y vemos que tenemos dos cookies de sesión.
+2. La cookie de stay logged in es una cadena en base64 en la que es usuario:hash MD5 de la contraseña.
+3.
+
+    <figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+4. Sabiendo esto cargamos el diccionario de contraseñas y modificar Add Prefix: carlos:.
+5. Con esa cookie que nos salga ya nos logueamos.
+
+## Lab 10: Cracking offline de contraseñas
+
+1. Nos logueamos y vemos que la cookie es usuario:md5(contraseña).
+2. A través de XSS en comment podemos obtener la cookie de stay logged in.
+3.
+
+    <figure><img src="../../.gitbook/assets/Captura de pantalla 2026-01-31 a las 16.46.16 (1).png" alt=""><figcaption></figcaption></figure>
+4. Lo mandamos al exploit y conseguimos la cookie de Carlos con su contraseña que la tenemos que crackear.
+
+## Lab 11: Poisoning en reset de contraseña vía middleware
+
+1. Nos logueamos y al olvidar contraseña se nos genera un token cada vez.
+2.
+
+    <figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+3. En el exploit server conseguimos el token de Carlos.
+
+## Lab 12: Fuerza bruta de contraseña en cambio de clave
+
+1. Nos logueamos e interceptamos la petición de cambiar contraseña.
+2. No se aplica ningún bloqueo, mantenemos las contraseñas nuevas distintas para realizar fuerza bruta a la contraseña actual.
+3. Vamos al Intruder y seleccionamos el mensaje que queremos ver para notar cuál es la contraseña actual.
