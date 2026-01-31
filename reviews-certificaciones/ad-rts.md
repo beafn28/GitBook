@@ -103,4 +103,4 @@ El **AD-RTS** es una certificación **muy bien planteada**, práctica y con sent
 
 No se limita a enseñar técnicas sueltas: enseña **cómo y por qué los entornos Active Directory fallan**, y cómo un atacante puede aprovecharlo de principio a fin.
 
-<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>

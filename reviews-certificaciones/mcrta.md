@@ -70,4 +70,4 @@ El **MCRTA vale claramente más de lo que cuesta**.
 
 Si te interesa el cloud desde el punto de vista ofensivo, **este es un muy buen primer paso**.
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>

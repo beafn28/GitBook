@@ -349,6 +349,7 @@
 * [Curso web s4vitar](web-security/curso-web-s4vitar.md)
 * [BSCP (Cheat Sheet)](web-security/bscp-cheat-sheet/README.md)
   * [JWT](web-security/bscp-cheat-sheet/jwt.md)
+  * [Authentication](web-security/bscp-cheat-sheet/authentication.md)
 
 ## Mis CTFs
 
