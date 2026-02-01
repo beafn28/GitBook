@@ -1,6 +1,6 @@
-# Active Directory Parte 2
+# Active Directory (Cheat Sheet 2)
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Que nos encontramos en ese segmento de red.
 

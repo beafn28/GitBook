@@ -42,7 +42,7 @@ whois tesla.com
 
 **Which IP address maps to inlanefreight.com?**
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (2) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (2) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 **Which domain is returned when querying the PTR record for 134.209.24.248?**
 
@@ -50,7 +50,7 @@ Viene en la anterior captura
 
 **What is the full domain returned when you query the mail records for facebook.com?**
 
-<figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (2) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (2) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Subdomain Bruteforcing
 
@@ -156,7 +156,7 @@ nikto -h inlanefreight.com -Tuning b
 curl -s -I -H "Host: app.inlanefreight.local" http://10.129.193.142
 ```
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (2) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 **Which CMS is used on app.inlanefreight.local on the target system? Respond with the name only, e.g., WordPress.**
 
@@ -164,7 +164,7 @@ curl -s -I -H "Host: app.inlanefreight.local" http://10.129.193.142
 whatweb -H "Host: app.inlanefreight.local" http://10.129.193.142
 ```
 
-<figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (2) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 **On which operating system is the dev.inlanefreight.local webserver running in the target system? Respond with the name only, e.g., Debian.**
 
