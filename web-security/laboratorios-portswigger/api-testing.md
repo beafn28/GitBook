@@ -15,7 +15,7 @@ Puedes iniciar sesión en tu propia cuenta con las siguientes credenciales:
 
 Nos logueamos. Normalmente la API está en la ruta **/api**.
 
-<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Enviamos petición.
 

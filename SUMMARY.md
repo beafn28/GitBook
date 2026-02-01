@@ -351,6 +351,7 @@
   * [JWT](web-security/bscp-cheat-sheet/jwt.md)
   * [Authentication](web-security/bscp-cheat-sheet/authentication.md)
   * [Web Sockets](web-security/bscp-cheat-sheet/web-sockets.md)
+  * [Web Cache Poisoning](web-security/bscp-cheat-sheet/web-cache-poisoning.md)
 
 ## Mis CTFs
 

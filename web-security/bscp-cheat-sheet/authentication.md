@@ -39,7 +39,7 @@
 2. Cada dos credenciales para Carlos tenemos que loguearnos con Wiener.
 3.
 
-    <figure><img src="../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 
 4. Ahora con las contraseñas hacemos lo siguiente para que cada dos credenciales poner la contraseña de Wiener.
@@ -71,7 +71,7 @@
 2. La cookie de stay logged in es una cadena en base64 en la que es usuario:hash MD5 de la contraseña.
 3.
 
-    <figure><img src="../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 4. Sabiendo esto cargamos el diccionario de contraseñas y modificar Add Prefix: carlos:.
 5. Con esa cookie que nos salga ya nos logueamos.
 
@@ -89,7 +89,7 @@
 1. Nos logueamos y al olvidar contraseña se nos genera un token cada vez.
 2.
 
-    <figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 3. En el exploit server conseguimos el token de Carlos.
 
 ## Lab 12: Fuerza bruta de contraseña en cambio de clave

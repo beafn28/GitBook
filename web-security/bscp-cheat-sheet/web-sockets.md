@@ -12,13 +12,13 @@
 
 1. Interceptamos los mensajes.
 2. Mandamos este script al exploit server.\
-   ![](../../.gitbook/assets/image.png)
+   ![](<../../.gitbook/assets/image (3).png>)
 3. Nos damos cuenta que se nos proporcionan unas cadenas base64 en la que pillamos una conversación.
 4. Decodificamos.
 
 ## Lab 3: Manipulación del handshake de WebSocket
 
 1. Creamos esta regla para que no nos bloqueen por IP.\
-   ![](<../../.gitbook/assets/image (1).png>)
+   ![](<../../.gitbook/assets/image (1) (1).png>)
 2. Mandamos el siguiente payload.\
-   ![](<../../.gitbook/assets/image (2).png>)
+   ![](<../../.gitbook/assets/image (2) (1).png>)
