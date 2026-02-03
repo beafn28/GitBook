@@ -413,3 +413,4 @@
 * [PoC - CVE-2025-10327 (RPi-Jukebox-RFID 2.8.0) – Remote Command Execution](cve/poc-cve-2025-10327-rpi-jukebox-rfid-2.8.0-remote-command-execution.md)
 * [birkir prime GraphQL GET-Based CSRF (CVE-2025-15550)](cve/birkir-prime-graphql-get-based-csrf-cve-2025-15550.md)
 * [FluentCMS Stored XSS via SVG Upload in File Management  (CVE-2025-15549)](cve/fluentcms-stored-xss-via-svg-upload-in-file-management-cve-2025-15549.md)
+* [PoC - CVE-2025-10666 (D-Link DIR-825 Rev.B ≤ 2.10) - Stack Buffer Overflow (DoS)](cve/poc-cve-2025-10666-d-link-dir-825-rev.b-2.10-stack-buffer-overflow-dos.md)
