@@ -417,3 +417,4 @@
 * [PoC - CVE-2025-10370 (RPi-Jukebox-RFID 2.8.0) - Stored Cross-Site Scripting (XSS)](cve/poc-cve-2025-10370-rpi-jukebox-rfid-2.8.0-stored-cross-site-scripting-xss.md)
 * [LavaLite CMS Stored XSS via Package Creation and Search (CVE-2025-71177)](cve/lavalite-cms-stored-xss-via-package-creation-and-search-cve-2025-71177.md)
 * [PoC - CVE-2024-23334  (aiohttp ≤ 3.9.1) - Directory Traversal via follow\_symlinks](cve/poc-cve-2024-23334-aiohttp-3.9.1-directory-traversal-via-follow_symlinks.md)
+* [PoC - Ingress-NGINX Admission Controller File Descriptor Injection to RCE (Varios CVE asociados)](cve/poc-ingress-nginx-admission-controller-file-descriptor-injection-to-rce-varios-cve-asociados.md)
