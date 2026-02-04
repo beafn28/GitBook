@@ -419,3 +419,4 @@
 * [PoC - CVE-2024-23334  (aiohttp ≤ 3.9.1) - Directory Traversal via follow\_symlinks](cve-and-poc/poc-cve-2024-23334-aiohttp-3.9.1-directory-traversal-via-follow_symlinks.md)
 * [PoC - Ingress-NGINX Admission Controller File Descriptor Injection to RCE (Varios CVE asociados)](cve-and-poc/poc-ingress-nginx-admission-controller-file-descriptor-injection-to-rce-varios-cve-asociados.md)
 * [PoC - CVE-2025-32023 (Redis) - Remote Code Execution (RCE)](cve-and-poc/poc-cve-2025-32023-redis-remote-code-execution-rce.md)
+* [Poc - CVE-2025-24054 - Windows NTLM Hash Disclosure via .library-ms Spoofing](cve-and-poc/poc-cve-2025-24054-windows-ntlm-hash-disclosure-via-.library-ms-spoofing.md)
