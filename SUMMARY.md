@@ -416,3 +416,4 @@
 * [PoC - CVE-2025-10666 (D-Link DIR-825 Rev.B ≤ 2.10) - Stack Buffer Overflow (DoS)](cve/poc-cve-2025-10666-d-link-dir-825-rev.b-2.10-stack-buffer-overflow-dos.md)
 * [PoC - CVE-2025-10370 (RPi-Jukebox-RFID 2.8.0) - Stored Cross-Site Scripting (XSS)](cve/poc-cve-2025-10370-rpi-jukebox-rfid-2.8.0-stored-cross-site-scripting-xss.md)
 * [LavaLite CMS Stored XSS via Package Creation and Search (CVE-2025-71177)](cve/lavalite-cms-stored-xss-via-package-creation-and-search-cve-2025-71177.md)
+* [PoC - CVE-2024-23334  (aiohttp ≤ 3.9.1) - Directory Traversal via follow\_symlinks](cve/poc-cve-2024-23334-aiohttp-3.9.1-directory-traversal-via-follow_symlinks.md)
