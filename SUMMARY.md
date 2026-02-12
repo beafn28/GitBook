@@ -422,3 +422,4 @@
 * [PoC - CVE-2025-32023 (Redis) - Remote Code Execution (RCE)](cve-and-poc/poc-cve-2025-32023-redis-remote-code-execution-rce.md)
 * [Poc - CVE-2025-24054 - Windows NTLM Hash Disclosure via .library-ms Spoofing](cve-and-poc/poc-cve-2025-24054-windows-ntlm-hash-disclosure-via-.library-ms-spoofing.md)
 * [PoC - CVE-2023-4911 - glibc “Looney Tunables” Local Privilege Escalation](cve-and-poc/poc-cve-2023-4911-glibc-looney-tunables-local-privilege-escalation.md)
+* [PoC - CVE-2025-24054 - Windows NTLM Hash Disclosure / Spoofing](cve-and-poc/poc-cve-2025-24054-windows-ntlm-hash-disclosure-spoofing.md)
