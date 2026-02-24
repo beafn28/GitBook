@@ -423,3 +423,5 @@
 * [Poc - CVE-2025-24054 - Windows NTLM Hash Disclosure via .library-ms Spoofing](cve-and-poc/poc-cve-2025-24054-windows-ntlm-hash-disclosure-via-.library-ms-spoofing.md)
 * [PoC - CVE-2023-4911 - glibc “Looney Tunables” Local Privilege Escalations](cve-and-poc/poc-cve-2023-4911-glibc-looney-tunables-local-privilege-escalations.md)
 * [PoC - CVE-2025-24054 - Windows NTLM Hash Disclosure / Spoofing](cve-and-poc/poc-cve-2025-24054-windows-ntlm-hash-disclosure-spoofing.md)
+* [Bludit CMS CSRF in Plugin and Theme Management Endpoints (CVE-2026-27741)](cve-and-poc/bludit-cms-csrf-in-plugin-and-theme-management-endpoints-cve-2026-27741.md)
+* [Bludit CMS Stored XSS in Post Content (CVE-2026-27742)](cve-and-poc/bludit-cms-stored-xss-in-post-content-cve-2026-27742.md)
