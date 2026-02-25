@@ -425,3 +425,4 @@
 * [PoC - CVE-2025-24054 - Windows NTLM Hash Disclosure / Spoofing](cve-and-poc/poc-cve-2025-24054-windows-ntlm-hash-disclosure-spoofing.md)
 * [Bludit CMS CSRF in Plugin and Theme Management Endpoints (CVE-2026-27741)](cve-and-poc/bludit-cms-csrf-in-plugin-and-theme-management-endpoints-cve-2026-27741.md)
 * [Bludit CMS Stored XSS in Post Content (CVE-2026-27742)](cve-and-poc/bludit-cms-stored-xss-in-post-content-cve-2026-27742.md)
+* [GetSimpleCMS-CE Stored XSS via components.php (CVE-2026-26351)](cve-and-poc/getsimplecms-ce-stored-xss-via-components.php-cve-2026-26351.md)
