@@ -353,6 +353,7 @@
   * [Web Sockets](web-security/bscp-cheat-sheet/web-sockets.md)
   * [Web Cache Poisoning](web-security/bscp-cheat-sheet/web-cache-poisoning.md)
   * [Insecure deserialization](web-security/bscp-cheat-sheet/insecure-deserialization.md)
+* [CWES](web-security/cwes.md)
 
 ## Mis CTFs
 
