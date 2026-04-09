@@ -430,3 +430,4 @@
 * [Bio-Formats XXE in Leica Metadata Parser (CVE-2026-22186)](cve-and-poc/bio-formats-xxe-in-leica-metadata-parser-cve-2026-22186.md)
 * [PoC- CVE-2025-4524 - Local File Inclusion (WordPress Madara)](cve-and-poc/poc-cve-2025-4524-local-file-inclusion-wordpress-madara.md)
 * [PoC - CVE-2025-34040 - Arbitrary File Upload to RCE (Zhiyuan OA)](cve-and-poc/poc-cve-2025-34040-arbitrary-file-upload-to-rce-zhiyuan-oa.md)
+* [PoC- CVE-2025-4123 - SSRF / XSS via Open Redirect (Grafana)](cve-and-poc/poc-cve-2025-4123-ssrf-xss-via-open-redirect-grafana.md)
