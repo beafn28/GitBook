@@ -429,3 +429,4 @@
 * [GetSimpleCMS-CE Stored XSS via components.php (CVE-2026-26351)](cve-and-poc/getsimplecms-ce-stored-xss-via-components.php-cve-2026-26351.md)
 * [Bio-Formats XXE in Leica Metadata Parser (CVE-2026-22186)](cve-and-poc/bio-formats-xxe-in-leica-metadata-parser-cve-2026-22186.md)
 * [PoC- CVE-2025-4524 - Local File Inclusion (WordPress Madara)](cve-and-poc/poc-cve-2025-4524-local-file-inclusion-wordpress-madara.md)
+* [PoC - CVE-2025-34040 - Arbitrary File Upload to RCE (Zhiyuan OA)](cve-and-poc/poc-cve-2025-34040-arbitrary-file-upload-to-rce-zhiyuan-oa.md)
