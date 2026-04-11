@@ -172,7 +172,7 @@ whatweb -H "Host: app.inlanefreight.local" http://10.129.193.142
 curl -s -I -H "Host: dev.inlanefreight.local" http://10.129.193.142
 ```
 
-<figure><img src="../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Crawling
 
@@ -232,7 +232,7 @@ sudo sh -c "echo '94.237.57.115 inlanefreight.htb' >> /etc/hosts"
 whois inlanefreight.com
 ```
 
-<figure><img src="../.gitbook/assets/image (5) (1) (1) (1) (1) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5) (1) (1) (1) (1) (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 **What http server software is powering the inlanefreight.htb site on the target system? Respond with the name of the software, not the version, e.g., Apache.**
 

