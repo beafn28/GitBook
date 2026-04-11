@@ -113,13 +113,13 @@ Configuramos en el **Intruder** el ataque con el diccionario **common.txt** de *
 
 Empezamos ataque.
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ```
  curl http://94.237.60.55:33802/admin/2010.html
 ```
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### ZAP Fuzzer
 
@@ -129,7 +129,7 @@ Empezamos ataque.
 
 Interceptamos la petición.
 
-<figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Decodificamos la cookie.
 
@@ -155,7 +155,7 @@ Primero escaneamos para identificar los directorios.
 dirb http://94.237.60.55:35284/ /usr/share/dirb/wordlists/common.txt
 ```
 
-<figure><img src="../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (2) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Nos llama la atención el directorio `/devtools` por lo que lo buscamos.
 
@@ -175,7 +175,7 @@ Ya sabemos donde está ahora solo queda leerlo.
 curl -s "http://94.237.60.55:35284/devtools/ping.php?ip=127.0.0.1%3Bcat%20/flag.txt"
 ```
 
-<figure><img src="../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (2) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (2) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Extensions
 
@@ -200,17 +200,17 @@ curl -s "http://94.237.60.55:35284/devtools/ping.php?ip=127.0.0.1%3Bcat%20/flag.
 
 Borramos el `disabled` e interceptamos la petición volviendo a pulsar el botón.
 
-<figure><img src="../.gitbook/assets/image (5) (1) (1) (1) (1) (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5) (1) (1) (1) (1) (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 **The /admin.php page uses a cookie that has been encoded multiple times. Try to decode the cookie until you get a value with 31-characters. Submit the value as the answer.**
 
 Interceptamos la petición.
 
-<figure><img src="../.gitbook/assets/image (6) (1) (1) (1) (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (6) (1) (1) (1) (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Identificamos hash.
 
-<figure><img src="../.gitbook/assets/image (7) (1) (1) (1) (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (7) (1) (1) (1) (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Decodificamos sabiendo el tipo.
 

