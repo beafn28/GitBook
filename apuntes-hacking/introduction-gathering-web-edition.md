@@ -172,7 +172,7 @@ whatweb -H "Host: app.inlanefreight.local" http://10.129.193.142
 curl -s -I -H "Host: dev.inlanefreight.local" http://10.129.193.142
 ```
 
-<figure><img src="../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (2) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Crawling
 
@@ -232,7 +232,7 @@ sudo sh -c "echo '94.237.57.115 inlanefreight.htb' >> /etc/hosts"
 whois inlanefreight.com
 ```
 
-<figure><img src="../.gitbook/assets/image (5) (1) (1) (1) (1) (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5) (1) (1) (1) (1) (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 **What http server software is powering the inlanefreight.htb site on the target system? Respond with the name of the software, not the version, e.g., Apache.**
 
@@ -240,7 +240,7 @@ whois inlanefreight.com
 curl -I http://inlanefreight.htb:30494
 ```
 
-<figure><img src="../.gitbook/assets/image (6) (1) (1) (1) (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (6) (1) (1) (1) (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 **What is the API key in the hidden admin directory that you have discovered on the target system?**
 
@@ -250,7 +250,7 @@ Escaneamos.
 ffuf -u http://inlanefreight.htb:30494 -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt -mc 200,403 -t 60 -H "Host: FUZZ.inlanefreight.htb" -ac
 ```
 
-<figure><img src="../.gitbook/assets/image (7) (1) (1) (1) (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (7) (1) (1) (1) (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Añadimos al fichero `/etc/hosts`.
 
@@ -264,7 +264,7 @@ Escaneamos directorios.
 ffuf -u http://web1337.inlanefreight.htb:30494/FUZZ -w /usr/share/seclists/Discovery/Web-Content/common.txt -t 60
 ```
 
-<figure><img src="../.gitbook/assets/image (8) (1) (1) (1) (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (8) (1) (1) (1) (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Entramos en el **robots.txt**.
 
@@ -272,18 +272,18 @@ Entramos en el **robots.txt**.
 curl http://web1337.inlanefreight.htb:30494/robots.txt
 ```
 
-<figure><img src="../.gitbook/assets/image (9) (1) (1) (1) (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (9) (1) (1) (1) (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ```
 curl http://web1337.inlanefreight.htb:30494/admin_h1dd3n -I
 curl  http://web1337.inlanefreight.htb:30494/admin_h1dd3n/
 ```
 
-<figure><img src="../.gitbook/assets/image (10) (1) (1) (1) (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (10) (1) (1) (1) (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Vemos el contenido.
 
-<figure><img src="../.gitbook/assets/image (11) (1) (1) (1) (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (11) (1) (1) (1) (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 **After crawling the inlanefreight.htb domain on the target system, what is the email address you have found? Respond with the full email, e.g., mail@inlanefreight.htb.**
 

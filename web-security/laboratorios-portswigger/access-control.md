@@ -10,11 +10,11 @@ Este laboratorio tiene un panel de administración sin protección. Resuelve el 
 
 Como primer paso vemos el **robots.txt** y nos dice donde se encuentra el panel de administración.
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Entramos en el directorio y ya podemos eliminar al usuario.
 
-<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Lab: Unprotected admin functionality with unpredictable URL
 
@@ -28,9 +28,9 @@ Resuelve el laboratorio accediendo al panel de administración y usándolo para 
 
 En Target vemos un directorio llamado **/admin-ihvmqe** por lo que accedemos.
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Lab: User role controlled by request parameter
 
@@ -74,7 +74,7 @@ Nos logueamos y cambiamos el correo para fijarnos en su petición.
 
 Como vemos en la respuesta tenemos una APIKEY y el rol por lo que voy a probar en la petición enviar el rol añadiéndolo como nos interesa que sea 2 (mandar al **Repeater**).
 
-<figure><img src="../../.gitbook/assets/image (12) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (12) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Funciona por lo que insertamos la API y el usuario en la petición y lo volvemos e enviarlo.
 
@@ -96,7 +96,7 @@ Este laboratorio tiene una vulnerabilidad de **escalada horizontal de privilegio
 
 Nos logueamos con esas credenciales y vemos la petición que se identifica el usuario con el parámetro `?id=wiener`. Lo envío al Repeater y lo igualo a Carlos y lo envio.
 
-<figure><img src="../../.gitbook/assets/image (13) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (13) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Subimos la solución.
 
@@ -190,11 +190,11 @@ Para resolver el laboratorio, accede al panel de administración y elimina al us
 
 Para explotar esta vulnerabilidad de control de acceso basado en URL, identificamos que el servidor back-end respeta la cabecera `X-Original-URL`, incluso cuando el front-end bloquea el acceso directo a `/admin`. En el ataque, se envió una solicitud con la cabecera `X-Original-URL: /admin` para acceder al panel de administración que normalmente estaba bloqueado externamente. Luego, para eliminar al usuario `carlos`, se usó `X-Original-URL: /admin/delete?username=carlos`, logrando así ejecutar la acción privilegiada burlando la validación del front-end.
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
-
 <figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Lab: Method-based access control can be circumvented
 
@@ -208,7 +208,7 @@ Para resolver el laboratorio, inicia sesión usando las credenciales wiener:pete
 
 Como administrador puedes cambiar el rol de un usuario enviando un **POST** a **/admin-roles** con el usuario y la acción. Si cerramos sesión e iniciamos como **wiener**, podemos intentar escalar privilegios. Notamos que **/admin-roles** acepta **GET** sin parámetros. Si probamos **POST** como wiener, nos da **Unauthorized**. Pero el **GET** funciona. Entonces enviamos un **GET** a **/admin-roles?username=wiener\&action=upgrade** y logramos la escalada.
 
-<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
