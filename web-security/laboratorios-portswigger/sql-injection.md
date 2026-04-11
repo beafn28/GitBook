@@ -567,7 +567,7 @@ Sabiendo esto miramos el siguiente payload.
 
 Vamos a dormir la base de datos si existe el usuario en la tabla users.&#x20;
 
-<figure><img src="../../.gitbook/assets/image (12) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (12) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Como tarda 10 segundos sí existe el usuario. Ahora toca ver su contraseña.
 
@@ -749,7 +749,7 @@ Sí acepta cadenas de texto por lo que vemos qué base de datos usa.
 payload = '&#85;&#78;&#73;&#79;&#78;&#32;&#83;&#69;&#76;&#69;&#67;&#84;&#32;&#118;&#101;&#114;&#115;&#105;&#111;&#110;&#40;&#41;'
 ```
 
-<figure><img src="../../.gitbook/assets/image (12) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (12) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Sabiendo eso vemos la consulta para ver si tiene una tabla usuarios.
 

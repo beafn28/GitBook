@@ -107,7 +107,7 @@ Obtenemos la contraseña de fernando con esta herramienta de nuestro Mario. Nos 
 
 {% @github-files/github-code-block url="https://github.com/Maalfer/Sudo_BruteForce" %}
 
-<figure><img src="../../.gitbook/assets/image (12) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (12) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Realizamos estaganografía.
 
@@ -121,7 +121,7 @@ Al ser un hash lo crackeamos con esta página [CrackStation](https://crackstatio
 
 Es la contraseña de mario por lo que nos logueamos. Tiene permisos SUDO con julen [awk](https://gtfobins.github.io/gtfobins/awk/#sudo).
 
-<figure><img src="../../.gitbook/assets/image (16) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (16) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Ahora tenemos permisos SUDO con [env ](https://gtfobins.github.io/gtfobins/env/#sudo)con el usario iker.
 

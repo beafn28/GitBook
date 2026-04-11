@@ -107,7 +107,7 @@ para ver si hay algo para explotar.&#x20;
 <pre class="language-bash"><code class="lang-bash"><strong>sudo -u blog /usr/bin/dash -p
 </strong></code></pre>
 
-<figure><img src="../../.gitbook/assets/image (12) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (12) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Nos damos cuenta que no hemos revisado el archivo wp-config.php por si hay credenciales.
 

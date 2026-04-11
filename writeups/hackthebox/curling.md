@@ -102,7 +102,7 @@ python3 -c 'import pty; pty.spawn("/bin/bash")'
 
 No tenemos permiso para leer la flag del user. Puedo acceder al archivo `password_backup`, que parece un archivo de volcado en formato hexadecimal. El tipo de archivo es ASCII.
 
-<figure><img src="../../.gitbook/assets/image (12) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (12) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Usando CyberChef, podemos cargar el archivo `password_backup` para procesarlo (para procesar el volcado hexadecimal, haz clic en la varita mágica junto a 'output').
 

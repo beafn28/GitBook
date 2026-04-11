@@ -109,7 +109,7 @@ Interceptando con Burp, la respuesta es: msf test file.
 
 Configuramos en el **Intruder** el ataque con el diccionario **common.txt** de **SecLists**.
 
-<figure><img src="../.gitbook/assets/image (12) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (12) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Empezamos ataque.
 
@@ -214,15 +214,15 @@ Identificamos hash.
 
 Decodificamos sabiendo el tipo.
 
-<figure><img src="../.gitbook/assets/image (8) (1) (1) (1) (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (8) (1) (1) (1) (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 **Once you decode the cookie, you will notice that it is only 31 characters long, which appears to be an md5 hash missing its last character. So, try to fuzz the last character of the decoded md5 cookie with all alpha-numeric characters, while encoding each request with the encoding methods you identified above. (You may use the "alphanum-case.txt" wordlist from Seclist for the payload)**
 
 Creamos un ataque con el Intruder adjuntando los payloads correctos que nos encontramos antes.
 
-<figure><img src="../.gitbook/assets/image (9) (1) (1) (1) (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (9) (1) (1) (1) (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (10) (1) (1) (1) (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (10) (1) (1) (1) (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 **You are using the 'auxiliary/scanner/http/coldfusion\_locale\_traversal' tool within Metasploit, but it is not working properly for you. You decide to capture the request sent by Metasploit so you can manually verify it and repeat it. Once you capture the request, what is the 'XXXXX' directory being called in '/XXXXX/administrator/..'?**
 
@@ -235,4 +235,4 @@ msf6 >set PROXIES HTTP:127.0.0.1:8080
 msf6 >exploit
 ```
 
-<figure><img src="../.gitbook/assets/image (11) (1) (1) (1) (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (11) (1) (1) (1) (2) (1) (1).png" alt=""><figcaption></figcaption></figure>

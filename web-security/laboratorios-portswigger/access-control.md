@@ -74,7 +74,7 @@ Nos logueamos y cambiamos el correo para fijarnos en su petición.
 
 Como vemos en la respuesta tenemos una APIKEY y el rol por lo que voy a probar en la petición enviar el rol añadiéndolo como nos interesa que sea 2 (mandar al **Repeater**).
 
-<figure><img src="../../.gitbook/assets/image (12) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (12) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Funciona por lo que insertamos la API y el usuario en la petición y lo volvemos e enviarlo.
 
@@ -118,7 +118,7 @@ Nos logueamos y revisamos el blog al parecer el usuario carlos escribió algún 
 
 Por lo que cogemos el ID de **carlos** y en la petición de **wiener** mandamos  a **Repeater** y claro cambiamos por el de **carlos** y lo enviamos.
 
-<figure><img src="../../.gitbook/assets/image (16) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (16) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../.gitbook/assets/image (17) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 

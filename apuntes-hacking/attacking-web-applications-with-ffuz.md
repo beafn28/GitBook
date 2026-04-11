@@ -173,7 +173,7 @@ for i in $(seq 1 1000); do echo $i >> ids.txt; done
 ffuf -w ids.txt:FUZZ      -u http://94.237.57.115:35006/admin/admin.php      -X POST -d 'id=FUZZ'      -H "Host: admin.academy.htb"      -H 'Content-Type: application/x-www-form-urlencoded'      -fs 768
 ```
 
-<figure><img src="../.gitbook/assets/image (8) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (8) (1) (1) (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 Vemos el contenido.
 
@@ -181,7 +181,7 @@ Vemos el contenido.
 curl -s -X POST      -H "Host: admin.academy.htb"      -d "id=73"      http://94.237.57.115:35006/admin/admin.php
 ```
 
-<figure><img src="../.gitbook/assets/image (9) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (9) (1) (1) (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 ## Skills Assessment
 
@@ -197,7 +197,7 @@ curl -s -X POST      -H "Host: admin.academy.htb"      -d "id=73"      http://94
      -ac -ic -r
 ```
 
-<figure><img src="../.gitbook/assets/image (10) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (10) (1) (1) (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 **Before you run your page fuzzing scan, you should first run an extension fuzzing scan. What are the different extensions accepted by the domains?**
 
@@ -217,7 +217,7 @@ ffuf -w "$WORDLIST":FUZZ -u http://test.academy.htb:35855/indexFUZZ    -ic -ac -
 ffuf -w "$WORDLIST":FUZZ -u http://faculty.academy.htb:35855/indexFUZZ -ic -ac -mc 200,403
 ```
 
-<figure><img src="../.gitbook/assets/image (11) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (11) (1) (1) (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 **One of the pages you will identify should say 'You don't have access!'. What is the full page URL?**
 
@@ -251,7 +251,7 @@ curl http://faculty.academy.htb:35855/courses/linux-security.php7
 ffuf -w /usr/share/seclists/Discovery/Web-Content/burp-parameter-names.txt:FUZZ -u http://94.237.61.242:35855/courses/linux-security.php7 -X POST -H "Host: faculty.academy.htb" -d 'FUZZ=key' -H 'Content-Type: application/x-www-form-urlencoded' -fs 774
 ```
 
-<figure><img src="../.gitbook/assets/image (13) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (13) (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 **Try fuzzing the parameters you identified for working values. One of them should return a flag. What is the content of the flag?**
 
@@ -261,7 +261,7 @@ Escaneamos para ver los usuarios.
 ffuf -w /usr/share/seclists/Usernames/Names/names.txt:FUZZ -u http://94.237.61.242:35855/courses/linux-security.php7 -X POST -H "Host: faculty.academy.htb" -d 'username=FUZZ' -H 'Content-Type: application/x-www-form-urlencoded' -fs 781
 ```
 
-<figure><img src="../.gitbook/assets/image (14) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (14) (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 Vemos el contenido con ese usuario.
 
@@ -269,4 +269,4 @@ Vemos el contenido con ese usuario.
 curl http://94.237.61.242:35855/courses/linux-security.php7 -X POST -H "Host: faculty.academy.htb" -d 'username=harry' -H 'Content-Type: application/x-www-form-urlencoded'
 ```
 
-<figure><img src="../.gitbook/assets/image (15) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (15) (1) (2).png" alt=""><figcaption></figcaption></figure>

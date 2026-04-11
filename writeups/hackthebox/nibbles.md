@@ -45,7 +45,7 @@ Seguimos indagando más sobre los puertos y ahora indagamos sobre el **servicio 
 
 Revisamos el código por si hay alguna información relevante.<br>
 
-<figure><img src="../../.gitbook/assets/image (12) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (12) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Nos muestra un directorio por lo que indagaremos ahí.
 
@@ -75,7 +75,7 @@ Para usar el **exploit** mencionado, necesitaremos credenciales de administrador
 
 Volvamos a nuestros resultados de fuerza bruta en el directorio. Los códigos **200** muestran páginas accesibles, los **403** indican acceso prohibido y el **301** es una redirección permanente. Navegamos a **nibbleblog/themes/** y vemos que el listado de directorios está habilitado.
 
-<figure><img src="../../.gitbook/assets/image (16) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (16) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Al navegar a **nibbleblog/content**, encontramos subdirectorios interesantes: public, private y tmp. Explorando un poco, encontramos un archivo **users.xml** que confirma que el nombre de usuario es **admin**. También muestra direcciones IP en la lista negra. Podemos solicitar este archivo con **cURL** y formatear la salida **XML** usando **xmllint**.
 

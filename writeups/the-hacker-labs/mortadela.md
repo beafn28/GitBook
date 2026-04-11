@@ -54,7 +54,7 @@ gobuster dir -u http://192.168.1.68/ -w /usr/share/wordlists/dirbuster/directory
 
 Vemos que nos ha encontrado un directorio de **WordPress** por lo que accederemos a él.
 
-<figure><img src="../../.gitbook/assets/image (16) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (16) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Como no encontramos nada relevante vamos a realizar un escaneo de plugins.
 
@@ -175,7 +175,7 @@ Ahora creamos un diccionario con mayúsculas y minúsculas.
 crunch 14 14 ABCDEFGHIJKLMNÑOPQRSTUVWXYZabcdefghijklmnñopqrstuvwxyz -t @aritrini12345 -o diccionario.txt
 ```
 
-<figure><img src="../../.gitbook/assets/image (12) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (12) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Ahora que contamos con un diccionario, procederemos a extraer el hash del archivo utilizando `keepass2john`. Posteriormente, emplearemos `john` para descubrir la contraseña.
 

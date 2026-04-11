@@ -236,7 +236,7 @@ Vemos el cód igo fuente del stock del producto.
 
 Viendo el código si añadimos en el enlace lo siguiente vemos que se almacena y se crea.
 
-<figure><img src="../../.gitbook/assets/image (12) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (12) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../.gitbook/assets/image (13) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
@@ -279,7 +279,7 @@ Para explotar esto, utilizamos el payload:
 * Los dobles corchetes `{{ }}` hacen que Angular evalúe la expresión.
 * `constructor.constructor` permite crear y ejecutar código arbitrario, como si definiéramos una nueva función cuyo contenido será `alert(1)`.
 
-<figure><img src="../../.gitbook/assets/image (16) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (16) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../../.gitbook/assets/image (17) (1) (1).png" alt=""><figcaption></figcaption></figure>
 

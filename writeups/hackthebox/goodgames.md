@@ -58,7 +58,7 @@ Conocer las bases de datos.
 sqlmap -u http://10.10.11.130 --forms --dbs --batch
 ```
 
-<figure><img src="../../.gitbook/assets/image (16) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (16) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Conocer las tablas de la base de datos objetivo.
 
@@ -154,7 +154,7 @@ Una vez identificado un objetivo, realizamos un escaneo de puertos con el siguie
 for port in {1..65535}; do echo > /dev/tcp/172.19.0.1/$port && echo "$port open"; done 2>/dev/null
 ```
 
-<figure><img src="../../.gitbook/assets/image (12) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (12) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Comencé a buscar credenciales de SSH en la máquina y finalmente encontré la carpeta de un usuario dentro del directorio `/home`. Sin embargo, no encontré a `augustus` en el archivo `/etc/passwd`.
 

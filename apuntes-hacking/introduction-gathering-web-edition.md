@@ -24,7 +24,7 @@ whois facebook.com
 whois paypal.com
 ```
 
-<figure><img src="../.gitbook/assets/image (15) (1) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (15) (1) (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 **What is the admin email contact for the tesla.com domain (also in-scope for the Tesla bug bounty program)?**
 
@@ -264,7 +264,7 @@ Escaneamos directorios.
 ffuf -u http://web1337.inlanefreight.htb:30494/FUZZ -w /usr/share/seclists/Discovery/Web-Content/common.txt -t 60
 ```
 
-<figure><img src="../.gitbook/assets/image (8) (1) (1) (1) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (8) (1) (1) (1) (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 Entramos en el **robots.txt**.
 
@@ -272,18 +272,18 @@ Entramos en el **robots.txt**.
 curl http://web1337.inlanefreight.htb:30494/robots.txt
 ```
 
-<figure><img src="../.gitbook/assets/image (9) (1) (1) (1) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (9) (1) (1) (1) (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 ```
 curl http://web1337.inlanefreight.htb:30494/admin_h1dd3n -I
 curl  http://web1337.inlanefreight.htb:30494/admin_h1dd3n/
 ```
 
-<figure><img src="../.gitbook/assets/image (10) (1) (1) (1) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (10) (1) (1) (1) (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 Vemos el contenido.
 
-<figure><img src="../.gitbook/assets/image (11) (1) (1) (1) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (11) (1) (1) (1) (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 **After crawling the inlanefreight.htb domain on the target system, what is the email address you have found? Respond with the full email, e.g., mail@inlanefreight.htb.**
 
@@ -314,10 +314,10 @@ python3 ReconSpider.py http://dev.web1337.inlanefreight.htb:30494
 
 Vemos los resultados.
 
-<figure><img src="../.gitbook/assets/image (13) (1) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (13) (1) (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 **What is the API key the inlanefreight.htb developers will be changing too?**
 
 En el mismo archivo de resultados se encuentra esa información.
 
-<figure><img src="../.gitbook/assets/image (14) (1) (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (14) (1) (2) (1).png" alt=""><figcaption></figcaption></figure>

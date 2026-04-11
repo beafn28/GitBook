@@ -98,7 +98,7 @@ Tenemos un plugin de WordPress **Bit File Manager** que nos permite subir archiv
 
 Nos ponemos en escucha en nuestra máquina atacante.
 
-<figure><img src="../../.gitbook/assets/image (12) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (12) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Después de haber logrado la intrusión, es común que la consola que recibimos sea inestable. Si presionamos `Ctrl + C`, podemos perder la conexión. Para estabilizar la consola, realizaremos un tratamiento de la TTY con los siguientes pasos:
 

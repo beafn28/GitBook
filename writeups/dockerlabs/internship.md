@@ -149,7 +149,7 @@ Miramos el contenido del archivo.
 
 Será la contraseña de valentina.
 
-<figure><img src="../../.gitbook/assets/image (12) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (12) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 {% embed url="https://gtfobins.github.io/gtfobins/vim/#sudo" %}
 

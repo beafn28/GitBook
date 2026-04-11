@@ -234,7 +234,7 @@ Vemos que al enviar la petición se encuentra una nueva cookie. En el anterior l
 /?search=anything%0d%0aSet-Cookie:csrfKey=CRLF%3b%20SameSite=None
 ```
 
-<figure><img src="../../.gitbook/assets/image (12) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (12) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Vamos a enviar a la víctima el siguiente script.
 

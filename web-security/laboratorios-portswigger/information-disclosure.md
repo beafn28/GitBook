@@ -109,7 +109,7 @@ Este laboratorio **divulga información sensible a través del historial de cont
 
 Escaneamos los directorios con **Dirbuster**.
 
-<figure><img src="../../.gitbook/assets/image (16) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (16) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Encontramos un directorio interesante que es el **.git.**
 

