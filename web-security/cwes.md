@@ -420,3 +420,14 @@ curl -s -X POST 'http://trilocor.local:9000/api/tokens' -H 'Content-Type: applic
 
 <figure><img src="../.gitbook/assets/image (1751).png" alt=""><figcaption></figcaption></figure>
 
+ya que tenemos privilegios administrativos accedemos al endpoint en el que se lista miembros del sistema
+
+<figure><img src="../.gitbook/assets/image (1753).png" alt=""><figcaption></figcaption></figure>
+
+```
+curl -s -X POST 'http://trilocor.local:9000/api/admin/list_members' \
+-H 'Content-Type: application/json' \
+-d '{"uid":1,"username":"administrator","uuid":"f19d77c3-753c-48d6-9430-4d1a09aea67d"}' | jq
+```
+
+<figure><img src="../.gitbook/assets/image (1752).png" alt=""><figcaption></figcaption></figure>
