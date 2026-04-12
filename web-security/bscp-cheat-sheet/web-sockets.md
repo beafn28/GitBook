@@ -19,6 +19,6 @@
 ## Lab 3: Manipulación del handshake de WebSocket
 
 1. Creamos esta regla para que no nos bloqueen por IP.\
-   ![](<../../.gitbook/assets/image (1) (1) (1) (1) (1).png>)
+   ![](<../../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png>)
 2. Mandamos el siguiente payload.\
-   ![](<../../.gitbook/assets/image (2) (1) (1) (1) (1).png>)
+   ![](<../../.gitbook/assets/image (2) (1) (1) (1) (1) (1).png>)

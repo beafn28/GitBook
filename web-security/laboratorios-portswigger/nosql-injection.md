@@ -18,7 +18,7 @@ Al ser vulnerable realizamos la inyección típica en SQL pero en NoSQL.
 category=Gifts%27%20||1||%27
 ```
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Lab: Exploiting NoSQL operator injection to bypass authentication
 
@@ -35,7 +35,7 @@ Puedes iniciar sesión en tu propia cuenta con las siguientes credenciales:
 
 Nos logueamos y vemos la petición.
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Podemos intentar inyectar objetos en los campos de usuario y contraseña para probar inyecciones NoSQL.
 

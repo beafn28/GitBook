@@ -77,7 +77,7 @@ Cambiar el User-agent resultante en la petición.
 2. El recurso /js/geolocate.js utiliza un parámetro callback definido en la URL para construir el script. Aunque ese valor sí influye en la clave de caché, el servidor también acepta una versión duplicada del parámetro en el cuerpo de la petición.
 3. Al enviar alert(1) como valor del parámetro en el cuerpo del GET, el servidor genera un JavaScript malicioso que queda almacenado en caché sin alterar la clave. Cuando un usuario accede al recurso mientras la caché sigue activa, se ejecuta el payload y se completa el laboratorio.
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ## Lab 9: Normalización de URL
 
@@ -85,4 +85,4 @@ Cambiar el User-agent resultante en la petición.
 2. Al enviar la petición desde Burp con la carga maliciosa sin codificar en la ruta, el servidor la refleja tal cual y la respuesta se almacena en la caché, que normaliza la URL y no distingue entre la versión codificada y no codificada.
 3. Cuando un usuario accede posteriormente a la misma URL desde el navegador (con la ruta codificada), la caché devuelve la respuesta previamente envenenada, provocando la ejecución exitosa de alert(1) en el navegador de la víctima.
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
